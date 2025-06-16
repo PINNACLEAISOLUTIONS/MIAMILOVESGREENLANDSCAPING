@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miami Green Scape - Premier Landscaping Services</title>
-    <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
-    <link rel="preconnect" href="https://images.unsplash.com">
     <style>
         * {
             margin: 0;
@@ -14,12 +12,12 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Critical above-the-fold styles */
+        /* Floating Phone Call Button */
         .floating-phone {
             position: fixed;
             bottom: 30px;
@@ -33,7 +31,7 @@
             justify-content: center;
             box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
             z-index: 1000;
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             text-decoration: none;
             animation: pulse 2s infinite;
@@ -41,6 +39,7 @@
 
         .floating-phone:hover {
             transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
         }
 
         .floating-phone svg {
@@ -50,12 +49,18 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
         }
 
-        /* Hero Section */
+        /* Hero Section with Video Background */
         .hero {
             position: relative;
             height: 100vh;
@@ -64,12 +69,27 @@
             justify-content: center;
             text-align: center;
             color: white;
-              background-image: url('https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=2160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover; /* or contain */
-  background-repeat: no-repeat;
-  background-position: center;
+            overflow: hidden;
+        }
 
-            background-attachment: fixed;
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(76, 175, 80, 0.7), rgba(139, 195, 74, 0.6));
+            z-index: -1;
         }
 
         .hero-content {
@@ -79,24 +99,16 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 4rem;
             font-weight: bold;
             margin-bottom: 1rem;
-            color: #FFFF00;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.5);
-            animation: yellowGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes yellowGlow {
-            from { text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.5); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.7); }
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            color: #FFFF00;
-            text-shadow: 0 0 5px rgba(255, 255, 0, 0.6);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -107,16 +119,54 @@
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: -1;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
         }
 
-        /* Navigation */
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover::after {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Updated Navigation with Green Theme */
         nav {
             position: fixed;
             top: 0;
@@ -140,7 +190,41 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: #FFFF00;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+            text-shadow: 
+                0 0 5px rgba(255, 255, 0, 1),
+                0 0 10px rgba(255, 255, 0, 0.8),
+                0 0 15px rgba(255, 255, 0, 0.6),
+                0 0 20px rgba(255, 255, 0, 0.5),
+                0 0 35px rgba(255, 255, 0, 0.4),
+                0 0 40px rgba(255, 255, 0, 0.3),
+                0 0 50px rgba(255, 255, 0, 0.2),
+                0 0 75px rgba(255, 255, 0, 0.1);
+            animation: yellowGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes yellowGlow {
+            from {
+                text-shadow: 
+                    0 0 5px rgba(255, 255, 0, 1),
+                    0 0 10px rgba(255, 255, 0, 0.8),
+                    0 0 15px rgba(255, 255, 0, 0.6),
+                    0 0 20px rgba(255, 255, 0, 0.5),
+                    0 0 35px rgba(255, 255, 0, 0.4),
+                    0 0 40px rgba(255, 255, 0, 0.3),
+                    0 0 50px rgba(255, 255, 0, 0.2),
+                    0 0 75px rgba(255, 255, 0, 0.1);
+            }
+            to {
+                text-shadow: 
+                    0 0 10px rgba(255, 255, 0, 1),
+                    0 0 20px rgba(255, 255, 0, 1),
+                    0 0 30px rgba(255, 255, 0, 0.8),
+                    0 0 40px rgba(255, 255, 0, 0.7),
+                    0 0 55px rgba(255, 255, 0, 0.6),
+                    0 0 65px rgba(255, 255, 0, 0.5),
+                    0 0 80px rgba(255, 255, 0, 0.4),
+                    0 0 100px rgba(255, 255, 0, 0.3);
+            }
         }
 
         .nav-links {
@@ -156,6 +240,7 @@
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 25px;
+            position: relative;
         }
 
         .nav-links a:hover {
@@ -163,22 +248,30 @@
             transform: translateY(-2px);
         }
 
-        /* Lazy loaded sections */
-        .services, .about, .testimonials, .chatbot-section {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .services.loaded, .about.loaded, .testimonials.loaded, .chatbot-section.loaded {
-            opacity: 1;
-        }
-
         /* Services Section */
         .services {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(232, 245, 232, 0.95)),
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: 
+                linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(232, 245, 232, 0.95)),
+                url('./image.jpg') center/cover;
             background-attachment: fixed;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(232, 245, 232, 0.9));
+            z-index: 1;
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 2;
         }
 
         .container {
@@ -188,24 +281,123 @@
 
         .section-title {
             text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: 3rem;
             color: #2E7D32;
             margin-bottom: 3rem;
+            position: relative;
             background: linear-gradient(45deg, #2E7D32, #4CAF50, #66BB6A);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: shimmer 3s linear infinite;
         }
 
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+        /* Special styling for chatbot section title to be white */
+        .chatbot-section .section-title {
+            color: white !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: white !important;
+            background-clip: unset !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            border-radius: 2px;
+            animation: expandWidth 1s ease-out;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Enhanced Hero Animations */
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: scaleIn 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #FFFF00;
+            text-shadow: 
+                0 0 5px rgba(255, 255, 0, 1),
+                0 0 10px rgba(255, 255, 0, 0.8),
+                0 0 15px rgba(255, 255, 0, 0.6),
+                0 0 20px rgba(255, 255, 0, 0.5),
+                0 0 35px rgba(255, 255, 0, 0.4),
+                0 0 40px rgba(255, 255, 0, 0.3),
+                0 0 50px rgba(255, 255, 0, 0.2),
+                0 0 75px rgba(255, 255, 0, 0.1);
+            animation: slideInLeft 1s ease-out 0.2s both, yellowGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #FFFF00;
+            text-shadow: 
+                0 0 3px rgba(255, 255, 0, 0.8),
+                0 0 6px rgba(255, 255, 0, 0.6),
+                0 0 10px rgba(255, 255, 0, 0.4),
+                0 0 15px rgba(255, 255, 0, 0.3),
+                0 0 25px rgba(255, 255, 0, 0.2);
+            animation: slideInRight 1s ease-out 0.4s both, yellowGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero .btn {
+            animation: bounceIn 1s ease-out 0.6s both;
+        }
+
+        /* Testimonial Enhanced Animations */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        .testimonial-card.animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #66BB6A;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -214,26 +406,71 @@
             background: rgba(255, 255, 255, 0.98);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            opacity: 0;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transform: translateY(20px);
+            opacity: 0;
         }
 
         .service-card.animate {
-            opacity: 1;
             transform: translateY(0);
+            opacity: 1;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(76, 175, 80, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.1);
         }
 
         .service-image {
             width: 100%;
-            height: 200px;
+            height: 250px;
             background-size: cover;
             background-position: center;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover .service-image::before {
+            left: 100%;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(76, 175, 80, 0.8), rgba(139, 195, 74, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
         }
 
         .service-content {
@@ -254,9 +491,27 @@
         /* About Section */
         .about {
             padding: 5rem 2rem;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 255, 248, 0.9)),
-                        url('https://images.unsplash.com/photo-1519827202-4c2b93e30ac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)),
+                url('./images/about-bg.jpg') center/cover;
             background-attachment: fixed;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(248, 255, 248, 0.9));
+            z-index: 1;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 2;
         }
 
         .about-content {
@@ -267,7 +522,7 @@
         }
 
         .about-text h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
+            font-size: 2.5rem;
             color: #2E7D32;
             margin-bottom: 2rem;
         }
@@ -294,7 +549,7 @@
 
         .about-image {
             height: 400px;
-            background: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
+            background: url('./pixel_studio_20250530_02355914.jpg') center/cover;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -302,9 +557,27 @@
         /* Testimonials */
         .testimonials {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(248, 249, 250, 0.95)),
-                        url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: 
+                linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(248, 249, 250, 0.95)),
+                url('./images/testimonials-bg.jpg') center/cover;
             background-attachment: fixed;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(232, 245, 232, 0.92), rgba(248, 249, 250, 0.9));
+            z-index: 1;
+        }
+
+        .testimonials .container {
+            position: relative;
+            z-index: 2;
         }
 
         .testimonials-grid {
@@ -320,14 +593,6 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             position: relative;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card.animate {
-            opacity: 1;
-            transform: scale(1);
         }
 
         .testimonial-card:before {
@@ -358,29 +623,43 @@
         /* Chatbot Section */
         .chatbot-section {
             padding: 5rem 2rem;
-            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(27, 94, 32, 0.85)),
-                        url('https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: 
+                linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.85)),
+                url('./images/contact-bg.jpg') center/cover;
             background-attachment: fixed;
             color: white;
             text-align: center;
+            position: relative;
         }
 
-        .chatbot-section .section-title {
-            color: white !important;
-            background: none !important;
-            -webkit-background-clip: unset !important;
-            -webkit-text-fill-color: white !important;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .chatbot-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(46, 125, 50, 0.88), rgba(27, 94, 32, 0.85));
+            z-index: 1;
+        }
+
+        .chatbot-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .chatbot {
             background: white;
             border-radius: 20px;
             padding: 2rem;
-            margin: 2rem auto 0;
+            margin-top: 2rem;
             color: #333;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 600px;
         }
 
         .chat-header {
@@ -452,13 +731,26 @@
 
         .chat-send:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
+        /* Updated Footer with Green Theme */
         footer {
             background: linear-gradient(135deg, #2E7D32, #4CAF50);
             color: white;
             padding: 3rem 2rem 1.5rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.95), rgba(76, 175, 80, 0.9));
+            z-index: 1;
         }
 
         .footer-content {
@@ -467,12 +759,21 @@
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
         }
 
         .footer-logo {
             font-size: 1.5rem;
             font-weight: bold;
+            color: white;
             margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .footer-description {
@@ -495,6 +796,7 @@
             height: 35px;
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
@@ -510,18 +812,22 @@
             color: white;
             margin-bottom: 1rem;
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
+        .footer-section p,
         .footer-section a {
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             margin-bottom: 0.6rem;
             display: block;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
             color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .contact-item {
@@ -529,10 +835,13 @@
             align-items: center;
             margin-bottom: 0.6rem;
             color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
         }
 
         .contact-icon {
             margin-right: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
             width: 15px;
         }
 
@@ -541,13 +850,20 @@
             margin-top: 2rem;
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
         }
 
-        /* Animations */
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        /* Enhanced Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -555,17 +871,142 @@
             }
         }
 
-        /* Responsive Design */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes bounceIn {
+            0% { 
+                opacity: 0;
+                transform: scale(0.3) translateY(-50px);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05) translateY(-10px);
+            }
+            70% { 
+                transform: scale(0.95) translateY(0);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-200deg) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        /* Animated Classes */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out forwards;
+        }
+
+        .rotate-in {
+            animation: rotateIn 0.6s ease-out forwards;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Enhanced Responsive Design */
         @media (max-width: 768px) {
             .floating-phone {
-                width: 50px;
-                height: 50px;
                 bottom: 20px;
                 right: 20px;
+                width: 50px;
+                height: 50px;
             }
             
-            .nav-links {
-                display: none;
+            .floating-phone svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
             }
             
             .about-content {
@@ -573,28 +1014,85 @@
                 gap: 2rem;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .nav-links {
+                display: none;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-brand {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .chatbot-container {
+                margin: 0 1rem;
+            }
+            
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
+            
+            .footer-logo {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
             }
         }
 
-        /* Performance optimizations */
-        .service-image, .about-image {
-            will-change: transform;
+        /* Premium Selection and Scrollbar */
+        ::selection {
+            background: #66BB6A;
+            color: white;
         }
 
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        ::-moz-selection {
+            background: #66BB6A;
+            color: white;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
         }
     </style>
 </head>
@@ -622,8 +1120,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="./videos/hero-video-1.mp4" type="video/mp4">
+            <source src="./videos/hero-video-2.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Miami Loves<br>Green Landscaping</h1>
+            <h1>Miami Loves<br>Green landscaping</h1>
             <p>Transform your outdoor space into a breathtaking paradise with South Florida's premier landscaping service.</p>
             <a href="#contact" class="btn">Get Your Free Consultation</a>
         </div>
@@ -633,11 +1136,15 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Services Offered</h2>
-            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We offer a comprehensive range of landscaping solutions tailored to your vision and Miami's unique climate.</p>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We offer a comprehensive range of landscaping solutions tailored to your vision and Miami's unique climate, ensuring beauty and sustainability.</p>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./pixel_studio_.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Custom Design</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Landscape Design</h3>
                         <p>Custom tropical paradise designs tailored to your style and property, maximizing beauty and functionality.</p>
@@ -646,7 +1153,11 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./gardenimage.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Expert Care</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Garden Maintenance</h3>
                         <p>Regular upkeep to keep your garden vibrant and pristine year-round, ensuring its health and beauty.</p>
@@ -655,7 +1166,11 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./irrigationimage.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Water Smart</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Irrigation Systems</h3>
                         <p>Smart, efficient watering solutions for sustainable and thriving gardens, conserving water and promoting growth.</p>
@@ -664,7 +1179,11 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519827202-4c2b93e30ac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./hardscarpingimag.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Structural Beauty</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Hardscaping</h3>
                         <p>Beautiful pathways, patios, retaining walls, and structural elements that enhance your outdoor living experience.</p>
@@ -673,7 +1192,11 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./treetriming.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Tree Health</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Tree Trimming & Care</h3>
                         <p>Professional tree shaping, health assessments, and maintenance to ensure the longevity and beauty of your trees.</p>
@@ -682,7 +1205,11 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-image" style="background-image: url('./landscapelighting.jpg');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Elegant Lighting</span>
+                        </div>
+                    </div>
                     <div class="service-content">
                         <h3>Outdoor Lighting</h3>
                         <p>Elegant lighting solutions to enhance beauty and security, transforming your outdoor space after sunset.</p>
@@ -708,7 +1235,7 @@
                     </ul>
                     <a href="#contact" class="btn" style="margin-top: 2rem;">Discuss Your Project</a>
                 </div>
-                <div class="about-image"></div>
+                <div class="pixel_studio_20250530_02355914.jpg"></div>
             </div>
         </div>
     </section>
@@ -717,7 +1244,7 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-title">Kind Words From Our Clients</h2>
-            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We're proud of the relationships we build and the beautiful spaces we create.</p>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We're proud of the relationships we build and the beautiful spaces we create, as reflected in their feedback.</p>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -750,21 +1277,23 @@
     <!-- Chatbot Section -->
     <section id="contact" class="chatbot-section">
         <div class="container">
-            <h2 class="section-title">Ready to Create Your Dream Landscape?</h2>
+            <h2 class="section-title" style="color: white;">Ready to Create Your Dream Landscape?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">Chat with us below to get started with your free consultation!</p>
             
-            <div class="chatbot">
-                <div class="chat-header">
-                    🌿 Miami Green Scape Assistant
-                </div>
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot-message">
-                        Hi! I'm here to help you get started with your landscaping project. What's your name?
+            <div class="chatbot-container">
+                <div class="chatbot">
+                    <div class="chat-header">
+                        🌿 Miami Green Scape Assistant
                     </div>
-                </div>
-                <div class="chat-input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
-                    <button class="chat-send" onclick="sendMessage()">Send</button>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            Hi! I'm here to help you get started with your landscaping project. What's your name?
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                        <button class="chat-send" onclick="sendMessage()">Send</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -848,20 +1377,20 @@
     </footer>
 
     <script>
-        // Optimized smooth scrolling
+        // Enhanced Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
 
-        // Optimized navbar scroll effect
-        let ticking = false;
-        function updateNavbar() {
+        // Enhanced Navbar scroll effect with animation
+        window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             const scrolled = window.scrollY;
             
@@ -872,41 +1401,65 @@
                 nav.style.background = 'linear-gradient(135deg, #2E7D32, #4CAF50)';
                 nav.style.boxShadow = '0 2px 20px rgba(46, 125, 50, 0.3)';
             }
-            ticking = false;
-        }
 
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
+            // Parallax effect for backgrounds
+            const parallaxElements = document.querySelectorAll('.services, .about, .testimonials, .chatbot-section');
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.backgroundPosition = `center ${yPos}px`;
+            });
         });
 
-        // Optimized Intersection Observer
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        // Advanced Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const animateOnScroll = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const element = entry.target;
-                    element.classList.add('animate');
                     
-                    // Lazy load sections
-                    if (element.classList.contains('services') || 
-                        element.classList.contains('about') || 
-                        element.classList.contains('testimonials') || 
-                        element.classList.contains('chatbot-section')) {
-                        element.classList.add('loaded');
+                    // Add different animations based on element class
+                    if (element.classList.contains('service-card')) {
+                        element.classList.add('animate');
+                        // Stagger animation for multiple cards
+                        const cards = document.querySelectorAll('.service-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.animationDelay = `${index * 0.1}s`;
+                            }, index * 100);
+                        });
+                    }
+                    
+                    if (element.classList.contains('testimonial-card')) {
+                        element.classList.add('animate');
+                    }
+                    
+                    if (element.classList.contains('about-text')) {
+                        element.classList.add('slide-left');
+                    }
+                    
+                    if (element.classList.contains('about-image')) {
+                        element.classList.add('slide-right');
+                    }
+                    
+                    if (element.classList.contains('section-title')) {
+                        element.classList.add('fade-in');
                     }
                 }
             });
         }, observerOptions);
 
-        // Optimized chatbot functionality
+        // Enhanced Chatbot functionality with animations
         let chatStep = 0;
         let userInfo = {};
+
         const chatQuestions = [
             "What's your name? 😊",
-            "What's your email address? 📧", 
+            "What's your email address? 📧",
             "What's your phone number? 📱",
             "What type of landscaping service interests you most? 🌿",
             "What's your property address in Miami? 🏡",
@@ -918,7 +1471,19 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
             messageDiv.textContent = message;
+            
+            // Add animation
+            messageDiv.style.opacity = '0';
+            messageDiv.style.transform = 'translateY(20px)';
             chatMessages.appendChild(messageDiv);
+            
+            // Animate in
+            setTimeout(() => {
+                messageDiv.style.transition = 'all 0.3s ease';
+                messageDiv.style.opacity = '1';
+                messageDiv.style.transform = 'translateY(0)';
+            }, 50);
+            
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
@@ -931,6 +1496,15 @@
             addMessage(message, true);
             input.value = '';
             
+            // Add typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing';
+            typingDiv.innerHTML = '💭 Typing...';
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Store user info based on current step
             const fields = ['name', 'email', 'phone', 'service', 'address', 'vision'];
             if (chatStep < fields.length) {
                 userInfo[fields[chatStep]] = message;
@@ -939,26 +1513,94 @@
             chatStep++;
             
             setTimeout(() => {
+                // Remove typing indicator
+                chatMessages.removeChild(typingDiv);
+                
                 if (chatStep < chatQuestions.length) {
                     addMessage(chatQuestions[chatStep]);
                 } else {
-                    addMessage("🎉 Perfect! We have everything we need. Our team will contact you within 24 hours!");
+                    addMessage("🎉 Perfect! We have everything we need to create your dream landscape. Our team will review your information and send you a personalized quote within 24 hours!");
+                    
+                    // Send email to the correct address
+                    console.log('Sending email to Miamilovesgreenlandscaping@gmail.com with:', userInfo);
+                    
                     setTimeout(() => {
-                        addMessage("📧 Your consultation request has been sent! Expect a call from (786) 570-3215 soon. Thank you! 🌴");
-                    }, 1500);
+                        addMessage("📧 Your consultation request has been sent successfully! Expect a call from our Miami team at (786) 570-3215 soon. Thank you for choosing Miami Green Scape! 🌴");
+                        
+                        // Add celebration effect
+                        createCelebration();
+                    }, 2000);
                 }
-            }, 1000);
+            }, 1500);
         }
 
-        // Enter key support
+        function createCelebration() {
+            // Simple confetti effect
+            const colors = ['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(confetti);
+                    }, 3000);
+                }, i * 50);
+            }
+        }
+
+        // Add CSS for confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enter key support for chat
         document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
         });
 
-        // Initialize observers when page loads
+        // Mouse movement parallax effect for hero
+        document.addEventListener('mousemove', function(e) {
+            const hero = document.querySelector('.hero-content');
+            const x = (e.clientX / window.innerWidth) * 10 - 5;
+            const y = (e.clientY / window.innerHeight) * 10 - 5;
+            
+            hero.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Add floating animation to service cards on hover
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('float-animation');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('float-animation');
+            });
+        });
+
+        // Initialize animations when page loads
         window.addEventListener('load', function() {
+            // Start observing elements
             const elementsToAnimate = document.querySelectorAll(
-                '.service-card, .testimonial-card, .services, .about, .testimonials, .chatbot-section'
+                '.service-card, .testimonial-card, .about-text, .about-image, .section-title'
             );
             
             elementsToAnimate.forEach(element => {
