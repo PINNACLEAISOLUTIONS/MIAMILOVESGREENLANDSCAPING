@@ -17,6 +17,49 @@
             overflow-x: hidden;
         }
 
+        /* Floating Phone Call Button */
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-phone:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
+        }
+
+        .floating-phone svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
         /* Hero Section with Video Background */
         .hero {
             position: relative;
@@ -171,7 +214,7 @@
             padding: 5rem 2rem;
             background: 
                 linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(232, 245, 232, 0.95)),
-                url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2132&q=80') center/cover;
+                url('./images/services-bg.jpg') center/cover;
             background-attachment: fixed;
             position: relative;
         }
@@ -386,7 +429,7 @@
             padding: 5rem 2rem;
             background: 
                 linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)),
-                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+                url('./images/about-bg.jpg') center/cover;
             background-attachment: fixed;
             position: relative;
         }
@@ -442,7 +485,7 @@
 
         .about-image {
             height: 400px;
-            background: url('https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background: url('./images/about-team.jpg') center/cover;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -452,7 +495,7 @@
             padding: 5rem 2rem;
             background: 
                 linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(248, 249, 250, 0.95)),
-                url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+                url('./images/testimonials-bg.jpg') center/cover;
             background-attachment: fixed;
             position: relative;
         }
@@ -518,7 +561,7 @@
             padding: 5rem 2rem;
             background: 
                 linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.85)),
-                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+                url('./images/contact-bg.jpg') center/cover;
             background-attachment: fixed;
             color: white;
             text-align: center;
@@ -854,6 +897,18 @@
 
         /* Enhanced Responsive Design */
         @media (max-width: 768px) {
+            .floating-phone {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-phone svg {
+                width: 20px;
+                height: 20px;
+            }
+            
             .hero h1 {
                 font-size: 2.8rem;
                 margin-bottom: 1.5rem;
@@ -956,6 +1011,13 @@
     </style>
 </head>
 <body>
+    <!-- Floating Phone Button -->
+    <a href="tel:786-570-3215" class="floating-phone" title="Call us now!">
+        <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+    </a>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
@@ -973,8 +1035,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <video autoplay muted loop class="hero-video">
-            <source src="https://videos.pexels.com/video-files/4503251/4503251-uhd_2560_1440_25fps.mp4" type="video/mp4">
-            <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4">
+            <source src="./videos/hero-video-1.mp4" type="video/mp4">
+            <source src="./videos/hero-video-2.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -992,7 +1054,7 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/landscape-design.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Custom Design</span>
                         </div>
@@ -1005,7 +1067,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/garden-maintenance.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Expert Care</span>
                         </div>
@@ -1018,7 +1080,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/irrigation-systems.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Water Smart</span>
                         </div>
@@ -1031,7 +1093,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/hardscaping.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Structural Beauty</span>
                         </div>
@@ -1044,7 +1106,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/tree-trimming.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Tree Health</span>
                         </div>
@@ -1057,7 +1119,7 @@
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    <div class="service-image" style="background-image: url('./images/outdoor-lighting.jpg');">
                         <div class="service-overlay">
                             <span style="color: white; font-weight: bold; font-size: 1.2rem;">Elegant Lighting</span>
                         </div>
