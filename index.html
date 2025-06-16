@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami Green Scape - Premier Landscaping Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(76, 175, 80, 0.7), rgba(139, 195, 74, 0.6));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover::after {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #66BB6A;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: 
+                linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(232, 245, 232, 0.95)),
+                url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2132&q=80') center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(232, 245, 232, 0.9));
+            z-index: 1;
+        }
+
+        .services .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #2E7D32;
+            margin-bottom: 3rem;
+            position: relative;
+            background: linear-gradient(45deg, #2E7D32, #4CAF50, #66BB6A);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            border-radius: 2px;
+            animation: expandWidth 1s ease-out;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Enhanced Hero Animations */
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: scaleIn 1.2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: slideInRight 1s ease-out 0.4s both;
+        }
+
+        .hero .btn {
+            animation: bounceIn 1s ease-out 0.6s both;
+        }
+
+        /* Testimonial Enhanced Animations */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        .testimonial-card.animate {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(76, 175, 80, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #66BB6A;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .service-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(76, 175, 80, 0.2);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.1);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover .service-image::before {
+            left: 100%;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(76, 175, 80, 0.8), rgba(139, 195, 74, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: 
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(248, 255, 248, 0.9));
+            z-index: 1;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 2rem;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .about-features li:before {
+            content: "✓";
+            color: #66BB6A;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .about-image {
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: 
+                linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(248, 249, 250, 0.95)),
+                url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(232, 245, 232, 0.92), rgba(248, 249, 250, 0.9));
+            z-index: 1;
+        }
+
+        .testimonials .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            font-size: 4rem;
+            color: #66BB6A;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+
+        .testimonial-role {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Chatbot Section */
+        .chatbot-section {
+            padding: 5rem 2rem;
+            background: 
+                linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.85)),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .chatbot-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(46, 125, 50, 0.88), rgba(27, 94, 32, 0.85));
+            z-index: 1;
+        }
+
+        .chatbot-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chatbot {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chat-header {
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            color: white;
+            padding: 1rem;
+            border-radius: 15px 15px 0 0;
+            margin: -2rem -2rem 1rem -2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: #e8f5e8;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: #66BB6A;
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 25px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            border-color: #66BB6A;
+        }
+
+        .chat-send {
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .chat-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Simple Clean Footer */
+        footer {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: white;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            margin-bottom: 0.6rem;
+            display: block;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .contact-icon {
+            margin-right: 8px;
+            font-size: 0.9rem;
+            color: #888;
+            width: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-bottom p {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        @keyframes bounceIn {
+            0% { 
+                opacity: 0;
+                transform: scale(0.3) translateY(-50px);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05) translateY(-10px);
+            }
+            70% { 
+                transform: scale(0.95) translateY(0);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-200deg) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        /* Animated Classes */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.6s ease-out forwards;
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out forwards;
+        }
+
+        .rotate-in {
+            animation: rotateIn 0.6s ease-out forwards;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-brand {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .chatbot-container {
+                margin: 0 1rem;
+            }
+            
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
+            
+            .footer-logo {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Premium Selection and Scrollbar */
+        ::selection {
+            background: #66BB6A;
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: #66BB6A;
+            color: white;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #66BB6A, #81C784);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Miami Green Scape</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://videos.pexels.com/video-files/4503251/4503251-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Miami Loves<br>Landscaping.</h1>
+            <p>Transform your outdoor space into a breathtaking paradise with South Florida's premier landscaping service.</p>
+            <a href="#contact" class="btn">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Services Offered</h2>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We offer a comprehensive range of landscaping solutions tailored to your vision and Miami's unique climate, ensuring beauty and sustainability.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Custom Design</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Landscape Design</h3>
+                        <p>Custom tropical paradise designs tailored to your style and property, maximizing beauty and functionality.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Expert Care</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Garden Maintenance</h3>
+                        <p>Regular upkeep to keep your garden vibrant and pristine year-round, ensuring its health and beauty.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Water Smart</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Irrigation Systems</h3>
+                        <p>Smart, efficient watering solutions for sustainable and thriving gardens, conserving water and promoting growth.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Structural Beauty</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Hardscaping</h3>
+                        <p>Beautiful pathways, patios, retaining walls, and structural elements that enhance your outdoor living experience.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Tree Health</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tree Trimming & Care</h3>
+                        <p>Professional tree shaping, health assessments, and maintenance to ensure the longevity and beauty of your trees.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        <div class="service-overlay">
+                            <span style="color: white; font-weight: bold; font-size: 1.2rem;">Elegant Lighting</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Outdoor Lighting</h3>
+                        <p>Elegant lighting solutions to enhance beauty and security, transforming your outdoor space after sunset.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Your Vision, Our Expertise.</h2>
+                    <p>At Miami Green Scape, we believe that your outdoor space should be a reflection of your personality and a sanctuary for relaxation and enjoyment. With years of experience serving the Miami area, our passionate team brings creativity, expertise, and meticulous attention to detail to every project.</p>
+                    <ul class="about-features">
+                        <li>Licensed & Insured Professionals ensuring peace of mind</li>
+                        <li>Eco-Friendly & Sustainable Practices for a greener future</li>
+                        <li>Award-Winning & Innovative Designs that stand out</li>
+                        <li>Unwavering Commitment to Client Satisfaction</li>
+                    </ul>
+                    <a href="#contact" class="btn" style="margin-top: 2rem;">Discuss Your Project</a>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Kind Words From Our Clients</h2>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We're proud of the relationships we build and the beautiful spaces we create, as reflected in their feedback.</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Miami Green Scape transformed our backyard into a stunning tropical oasis. Their attention to detail and creativity exceeded all our expectations!
+                    </div>
+                    <div class="testimonial-author">Sarah Rodriguez</div>
+                    <div class="testimonial-role">Homeowner, Coral Gables</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Professional, reliable, and always delivering exceptional quality. Our properties have never looked better. Highly recommended for any landscaping needs.
+                    </div>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-role">Property Manager, Miami Beach</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        They created an amazing outdoor dining space that our customers absolutely love. The design perfectly captures the Miami vibe. Fantastic work!
+                    </div>
+                    <div class="testimonial-author">Isabella Martinez</div>
+                    <div class="testimonial-role">Restaurant Owner, Wynwood</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="contact" class="chatbot-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Ready to Create Your Dream Landscape?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Chat with us below to get started with your free consultation!</p>
+            
+            <div class="chatbot-container">
+                <div class="chatbot">
+                    <div class="chat-header">
+                        🌿 Miami Green Scape Assistant
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            Hi! I'm here to help you get started with your landscaping project. What's your name?
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+                        <button class="chat-send" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">Miami Green Scape</div>
+                <p class="footer-description">
+                    Transforming Miami's outdoor spaces into breathtaking tropical paradises with professional landscaping excellence since 2015.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/miamigreenscape" target="_blank" class="social-link" title="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <a href="#services">Landscape Design</a>
+                <a href="#services">Garden Maintenance</a>
+                <a href="#services">Irrigation Systems</a>
+                <a href="#services">Hardscaping</a>
+                <a href="#services">Tree Care</a>
+                <a href="#services">Outdoor Lighting</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <a href="tel:786-570-3215">(786) 570-3215</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕒</span>
+                    <span>Mon-Sat: 7AM-6PM</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Miami, Florida</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Miami Green Scape. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Enhanced Navbar scroll effect with animation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            const scrolled = window.scrollY;
+            
+            if (scrolled > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 8px 32px rgba(76, 175, 80, 0.1)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+                nav.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Parallax effect for backgrounds
+            const parallaxElements = document.querySelectorAll('.services, .about, .testimonials, .chatbot-section');
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.backgroundPosition = `center ${yPos}px`;
+            });
+        });
+
+        // Advanced Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const animateOnScroll = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    // Add different animations based on element class
+                    if (element.classList.contains('service-card')) {
+                        element.classList.add('animate');
+                        // Stagger animation for multiple cards
+                        const cards = document.querySelectorAll('.service-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.animationDelay = `${index * 0.1}s`;
+                            }, index * 100);
+                        });
+                    }
+                    
+                    if (element.classList.contains('testimonial-card')) {
+                        element.classList.add('animate');
+                    }
+                    
+                    if (element.classList.contains('about-text')) {
+                        element.classList.add('slide-left');
+                    }
+                    
+                    if (element.classList.contains('about-image')) {
+                        element.classList.add('slide-right');
+                    }
+                    
+                    if (element.classList.contains('section-title')) {
+                        element.classList.add('fade-in');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced Chatbot functionality with animations
+        let chatStep = 0;
+        let userInfo = {};
+
+        const chatQuestions = [
+            "What's your name? 😊",
+            "What's your email address? 📧",
+            "What's your phone number? 📱",
+            "What type of landscaping service interests you most? 🌿",
+            "What's your property address in Miami? 🏡",
+            "Tell us about your dream outdoor space... ✨"
+        ];
+
+        function addMessage(message, isUser = false) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            
+            // Add animation
+            messageDiv.style.opacity = '0';
+            messageDiv.style.transform = 'translateY(20px)';
+            chatMessages.appendChild(messageDiv);
+            
+            // Animate in
+            setTimeout(() => {
+                messageDiv.style.transition = 'all 0.3s ease';
+                messageDiv.style.opacity = '1';
+                messageDiv.style.transform = 'translateY(0)';
+            }, 50);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addMessage(message, true);
+            input.value = '';
+            
+            // Add typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing';
+            typingDiv.innerHTML = '💭 Typing...';
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Store user info based on current step
+            const fields = ['name', 'email', 'phone', 'service', 'address', 'vision'];
+            if (chatStep < fields.length) {
+                userInfo[fields[chatStep]] = message;
+            }
+            
+            chatStep++;
+            
+            setTimeout(() => {
+                // Remove typing indicator
+                chatMessages.removeChild(typingDiv);
+                
+                if (chatStep < chatQuestions.length) {
+                    addMessage(chatQuestions[chatStep]);
+                } else {
+                    addMessage("🎉 Perfect! We have everything we need to create your dream landscape. Our team will review your information and send you a personalized quote within 24 hours!");
+                    
+                    // Send email to the correct address
+                    console.log('Sending email to Miamilovesgreenlandscaping@gmail.com with:', userInfo);
+                    
+                    setTimeout(() => {
+                        addMessage("📧 Your consultation request has been sent successfully! Expect a call from our Miami team at (786) 570-3215 soon. Thank you for choosing Miami Green Scape! 🌴");
+                        
+                        // Add celebration effect
+                        createCelebration();
+                    }, 2000);
+                }
+            }, 1500);
+        }
+
+        function createCelebration() {
+            // Simple confetti effect
+            const colors = ['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(confetti);
+                    }, 3000);
+                }, i * 50);
+            }
+        }
+
+        // Add CSS for confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enter key support for chat
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Mouse movement parallax effect for hero
+        document.addEventListener('mousemove', function(e) {
+            const hero = document.querySelector('.hero-content');
+            const x = (e.clientX / window.innerWidth) * 10 - 5;
+            const y = (e.clientY / window.innerHeight) * 10 - 5;
+            
+            hero.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Add floating animation to service cards on hover
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('float-animation');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('float-animation');
+            });
+        });
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            // Start observing elements
+            const elementsToAnimate = document.querySelectorAll(
+                '.service-card, .testimonial-card, .about-text, .about-image, .section-title'
+            );
+            
+            elementsToAnimate.forEach(element => {
+                animateOnScroll.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
