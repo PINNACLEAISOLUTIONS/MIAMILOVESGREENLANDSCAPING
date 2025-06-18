@@ -535,22 +535,26 @@
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
         background-image: url('./IMG_1254.webp');
-        background-size: cover; /* MODIFIED: Fill area, center image */
-        background-position: center center; /* MODIFIED: Center the image */
+        background-size: 190% auto; /* For panning, slightly less zoom */
+        background-position: 50% 75%; /* Center horizontally, show more of lower part vertically */
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
-        filter: brightness(2.4); /* INCREASED CTA Brightness */
-        /* animation removed for static background */
+        filter: brightness(2.1) contrast(1.1); /* Adjusted brightness, added contrast */
+        animation: ctaBackgroundFlowDesktop 25s ease-in-out infinite; /* Panning animation */
     }
 
-    /* Keyframes for ctaBackgroundFlowDesktop removed */
+    @keyframes ctaBackgroundFlowDesktop { /* Renamed for clarity, applies to this section */
+        0% { background-position: 0% 75%; }   /* Start from left, lower focus */
+        50% { background-position: 100% 75%; } /* Pan to right, lower focus */
+        100% { background-position: 0% 75%; }  /* Return to left, lower focus */
+    }
 
     .cta-section::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.78) 0%, rgba(0, 10, 0, 0.92) 100%); /* Adjusted overlay for brighter image */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.25) 0%, rgba(0, 10, 0, 0.40) 100%); /* Very subtle overlay */
         z-index: 1;
     }
 
@@ -570,8 +574,13 @@
         color: var(--text-hero);
         font-size: clamp(1.8rem, 4vw, 2.8rem);
         margin-bottom: var(--spacing-sm);
-        text-shadow: 0 1px 3px rgba(0,0,0,0.7);
         letter-spacing: 0.5px;
+        text-shadow:
+            -2px -2px 0 var(--primary-green-darkest), 2px -2px 0 var(--primary-green-darkest),
+            -2px  2px 0 var(--primary-green-darkest), 2px  2px 0 var(--primary-green-darkest),
+            -1px -1px 0 var(--primary-green-darkest), 1px -1px 0 var(--primary-green-darkest),
+            -1px  1px 0 var(--primary-green-darkest), 1px  1px 0 var(--primary-green-darkest),
+            0 0 20px rgba(0,0,0,0.85); /* Stronger overall blur for depth */
     }
     .cta-content p {
         max-width: 650px;
@@ -581,26 +590,28 @@
         color: var(--text-hero);
         opacity: 0.95;
         font-weight: 400;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        text-shadow:
+            -1px -1px 0 var(--primary-green-darkest), 1px -1px 0 var(--primary-green-darkest),
+            -1px  1px 0 var(--primary-green-darkest), 1px  1px 0 var(--primary-green-darkest),
+            0 0 10px rgba(0,0,0,0.75); /* Stronger blur for depth */
     }
 
-    /* ENHANCED CTA Button Styling */
     .btn-cta {
         font-size: clamp(0.8rem, 2.2vw, 0.95rem);
-        padding: calc(var(--spacing-sm) * 1.2) calc(var(--spacing-lg) * 0.8);
+        padding: var(--spacing-sm) calc(var(--spacing-md) * 0.9); /* Tighter padding */
         font-weight: 800;
         letter-spacing: 0.75px;
         line-height: 1.5;
-        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 40%, var(--accent-gold-darker) 100%); /* Refined gradient */
+        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 40%, var(--accent-gold-darker) 100%);
         box-shadow:
-            0 7px 20px rgba(0,0,0,0.25), /* Stronger outer shadow */
+            0 7px 20px rgba(0,0,0,0.25),
             0 0 30px var(--accent-gold-glow),
-            inset 0 3px 3px rgba(255,255,255,0.55), /* Brighter top inner highlight */
-            inset 0 -4px 4px rgba(0,0,0,0.2);   /* Deeper bottom inner shadow */
+            inset 0 3px 3px rgba(255,255,255,0.55),
+            inset 0 -4px 4px rgba(0,0,0,0.2);
         border: 1px solid var(--accent-gold-darker);
         color: var(--primary-green-darkest);
-        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25); /* Slightly more visible text highlight */
-        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* More bouncy transition */
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                     box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                     background 0.35s ease-out;
         white-space: normal;
@@ -609,15 +620,15 @@
         margin-right: auto;
     }
     .btn-cta:hover, .btn-cta:focus {
-        transform: translateY(-7px) scale(1.08); /* More pronounced lift */
+        transform: translateY(-7px) scale(1.08);
         background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
         box-shadow:
             0 12px 28px rgba(0,0,0,0.3),
-            0 0 40px var(--accent-gold-glow), /* Brighter glow */
+            0 0 40px var(--accent-gold-glow),
             inset 0 3px 4px rgba(255,255,255,0.65),
             inset 0 -5px 5px rgba(0,0,0,0.25);
         border-color: var(--accent-gold);
-        outline: 3px solid rgba(255, 183, 77, 0.5); /* Outline matching accent gold hover */
+        outline: 3px solid rgba(255, 183, 77, 0.5);
         outline-offset: 4px;
     }
     /* === END OF MODIFIED CTA SECTION === */
