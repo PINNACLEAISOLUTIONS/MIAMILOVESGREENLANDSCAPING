@@ -5,344 +5,570 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
     <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
         :root {
             --primary-green-darkest: #0A1A0A; 
             --primary-green-dark: #123012; 
-            --primary-green: #2A642A; 
-            --primary-green-medium: #4CAF50;
+            --primary-green-medium: #4CAF50; 
+            --primary-green: var(--primary-green-medium); 
             --primary-green-light: #8DD08D; 
+            --primary-green-ultra-light: #E8F5E8;
             
             --accent-gold: #FFA726; 
             --accent-gold-hover: #FFB74D;
+            --accent-gold-glow: rgba(255, 167, 38, 0.3);
 
             --text-hero: #FFFFFF; 
-            --text-on-dark-bg: #E8F5E9; 
-            --text-dark-on-light-bg: #1C1C1C; 
-            --text-medium-on-light-bg: #4A4A4A; 
+            --text-on-dark-bg: #E8F5E9;
+            --text-dark-on-light-bg: #1C1C1C;
+            --text-medium-on-light-bg: #4A4A4A;
 
-            --body-bg-center: #142514; /* Dark green center for body vignette */
-            --body-bg-edge: #071007;   /* Even darker edge for body vignette */
+            --body-bg-center: #0D1F0D; 
+            --body-bg-edge: #050F05;   
             --background-global: var(--body-bg-center); 
 
-            --background-section: #FFFFFF; /* Sections will be WHITE panels on dark body */
-            --card-background: #FDFDFD; /* Cards slightly off-white for subtle distinction */
-            --footer-background: #C8E6C9; 
+            --card-background: #FFFFFF; 
+            --card-background-hover: #FAFAFA;
+            --cta-panel-background: linear-gradient(135deg, #F0F7F0 0%, #E8F5E8 100%); 
+            --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); 
             
-            --shadow-color: rgba(0, 15, 0, 0.1); 
-            --shadow-soft: 0 5px 15px var(--shadow-color);
-            --shadow-medium: 0 7px 20px var(--shadow-color);
-            --shadow-strong: 0 10px 30px rgba(0, 15, 0, 0.12);
+            --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
+            --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
+            --shadow-strong: 0 20px 60px rgba(0,0,0, 0.15);
+            --shadow-glow: 0 0 50px rgba(76, 175, 80, 0.2); 
 
-            --hero-glow-color: #98FB98; 
-            --hero-glow-softness: 18px; 
-            --hero-glow-spread: 4px; 
-            --hero-inset-shadow-color: rgba(0, 20, 0, 0.4); 
-            --logo-glow-color: rgba(200, 255, 200, 0.45);
+            --hero-gradient: linear-gradient(135deg, rgba(5, 20, 5, 0.85) 0%, rgba(0, 15, 0, 0.95) 60%, rgba(0, 5, 0, 0.98) 100%);
+            
+            --sharp-glow-outline: rgba(0, 0, 0, 0.5); 
+            --sharp-glow-main: rgba(230, 255, 230, 0.7); 
+            --sharp-glow-soft: rgba(200, 255, 200, 0.3); 
+            
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-heading: 'Playfair Display', Georgia, serif; 
+            --font-display: 'Inter', sans-serif;
 
-            --font-body: Arial, Helvetica, sans-serif;
-            --font-heading-hero: 'Arial Black', 'Impact', Gadget, sans-serif; 
-            --font-heading-section: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            --spacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem;
+            --spacing-lg: 3rem; --spacing-xl: 4rem; 
+
+            --border-radius-sm: 8px; --border-radius-md: 16px; --border-radius-lg: 24px;
+            --border-radius-xl: 50px; 
+
+            --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000); 
+            --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        @media (min-width: 768px) { html { font-size: clamp(16px, 1.5vw, 18px); } }
+        
         body {
-            font-family: var(--font-body);
-            line-height: 1.7; 
-            overflow-x: hidden;
-            background-color: var(--background-global); 
-            background-image: radial-gradient(ellipse at center, 
-                                              var(--body-bg-center) 0%, 
-                                              var(--body-bg-edge) 90%); 
-            color: var(--text-on-dark-bg); 
-            -webkit-font-smoothing: antialiased; 
-            -moz-osx-font-smoothing: grayscale; 
+            font-family: var(--font-body); line-height: 1.7; overflow-x: hidden;
+            background: var(--background-global); color: var(--text-on-dark-bg);
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
+            display: flex; flex-direction: column; min-height: 100vh; position: relative;
         }
 
-        .container { width: 90%; max-width: 1180px; margin: 0 auto; } 
-
-        h1, h2, h3, h4 { font-family: var(--font-heading-section); line-height: 1.25; font-weight: 700; }
-        
-        .section-title {
-            text-align: center; font-size: clamp(2.2rem, 5vw, 3.2rem); 
-            margin-bottom: 1rem; 
-            text-transform: uppercase; letter-spacing: 2px;
+        .particles-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+            background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 70%);
         }
-        .section-subtitle {
-            text-align: center; max-width: 750px; 
-            margin: 0 auto 3.5rem; font-size: clamp(1rem, 2.5vw, 1.15rem);
-            line-height: 1.65;
+        .particle {
+            position: absolute;
+            width: 3px; height: 3px;
+            background-color: rgba(141, 208, 141, 0.2); 
+            border-radius: 50%;
+            animation: float 25s infinite ease-in-out;
+            opacity: 0;
+            box-shadow: 0 0 8px rgba(141, 208, 141, 0.3), 0 0 12px rgba(141, 208, 141, 0.2);
         }
-
-        /* Text colors for elements directly on dark body background */
-        .content-section > .container > .section-title,
-        .content-section > .container > .section-subtitle,
-        .about-text > p, /* Targeting paragraphs directly under about-text */
-        .about-features li {
-            color: var(--text-on-dark-bg);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Add shadow for readability on dark */
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; }
+            5% { opacity: 1; }
+            50% { transform: translateY(50vh) translateX(5vw) scale(1.2); }
+            95% { opacity: 1; }
+            100% { transform: translateY(0vh) translateX(-5vw) scale(0.5); opacity: 0; }
         }
-        .about-text h2.section-title { /* For About section title specifically */
-             color: var(--text-on-dark-bg);
-             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-         .about-features li::before { color: var(--primary-green-light); }
+        .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 30s; }
+        .particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.15); animation-direction: reverse; }
+        .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 20s; }
 
 
-        .btn {
-            display: inline-block; padding: 0.9rem 2.2rem; background: var(--accent-gold); 
-            color: var(--primary-green-darkest); text-decoration: none; border-radius: 8px; 
-            font-weight: 700; font-family: var(--font-heading-section);
-            transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            box-shadow: 0 4px 12px var(--shadow-medium), 0 1px 3px rgba(0,0,0,0.1); 
-            text-transform: uppercase; letter-spacing: 1.2px; border: none; cursor: pointer;
+        .scroll-indicator {
+            position: fixed; top: 0; left: 0; width: 100%; height: 4px; 
+            z-index: 2000; pointer-events: none;
         }
-        .btn:hover, .btn:focus { 
-            transform: translateY(-4px); background: var(--accent-gold-hover);
-            box-shadow: 0 8px 20px var(--shadow-strong), 0 3px 6px rgba(0,0,0,0.15);
-            outline: 2px solid transparent; outline-offset: 2px;
+        .scroll-progress {
+            width: 0%; height: 100%; 
+            background: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
+            transition: width 0.1s ease-out;
         }
-        
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: var(--primary-green-dark); 
-            z-index: 1000; padding: 0.7rem 0; 
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0,0,0, 0.2); 
+
+        .main-content-wrapper { 
+            flex-grow: 1; 
+            position: relative; 
+            z-index: 2; 
         }
-        .nav-scrolled { background: var(--primary-green-darkest); box-shadow: 0 6px 18px rgba(0,0,0, 0.25); }
+        .container { 
+            width: 90%; max-width: 1200px; 
+            margin: 0 auto; padding: 0 var(--spacing-sm);
+        }
+        @media (min-width: 768px) { .container { padding: 0 var(--spacing-md); } }
+
+        nav { 
+            position: fixed; top: 0; left: 0; width: 100%; 
+            z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--transition-medium);
+            padding: var(--spacing-sm) 0;
+        }
+        nav.nav-scrolled {
+            background: rgba(10, 26, 10, 0.95); 
+            box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
+        }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo {
-            font-family: var(--font-heading-hero);
-            font-size: clamp(1.3rem, 3vw, 1.7rem); 
-            font-weight: 700; 
-            color: var(--text-hero); 
+            font-family: var(--font-heading); 
+            font-size: clamp(0.8rem, 1.8vw, 1.3rem); 
+            font-weight: 700; color: var(--text-hero); 
+            text-decoration: none; letter-spacing: -0.1px; 
+            transition: transform var(--transition-fast), text-shadow var(--transition-medium);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 75%; 
             text-transform: uppercase; 
-            letter-spacing: 1px; 
-            line-height: 1.2; 
-            text-shadow: 
-              0px 0px 1px rgba(0,0,0,0.6), 
-              0 0 10px var(--logo-glow-color),   
-              0 0 3px var(--text-hero);     
+            position: relative; 
+            text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2); 
         }
-        .nav-links { display: flex; list-style: none; gap: 0.75rem; } 
-        @media (max-width: 768px) { .nav-links { display: none; } }
-        .nav-links a {
-            text-decoration: none; color: rgba(240,247,240,0.9); font-weight: 600; 
-            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            padding: 0.6rem 1.1rem; border-radius: 6px; 
-            text-transform: uppercase; letter-spacing: 0.8px; font-size: 0.85rem;
+         @media (min-width: 400px) { .logo {max-width: 80%; font-size: clamp(0.9rem, 1.9vw, 1.4rem);} }
+         @media (min-width: 768px) { .logo {max-width: none; font-size: clamp(1.1rem, 2.2vw, 1.6rem); letter-spacing: -0.25px;} }
+        .logo:hover { 
+            transform: scale(1.02); 
+            text-shadow: 0px 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35);
         }
-        .nav-links a:hover, .nav-links a.active { color: #FFFFFF; background-color: rgba(255,255,255, 0.18); transform: translateY(0); }
+        .logo::before { 
+            content: ''; position: absolute; top: 0; left: -150%; 
+            width: 70%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transform: skewX(-25deg); 
+            animation: logoShimmer 4s infinite linear;
+            animation-delay: 1.5s; 
+        }
+        @keyframes logoShimmer { 
+            0% { left: -150%; } 
+            50% { left: 150%; } 
+            100% { left: 150%; } 
+        }
+        
+        .nav-links { display: none; } 
+        @media (min-width: 769px) { 
+            .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); } 
+        }
+        .nav-links.active { 
+            display: flex; position: absolute; top: 100%; 
+            left: 0; right: 0; background: rgba(10, 26, 10, 0.98); 
+            flex-direction: column; padding: var(--spacing-sm);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .nav-links.active a { padding: var(--spacing-sm) 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%;}
+        .nav-links.active li:last-child a { border-bottom: none; }
 
-        .hero {
+        .nav-links a {
+            text-decoration: none; color: rgba(232, 245, 233, 0.85); 
+            font-weight: 500; 
+            transition: color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+            padding: var(--spacing-xs) var(--spacing-sm); 
+            border-radius: var(--border-radius-sm); 
+            font-size: 0.85rem; letter-spacing: 0.5px;
+        }
+        .nav-links a:hover, .nav-links a.active { 
+            color: #FFFFFF; 
+            transform: translateY(-1px); 
+            background-color: rgba(255,255,255,0.1);
+        }
+        .mobile-menu-toggle {
+            display: block; background: none; border: none; cursor: pointer; padding: 0.5rem;
+            z-index: 1001; 
+        }
+        .mobile-menu-toggle svg { width: 28px; height: 28px; fill: var(--text-hero); }
+        @media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
+
+        .hero { 
             position: relative; height: 100vh; min-height: 650px; 
             display: flex; align-items: center; justify-content: center;
             text-align: center; color: var(--text-hero); 
-            background-image: linear-gradient(rgba(10, 40, 10, 0.45) 0%, rgba(5, 25, 5, 0.65) 100%), 
-                              url('./pixel_studio_20250530_02355914.jpg'); 
-            background-size: cover; background-position: center center; background-attachment: fixed; 
+            /* === LOCAL IMAGE PATH NOTE === 
+               Ensure './pixel_studio_20250530_02355914.jpg' is in the SAME FOLDER as this HTML file,
+               OR update the path (e.g., './images/your-image.jpg' if in an 'images' subfolder). */
+            background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.jpg'); 
+            background-size: cover, cover; 
+            background-position: center center, center center; 
+            background-attachment: fixed, fixed; overflow: hidden;
         }
-        .hero-content { max-width: 900px; padding: 1rem; animation: fadeInUp 1.2s ease-out 0.3s backwards; }
-        .hero h1 {
-            font-family: var(--font-heading-hero);
-            font-size: clamp(3rem, 8.5vw, 6rem); 
-            font-weight: 900; 
-            margin-bottom: 0.75rem; 
-            color: var(--text-hero); 
-            text-transform: uppercase; 
-            letter-spacing: 2.5px; 
-            line-height: 1.05; 
-            text-shadow:
-              1px 1px 0px var(--hero-inset-shadow-color), 
-              -0.5px -0.5px 0.5px rgba(255,255,255,0.15), 
-              0 0 var(--hero-glow-softness) var(--hero-glow-color),
-              0 0 calc(var(--hero-glow-softness) + var(--hero-glow-spread)) var(--hero-glow-color),
-              0 0 calc(var(--hero-glow-softness) + var(--hero-glow-spread) + 10px) rgba(144, 238, 144, 0.6); 
+         .hero::before { 
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        .hero-content { 
+            max-width: 950px; padding: var(--spacing-md); 
+            position: relative; z-index: 3; 
+        }
+        .hero-content > * { 
+            opacity: 0; transform: translateY(50px) scale(0.95); 
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+        .hero-content.animate > * { opacity: 1; transform: translateY(0) scale(1); }
+        .hero-content.animate h1 { transition-delay: 0.25s; }
+        .hero-content.animate .hero-subtitle { transition-delay: 0.4s; }
+        .hero-content.animate p { transition-delay: 0.55s; }
+        .hero-content.animate .btn { transition-delay: 0.7s; }
+
+        .hero h1 { 
+            font-family: var(--font-heading); 
+            font-size: clamp(2.5rem, 8vw, 5.5rem); 
+            font-weight: 800; margin-bottom: var(--spacing-sm); 
+            color: var(--text-hero); letter-spacing: -1px; 
+            line-height: 1.05; text-transform: uppercase;
+            text-shadow: 
+                0px 2px 3px var(--sharp-glow-outline), 
+                0 0 15px var(--sharp-glow-main),      
+                0 0 30px var(--sharp-glow-soft);      
+        }
+        .hero-subtitle { 
+            font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem); 
+            font-weight: 400; margin-bottom: var(--spacing-md);
+            opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
         }
         .hero p { 
+            font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem); 
+            margin-bottom: var(--spacing-lg); opacity: 0.9; 
+            max-width: 700px; margin-left: auto; margin-right: auto; 
+            line-height: 1.65; font-weight: 300;
+        }
+
+        .btn { 
+            display: inline-block; 
+            padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 0.9); 
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%); 
+            color: var(--primary-green-darkest); text-decoration: none; 
+            border-radius: var(--border-radius-xl); 
+            font-weight: 600; 
             font-family: var(--font-body);
-            font-size: clamp(1.2rem, 3.8vw, 1.8rem); 
-            margin-bottom: 2.5rem; color: var(--text-hero); opacity: 0.95; 
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.95); 
-            max-width: 720px; margin-left: auto; margin-right: auto; 
-            line-height: 1.6;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+            box-shadow: var(--shadow-medium), 0 0 15px var(--accent-gold-glow); 
+            text-transform: uppercase; letter-spacing: 1px; 
+            border: none; cursor: pointer; font-size: 0.85rem; 
+        }
+        .btn:hover, .btn:focus { 
+            transform: translateY(-3px) scale(1.03); 
+            box-shadow: var(--shadow-strong), 0 0 20px var(--accent-gold-glow);
+            background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 100%);
+            outline: none;
         }
         
         .content-section { 
-            padding: 5rem 0; 
-            /* background-color: var(--background-section); */ /* REMOVED: Sections are transparent to dark body */
-            color: var(--text-on-dark-bg); 
-            /* margin-bottom: 3rem; */ /* Not needed if sections are not distinct panels */
+            padding: var(--spacing-lg) 0; position: relative;
+            opacity: 0; 
+            transform: translateY(60px) scale(0.98); 
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
         } 
-        .hero + .content-section { padding-top: 5rem; } /* Ensure space after hero */
-
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2.25rem; }
-        .service-card {
-            background: var(--card-background); /* Cards are light and pop on dark body */
-            color: var(--text-dark-on-light-bg); /* Dark text for card content */
-            border-radius: 10px; overflow: hidden;
-            box-shadow: var(--shadow-medium); 
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-            display: flex; flex-direction: column;
-            opacity: 0; transform: translateY(35px); 
+        @media (min-width: 768px) { .content-section { padding: var(--spacing-xl) 0; } }
+        .content-section.animate { opacity: 1; transform: translateY(0) scale(1); }
+        
+        .section-title { 
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem); 
+            margin-bottom: var(--spacing-md); font-weight: 700;
+            color: var(--text-on-dark-bg); letter-spacing: -0.5px; 
+            opacity: 0; transform: translateY(40px);
+            transition: opacity var(--transition-medium), transform var(--transition-medium);
         }
-        .service-card.animate { opacity: 1; transform: translateY(0); transition-delay: calc(var(--card-index, 0) * 0.1s); } 
-        .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow-strong); }
+        .content-section.animate .section-title { 
+            opacity: 1; transform: translateY(0); 
+            transition-delay: 0.15s; 
+        }
+
+        .section-subtitle { 
+            max-width: 750px; margin: 0 auto var(--spacing-lg); 
+            font-size: clamp(0.95rem, 2vw, 1.15rem); 
+            line-height: 1.6; color: var(--text-on-dark-bg); opacity: 0.85; font-weight: 300;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity var(--transition-medium), transform var(--transition-medium);
+        }
+        .content-section.animate .section-subtitle { 
+            opacity: 1; transform: translateY(0); 
+            transition-delay: 0.25s; 
+        }
+
+        .services-grid { 
+            display: grid; grid-template-columns: 1fr; 
+            gap: var(--spacing-md); margin-top: var(--spacing-md);
+        }
+        @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
+        @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
+
+        .service-card {
+            background: var(--card-background); color: var(--text-dark-on-light-bg); 
+            border-radius: var(--border-radius-lg); 
+            overflow: hidden; box-shadow: var(--shadow-soft); 
+            display: flex; flex-direction: column;
+            opacity: 0; 
+            transform: translateY(70px) rotateX(-20deg) scale(0.9); 
+            transform-origin: bottom center; 
+            transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium);
+            cursor: pointer; 
+        }
+        .content-section.animate .service-card { 
+            opacity: 1; 
+            transform: translateY(0) rotateX(0deg) scale(1); 
+            transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s); 
+        }
+        .service-card:hover { 
+            transform: translateY(-10px) scale(1.03) rotateX(2deg); 
+            box-shadow: var(--shadow-strong), var(--shadow-glow); 
+        }
         
         .service-image-area {
-            width: 100%; height: 220px; 
+            width: 100%; height: 200px; 
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; 
-            padding: 1.5rem; position: relative; text-align: center;
-        }
-        .service-image-area::before {
-            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.4) 50%, rgba(0,30,0,0.85) 100%); 
-            z-index: 1; border-radius: 10px 10px 0 0; 
-        }
-        .service-image-title { 
-            font-family: var(--font-heading-hero); 
-            font-size: clamp(1.5rem, 4vw, 2rem); color: white; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 1px;
-            text-shadow: 1px 2px 4px rgba(0,0,0,1); 
-            position: relative; z-index: 2; width: 100%;
-        }
-        
-        .service-content { padding: 1.75rem; flex-grow: 1; text-align: center; }
-        .service-content h3 { 
-            font-family: var(--font-heading-section);
-            font-size: 1.3rem; color: var(--primary-green-darkest); margin-bottom: 0.6rem; 
-            text-transform: uppercase; font-weight: 700;
-        }
-        .service-content p { color: var(--text-medium-on-light-bg); font-size: 0.92rem; line-height: 1.65; }
-
-        .about-content { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-        @media (min-width: 992px) { .about-content { grid-template-columns: 1.1fr 1fr; gap: 4rem; } } 
-        /* .about-text h2.section-title is handled by .content-section > .container > .section-title */
-        /* .about-text p is handled by .content-section > .container p (or more specific if needed) */
-        .about-features { list-style: none; margin-top: 1.75rem; padding-left: 0; }
-        /* .about-features li is handled by .content-section li */
-        .about-features li::before { 
-            content: "🌿"; color: var(--primary-green-light); 
-            font-size: 1.05rem; position: absolute; left: 0; top: 0.6em; 
-            transform: translateY(-50%);
-        }
-        .about-image-wrapper { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow for image on dark bg */ }
-        .about-image-wrapper img { display: block; width: 100%; height: 100%; max-height: 450px; object-fit: cover; }
-        @media (min-width: 992px) { .about-text { order: 2; } .about-image-wrapper { order: 1; } } 
-
-        footer { 
-            background: var(--footer-background); 
-            color: var(--primary-green-darkest); 
-            padding: 4.5rem 0 2.5rem; 
-        }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 3rem; }
-        .footer-logo {
-            font-family: var(--font-heading-hero);
-            font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; 
-            text-transform: uppercase; letter-spacing: 1.2px; 
-            color: var(--primary-green-darkest); opacity: 0.9;
-        }
-        .footer-description { font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.5rem; color: var(--text-medium-on-light-bg); opacity: 0.9; }
-        .social-links { display: flex; gap: 0.8rem; margin-top: 1rem; }
-        .social-link { 
-            display: flex; align-items: center; justify-content: center; 
-            width: 40px; height: 40px; 
-            color: var(--primary-green-dark);
-            text-decoration: none; transition: all 0.25s ease; 
-            background: rgba(0, 50, 0, 0.08); 
-            border-radius: 50%;
-        }
-        .social-link svg { width: 18px; height: 18px; }
-        .social-link:hover, .social-link:focus { 
-            color: white; 
-            background: var(--primary-green); 
-            transform: scale(1.1); 
-        }
-        .footer-section h3 { 
-            font-family: var(--font-heading-section);
-            color: var(--primary-green-dark); opacity: 0.95; margin-bottom: 1.5rem; 
-            font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; 
-        }
-        .footer-section a { 
-            color: var(--text-medium-on-light-bg); opacity: 0.9; text-decoration: none; 
-            margin-bottom: 0.75rem; display: block; 
-            transition: color 0.2s ease, padding-left 0.2s ease, opacity 0.2s ease; font-size: 0.9rem; 
-        }
-        .footer-section a:hover, .footer-section a:focus { color: var(--primary-green-darkest); opacity: 1; padding-left: 6px; }
-        .contact-item { display: flex; align-items: center; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--text-medium-on-light-bg); }
-        .contact-item a { margin-bottom: 0; font-size: 0.9rem; color: var(--text-medium-on-light-bg);} 
-        .contact-item a:hover { padding-left: 0; color: var(--primary-green-darkest); }
-        .contact-icon { margin-right: 0.8rem; width: 16px; color: var(--primary-green); }
-        .footer-bottom { 
-            text-align: center; margin-top: 3.5rem; padding-top: 2rem; 
-            border-top: 1px solid rgba(0, 30, 0, 0.1); 
-            color: var(--text-medium-on-light-bg); opacity: 0.8; 
-            font-size: 0.88rem; 
-        } 
-
-        .floating-phone {
-            position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px;
-            background: linear-gradient(45deg, var(--primary-green-medium), var(--primary-green-light));
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); z-index: 1000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; text-decoration: none;
-            animation: pulse 2.5s infinite;
+            padding: var(--spacing-sm); position: relative; text-align: center;
             overflow: hidden; 
+            transition: transform 0.5s var(--transition-bounce); 
         }
-        .floating-phone svg, .social-link svg { display: block; max-width: 100%; max-height: 100%; }
-        .floating-phone svg { width: 22px; height: 22px; fill: white; }
-
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .service-card:hover .service-image-area { transform: scale(1.08); } 
+         @media (min-width: 768px) { .service-image-area { height: 220px; padding: var(--spacing-md); } }
+        .service-image-area::before { 
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.55) 65%, rgba(0,30,0,0.9) 100%); 
+            z-index: 1; transition: background var(--transition-medium);
+        }
+        .service-card:hover .service-image-area::before {
+             background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,20,0,0.3) 50%, rgba(0,30,0,0.7) 100%);
+        }
         
-        @media (max-width: 991px) { 
-            .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: 1.5px;} 
-            .about-content { grid-template-columns: 1fr; }
-            .about-image-wrapper { max-width: 100%; margin: 2rem auto 0; height: 300px;}
+        .service-card .service-image-title,
+        .service-card .service-content h3,
+        .service-card .service-content p { 
+            opacity: 0; transform: translateY(25px) scale(0.98);
+            transition-property: opacity, transform;
+            transition-duration: 0.5s;
+            transition-timing-function: var(--transition-bounce); 
         }
-        @media (max-width: 768px) {
-            .container {width: 92%;}
-            .floating-phone { width: 50px; height: 50px; bottom: 15px; right: 15px; }
-            .floating-phone svg { width: 20px; height: 20px; }
-            nav { padding: 0.6rem 0; }
-            .logo { font-size: clamp(1.1rem, 3.5vw, 1.4rem); letter-spacing: 0.5px; } 
-            .hero { background-attachment: scroll; min-height: 550px; } 
-            .hero h1 { font-size: clamp(2.4rem, 9vw, 3.8rem); letter-spacing: 1.5px; } 
-            .hero p { font-size: clamp(1.1rem, 4vw, 1.4rem); } 
-            .btn { padding: 0.8rem 1.8rem; font-size: 0.8rem; letter-spacing: 0.8px;}
-            .content-section { padding: 4rem 0; /* margin-bottom: 2rem; margin-top: 2rem; */ }
-             .hero + .content-section { padding-top: 4rem; } /* Ensure consistent padding after hero */
-            .section-title { font-size: clamp(1.8rem, 6vw, 2.6rem); letter-spacing: 1px; }
-            .section-subtitle { font-size: clamp(0.9rem, 3vw, 1.05rem); margin-bottom: 2.5rem;}
-            .services-grid { gap: 1.75rem; }
-            .service-card { border-radius: 8px; }
-            .service-image-area { height: 180px; }
-            .service-image-title { font-size: clamp(1.3rem, 4vw, 1.7rem); }
-            .service-content { padding: 1.25rem 1rem; }
-            .service-content h3 { font-size: 1.15rem; }
-            .service-content p { font-size: 0.88rem; }
-            .about-text h2.section-title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
-            .footer-content { text-align: center; } 
-            .social-links, .contact-item { justify-content: center; } 
+        .service-card.animate .service-image-title { 
+            opacity: 1; transform: translateY(0) scale(1);
+            transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.2s); 
         }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; animation: none !important; }
+        .service-card.animate .service-content h3 {
+            opacity: 1; transform: translateY(0) scale(1);
+            transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.3s); 
         }
+        .service-card.animate .service-content p {
+            opacity: 1; transform: translateY(0) scale(1);
+            transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.4s); 
+        }
+        
+        .service-image-title {
+            font-family: var(--font-heading); color: var(--text-hero); 
+            font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.7); z-index: 2; position: relative;
+        }
+        .service-content { padding: var(--spacing-md); flex-grow: 1; } 
+        .service-content h3 {
+            font-family: var(--font-heading); font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            margin-bottom: var(--spacing-xs); color: var(--primary-green-darkest);
+        }
+        .service-content p {
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem); line-height: 1.6;
+            color: var(--text-medium-on-light-bg);
+        }
+
+        .about-content { 
+            display: flex; flex-direction: column; align-items: center; 
+            gap: var(--spacing-lg); text-align: center;
+        } 
+        .about-text { 
+            max-width: 800px; width: 100%;
+            opacity: 0; 
+            transform: translateY(50px) scale(0.95); 
+            transition: opacity var(--transition-slow) 0.25s, transform var(--transition-slow) 0.25s;
+        }
+        .content-section.animate .about-text { opacity: 1; transform: translateY(0) scale(1); }
+        .about-text p { 
+            margin-bottom: var(--spacing-sm); 
+            font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+            line-height: 1.75;
+        }
+        .about-text p:last-of-type { margin-bottom: var(--spacing-md); }
+        .about-features { 
+            list-style: none; padding: 0; margin: var(--spacing-md) auto 0;
+            display: grid; gap: var(--spacing-md);
+            max-width: 700px; width: 100%;
+        }
+         @media (min-width: 768px) { 
+            .about-features { grid-template-columns: 1fr 1fr; }
+         }
+        
+        .about-features li { 
+            padding: var(--spacing-sm) var(--spacing-md); 
+            position: relative; 
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 400;
+            color: var(--text-on-dark-bg);
+            background: rgba(0, 0, 0, 0.25); 
+            border-radius: var(--border-radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.12); 
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.25), 
+                inset 0 -1px 2px rgba(255,255,255,0.03),
+                0 1px 2px rgba(0,0,0,0.1); 
+            opacity: 0; 
+            transform: translateY(40px) scale(0.9); 
+            transition: opacity var(--transition-medium), transform var(--transition-bounce), 
+                        background var(--transition-fast), box-shadow var(--transition-fast);
+            text-align: left; 
+            display: flex; 
+            align-items: center; 
+        }
+        .about-features.animate li { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+        }
+        .about-features li:hover {
+            transform: translateY(-6px) scale(1.03); 
+            background: rgba(0, 0, 0, 0.35); 
+            box-shadow: 
+                inset 0 3px 5px rgba(0,0,0,0.4),
+                inset 0 -2px 3px rgba(255,255,255,0.06),
+                0 5px 15px rgba(0,0,0,0.3);
+        }
+        .about-features li::before {
+            content: '🌿'; 
+            margin-right: var(--spacing-sm);
+            font-size: 1.2em;
+            color: var(--primary-green-light);
+        }
+
+        .cta-section {
+            background: var(--cta-panel-background);
+            padding: var(--spacing-lg) 0; color: var(--text-dark-on-light-bg);
+            text-align: center;
+            opacity: 0;
+            transform: perspective(1200px) translateY(70px) rotateX(-25deg) scale(0.85); 
+            transform-origin: center center; 
+            transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s; 
+        }
+        .content-section.animate.cta-section, 
+        .cta-section.animate { 
+            opacity: 1;
+            transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
+        }
+        .cta-content h2 { 
+            font-family: var(--font-heading); color: var(--primary-green-darkest);
+            font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: var(--spacing-sm);
+        }
+        .cta-content p {
+            max-width: 650px; margin: 0 auto var(--spacing-md);
+            font-size: clamp(0.9rem, 2vw, 1.1rem); line-height: 1.6;
+            color: var(--text-medium-on-light-bg);
+        }
+        .btn-cta { font-size: 0.9rem; padding: calc(var(--spacing-sm)*0.95) calc(var(--spacing-lg)*0.95); }
+
+        footer {
+            background: var(--footer-background);
+            color: var(--primary-green-darkest);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+            font-size: 0.9rem;
+            position: relative; 
+            z-index: 1;        
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem; margin-bottom: var(--spacing-sm);
+            color: var(--primary-green-dark);
+        }
+        .footer-logo {
+            font-family: var(--font-heading); font-size: 1.5rem;
+            font-weight: 700; margin-bottom: var(--spacing-xs);
+            color: var(--primary-green-darkest); text-transform: uppercase;
+        }
+        .footer-description { margin-bottom: var(--spacing-sm); line-height: 1.6; font-size: 0.85rem; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: var(--spacing-xs); }
+        .footer-links a {
+            text-decoration: none; color: var(--primary-green-dark);
+            transition: color var(--transition-fast), padding-left var(--transition-fast);
+        }
+        .footer-links a:hover { color: var(--accent-gold-hover); padding-left: 4px; }
+        .social-links { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); }
+        .social-link svg { 
+            width: 20px; height: 20px; fill: var(--primary-green-dark);
+            transition: fill var(--transition-fast), transform var(--transition-fast);
+        }
+        .social-link:hover svg { fill: var(--accent-gold-hover); transform: scale(1.1); }
+        .contact-item { 
+            display: flex; align-items: center; 
+            margin-bottom: var(--spacing-xs); font-size: 0.85rem;
+        }
+        .contact-item .contact-icon { margin-right: var(--spacing-xs); font-size: 1.1em; color: var(--primary-green-dark); }
+        .contact-item a { color: var(--primary-green-dark); text-decoration: none; }
+        .contact-item a:hover { color: var(--accent-gold-hover); }
+        .footer-bottom { 
+            text-align: center; padding-top: var(--spacing-md); 
+            border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
+        }
+
+        .fab-call {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px; 
+            height: 60px; 
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 20px var(--accent-gold-glow);
+            z-index: 1000; 
+            transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+            text-decoration: none; 
+            opacity: 1; 
+            visibility: visible; 
+        }
+        .fab-call:hover {
+            transform: scale(1.1) translateY(-3px);
+            background: var(--accent-gold-hover);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
+        }
+        .fab-call svg {
+            width: 28px; 
+            height: 28px; 
+            fill: var(--primary-green-darkest); 
+        }
+
     </style>
 </head>
 <body>
-    <a href="tel:786-570-3215" class="floating-phone" title="Call us now!"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+    <div class="particles-container" id="particles-js"></div>
+    <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
 
     <nav id="mainNav">
         <div class="container nav-container">
-            <div class="logo">Miami Loves Green Landscaping</div> <!-- FULL NAME HERE -->
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
+            <a href="#home" class="logo">Miami Loves Green Landscaping</a> 
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
+                <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+            </button>
+            <ul class="nav-links" id="mainNavLinks">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#footer-contact">Contact</a></li>
@@ -350,199 +576,279 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Miami Loves<br>Green Landscaping</h1>
-            <p>Transforming outdoor spaces into breathtaking, sustainable paradises throughout South Florida.</p>
-            <a href="#footer-contact" class="btn">Get a Free Quote</a>
-        </div>
-    </section>
+    <div class="main-content-wrapper">
+        <header id="home" class="hero">
+            <div class="hero-content">
+                <h1>Miami Loves Green</h1>
+                <p class="hero-subtitle">Premier Landscaping Artistry</p>
+                <p>Crafting breathtaking, sustainable outdoor sanctuaries that elevate your lifestyle and property value. Experience the art of green with Miami's trusted landscaping experts.</p>
+                <a href="#services" class="btn">Explore Our Services</a>
+            </div>
+        </header>
 
-    <!-- Services Section sits on dark body background; cards are light -->
-    <section id="services" class="services content-section">
-        <div class="container">
-            <h2 class="section-title">Our Premier Services</h2>
-            <p class="section-subtitle">We offer a comprehensive range of landscaping solutions, meticulously tailored to your vision and Miami's unique climate.</p>
-            
-            <div class="services-grid">
-                <div class="service-card" style="--card-index: 1;">
-                    <div class="service-image-area" style="background-image: url('./pixel_studio_.jpg');">
-                        <h4 class="service-image-title">Landscape Design</h4>
+        <section id="services" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Our Premier Services</h2>
+                <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
+                <div class="services-grid">
+                    <div class="service-card" style="--card-index: 0;">
+                        <!-- Updated to use gardenimage.jpg for Landscape Design -->
+                        <div class="service-image-area" style="background-image: url('./gardenimage.jpg');"> 
+                            <h3 class="service-image-title">Landscape Design</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Creative Landscape Design</h3>
+                            <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal style and enhancing your property's natural charm.</p>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Creative Landscape Design</h3>
-                        <p>Custom tropical paradise designs reflecting your style, maximizing property beauty and functionality.</p>
+                    <div class="service-card" style="--card-index: 1;">
+                        <!-- Using local ./pixel_studio_.jpg (Ensure this is correct for Garden Maintenance) -->
+                        <div class="service-image-area" style="background-image: url('./pixel_studio_.jpg');">
+                             <h3 class="service-image-title">Garden Maintenance</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Expert Care & Maintenance</h3>
+                            <p>Comprehensive horticultural services ensuring your landscape remains vibrant and healthy year-round with professional expertise.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card" style="--card-index: 2;">
-                    <div class="service-image-area" style="background-image: url('./gardenimage.jpg');">
-                         <h4 class="service-image-title">Garden Maintenance</h4>
+                    <div class="service-card" style="--card-index: 2;">
+                         <!-- Using local ./irrigationimage.jpg -->
+                        <div class="service-image-area" style="background-image: url('./irrigationimage.jpg');"> 
+                             <h3 class="service-image-title">Irrigation Systems</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Efficient Irrigation</h3> 
+                            <p>Smart irrigation solutions, professionally installed and maintained, for optimal water use and thriving landscapes.</p>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Expert Garden Care</h3>
-                        <p>Regular, meticulous upkeep to ensure your garden remains vibrant, healthy, and pristine year-round.</p>
+                     <div class="service-card" style="--card-index: 3;">
+                         <!-- Using local ./hardscarpingimag.jpg -->
+                        <div class="service-image-area" style="background-image: url('./hardscarpingimag.jpg');"> 
+                             <h3 class="service-image-title">Hardscaping</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Elegant Hardscape Design</h3> 
+                            <p>Custom patios, walkways, water features, and architectural elements that create stunning focal points and enhance outdoor functionality.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="service-card" style="--card-index: 3;">
-                    <div class="service-image-area" style="background-image: url('./irrigationimage.jpg');">
-                        <h4 class="service-image-title">Irrigation Systems</h4>
+                    <div class="service-card" style="--card-index: 4;">
+                         <!-- Using local ./treetriming.jpg -->
+                        <div class="service-image-area" style="background-image: url('./treetriming.jpg');"> 
+                             <h3 class="service-image-title">Tree Care</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Professional Tree Care</h3>
+                            <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</p>
+                        </div>
                     </div>
-                    <div class="service-content">
-                        <h3>Smart Irrigation</h3>
-                        <p>Efficient, water-conserving watering solutions for sustainable, thriving gardens and lush lawns.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 4;">
-                    <div class="service-image-area" style="background-image: url('./hardscarpingimag.jpg');">
-                         <h4 class="service-image-title">Hardscaping</h4>
-                    </div>
-                    <div class="service-content">
-                        <h3>Durable Hardscaping</h3>
-                        <p>Beautiful pathways, patios, and retaining walls that enhance your outdoor living experience and usability.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 5;">
-                    <div class="service-image-area" style="background-image: url('./treetriming.jpg');">
-                        <h4 class="service-image-title">Tree Care</h4>
-                    </div>
-                    <div class="service-content">
-                        <h3>Professional Tree Care</h3>
-                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 6;">
-                    <div class="service-image-area" style="background-image: url('./landscapelighting.jpg');">
-                        <h4 class="service-image-title">Outdoor Lighting</h4>
-                    </div>
-                    <div class="service-content">
-                        <h3>Elegant Lighting</h3>
-                        <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your outdoor space.</p>
+                    <div class="service-card" style="--card-index: 5;">
+                         <!-- Using local ./landscapelighting.jpg -->
+                        <div class="service-image-area" style="background-image: url('./landscapelighting.jpg');"> 
+                             <h3 class="service-image-title">Outdoor Lighting</h3>
+                        </div>
+                        <div class="service-content">
+                            <h3>Elegant Lighting</h3>
+                            <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your outdoor space.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section sits on dark body background; image has its own definition -->
-    <section id="about" class="about content-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title" style="text-align: left; margin-bottom:1.25rem;">Your Vision, Our Expertise</h2>
-                    <p>At Miami Loves Green Landscaping, your outdoor space is our canvas. We believe it should be a true reflection of your personality and a sanctuary for relaxation and enjoyment. With years of dedicated experience serving the Miami area, our passionate team brings creativity, deep horticultural knowledge, and meticulous attention to detail to every single project, ensuring a result that exceeds expectations.</p>
-                    <ul class="about-features">
-                        <li>Licensed & Insured Professionals</li>
-                        <li>Eco-Friendly & Sustainable Practices</li>
-                        <li>Award-Winning & Innovative Designs</li>
-                        <li>Unwavering Commitment to Client Satisfaction</li>
-                    </ul>
-                    <a href="#footer-contact" class="btn" style="margin-top: 1.5rem;">Discuss Your Project</a>
-                </div>
-                <div class="about-image-wrapper">
-                     <img src="./image.jpg" alt="Professional landscaping team collaborating on a design"> 
+        <section id="about" class="content-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About Miami Loves Green</h2>
+                        <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for life. Our passionate team, a collective of certified horticulturists, visionary landscape architects, and meticulous design specialists, brings a wealth of expertise and a fresh perspective to every project, dedicated to realizing your unique vision.</p>
+                        <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and intelligent functionality. It's about enhancing your property's value and enriching your quality of life through sustainable, cutting-edge practices. From initial concept to flawless execution, we're committed to transforming your ideas into breathtaking, living environments.</p>
+                        <ul class="about-features"> 
+                            <li>Expert Landscape Design & Master Planning</li>
+                            <li>Comprehensive Garden Care & Lush Maintenance</li>
+                            <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
+                            <li>Bespoke Outdoor Lighting & Irrigation Systems</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <footer id="footer-contact">
+        </section>
+
+        <section id="cta" class="cta-section content-section"> 
+            <div class="container cta-content">
+                <h2>Transform Your Vision Into Reality</h2>
+                <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
+                <a href="#footer-contact" class="btn btn-cta">Start Your Project Today</a> 
+            </div>
+        </section>
+    </div> 
+
+    <footer id="footer-contact"> 
         <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">Miami Loves Green Landscaping</div>
-                <p class="footer-description">Transforming Miami's outdoor spaces into breathtaking tropical paradises with professional landscaping excellence since 2015.</p>
+            <div class="footer-section footer-brand"> 
+                <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
+                <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
                     <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
                     <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
                     <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                 </div>
             </div>
-            <div class="footer-section"><h3>Quick Links</h3> <a href="#home">Home</a> <a href="#services">Services</a> <a href="#about">About</a> <a href="#footer-contact">Contact</a></div>
-            <div class="footer-section"><h3>Our Services</h3> <a href="#services">Landscape Design</a> <a href="#services">Garden Maintenance</a> <a href="#services">Irrigation Systems</a> <a href="#services">Hardscaping</a> <a href="#services">Tree Care</a> <a href="#services">Outdoor Lighting</a></div>
-            <div class="footer-section"><h3>Contact Info</h3> <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786) 570-3215</a></div> <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div> <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div> <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div></div>
+            <div class="footer-section"><h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#footer-contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section"><h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">Landscape Design</a></li>
+                    <li><a href="#services">Garden Maintenance</a></li>
+                    <li><a href="#services">Irrigation Systems</a></li>
+                    <li><a href="#services">Hardscaping</a></li>
+                    <li><a href="#services">Tree Care</a></li>
+                    <li><a href="#services">Outdoor Lighting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section"><h3>Contact Info</h3> 
+                <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786) 570-3215</a></div> 
+                <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div> 
+                <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div> 
+                <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
+            </div>
         </div>
         <div class="footer-bottom"><p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
     </footer>
 
+    <a href="tel:786-570-3215" class="fab-call" aria-label="Call us">
+        <svg viewBox="0 0 24 24"> 
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+    </a>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const mainNav = document.getElementById('mainNav');
+            const nav = document.getElementById('mainNav');
+            const mainNavHeight = nav ? nav.offsetHeight : 70; 
+            window.addEventListener('scroll', () => {
+                if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+            });
 
-            navLinks.forEach(anchor => {
+            const navLinks = document.querySelectorAll('nav .nav-links a');
+            const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]')); 
+            function changeActiveLink() {
+                let currentSectionId = 'home'; 
+                const scrollPosition = window.scrollY + mainNavHeight + 70; 
+
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    if (section.offsetTop <= scrollPosition) {
+                        currentSectionId = section.id;
+                        break;
+                    }
+                }
+                if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
+                     currentSectionId = 'footer-contact';
+                } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) { 
+                    currentSectionId = 'home'; 
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) { 
+                        link.classList.add('active'); 
+                    }
+                });
+            }
+            if (navLinks.length > 0 && sections.length > 0) {
+                changeActiveLink(); window.addEventListener('scroll', changeActiveLink);
+            }
+
+            const scrollProgress = document.getElementById('scrollProgress');
+            if(scrollProgress) { 
+                window.addEventListener('scroll', () => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                    scrollProgress.style.width = scrollPercent + '%';
+                });
+            }
+
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles-js'); 
+                if(!particlesContainer) return; 
+                const particleCount = 20; 
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle'; 
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + 'vh'; 
+                    particle.style.animationDelay = Math.random() * 18 + 's'; 
+                    particle.style.animationDuration = (15 + Math.random() * 10) + 's'; 
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            createParticles();
+
+            const observerOptions = { root: null, rootMargin: '-50px 0px -50px 0px', threshold: 0.05 }; 
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        if (entry.target.classList.contains('about-features')) {
+                            Array.from(entry.target.children).forEach((item, index) => {
+                                item.style.transitionDelay = `${index * 0.12 + 0.15}s`; 
+                            });
+                        }
+                    } 
+                });
+            };
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+            document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features').forEach(el => observer.observe(el));
+            
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && !heroContent.classList.contains('animate')) { 
+                setTimeout(() => { 
+                    heroContent.classList.add('animate');
+                }, 150);
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        const navHeight = mainNav ? mainNav.offsetHeight : 0;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - 10; 
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10; 
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                     }
                 });
             });
+            
+            const currentYearEl = document.getElementById('currentYear');
+            if(currentYearEl) currentYearEl.textContent = new Date().getFullYear();
 
-            let ticking = false;
-            const sections = document.querySelectorAll('section[id], footer[id]');
-             if (!mainNav) { console.warn("mainNav not found, scroll effects might be impacted."); }
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNavLinksUl = document.getElementById('mainNavLinks'); 
 
-            function updateNavbarOnScroll() {
-                if (!mainNav) return;
-                const scrolled = window.scrollY;
-                
-                if (scrolled > 50) { mainNav.classList.add('nav-scrolled'); } 
-                else { mainNav.classList.remove('nav-scrolled'); }
-
-                let currentSectionId = '';
-                const navHeight = mainNav.offsetHeight;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - navHeight - 70; 
-                    if (scrolled >= sectionTop) { currentSectionId = section.getAttribute('id'); }
+            if (menuToggle && mainNavLinksUl) {
+                menuToggle.addEventListener('click', () => {
+                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                    menuToggle.setAttribute('aria-expanded', !isExpanded);
+                    mainNavLinksUl.classList.toggle('active'); 
                 });
-                
-                if ((window.innerHeight + window.scrollY + 150) >= document.body.offsetHeight && document.getElementById('footer-contact')) {
-                    currentSectionId = 'footer-contact';
-                }
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); }
+                mainNavLinksUl.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) { 
+                            mainNavLinksUl.classList.remove('active');
+                            menuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
                 });
-                
-                if (!currentSectionId && sections.length > 0 && scrolled < (sections[0].offsetTop - navHeight - 70)) {
-                     const homeLink = document.querySelector('.nav-links a[href="#home"]');
-                     if (homeLink) homeLink.classList.add('active');
-                }
-                ticking = false;
             }
-
-            window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateNavbarOnScroll); ticking = true; } });
-            updateNavbarOnScroll();
-
-            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }; 
-            const animateOnScroll = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate'); 
-                    }
-                });
-            }, observerOptions);
-
-            const elementsToAnimate = document.querySelectorAll('.service-card, .about-content > div, .hero-content > *');
-             elementsToAnimate.forEach((element, index) => {
-                if (element.parentElement && element.parentElement.classList.contains('hero-content')) { 
-                    element.style.animationDelay = `${index * 0.12}s`; 
-                }
-                if (element.classList.contains('service-card')) {
-                    element.style.setProperty('--card-index', index % 3); 
-                }
-                animateOnScroll.observe(element);
-            });
-
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
         });
     </script>
 </body>
