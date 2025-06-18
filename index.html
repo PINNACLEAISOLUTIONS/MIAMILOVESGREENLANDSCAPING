@@ -535,26 +535,22 @@
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
         background-image: url('./IMG_1254.webp');
-        background-size: 190% auto; /* For panning, slightly less zoom */
-        background-position: 50% 75%; /* Center horizontally, show more of lower part vertically */
+        background-size: cover; /* MODIFIED: Use cover for all views */
+        background-position: center center; /* MODIFIED: Center for all views */
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
-        filter: brightness(2.1) contrast(1.1); /* Adjusted brightness, added contrast */
-        animation: ctaBackgroundFlowDesktop 25s ease-in-out infinite; /* Panning animation */
+        filter: brightness(2.1) contrast(1.1); /* Maintained brightness and contrast */
+        /* animation property removed to stop panning */
     }
 
-    @keyframes ctaBackgroundFlowDesktop { /* Renamed for clarity, applies to this section */
-        0% { background-position: 0% 75%; }   /* Start from left, lower focus */
-        50% { background-position: 100% 75%; } /* Pan to right, lower focus */
-        100% { background-position: 0% 75%; }  /* Return to left, lower focus */
-    }
+    /* @keyframes ctaBackgroundFlowDesktop removed as animation is disabled */
 
     .cta-section::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.25) 0%, rgba(0, 10, 0, 0.40) 100%); /* Very subtle overlay */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.15) 0%, rgba(0, 10, 0, 0.25) 100%); /* Very subtle overlay */
         z-index: 1;
     }
 
@@ -575,12 +571,11 @@
         font-size: clamp(1.8rem, 4vw, 2.8rem);
         margin-bottom: var(--spacing-sm);
         letter-spacing: 0.5px;
+        /* Enhanced text shadow for readability */
         text-shadow:
-            -2px -2px 0 var(--primary-green-darkest), 2px -2px 0 var(--primary-green-darkest),
-            -2px  2px 0 var(--primary-green-darkest), 2px  2px 0 var(--primary-green-darkest),
-            -1px -1px 0 var(--primary-green-darkest), 1px -1px 0 var(--primary-green-darkest),
-            -1px  1px 0 var(--primary-green-darkest), 1px  1px 0 var(--primary-green-darkest),
-            0 0 20px rgba(0,0,0,0.85); /* Stronger overall blur for depth */
+            -1.5px -1.5px 0 var(--primary-green-darkest), 1.5px -1.5px 0 var(--primary-green-darkest),
+            -1.5px  1.5px 0 var(--primary-green-darkest), 1.5px  1.5px 0 var(--primary-green-darkest),
+            0 0 8px rgba(0,0,0,0.7);
     }
     .cta-content p {
         max-width: 650px;
@@ -590,10 +585,11 @@
         color: var(--text-hero);
         opacity: 0.95;
         font-weight: 400;
+        /* Enhanced text shadow for readability */
         text-shadow:
             -1px -1px 0 var(--primary-green-darkest), 1px -1px 0 var(--primary-green-darkest),
             -1px  1px 0 var(--primary-green-darkest), 1px  1px 0 var(--primary-green-darkest),
-            0 0 10px rgba(0,0,0,0.75); /* Stronger blur for depth */
+            0 0 6px rgba(0,0,0,0.6);
     }
 
     .btn-cta {
