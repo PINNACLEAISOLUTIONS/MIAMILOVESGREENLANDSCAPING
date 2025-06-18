@@ -217,7 +217,7 @@
         background-size: cover, cover;
         background-position: center center, center center;
         background-attachment: fixed, fixed; overflow: hidden;
-        filter: brightness(1.7); /* INCREASED: Further brighten hero image */
+        filter: brightness(1.9); /* INCREASED Hero Brightness */
     }
      .hero::before {
         content: '';
@@ -362,14 +362,14 @@
         position: relative; text-align: center;
         overflow: hidden;
         transition: transform 0.5s var(--transition-bounce);
-        filter: brightness(1.3); /* Global brightness for most service images */
+        filter: brightness(1.3);
     }
 
     .service-image-area.hardscape-image {
-        filter: brightness(1.5); /* Specific brightness for hardscape */
+        filter: brightness(1.5);
     }
     .service-image-area.lighting-image {
-        filter: brightness(1.8); /* INCREASED: Specific brightness for outdoor lighting */
+        filter: brightness(2.0); /* INCREASED Outdoor Lighting Brightness */
     }
 
     .service-card:hover .service-image-area { transform: scale(1.08); }
@@ -538,7 +538,7 @@
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
-        filter: brightness(1.9); /* INCREASED: Further brighten CTA image */
+        filter: brightness(2.2); /* INCREASED CTA Brightness */
         animation: ctaBackgroundFlowDesktop 25s ease-in-out infinite;
     }
 
@@ -552,7 +552,7 @@
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.75) 0%, rgba(0, 10, 0, 0.88) 100%); /* Adjusted overlay for readability */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.85) 0%, rgba(0, 10, 0, 0.95) 100%); /* Stronger overlay for very bright image */
         z-index: 1;
     }
 
@@ -585,7 +585,40 @@
         font-weight: 400;
         text-shadow: 0 1px 2px rgba(0,0,0,0.6);
     }
-    .btn-cta { font-size: 0.9rem; padding: calc(var(--spacing-sm)*0.95) calc(var(--spacing-lg)*0.95); }
+
+    /* NEW Enhanced CTA Button Styling */
+    .btn-cta {
+        /* Inherits base .btn styles but we override/add here */
+        font-size: 0.85rem; /* Adjusted for longer text, can be slightly smaller if needed */
+        padding: calc(var(--spacing-sm) * 1.1) calc(var(--spacing-lg) * 0.7); /* More vertical padding */
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        line-height: 1.45; /* Helps if text wraps */
+        background: linear-gradient(145deg, var(--accent-gold-hover) 0%, var(--accent-gold) 70%, var(--accent-gold-hover) 100%);
+        box-shadow:
+            0 5px 15px rgba(0,0,0,0.15), /* Softer, wider base shadow */
+            0 0 20px var(--accent-gold-glow),
+            inset 0 -2px 3px rgba(0,0,0,0.2), /* Bottom inset for depth */
+            inset 0 1px 1px rgba(255,255,255,0.4); /* Top highlight */
+        border: 1px solid rgba(0,0,0,0.15); /* Subtle border */
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.3s ease-out;
+        white-space: normal; /* Allow text to wrap */
+        max-width: 320px; /* Prevent button from becoming overly wide on larger text */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-cta:hover, .btn-cta:focus {
+        transform: translateY(-5px) scale(1.05);
+        background: linear-gradient(145deg, var(--accent-gold) 0%, var(--accent-gold-hover) 70%, var(--accent-gold) 100%);
+        box-shadow:
+            0 8px 20px rgba(0,0,0,0.2),
+            0 0 30px var(--accent-gold-glow),
+            inset 0 -3px 4px rgba(0,0,0,0.25),
+            inset 0 1px 2px rgba(255,255,255,0.5);
+        border-color: rgba(0,0,0,0.3);
+        outline: 2px solid transparent; /* For focus visibility, can be styled */
+        outline-offset: 2px;
+    }
     /* === END OF MODIFIED CTA SECTION === */
 
 
@@ -791,7 +824,7 @@
         <div class="container cta-content">
             <h2>Transform Your Vision Into Reality</h2>
             <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
-            <a href="#footer-contact" class="btn btn-cta">Start Your Project Today</a>
+            <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
         </div>
     </section>
 </div>
