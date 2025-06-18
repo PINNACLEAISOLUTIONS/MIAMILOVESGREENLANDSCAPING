@@ -32,7 +32,8 @@
         --card-background: #F8FFF8; 
         --card-background-hover: #F0F8F0; 
         
-        --cta-panel-background: linear-gradient(135deg, rgba(32, 178, 170, 0.05) 0%, rgba(0, 128, 128, 0.08) 100%);
+        /* MODIFIED: CTA Panel Background to a darker green gradient for white text contrast */
+        --cta-panel-background: linear-gradient(135deg, rgba(10, 30, 10, 0.95) 0%, rgba(5, 25, 5, 0.98) 100%);
         --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); 
         
         --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
@@ -475,8 +476,8 @@
     }
 
     .cta-section {
-        background: var(--cta-panel-background);
-        padding: var(--spacing-lg) 0; color: var(--text-dark-on-light-bg);
+        background: var(--cta-panel-background); /* Uses updated dark green gradient */
+        padding: var(--spacing-lg) 0;
         text-align: center;
         opacity: 0;
         transform: perspective(1200px) translateY(70px) rotateX(-25deg) scale(0.85); 
@@ -496,15 +497,13 @@
         opacity: 1;
         transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
     }
-    /* MODIFIED: CTA Content Text Styling for significantly better pop/brightness */
+    /* MODIFIED: CTA Content Text Styling for white text on dark background */
     .cta-content h2 { 
         font-family: var(--font-heading); 
-        color: var(--primary-green-darkest);
+        color: var(--text-hero); /* BRIGHT WHITE TEXT */
         font-size: clamp(1.8rem, 4vw, 2.8rem); 
         margin-bottom: var(--spacing-sm);
-        text-shadow: 
-            0px 0px 5px rgba(255, 255, 255, 0.95), /* Tighter, more opaque inner halo */
-            0px 0px 10px rgba(255, 255, 255, 0.8);  /* More opaque outer halo */
+        text-shadow: 0 1px 3px rgba(0,0,0,0.7); /* Subtle dark shadow for depth */
         letter-spacing: 0.5px; 
     }
     .cta-content p {
@@ -512,11 +511,10 @@
         margin: 0 auto var(--spacing-md);
         font-size: clamp(0.9rem, 2vw, 1.1rem); 
         line-height: 1.6;
-        color: var(--text-dark-on-light-bg); 
-        font-weight: 400; /* Ensuring a standard weight for readability */
-        text-shadow: 
-            0px 0px 4px rgba(255, 255, 255, 0.9),  /* More opaque inner halo for paragraph */
-            0px 0px 8px rgba(255, 255, 255, 0.7);  /* More opaque outer halo for paragraph */
+        color: var(--text-hero); /* BRIGHT WHITE TEXT */
+        opacity: 0.95; /* High opacity for readability */
+        font-weight: 400; 
+        text-shadow: 0 1px 2px rgba(0,0,0,0.6); /* Subtle dark shadow for depth */
     }
     .btn-cta { font-size: 0.9rem; padding: calc(var(--spacing-sm)*0.95) calc(var(--spacing-lg)*0.95); }
 
