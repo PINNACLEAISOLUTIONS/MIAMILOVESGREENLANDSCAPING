@@ -219,7 +219,7 @@
         background-size: cover, cover;
         background-position: center center, center center;
         background-attachment: fixed, fixed; overflow: hidden;
-        filter: brightness(1.9); /* INCREASED Hero Brightness */
+        filter: brightness(1.9);
     }
      .hero::before {
         content: '';
@@ -371,7 +371,7 @@
         filter: brightness(1.5);
     }
     .service-image-area.lighting-image {
-        filter: brightness(2.0); /* INCREASED Outdoor Lighting Brightness */
+        filter: brightness(2.0);
     }
 
     .service-card:hover .service-image-area { transform: scale(1.08); }
@@ -535,26 +535,22 @@
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
         background-image: url('./IMG_1254.webp');
-        background-size: 180% auto;
-        background-position: 50% 80%; /* Focus more on lower part of image */
+        background-size: cover; /* MODIFIED: Fill area, center image */
+        background-position: center center; /* MODIFIED: Center the image */
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
         filter: brightness(2.4); /* INCREASED CTA Brightness */
-        animation: ctaBackgroundFlowDesktop 25s ease-in-out infinite;
+        /* animation removed for static background */
     }
 
-    @keyframes ctaBackgroundFlowDesktop {
-        0% { background-position: 0% 80%; }   /* Adjusted vertical position */
-        50% { background-position: 100% 80%; } /* Adjusted vertical position */
-        100% { background-position: 0% 80%; }  /* Adjusted vertical position */
-    }
+    /* Keyframes for ctaBackgroundFlowDesktop removed */
 
     .cta-section::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.78) 0%, rgba(0, 10, 0, 0.92) 100%); /* Adjusted overlay */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.78) 0%, rgba(0, 10, 0, 0.92) 100%); /* Adjusted overlay for brighter image */
         z-index: 1;
     }
 
@@ -590,39 +586,39 @@
 
     /* ENHANCED CTA Button Styling */
     .btn-cta {
-        font-size: clamp(0.8rem, 2.2vw, 0.95rem); /* Responsive font size for button */
+        font-size: clamp(0.8rem, 2.2vw, 0.95rem);
         padding: calc(var(--spacing-sm) * 1.2) calc(var(--spacing-lg) * 0.8);
-        font-weight: 800; /* Bolder */
+        font-weight: 800;
         letter-spacing: 0.75px;
         line-height: 1.5;
-        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 50%, var(--accent-gold-darker) 100%);
+        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 40%, var(--accent-gold-darker) 100%); /* Refined gradient */
         box-shadow:
-            0 6px 18px rgba(0,0,0,0.2),
-            0 0 25px var(--accent-gold-glow),
-            inset 0 2px 2px rgba(255,255,255,0.5), /* Top inner highlight */
-            inset 0 -3px 3px rgba(0,0,0,0.15); /* Bottom inner shadow */
+            0 7px 20px rgba(0,0,0,0.25), /* Stronger outer shadow */
+            0 0 30px var(--accent-gold-glow),
+            inset 0 3px 3px rgba(255,255,255,0.55), /* Brighter top inner highlight */
+            inset 0 -4px 4px rgba(0,0,0,0.2);   /* Deeper bottom inner shadow */
         border: 1px solid var(--accent-gold-darker);
         color: var(--primary-green-darkest);
-        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2); /* Subtle highlight on text */
-        transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-                    box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
-                    background 0.3s ease-out;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25); /* Slightly more visible text highlight */
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* More bouncy transition */
+                    box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                    background 0.35s ease-out;
         white-space: normal;
-        max-width: 350px; /* Max width for the button */
+        max-width: 360px;
         margin-left: auto;
         margin-right: auto;
     }
     .btn-cta:hover, .btn-cta:focus {
-        transform: translateY(-6px) scale(1.07);
-        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 50%, var(--accent-gold) 100%);
+        transform: translateY(-7px) scale(1.08); /* More pronounced lift */
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
         box-shadow:
-            0 10px 25px rgba(0,0,0,0.25),
-            0 0 35px var(--accent-gold-glow),
-            inset 0 2px 3px rgba(255,255,255,0.6),
-            inset 0 -4px 4px rgba(0,0,0,0.2);
+            0 12px 28px rgba(0,0,0,0.3),
+            0 0 40px var(--accent-gold-glow), /* Brighter glow */
+            inset 0 3px 4px rgba(255,255,255,0.65),
+            inset 0 -5px 5px rgba(0,0,0,0.25);
         border-color: var(--accent-gold);
-        outline: 2px solid var(--accent-gold-hover);
-        outline-offset: 3px;
+        outline: 3px solid rgba(255, 183, 77, 0.5); /* Outline matching accent gold hover */
+        outline-offset: 4px;
     }
     /* === END OF MODIFIED CTA SECTION === */
 
