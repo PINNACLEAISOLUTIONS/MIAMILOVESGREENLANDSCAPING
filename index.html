@@ -2,104 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0xl: 50px;
+
+        --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.3">
     <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
     <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family55, 1.000);
+        --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, =Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;501.000);
+        --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
+
+        --0;600;700;800;900&display=swap');
 
     :root {
         --primary-green-darkest: #0A1A0A;
+        --primary-green-darkest-rgb: 10, 26, 10; /* RGB for rgbaservice-content-bg-teal: rgba(32, 178, 170, 0.07);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16() usage */
         --primary-green-dark: #123012;
         --primary-green-medium: #4CAF50;
-        --primary-green: var(--primary-green-medium);
+        --primary-green: var(--primary-green-mediumpx; }
+    @media (min-width: 768px) { html { font-size: clamp(16px, 1.5vw, 18px); } }
+
+    body {
+        font-family: var(--font-body); line-height: 1.7; overflow-x);
         --primary-green-light: #8DD08D;
         --primary-green-ultra-light: #E8F5E8;
 
         --accent-gold: #FFA726;
         --accent-gold-hover: #FFB74D;
-        --accent-gold-glow: rgba(255, 167, 38, 0.3);
-        --accent-gold-darker: #E69500; /* For button depth */
+        --accent-gold-: hidden;
+        background: var(--background-global); color: var(--text-on-dark-bg);
+        -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+glow: rgba(255, 167, 38, 0.3);
+        --accent-gold-darker: #E69500;
 
 
-        --text-hero: #FFFFFF;
+        --text-hero: #        display: flex; flex-direction: column; min-height: 100vh; position: relative;
+    }
+
+    .particles-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: noneFFFFFF;
         --text-on-dark-bg: #E8F5E9;
         --text-dark-on-light-bg: #1C1C1C;
         --text-medium-on-light-bg: #4A4A4A;
 
-        --body-bg-center: #0D1F0D;
+        --body-bg-center:; z-index: 0; overflow: hidden;
+        background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 7 #0D1F0D;
         --body-bg-edge: #050F05;
         --background-global: var(--body-bg-center);
 
-        --card-background: #F8FFF8;
+        --card-background: #0%);
+    }
+    .particle {
+        position: absolute;
+        width: 3px; height: 3px;
+        background-color: rgba(141, 208, F8FFF8;
         --card-background-hover: #F0F8F0;
 
-        --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
+        --footer-background: linear-gradient(135deg, #C8E6C9 0%,141, 0.35);
+        border-radius: 50%;
+        animation: float 25s infinite ease-in-out;
+        opacity: 0;
+        box-shadow: 0 #A5D6A7 100%);
 
         --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
-        --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
+        --shadow-medium: 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
+    }
+    @keyframes float {
+        0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; } 0 12px 40px rgba(0,0,0,0.12);
         --shadow-strong: 0 20px 60px rgba(0,0,0, 0.15);
-        --shadow-glow: 0 0 50px rgba(76, 175, 80, 0.2);
+        --shadow-glow: 0 0 50px rgba(7
+        5% { opacity: 1; }
+        50% { transform: translateY(50vh) translateX(8vw) scale(1.2); }
+        95% { opacity: 1;6, 175, 80, 0.2);
 
-        --hero-gradient: linear-gradient(135deg, rgba(5, 20, 5, 0.65) 0%, rgba(0, 15, 0, 0.75) 60%, rgba(0, 5, 0, 0.8) 100%);
+        --hero-gradient: linear }
+        100% { transform: translateY(0vh) translateX(-8vw) scale(0.-gradient(135deg, rgba(5, 20, 5, 0.65) 0%, rgba(0, 15, 0, 0.75) 605); opacity: 0; }
+    }
+    .particle:nth-child(2n) {%, rgba(0, 5, 0, 0.8) 100%);
 
         --sharp-glow-outline: rgba(0, 0, 0, 0.5);
-        --sharp-glow-main: rgba(230, 255, 230, 0.7);
-        --sharp-glow-soft: rgba(200, 255, 200, 0.3);
+        -- width: 2px; height: 2px; animation-duration: 28s; }
+    .particle:nth-child(3n) { background-color: rgba(76, 175sharp-glow-main: rgba(230, 255, 230, 0.7);
+        --sharp-glow-soft: rgba(200, 255, , 80, 0.25); animation-direction: reverse; }
+    .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 200, 0.3);
 
         --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         --font-heading: 'Playfair Display', Georgia, serif;
         --font-display: 'Inter', sans-serif;
 
-        --spacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem;
-        --spacing-lg: 3rem; --spacing-xl: 4rem;
-
-        --border-radius-sm: 8px; --border-radius-md: 16px; --border-radius-lg: 24px;
-        --border-radius-xl: 50px;
-
-        --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-        --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
-
-        --service-content-bg-teal: rgba(32, 178, 170, 0.07);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    @media (min-width: 768px) { html { font-size: clamp(16px, 1.5vw, 18px); } }
-
-    body {
-        font-family: var(--font-body); line-height: 1.7; overflow-x: hidden;
-        background: var(--background-global); color: var(--text-on-dark-bg);
-        -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-        display: flex; flex-direction: column; min-height: 100vh; position: relative;
-    }
-
-    .particles-container {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        pointer-events: none; z-index: 0; overflow: hidden;
-        background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 70%);
-    }
-    .particle {
-        position: absolute;
-        width: 3px; height: 3px;
-        background-color: rgba(141, 208, 141, 0.35);
-        border-radius: 50%;
-        animation: float 25s infinite ease-in-out;
-        opacity: 0;
-        box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
-    }
-    @keyframes float {
-        0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; }
-        5% { opacity: 1; }
-        50% { transform: translateY(50vh) translateX(8vw) scale(1.2); }
-        95% { opacity: 1; }
-        100% { transform: translateY(0vh) translateX(-8vw) scale(0.5); opacity: 0; }
-    }
-    .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; }
-    .particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.25); animation-direction: reverse; }
-    .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 18s; }
+        --18s; }
 
 
     .scroll-indicator {
@@ -109,11 +106,18 @@
     .scroll-progress {
         width: 0%; height: 100%;
         background: var(--accent-gold);
-        box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
+        box-shadowspacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem;
+        --spacing-lg: 3rem; --spacing-xl: 4rem;
+
+        --border-radius-sm: 8px; --border-radius-md: 16px; --border-radius-lg: 24px;
+        --border-radius-xl: 5: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
         transition: width 0.1s ease-out;
     }
 
-    .main-content-wrapper {
+    .0px;
+
+        --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.355, main-content-wrapper {
         flex-grow: 1;
         position: relative;
         z-index: 2;
@@ -125,71 +129,144 @@
     @media (min-width: 768px) { .container { padding: 0 var(--spacing-md); } }
 
     nav {
-        position: fixed; top: 0; left: 0; width: 100%;
-        z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--transition-medium);
+        position: fixed; top1.000);
+        --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
+
+        --service-content-: 0; left: 0; width: 100%;
+        z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--bg-teal: rgba(32, 178, 170, 0.07);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-transition-medium);
         padding: var(--spacing-sm) 0;
     }
     nav.nav-scrolled {
-        background: rgba(10, 26, 10, 0.95);
+        background: rgba(10, 26, 10, 0box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    @media (min-width: 768px) { html { font-size: clamp(1.95);
         box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
     }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-container { display: flex; justify-content: space-between; align6px, 1.5vw, 18px); } }
+
+    body {
+        font-family: var(--font-body); line-height: 1.7; overflow-x: hidden;
+-items: center; }
 
     .logo {
         font-family: var(--font-heading);
         font-weight: 700; color: var(--text-hero);
-        text-decoration: none; letter-spacing: -0.1px;
-        transition: transform var(--transition-fast), text-shadow var(--transition-medium);
+        text-decoration:        background: var(--background-global); color: var(--text-on-dark-bg);
+        -webkit- none; letter-spacing: -0.1px;
+        transition: transform var(--transition-fast), textfont-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        display: flex; flex-direction: column; min-height: 100vh; position: relative;
+    }-shadow var(--transition-medium);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         text-transform: uppercase;
         position: relative;
-        text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2);
-        font-size: clamp(0.75rem, 1.9vw, 1.3rem);
+        text-shadow: 0px 1
+
+    .particles-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 0px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2);
+        font-size: clamp; overflow: hidden;
+        background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 70%);
+    }
+(0.75rem, 1.9vw, 1.3rem);
         max-width: calc(100% - 55px);
     }
-     @media (min-width: 480px) {
+     @media (min-width:     .particle {
+        position: absolute;
+        width: 3px; height: 3px;
+        background-color: rgba(141, 208, 141, 0480px) {
         .logo {
             font-size: clamp(0.9rem, 2.1vw, 1.5rem);
             max-width: calc(100% - 60px);
         }
     }
-     @media (min-width: 769px) {
+     @media (min-width: 76.35);
+        border-radius: 50%;
+        animation: float 25s infinite ease9px) {
         .logo {
             max-width: none;
             font-size: clamp(1.3rem, 2.5vw, 1.9rem);
-            letter-spacing: -0.25px;
+            letter-spacing:-in-out;
+        opacity: 0;
+        box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
+    }
+    @keyframes float {
+        0% { transform: translateY(10 -0.25px;
         }
     }
     .logo:hover {
         transform: scale(1.02);
-        text-shadow: 0px 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35);
+        text-shadow: 0px 1px 2px rgba(0vh) translateX(0vw) scale(0.5); opacity: 0; }
+        5% { opacity: 1; }
+        50% { transform: translateY(50vh) translateX(80,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35);
     }
-    .logo::before {
+    .logo::vw) scale(1.2); }
+        95% { opacity: 1; }
+        100% { transform: translateY(0vh) translateX(-8vw) scale(0.5); opacity:before {
         content: ''; position: absolute; top: 0; left: -150%;
         width: 70%; height: 100%;
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-        transform: skewX(-25deg);
+         0; }
+    }
+    .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; }
+    .particle:nth-child(3n) { background-color: rgba(76, 175, 80, transform: skewX(-25deg);
         animation: logoShimmer 4s infinite linear;
         animation-delay: 1.5s;
     }
     @keyframes logoShimmer {
-        0% { left: -150%; }
+        0%0.25); animation-direction: reverse; }
+    .particle:nth-child(4n) { width { left: -150%; }
         50% { left: 150%; }
         100% { left: 150%; }
     }
 
-    .nav-links { display: none; }
+    .nav-links {: 4px; height: 4px; animation-duration: 18s; }
+
+
+    .scroll-indicator {
+        position: fixed; top: 0; left: 0; width: 100 display: none; }
     @media (min-width: 769px) {
-        .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
+        .%; height: 4px;
+        z-index: 2000; pointer-events: none;
+    }
+    .scroll-progress {
+        width: 0%; height: 100nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
     }
     .nav-links.active {
         display: flex; position: absolute; top: 100%;
-        left: 0; right: 0; background: rgba(10, 26, 10, 0.98);
+        left: 0; right: 0; background: rgba(10%;
+        background: var(--accent-gold);
+        box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
+        transition: width 0.1s ease-out;
+    }
+
+    .main-content-wrapper {
+        flex-grow: 1;
+        position: relative;
+        z-index: 2;
+    , 26, 10, 0.98);
         flex-direction: column; padding: var(--spacing-sm);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,}
+    .container {
+        width: 90%; max-width: 1200px;
+        margin: 0 auto; padding: 0 var(--spacing-sm);
+    }
+    @media (min-width: 768px) { .container { padding: 0 var(--spacing-md); } }
+
+    nav {
+        position: fixed; top: 0; left: 0255,255,0.08);
     }
     .nav-links.active a { padding: var(--spacing-sm) 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%;}
-    .nav-links.active li:last-child a { border-bottom: none; }
+    .nav-links.active li:last-child a { border-bottom: none;; width: 100%;
+        z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--transition-medium);
+        padding: var(--spacing-sm) 0;
+    }
+    nav.nav-scrolled {
+        background: rgba(10, 26, 10, 0.95);
+        box-shadow }
 
     .nav-links a {
         text-decoration: none; color: rgba(232, 245, 233, 0.85);
@@ -199,66 +276,129 @@
         border-radius: var(--border-radius-sm);
         font-size: 0.85rem; letter-spacing: 0.5px;
     }
-    .nav-links a:hover, .nav-links a.active {
+    .nav-links a:hover, .nav-links: var(--shadow-medium); padding: var(--spacing-xs) 0;
+    }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+    .logo {
+        font-family: var(--font-heading);
+        font-weight: 700; color: var(--text-hero);
+        text-decoration: none; letter-spacing: -0.1px; a.active {
         color: #FFFFFF;
         transform: translateY(-1px);
         background-color: rgba(255,255,255,0.1);
     }
-    .mobile-menu-toggle {
+    .
+        transition: transform var(--transition-fast), text-shadow var(--transition-medium);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        text-transform: uppercase;
+        position: relative;
+        text-shadow: 0px 1px 1px rgba(0,0mobile-menu-toggle {
         display: block; background: none; border: none; cursor: pointer; padding: 0.5rem;
         z-index: 1001;
     }
-    .mobile-menu-toggle svg { width: 28px; height: 28px; fill: var(--text-hero); }
+    .mobile-menu-toggle svg { width: 28px; height: 28px; fill,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2);
+        font-size: clamp(0.75rem: var(--text-hero); }
     @media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
 
     .hero {
         position: relative; height: 100vh; min-height: 650px;
         display: flex; align-items: center; justify-content: center;
-        text-align: center; color: var(--text-hero);
-        background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.webp');
+        text-align: center; color: var(--, 1.9vw, 1.3rem);
+        max-width: calc(100% - 55px);
+    }
+     @media (min-width: 480px) {
+        .logo {
+            font-size: clamp(0.9rem, 2.1text-hero);
+        background-image: var(--hero-gradient), url('./pixel_studio_20250vw, 1.5rem);
+            max-width: calc(100% - 60px);
+        }
+    }
+     @media (min-width: 769px) {530_02355914.webp');
         background-size: cover, cover;
         background-position: center center, center center;
-        background-attachment: fixed, fixed; overflow: hidden;
+        background-attachment: fixed, fixed; overflow
+        .logo {
+            max-width: none;
+            font-size: clamp(1.3: hidden;
         filter: brightness(1.9);
     }
      .hero::before {
         content: '';
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 0; left: 0; right:rem, 2.5vw, 1.9rem);
+            letter-spacing: -0.25px;
+        }
+    }
+    .logo:hover {
+        transform: scale(1.02);
+        text-shadow: 0px 1px 2px rgba(0,0, 0; bottom: 0;
         background: radial-gradient(ellipse at center, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.15) 100%);
     }
     .hero-content {
-        max-width: 950px; padding: var(--spacing-md);
-        position: relative; z-index: 3;
+        max-width: 950px0,0.7), 0 0 10px rgba(255, 255, 255, 0.35);
     }
+    .logo::before {
+        ; padding: var(--spacing-md);
+        position: relative; z-index: 3;
+    content: ''; position: absolute; top: 0; left: -150%;
+        width: 70%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(2}
     .hero-content > * {
         opacity: 0; transform: translateY(50px) scale(0.95);
         transition: opacity var(--transition-slow), transform var(--transition-slow);
     }
-    .hero-content.animate > * { opacity: 1; transform: translateY(0) scale(1); }
+    .hero-content.animate > * { opacity: 1; transform: translateY55,255,255,0.25), transparent);
+        transform: skewX(-25deg);
+        animation: logoShimmer 4s infinite linear;
+        animation-delay: 1.5s;
+    }
+    @keyframes logoShimmer {
+        0% { left: -1(0) scale(1); }
     .hero-content.animate h1 { transition-delay: 0.25s; }
-    .hero-content.animate .hero-subtitle { transition-delay: 0.4s; }
+    .hero-content.animate .hero-subtitle { transition-delay:50%; }
+        50% { left: 150%; }
+        100% { left: 150%; }
+    }
+
+    .nav-links { display: none; } 0.4s; }
     .hero-content.animate p { transition-delay: 0.55s; }
     .hero-content.animate .btn { transition-delay: 0.7s; }
 
     .hero h1 {
         font-family: var(--font-heading);
         font-size: clamp(2.5rem, 8vw, 5.5rem);
-        font-weight: 800; margin-bottom: var(--spacing-sm);
+        font
+    @media (min-width: 769px) {
+        .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
+    }
+    .nav-links.active {
+        display: flex; position: absolute; top: -weight: 800; margin-bottom: var(--spacing-sm);
         color: var(--text-hero); letter-spacing: -1px;
         line-height: 1.05; text-transform: uppercase;
         text-shadow:
-            0px 2px 3px var(--sharp-glow-outline),
+            0px 2px 3px var(--sharp-glow100%;
+        left: 0; right: 0; background: rgba(10, 26, 10, 0.98);
+        flex-direction: column; padding: var(--spacing-sm);
+        box-shadow: 0 4px 10px rgba(0,0,0-outline),
             0 0 15px var(--sharp-glow-main),
             0 0 30px var(--sharp-glow-soft);
     }
     .hero-subtitle {
-        font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
+        font-,0.2); border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.active a { padding: var(--spacing-sm) 0; text-align: center; border-bottom: 1px solid rgba(255family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
         font-weight: 400; margin-bottom: var(--spacing-md);
         opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
     }
     .hero p {
-        font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
+        font-family: var(--font-body); font-size: clamp,255,255,0.05); width: 100%;}
+    .nav-links.active li:last-child a { border-bottom: none; }
+
+    .nav-links a {
+        text-decoration: none; color: rgba(232, 245, 233, 0.85);
+        font-weight: 500;
+        transition:(0.95rem, 2vw, 1.2rem);
         margin-bottom: var(--spacing-lg); opacity: 0.9;
         max-width: 700px; margin-left: auto; margin-right: auto;
         line-height: 1.65; font-weight: 300;
@@ -266,44 +406,86 @@
 
     .btn {
         display: inline-block;
-        padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 0.9);
-        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%);
+ color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--border-radius-sm);
+        font-size: 0.85rem; letter-spacing: 0.5px;
+    }
+    .nav-links a:hover, .nav-links a.active        padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 0.9);
+        background: linear-gradient(135deg, var(--accent- {
+        color: #FFFFFF;
+        transform: translateY(-1px);
+        background-color: rgba(255,255,255,0.1);
+    }
+    .mobilegold) 0%, var(--accent-gold-hover) 100%);
         color: var(--primary-green-darkest); text-decoration: none;
         border-radius: var(--border-radius-xl);
         font-weight: 600;
-        font-family: var(--font-body);
+        font-family: var(--font--menu-toggle {
+        display: block; background: none; border: none; cursor: pointer; padding: 0.5rem;
+        z-index: 1001;
+    }
+    .mobile-menu-toggle svg { width: 28px; height: 28px; fill:body);
         transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-        box-shadow: var(--shadow-medium), 0 0 15px var(--accent-gold-glow);
+        box-shadow: var(--shadow-medium), 0 0 15px var(--accent var(--text-hero); }
+    @media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
+
+    .hero {
+        position: relative; height-gold-glow);
         text-transform: uppercase; letter-spacing: 1px;
         border: none; cursor: pointer; font-size: 0.85rem;
     }
     .btn:hover, .btn:focus {
         transform: translateY(-3px) scale(1.03);
-        box-shadow: var(--shadow-strong), 0 0 20px var(--accent-gold-glow);
+        box-shadow: var(--shadow-strong), 0 0 20px var(--accent-gold: 100vh; min-height: 650px;
+        display: flex; align-items: center; justify-content: center;
+        text-align: center; color: var(--text-glow);
         background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 100%);
         outline: none;
     }
 
-    .content-section {
+-hero);
+        background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.webp');
+        background-size: cover    .content-section {
         padding: var(--spacing-lg) 0; position: relative;
         opacity: 0;
         transform: translateY(60px) scale(0.98);
-        transition: opacity var(--transition-slow), transform var(--transition-slow);
+, cover;
+        background-position: center center, center center;
+        background-attachment: fixed, fixed; overflow: hidden;
+        filter: brightness(1.9);
     }
-    @media (min-width: 768px) { .content-section { padding: var(--spacing-xl) 0; } }
+     .hero::before        transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    @media (min-width: 768px) { .content-section { padding: var(--spacing-xl {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(ellipse at center, rgba(0) 0; } }
     .content-section.animate { opacity: 1; transform: translateY(0) scale(1); }
 
     .section-title {
         font-family: var(--font-heading);
         font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: var(--spacing-md); font-weight: 700;
+        margin-bottom:,0,0,0.02) 0%, rgba(0,0,0,0.15) 100%);
+    }
+    .hero-content {
+        max-width: 950px; padding: var(--spacing-md);
+        position: relative; z-index: 3;
+ var(--spacing-md); font-weight: 700;
         color: var(--text-on-dark-bg); letter-spacing: -0.5px;
-        opacity: 0; transform: translateY(40px);
+        opacity: 0; transform:    }
+    .hero-content > * {
+        opacity: 0; transform: translateY(50px) scale(0.95);
+        transition: opacity var(--transition-slow), transform var(--transition-slow); translateY(40px);
         transition: opacity var(--transition-medium), transform var(--transition-medium);
     }
     #services .section-title {
         text-align: center;
-        text-transform: uppercase;
+        text-transform: uppercase
+    }
+    .hero-content.animate > * { opacity: 1; transform: translateY(0) scale(1); }
+    .hero-content.animate h1 { transition-delay: 0.25;
     }
     .content-section.animate .section-title {
         opacity: 1; transform: translateY(0);
@@ -311,12 +493,177 @@
     }
 
     .section-subtitle {
-        max-width: 750px; margin: 0 auto var(--spacing-lg);
+        max-width: 750px; margin: 0 auto var(--s; }
+    .hero-content.animate .hero-subtitle { transition-delay: 0.4s; }
+    .hero-content.animate p { transition-delay: 0.55s;spacing-lg);
         font-size: clamp(0.95rem, 2vw, 1.15rem);
-        line-height: 1.6; color: var(--text-on-dark-bg); opacity: 0.85; font-weight: 300;
+        line-height: 1.6; color: var(--text-on- }
+    .hero-content.animate .btn { transition-delay: 0.7s; }
+
+    .hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        font-weight: 800; margin-bottom: var(--spacing-sm);
+        color: var(--text-hero);dark-bg); opacity: 0.85; font-weight: 300;
         opacity: 0; transform: translateY(30px);
-        transition: opacity var(--transition-medium), transform var(--transition-medium);
+        transition: opacity var(--transition-medium), transform letter-spacing: -1px;
+        line-height: 1.05; text-transform: var(--transition-medium);
     }
+    .content-section.animate .section-subtitle {
+        opacity: 1; transform: translateY(0);
+        transition-delay: 0.25s; uppercase;
+        text-shadow:
+            0px 2px 3px var(--sharp-glow-outline),
+            0 0 15px var(--sharp-glow-main),
+            0 0 30px var(--sharp-glow-soft);
+    }
+    .hero-subtitle {
+        font-family: var(--
+    }
+
+    .services-grid {
+        display: grid; grid-template-columns: 1font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
+        font-weight: 400; margin-bottom: var(--spacing-md);
+        fr;
+        gap: var(--spacing-md); margin-top: var(--spacing-md);
+    }
+    @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .hero p {
+        font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
+        margin-bottom: var(--spacing-lg
+    @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
+
+    .); opacity: 0.9;
+        max-width: 700px; margin-left: auto;service-card {
+        background: var(--card-background); color: var(--text-dark-on-light-bg);
+        border-radius: var(--border-radius-lg);
+        overflow: hidden; box-shadow: var(--shadow-soft);
+        display: flex; flex-direction: column;
+        opacity:  margin-right: auto;
+        line-height: 1.65; font-weight: 300;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 00;
+        transform: translateY(70px) rotateX(-20deg) scale(0.9);
+        transform-origin: bottom center;
+        transition: opacity var(--transition-medium), transform var(--transition-bounce.9);
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%);
+        color: var(--primary-green-darkest); text-decoration: none;
+        border-radius: var(--border-radius-xl);
+), box-shadow var(--transition-medium), background var(--transition-fast);
+        cursor: pointer;
+    }
+    .content-section.animate .service-card {
+        opacity: 1;
+        transform:        font-weight: 600;
+        font-family: var(--font-body);
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+ translateY(0) rotateX(0deg) scale(1);
+        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s);
+            box-shadow: var(--shadow-medium), 0 0 15px var(--accent-gold-glow);
+        text-transform: uppercase; letter-spacing: 1px;
+        border: none; cursor: pointer}
+    .service-card:hover {
+        transform: translateY(-10px) scale(1.03) rotateX(2deg);
+        box-shadow: var(--shadow-strong), var(--shadow-glow);
+        background: var(--card-background-hover);
+    }
+
+    .service-image; font-size: 0.85rem;
+    }
+    .btn:hover, .btn:focus {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: var-area {
+        width: 100%; height: 200px;
+        background-size: cover; background-position: center;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: var(--spacing-sm);
+        padding-(--shadow-strong), 0 0 20px var(--accent-gold-glow);
+        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accentleft: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+        padding-bottom: var(--spacing-sm);
+        position: relative; text-align: center;
+        overflow: hidden;
+-gold) 100%);
+        outline: none;
+    }
+
+    .content-section {
+        padding: var(--spacing-lg) 0; position: relative;
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+        transition: opacity var(--transition-slow        transition: transform 0.5s var(--transition-bounce);
+        filter: brightness(1.3);
+    }
+
+    .service-image-area.hardscape-image {
+        filter: brightness(1.), transform var(--transition-slow);
+    }
+    @media (min-width: 7685);
+    }
+    .service-image-area.lighting-image {
+        filter: brightness(px) { .content-section { padding: var(--spacing-xl) 0; } }
+    .content-section.animate { opacity: 1; transform: translateY(0) scale(1); }
+
+    .section2.0);
+    }
+
+    .service-card:hover .service-image-area { transform: scale(1.08); }
+     @media (min-width: 768px) {-title {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: var(--spacing-md); font-
+        .service-image-area {
+            height: 220px;
+            padding-top: var(--spacing-md);
+            padding-left: var(--spacing-md);
+            padding-rightweight: 700;
+        color: var(--text-on-dark-bg); letter-spacing: -0.5px;
+        opacity: 0; transform: translateY(40px);
+        transition:: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+        }
+    }
+    .service-image-area::before {
+        content: ""; position: absolute; top: 0; left opacity var(--transition-medium), transform var(--transition-medium);
+    }
+    #services .section-title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .content-section.animate .section-title {
+        opacity: 1; transform: translateY(0);
+: 0; right: 0; bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.55) 65%, rgba(0,30,0,0.        transition-delay: 0.15s;
+    }
+
+    .section-subtitle {
+        max-width: 750px; margin: 0 auto var(--spacing-lg);
+        font9) 100%);
+        z-index: 1; transition: background var(--transition-medium);
+    }
+    .service-card:hover .service-image-area::before {
+         background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(-size: clamp(0.95rem, 2vw, 1.15rem);
+        line-height: 1.6; color: var(--text-on-dark-bg); opacity: 0.85; font-weight: 300;
+        opacity: 0; transform: translateY(30,20,0,0.3) 50%, rgba(0,30,0,0.7) 100%);
+    }
+
+    .service-card .service-image-title,
+    .service-card .service-content h3,
+    .service-card .service-content0px);
+        transition: opacity var(--transition-medium), transform var(--transition-medium);
+    } p {
+        opacity: 0; transform: translateY(25px) scale(0.98);
+        transition-property: opacity, transform;
+        transition-duration: 0.5s;
+        transition-timing-function: var(--transition-bounce);
+    }
+    .service-card.animate .
     .content-section.animate .section-subtitle {
         opacity: 1; transform: translateY(0);
         transition-delay: 0.25s;
@@ -324,14 +671,27 @@
 
     .services-grid {
         display: grid; grid-template-columns: 1fr;
-        gap: var(--spacing-md); margin-top: var(--spacing-md);
+        gap: var(--spacingservice-image-title {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.2s);
+    }
+    .service-card.animate-md); margin-top: var(--spacing-md);
     }
     @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
-    @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
+    @media (min-width: .service-content h3 {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.3s);
+    }
+    .service-card. 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
 
     .service-card {
         background: var(--card-background); color: var(--text-dark-on-light-bg);
-        border-radius: var(--border-radius-lg);
+        border-radiusanimate .service-content p {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.4s);
+    }
+
+    .service-image-: var(--border-radius-lg);
         overflow: hidden; box-shadow: var(--shadow-soft);
         display: flex; flex-direction: column;
         opacity: 0;
@@ -340,12 +700,19 @@
         transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium), background var(--transition-fast);
         cursor: pointer;
     }
-    .content-section.animate .service-card {
+    .content-section.animate .title {
+        font-family: var(--font-heading); color: var(--text-hero);
+        font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700;service-card {
         opacity: 1;
         transform: translateY(0) rotateX(0deg) scale(1);
         transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s);
     }
-    .service-card:hover {
+    .service-card:hover
+        text-shadow:
+            -1px -1px 0 var(--primary-green-darkest),
+             1px -1px 0 var(--primary-green-darkest),
+            -1px  1px 0 var(--primary-green-darkest),
+             1px  1px 0 var(--primary-green- {
         transform: translateY(-10px) scale(1.03) rotateX(2deg);
         box-shadow: var(--shadow-strong), var(--shadow-glow);
         background: var(--card-background-hover);
@@ -353,14 +720,33 @@
 
     .service-image-area {
         width: 100%; height: 200px;
-        background-size: cover; background-position: center;
+        background-size: cover; background-position: centerdarkest),
+             0 2px 4px rgba(0,0,0,0.7);
+        z-index: 2; position: relative;
+        max-width: 90%;
+    }
+    .service-content {
+        padding: var(--spacing-md);
+        flex-grow: 1;
+        background-color: var(--service-content-bg-teal);
+        text-;
         display: flex;
         align-items: flex-start;
         justify-content: center;
         padding-top: var(--spacing-sm);
         padding-left: var(--spacing-sm);
         padding-right: var(--spacing-sm);
-        padding-bottom: var(--spacing-sm);
+        padding-bottom: var(--spacing-smalign: center;
+    }
+    .service-content h3 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        margin-bottom: var(--spacing-xs);
+        color: var(--primary-green-darkest);
+        font-weight: 700;
+    }
+    .service-content p {
+        font-size: clamp(0.85rem, 1.8vw,);
         position: relative; text-align: center;
         overflow: hidden;
         transition: transform 0.5s var(--transition-bounce);
@@ -371,80 +757,18 @@
         filter: brightness(1.5);
     }
     .service-image-area.lighting-image {
-        filter: brightness(2.0);
+        filter: brightness(2.0 0.95rem);
+        line-height: 1.6;
+        color: var(--text-medium-on-light-bg);
+        font-weight: 500;
+        max);
     }
 
     .service-card:hover .service-image-area { transform: scale(1.08); }
      @media (min-width: 768px) {
         .service-image-area {
             height: 220px;
-            padding-top: var(--spacing-md);
-            padding-left: var(--spacing-md);
-            padding-right: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-        }
-    }
-    .service-image-area::before {
-        content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.55) 65%, rgba(0,30,0,0.9) 100%);
-        z-index: 1; transition: background var(--transition-medium);
-    }
-    .service-card:hover .service-image-area::before {
-         background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,20,0,0.3) 50%, rgba(0,30,0,0.7) 100%);
-    }
-
-    .service-card .service-image-title,
-    .service-card .service-content h3,
-    .service-card .service-content p {
-        opacity: 0; transform: translateY(25px) scale(0.98);
-        transition-property: opacity, transform;
-        transition-duration: 0.5s;
-        transition-timing-function: var(--transition-bounce);
-    }
-    .service-card.animate .service-image-title {
-        opacity: 1; transform: translateY(0) scale(1);
-        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.2s);
-    }
-    .service-card.animate .service-content h3 {
-        opacity: 1; transform: translateY(0) scale(1);
-        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.3s);
-    }
-    .service-card.animate .service-content p {
-        opacity: 1; transform: translateY(0) scale(1);
-        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.4s);
-    }
-
-    .service-image-title {
-        font-family: var(--font-heading); color: var(--text-hero);
-        font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700;
-        text-shadow:
-            -1px -1px 0 var(--primary-green-darkest),
-             1px -1px 0 var(--primary-green-darkest),
-            -1px  1px 0 var(--primary-green-darkest),
-             1px  1px 0 var(--primary-green-darkest),
-             0 2px 4px rgba(0,0,0,0.7);
-        z-index: 2; position: relative;
-        max-width: 90%;
-    }
-    .service-content {
-        padding: var(--spacing-md);
-        flex-grow: 1;
-        background-color: var(--service-content-bg-teal);
-        text-align: center;
-    }
-    .service-content h3 {
-        font-family: var(--font-heading);
-        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-        margin-bottom: var(--spacing-xs);
-        color: var(--primary-green-darkest);
-        font-weight: 700;
-    }
-    .service-content p {
-        font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-        line-height: 1.6;
-        color: var(--text-medium-on-light-bg);
-        font-weight: 500;
-        max-width: 90%;
+            padding-top: var(---width: 90%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -453,11 +777,19 @@
         display: flex; flex-direction: column; align-items: center;
         gap: var(--spacing-lg); text-align: center;
     }
-    .about-text {
+    spacing-md);
+            padding-left: var(--spacing-md);
+            padding-right: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+        }
+    }
+    .service-image-area::before {
+        content: ""; position: absolute; top: 0; left: .about-text {
         max-width: 800px; width: 100%;
         opacity: 0;
         transform: translateY(50px) scale(0.95);
-        transition: opacity var(--transition-slow) 0.25s, transform var(--transition-slow) 0.25s;
+        transition: opacity var(--transition-slow) 0.25s, transform var(--transition-slow) 00; right: 0; bottom: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,.25s;
     }
     .content-section.animate .about-text,
     .about-text.animate {
@@ -466,20 +798,37 @@
     .about-text p {
         margin-bottom: var(--spacing-sm);
         font-size: clamp(0.9rem, 1.9vw, 1.05rem);
-        line-height: 1.75;
+        0,0.55) 65%, rgba(0,30,0,0.9) 100%);
+        z-index: 1; transition: background var(--transition-medium);
+    }
+    .service-card:hover .service-image-area::before {
+         background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,line-height: 1.75;
     }
     .about-text p:last-of-type { margin-bottom: var(--spacing-md); }
     .about-features {
-        list-style: none; padding: 0; margin: var(--spacing-md) auto 0;
+        list20,0,0.3) 50%, rgba(0,30,0,0.7) 100%);
+    }
+
+    .service-card .service-image-title,
+-style: none; padding: 0; margin: var(--spacing-md) auto 0;
         display: grid; gap: var(--spacing-md);
         max-width: 700px; width: 100%;
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(40px);    .service-card .service-content h3,
+    .service-card .service-content p {
+        opacity: 0; transform: translateY(25px) scale(0.98);
+        transition-property: opacity, transform;
+        transition-duration: 0.5s;
+        transition-timing-
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
     .about-features.animate {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateYfunction: var(--transition-bounce);
+    }
+    .service-card.animate .service-image-title {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-delay: calc(var(--card-index, 0) * 0.15s + 0.3(0);
     }
      @media (min-width: 768px) {
         .about-features { grid-template-columns: 1fr 1fr; }
@@ -487,17 +836,33 @@
 
     .about-features li {
         padding: var(--spacing-sm) var(--spacing-md);
-        position: relative;
+        5s + 0.2s);
+    }
+    .service-card.animate .service-content h3 {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-position: relative;
         font-size: clamp(0.9rem, 1.8vw, 1rem);
         font-weight: 400;
         color: var(--text-on-dark-bg);
-        background: rgba(0, 0, 0, 0.25);
+        background: rgba(0, 0, 0, 0.25);delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.3s);
+    }
+    .service-card.animate .service-content p {
+        opacity: 1; transform: translateY(0) scale(1);
+        transition-
         border-radius: var(--border-radius-md);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow:
+        box-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.4s);
+    }
+
+    .service-image-title {
+        shadow:
             inset 0 2px 4px rgba(0,0,0,0.25),
             inset 0 -1px 2px rgba(255,255,255,0.03),
-            0 1px 2px rgba(0,0,0,0.1);
+            0 1px 2px rgba(0,0,0font-family: var(--font-heading); color: var(--text-hero);
+        font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700;
+        text-shadow:
+            -1px -1px 0 var(--primary-green-darkest),
+             1px -1,0.1);
         opacity: 0;
         transform: translateY(40px) scale(0.9);
         transition: opacity var(--transition-medium), transform var(--transition-bounce),
@@ -507,15 +872,35 @@
         align-items: center;
     }
     .about-features.animate li {
-        opacity: 1;
+px 0 var(--primary-green-darkest),
+            -1px  1px 0 var(--primary-green-darkest),
+             1px  1px 0 var(--primary-green-darkest),
+             0 2px 4px rgba(0,0,0,0.7);
+        z-index: 2; position: relative;
+        max-width: 90%;
+    }
+            opacity: 1;
         transform: translateY(0) scale(1);
     }
     .about-features li:hover {
         transform: translateY(-6px) scale(1.03);
-        background: rgba(0, 0, 0, 0.35);
+        background.service-content {
+        padding: var(--spacing-md);
+        flex-grow: 1;
+        background-color: var(--service-content-bg-teal);
+        text-align: center;
+    }
+    .service-content h3 {
+        font-family: var(--font-heading);: rgba(0, 0, 0, 0.35);
         box-shadow:
             inset 0 3px 5px rgba(0,0,0,0.4),
-            inset 0 -2px 3px rgba(255,255,255,0.06),
+            inset 0 -2px 3px rgba(255,255,255,0
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        margin-bottom: var(--spacing-xs);
+        color: var(--primary-green-darkest);
+        font-weight: 700;
+    }
+    .service-content p {.06),
             0 5px 15px rgba(0,0,0,0.3);
     }
     .about-features li::before {
@@ -526,7 +911,17 @@
     }
 
     /* === MODIFIED CTA SECTION === */
-    .cta-section {
+
+        font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        line-height: 1.6;
+        color: var(--text-medium-on-light-bg);
+        font-weight: 500;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .cta-section {
         padding: var(--spacing-lg) 0;
         text-align: center;
         opacity: 0;
@@ -534,34 +929,205 @@
         transform-origin: center center;
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
-        background-image: url('./IMG_1254.webp');
-        background-size: cover; /* MODIFIED: Use cover for all views */
-        background-position: center center; /* MODIFIED: Center for all views */
+        background-image: url('./IMG_1254..about-content {
+        display: flex; flex-direction: column; align-items: center;
+        gap: var(--spacing-lg); text-align: center;
+    }
+    .about-text {
+        max-width: 800px; width: 100%;
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+        transition: opacity varwebp');
+        background-size: cover; /* Use cover for all views */
+        background-position: center center; /* Center for all views */
         background-repeat: no-repeat;
         position: relative;
         overflow: hidden;
-        filter: brightness(2.1) contrast(1.1); /* Maintained brightness and contrast */
-        /* animation property removed to stop panning */
+        filter: brightness(1.6) contrast(1.05); /* Adjusted image(--transition-slow) 0.25s, transform var(--transition-slow) 0.25s;
+    }
+    .content-section.animate .about-text,
+    .about-text.animate {
+        opacity: 1; transform: translateY(0) scale(1);
+    }
+    .about filter */
+        /* Panning animation removed */
     }
 
-    /* @keyframes ctaBackgroundFlowDesktop removed as animation is disabled */
-
-    .cta-section::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.15) 0%, rgba(0, 10, 0, 0.25) 100%); /* Very subtle overlay */
-        z-index: 1;
-    }
+    /* .cta-section::before overlay removed - handled by text backgrounds now */
 
     .content-section.animate.cta-section,
-    .cta-section.animate {
+    .cta-section-text p {
+        margin-bottom: var(--spacing-sm);
+        font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+        line-height: 1.75;
+    }
+    .about-text p:last-of-type { margin.animate {
         opacity: 1;
         transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
     }
 
     .cta-content {
+        position: relative-bottom: var(--spacing-md); }
+    .about-features {
+        list-style: none; padding: 0; margin: var(--spacing-md) auto 0;
+        display: grid; gap: var(--spacing-md);
+        max-width: 700px; width: 1;
+        z-index: 2; /* Keeps content above any potential ::before/::after on .cta-section if re-added */
+    }
+
+    .cta-content h2 {
+        font-family: var(--font-heading);
+        color: var(--text-hero);
+        font-size: clamp(1.800%;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .about-features.animate {
+        opacity: 1;
+        transform: translateY(0);
+rem, 4vw, 2.8rem);
+        margin-bottom: var(--spacing-sm);
+        letter-spacing: 0.5px;
+        background-color: rgba(var(--primary-green-darkest-rgb, 10, 26, 10), 0.65); /* RGB    }
+     @media (min-width: 768px) {
+        .about-features { grid-template-columns: 1fr 1fr; }
+     }
+
+    .about-features li {
+        padding values for var(--primary-green-darkest) */
+        padding: 0.25em 0.5em;
+        border-radius: var(--border-radius-sm);
+        display: inline; /* Allow text to wrap naturally, background hugs it */
+        box-decoration-break: clone; /* Ensures background continuity for wrapped lines: var(--spacing-sm) var(--spacing-md);
         position: relative;
+        font-size: clamp(0.9rem, 1.8vw, 1rem);
+        font-weight: 400;
+        color: var(--text-on-dark-bg);
+        background: rgba */
+        -webkit-box-decoration-break: clone;
+        text-shadow: 0px 1px 3px rgba(0,0,0,0.6); /* Simpler shadow with direct background */
+    (0, 0, 0, 0.25);
+        border-radius: var(--border-radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+            inset 0 2}
+
+    .cta-content p {
+        max-width: 650px;
+        margin: 0 auto var(--spacing-md);
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        line-height: 1.6;
+        color: var(--textpx 4px rgba(0,0,0,0.25),
+            inset 0 -1px 2px rgba(255,255,255,0.03),
+            0 1px 2px rgba(0,0,0,0.1);
+        opacity:-hero);
+        opacity: 0.95;
+        font-weight: 400;
+        background-color: rgba(var(--primary-green-darkest-rgb, 10, 26, 10), 0.55); /* Slightly lighter for paragraph */
+        padding: 0. 0;
+        transform: translateY(40px) scale(0.9);
+        transition: opacity var(--transition-medium), transform var(--transition-bounce),
+                    background var(--transition-fast), box-shadow var(--transition-fast);
+        text-align: left;
+        display: flex;
+        align-items:3em 0.6em;
+        border-radius: var(--border-radius-xs, 6px); /* Assuming var(--border-radius-xs) if not defined, set fallback */
+        display: inline-block center;
+    }
+    .about-features.animate li {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    .about-features li:hover {
+        transform: translateY(-6px) scale(1.03);
+        background: rgba(0, ; /* Allows text-align: center to work on parent if needed, and padding */
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.5); /* Simpler shadow */
+    }
+
+
+0, 0, 0.35);
+        box-shadow:
+            inset 0 3px 5px rgba(0,0,0,0.4),
+            inset 0 -2px    .btn-cta {
+        font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+        padding: var(--spacing-sm) calc(var(--spacing-md) 3px rgba(255,255,255,0.06),
+            0 5px 15px rgba(0,0,0,0.3);
+    }
+    .about-features li::before {
+        content: '🌿';
+        margin-right: var(-- * 0.9);
+        font-weight: 800;
+        letter-spacing: 0.75px;
+        line-height: 1.5;
+        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) spacing-sm);
+        font-size: 1.2em;
+        color: var(--primary-green-light);
+    }
+
+    /* === MODIFIED CTA SECTION === */
+    .cta-section {
+        padding: var(--spacing-lg) 0;
+        text-align: center;
+        opacity: 040%, var(--accent-gold-darker) 100%);
+        box-shadow:
+            0 7px 20px rgba(0,0,0,0.25),
+            0 0 30px var(--accent-gold-glow),
+            inset 0 3px 3px rgba;
+        transform: perspective(1200px) translateY(70px) rotateX(-25deg) scale(0.85);
+        transform-origin: center center;
+        transition: opacity var(--transition(255,255,255,0.55),
+            inset 0 -4px 4px rgba(0,0,0,0.2);
+        border: 1px solid var(--accent-gold-darker);
+        color: var(--primary-green-darkest);
+        text-slow) 0.1s, transform var(--transition-slow) 0.1s;
+
+        background-image: url('./IMG_1254.webp');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+
+        overflow: hidden;
+        filter: brightness(1.8) contrast(1.05); /* Slightly reduced brightness, kept contrast */
+    }
+
+    /* Removed @keyframes ctaBackgroundFlowDesktop */
+
+    .cta-section::before { /* This overlay is for overall image tinting if needed */
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+                    box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                    background 0.35s ease-out;
+        white-space: normal;
+        max-width: 360px;        background: linear-gradient(135deg, rgba(var(--primary-green-darkest-rgb), 0.15) 0%, rgba(var(--primary-green-darkest-rgb), 0.3
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-cta:hover, .btn-cta:focus {
+        transform: translateY(-7px) scale(1.08);
+        background: linear-gradient(135deg, var(--accent-gold) 00) 100%); /* More subtle overlay */
+        z-index: 1; /* Sits on%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
+        box-shadow:
+            0 12px 28px rgba(0,0,0,0. image, below text content */
+        pointer-events: none; /* Make sure it doesn't interfere with text selection */
+    }
+
+    .content-section.animate.cta-section,
+    .cta-section.animate {
+        opacity: 1;
+        transform: perspective(1200px) translateY(0) rotate3),
+            0 0 40px var(--accent-gold-glow),
+            inset 0 3px 4px rgba(255,255,255,0.65),
+            inset 0 -5px 5px rgba(0,0,0,0.25X(0deg) scale(1);
+    }
+
+    .cta-content {
+        position: relative);
+        border-color: var(--accent-gold);
+        outline: 3px solid rgba(255,;
         z-index: 2;
     }
 
@@ -569,63 +1135,11 @@
         font-family: var(--font-heading);
         color: var(--text-hero);
         font-size: clamp(1.8rem, 4vw, 2.8rem);
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(-- 183, 77, 0.5);
+        outline-offset: 4px;spacing-sm);
         letter-spacing: 0.5px;
-        /* Enhanced text shadow for readability */
-        text-shadow:
-            -1.5px -1.5px 0 var(--primary-green-darkest), 1.5px -1.5px 0 var(--primary-green-darkest),
-            -1.5px  1.5px 0 var(--primary-green-darkest), 1.5px  1.5px 0 var(--primary-green-darkest),
-            0 0 8px rgba(0,0,0,0.7);
-    }
-    .cta-content p {
-        max-width: 650px;
-        margin: 0 auto var(--spacing-md);
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-        line-height: 1.6;
-        color: var(--text-hero);
-        opacity: 0.95;
-        font-weight: 400;
-        /* Enhanced text shadow for readability */
-        text-shadow:
-            -1px -1px 0 var(--primary-green-darkest), 1px -1px 0 var(--primary-green-darkest),
-            -1px  1px 0 var(--primary-green-darkest), 1px  1px 0 var(--primary-green-darkest),
-            0 0 6px rgba(0,0,0,0.6);
-    }
-
-    .btn-cta {
-        font-size: clamp(0.8rem, 2.2vw, 0.95rem);
-        padding: var(--spacing-sm) calc(var(--spacing-md) * 0.9); /* Tighter padding */
-        font-weight: 800;
-        letter-spacing: 0.75px;
-        line-height: 1.5;
-        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 40%, var(--accent-gold-darker) 100%);
-        box-shadow:
-            0 7px 20px rgba(0,0,0,0.25),
-            0 0 30px var(--accent-gold-glow),
-            inset 0 3px 3px rgba(255,255,255,0.55),
-            inset 0 -4px 4px rgba(0,0,0,0.2);
-        border: 1px solid var(--accent-gold-darker);
-        color: var(--primary-green-darkest);
-        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
-        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                    box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                    background 0.35s ease-out;
-        white-space: normal;
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .btn-cta:hover, .btn-cta:focus {
-        transform: translateY(-7px) scale(1.08);
-        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
-        box-shadow:
-            0 12px 28px rgba(0,0,0,0.3),
-            0 0 40px var(--accent-gold-glow),
-            inset 0 3px 4px rgba(255,255,255,0.65),
-            inset 0 -5px 5px rgba(0,0,0,0.25);
-        border-color: var(--accent-gold);
-        outline: 3px solid rgba(255, 183, 77, 0.5);
-        outline-offset: 4px;
+        /* Targeted background for readability */
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.6); /* Shade behind
     }
     /* === END OF MODIFIED CTA SECTION === */
 
@@ -633,7 +1147,12 @@
     footer {
         background: var(--footer-background);
         color: var(--primary-green-darkest);
-        padding: var(--spacing-lg) 0 var(--spacing-md);
+        padding: var(--spacing-lg H2 */
+        padding: 0.2em 0.4em;
+        border-radius: var(--border-radius-sm);
+        display: inline;
+        box-decoration-break: clone;
+        -) 0 var(--spacing-md);
         font-size: 0.9rem;
         position: relative;
         z-index: 1;
@@ -643,11 +1162,22 @@
     }
     footer.animate {
         opacity: 1;
-        transform: translateY(0);
+        webkit-box-decoration-break: clone;
+        text-shadow: 0px 1px 3px rgba(0,0,0,0.6); /* Simpler shadow */
+        line-height: 1.3;
+    }
+    .cta-content p {
+        max-width: 650pxtransform: translateY(0);
     }
     .footer-content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template;
+        margin: var(--spacing-md) auto;
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        line-height: 1.7;
+        color: var(--text-hero);
+        font-weight: 400;
+        /* Targeted background for readability-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: var(--spacing-md);
         margin-bottom: var(--spacing-lg);
     }
@@ -657,30 +1187,60 @@
         color: var(--primary-green-dark);
     }
     .footer-logo {
-        font-family: var(--font-heading); font-size: 1.5rem;
+        font-family: var(--font-heading */
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.5); font-size: 1.5rem;
         font-weight: 700; margin-bottom: var(--spacing-xs);
-        color: var(--primary-green-darkest); text-transform: uppercase;
+        color: var(--primary-green-darkest); text-transform); /* Shade behind P */
+        padding: 0.3em 0.5em;
+        border-radius: var(--border-radius-xs);
+        display: inline-block;
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.5); /* Simpler shadow */
+    }
+
+    .btn-cta {
+        font-size: clamp(0.8rem, 2: uppercase;
     }
     .footer-description { margin-bottom: var(--spacing-sm); line-height: 1.6; font-size: 0.85rem; }
-    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer.2vw, 0.95rem);
+        padding: var(--spacing-sm) calc(var(--spacing-md) * 0.9);
+        font-weight: 800;
+        letter-spacing-links { list-style: none; padding: 0; margin: 0; }
     .footer-links li { margin-bottom: var(--spacing-xs); }
     .footer-links a {
-        text-decoration: none; color: var(--primary-green-dark);
+: 0.75px;
+        line-height: 1.5;
+        background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 4        text-decoration: none; color: var(--primary-green-dark);
         transition: color var(--transition-fast), padding-left var(--transition-fast);
     }
-    .footer-links a:hover { color: var(--accent-gold-hover); padding-left: 4px; }
+    .footer-links a:hover { color: var0%, var(--accent-gold-darker) 100%);
+        box-shadow:
+            0 7px 20px rgba(0,0,0,0.25),
+            0(--accent-gold-hover); padding-left: 4px; }
     .social-links { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); }
-    .social-link svg {
+     0 30px var(--accent-gold-glow),
+            inset 0 3px 3px rgba.social-link svg {
         width: 20px; height: 20px; fill: var(--primary-green-dark);
         transition: fill var(--transition-fast), transform var(--transition-fast);
-    }
-    .social-link:hover svg { fill: var(--accent-gold-hover); transform: scale(1.1); }
+    }(255,255,255,0.55),
+            inset 0 -
+    .social-link:hover svg { fill: var(--accent-gold-hover); transform: scale(4px 4px rgba(0,0,0,0.2);
+        border: 1px1.1); }
     .contact-item {
-        display: flex; align-items: center;
+        display: flex; align-items: center; solid var(--accent-gold-darker);
+        color: var(--primary-green-darkest);
+        text-shadow: 1px 1px 1px rgba(255, 255, 
         margin-bottom: var(--spacing-xs); font-size: 0.85rem;
     }
-    .contact-item .contact-icon { margin-right: var(--spacing-xs); font-size: 1.1em; color: var(--primary-green-dark); }
-    .contact-item a { color: var(--primary-green-dark); text-decoration: none; }
+    .contact-item .contact-icon { margin-right: var(--spacing-xs); font255, 0.25);
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.27-size: 1.1em; color: var(--primary-green-dark); }
+    .contact5),
+                    box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                    background 0.35s ease-out;
+        white-space: normal;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+        margin--item a { color: var(--primary-green-dark); text-decoration: none; }
     .contact-item a:hover { color: var(--accent-gold-hover); }
     .footer-bottom {
         text-align: center; padding-top: var(--spacing-md);
@@ -692,18 +1252,29 @@
         bottom: 25px;
         right: 25px;
         width: 60px;
-        height: 60px;
+        height: top: var(--spacing-lg);
+    }
+    .btn-cta:hover, .btn-cta:focus {
+        transform: translateY(-7px) scale(1.08);
+        background: linear60px;
         background: var(--accent-gold);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 20px var(--accent-gold-glow);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
+        box-shadow:
+            0 12px 28px rgba(0,0,0,0.3),
+            0 0  0 20px var(--accent-gold-glow);
         z-index: 1000;
         transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
         text-decoration: none;
         opacity: 1;
-        visibility: visible;
+        visibility: visible40px var(--accent-gold-glow),
+            inset 0 3px 4px rgba(255,255,255,0.65),
+            inset 0 -5px 5px rgba(0,0,0,0.25);
+        border-color: var(--accent-gold);
+        outline: 3px solid rgba(255, 183, 77;
     }
     .fab-call:hover {
         transform: scale(1.1) translateY(-3px);
@@ -711,9 +1282,29 @@
         box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
     }
     .fab-call svg {
-        width: 28px;
+        width, 0.5);
+        outline-offset: 4px;
+    }
+    /* === END OF MODIFIED CTA SECTION === */
+
+
+    footer {
+        background: var(--footer-background);
+        color: var(--primary-green-darkest);
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+        font-size: 0.9rem;
+        position: relative;
+        z-index: 28px;
         height: 28px;
-        fill: var(--primary-green-darkest);
+        fill: var(--primary-green-darkest: 1;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s var(--transition-medium), transform 0.8s var(--transition-medium);
+    }
+    footer.animate {
+        opacity: 1;
+        transform: translateY(0);
+    );
     }
 
 </style>
@@ -723,11 +1314,25 @@
     <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
 
 <nav id="mainNav">
-    <div class="container nav-container">
+    <div class="container nav-}
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+    .footer-section h3 {
+container">
         <a href="#home" class="logo">Miami Loves Green Landscaping</a>
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
-            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-        </button>
+            <svg viewBox="0 0 24 24"><path d="M3         font-family: var(--font-heading);
+        font-size: 1.2rem; margin-bottom: var(--spacing-sm);
+        color: var(--primary-green-dark);
+    }
+    18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+        </.footer-logo {
+        font-family: var(--font-heading); font-size: 1.5rem;
+        font-weight: 700; margin-bottom: var(--spacing-xs);button>
         <ul class="nav-links" id="mainNavLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
@@ -738,31 +1343,57 @@
 </nav>
 
 <div class="main-content-wrapper">
-    <header id="home" class="hero">
+    <header id="home
+        color: var(--primary-green-darkest); text-transform: uppercase;
+    }
+    .footer-description { margin-bottom: var(--spacing-sm); line-height: 1.6; font-size: 0.85rem; }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom:" class="hero">
         <div class="hero-content">
             <h1>Miami Loves Green</h1>
             <p class="hero-subtitle">Premier Landscaping Artistry</p>
-            <p>Crafting breathtaking, sustainable outdoor sanctuaries that elevate your lifestyle and property value. Experience the art of green with Miami's trusted landscaping experts.</p>
+            <p>Crafting breathtaking var(--spacing-xs); }
+    .footer-links a {
+        text-decoration: none; color: var(--primary-green-dark);
+        transition: color var(--transition-fast), padding-left var(--, sustainable outdoor sanctuaries that elevate your lifestyle and property value. Experience the art of green with Miami's trusted landscaping experts.</p>
             <a href="#services" class="btn">Explore Our Services</a>
         </div>
-    </header>
+    </header>transition-fast);
+    }
+    .footer-links a:hover { color: var(--accent-gold-hover); padding-left: 4px; }
+    .social-links { display: flex; gap
 
     <section id="services" class="content-section">
         <div class="container">
             <h2 class="section-title">Our Premier Services</h2>
-            <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
+            <p class="section-subtitle">From: var(--spacing-sm); margin-top: var(--spacing-sm); }
+    .social-link svg {
+        width: 20px; height: 20px; fill: var(--primary-green-dark);
+        transition: fill var(--transition-fast), transform var(--transition-fast);
+    } visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
             <div class="services-grid">
-                <div class="service-card" style="--card-index: 0;">
+                <div class="service-card" style="--card-
+    .social-link:hover svg { fill: var(--accent-gold-hover); transform: scale(1.1); }
+    .contact-item {
+        display: flex; align-items: center;
+        margin-bottom: var(--spacing-xs); font-size: 0.85rem;
+index: 0;">
                     <div class="service-image-area" style="background-image: url('./gardenimage.webp');">
                         <h3 class="service-image-title">Landscape Design</h3>
                     </div>
                     <div class="service-content">
                         <h3>Creative Landscape Design</h3>
-                        <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal style and enhancing your property's natural charm.</p>
+                        <p>    }
+    .contact-item .contact-icon { margin-right: var(--spacing-xs); font-size: 1.1em; color: var(--primary-green-dark); }
+    .contact-item a { color: var(--primary-green-dark); text-decoration: none; }
+    .Tailored landscape designs that merge beauty with functionality, reflecting your personal style and enhancing your property's natural charm.</p>
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 1;">
-                    <div class="service-image-area" style="background-image: url('./IMG_1255 (1).webp');">
+                    <div class="service-image-area" style="background-image: url('./IMG_1contact-item a:hover { color: var(--accent-gold-hover); }
+    .footer-bottom {
+        text-align: center; padding-top: var(--spacing-md);
+        border-top255 (1).webp');">
                          <h3 class="service-image-title">Garden Maintenance</h3>
                     </div>
                     <div class="service-content">
@@ -771,35 +1402,77 @@
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 2;">
-                    <div class="service-image-area" style="background-image: url('./irrigationimage.webp');">
+                    <: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
+    }
+
+    .fab-call {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        background: var(--accent-gold);
+        border-radius: div class="service-image-area" style="background-image: url('./irrigationimage.webp');">
                          <h3 class="service-image-title">Irrigation Systems</h3>
                     </div>
-                    <div class="service-content">
+                    <div class="50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,service-content">
                         <h3>Efficient Irrigation</h3>
                         <p>Smart irrigation solutions, professionally installed and maintained, for optimal water use and thriving landscapes.</p>
                     </div>
                 </div>
-                 <div class="service-card" style="--card-index: 3;">
-                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscarpingimag.webp');">
+                 <div class="service-card"0.2), 0 0 20px var(--accent-gold-glow);
+        z-index:  style="--card-index: 3;">
+                    <div class="service-image-area hardscape-image"1000;
+        transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+        text-decoration: none;
+        opacity: 1;
+ style="background-image: url('./hardscarpingimag.webp');">
                          <h3 class="service-image-title">Hardscaping</h3>
                     </div>
                     <div class="service-content">
-                        <h3>Elegant Hardscape Design</h3>
+                                visibility: visible;
+    }
+    .fab-call:hover {
+        transform: scale(1.1) translateY(-3px);
+        background: var(--accent-gold-hover);
+        box-<h3>Elegant Hardscape Design</h3>
                         <p>Custom patios, walkways, water features, and architectural elements that create stunning focal points and enhance outdoor functionality.</p>
                     </div>
                 </div>
-                <div class="service-card" style="--card-index: 4;">
+                <div class="service-cardshadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
+    }
+    .fab-" style="--card-index: 4;">
                     <div class="service-image-area" style="background-image: url('./treetriming.webp');">
                          <h3 class="service-image-title">Tree Care</h3>
                     </div>
                     <div class="service-content">
                         <h3>Professional Tree Care</h3>
-                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</p>
+                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</pcall svg {
+        width: 28px;
+        height: 28px;
+        fill: var(--primary-green-darkest);
+    }
+
+</style>
+</head>
+<body>
+    <div class="particles-container" id="particles-js"></div>
+    <div class="scroll-indicator"><div>
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 5;">
                     <div class="service-image-area lighting-image" style="background-image: url('./landscapelighting.webp');">
-                         <h3 class="service-image-title">Outdoor Lighting</h3>
+                         <h3 class="service-image-title">Outdoor class="scroll-progress" id="scrollProgress"></div></div>
+
+<nav id="mainNav">
+    <div class="container nav-container">
+        <a href="#home" class="logo">Miami Loves Green Landscaping</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v Lighting</h3>
                     </div>
                     <div class="service-content">
                         <h3>Elegant Lighting</h3>
@@ -810,18 +1483,137 @@
         </div>
     </section>
 
-    <section id="about" class="content-section">
+    <section id="about" class="content--2H3v2zm0-7v2h18V6H3z"></path></svg>
+        </button>
+        <ul class="nav-links" id="mainNavLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            section">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2 class="section-title">About Miami Loves Green</h2>
-                    <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for life. Our passionate team, a collective of certified horticulturists, visionary landscape architects, and meticulous design specialists, brings a wealth of expertise and a fresh perspective to every project, dedicated to realizing your unique vision.</p>
-                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and intelligent functionality. It's about enhancing your property's value and enriching your quality of life through sustainable, cutting-edge practices. From initial concept to flawless execution, we're committed to transforming your ideas into breathtaking, living environments.</p>
+                    <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for life.<li><a href="#about">About</a></li>
+            <li><a href="#footer-contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="main-content-wrapper">
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Miami Loves Our passionate team, a collective of certified horticulturists, visionary landscape architects, and meticulous design specialists, brings a wealth of expertise and a fresh perspective to every project, dedicated to realizing your unique vision.</p>
+                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and intelligent functionality. It's about enhancing your property's Green</h1>
+            <p class="hero-subtitle">Premier Landscaping Artistry</p>
+            <p>Crafting breathtaking, sustainable outdoor sanctuaries that elevate your lifestyle and property value. Experience the art of green with Miami's trusted landscaping experts.</p>
+            <a href="#services" class="btn">Explore Our Services</a>
+        </div>
+ value and enriching your quality of life through sustainable, cutting-edge practices. From initial concept to flawless execution, we're committed to transforming your ideas into breathtaking, living environments.</p>
                     <ul class="about-features">
                         <li>Expert Landscape Design & Master Planning</li>
                         <li>Comprehensive Garden Care & Lush Maintenance</li>
                         <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
                         <li>Bespoke Outdoor Lighting & Irrigation Systems</li>
+                    </ul>
+    </header>
+
+    <section id="services" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our Premier Services</h2>
+            <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section content-section">
+        <div class="container cta-content">
+            <h2>Transform Your Vision Into Reality life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
+            <div class="services-grid">
+                <div class="service-card" style</h2>
+            <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your="--card-index: 0;">
+                    <div class="service-image-area" style="background landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
+            <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
+        </div>
+    </section>-image: url('./gardenimage.webp');">
+                        <h3 class="service-image-title">Landscape Design</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Creative Landscape Design</h3>
+
+</div>
+
+<footer id="footer-contact">
+    <div class="container footer-content">
+        <div class="footer-section footer-brand">
+            <div class="footer-logo">MIAMI LOVES GREEN LAND                        <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal style and enhancing your property's natural charm.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--SCAPING</div>
+            <p class="footer-description">Your premier partner in creating sustainable, beautiful, andcard-index: 1;">
+                    <div class="service-image-area" style="background-image innovative outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0: url('./IMG_1255 (1).webp');">
+                         <h3 class="service-image-title">Garden Maintenance</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Expert 0 24 24" fill="currentColor"><path d="M24 12.07 Care & Maintenance</h3>
+                        <p>Comprehensive horticultural services ensuring your landscape remains vibrant and healthy year-round with professional expertise.</p3c0-6.627-5.373-12-12-12S0 >
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index:5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.84 2;">
+                    <div class="service-image-area" style="background-image: url('./irrigationimage.webp');">
+                         <h3 class="service-image-title">Irrigation Systems</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Efficient Irrigation</h3>
+                        <p>Smart8v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3. irrigation solutions, professionally installed and maintained, for optimal water use and thriving landscapes.</p>
+                    </div>
+                </div>566 3.49-3.566 1.008 0 2
+                 <div class="service-card" style="--card-index: 3;">
+                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscarpingimag.webp');">
+                         <h3 class="service-image-title">Hardscaping</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Elegant Hardscape Design</h3>
+                        <p>Custom patios.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 , walkways, water features, and architectural elements that create stunning focal points and enhance outdoor functionality.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 4;">
+                    <div class="service-image-area" style="background-image: url('./treetriming.3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
+                <a href="https://www.youtube.com/@MiamiLoveswebp');">
+                         <h3 class="service-image-title">Tree Care</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Tree Care</h3>
+                        <p>Expert tree shaping, health assessments,GreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d=" and maintenance for the longevity and beauty of your trees.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 5;">
+                    <div class="service-imageM23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.5-area lighting-image" style="background-image: url('./landscapelighting.webp');">
+                         05 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3<h3 class="service-image-title">Outdoor Lighting</h3>
+                    </div>
+                    <div class="service.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502-content">
+                        <h3>Elegant Lighting</h3>
+                        <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your outdoor space.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <div class="container">
+             5.814a3.016 3.016 0 0 0<div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Miami Loves Green</h2>
+                    <p>At Miami Loves Green, we see your outdoor 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 space as a canvas for artistry and a sanctuary for life. Our passionate team, a collective of certified horticulturists, visionary landscape architects, and meticulous design specialists, brings a wealth of expertise and a fresh perspective to every project, dedicated 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L1 to realizing your unique vision.</p>
+                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and intelligent functionality. It's about enhancing your property's value and enriching your quality of life through sustainable, cutting-edge practices. From initial concept to flawless execution, we're committed to transforming your ideas into breathtaking, living environments5.818 12l-6.273 3.568z"/></svg></a>
+                <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18.</p>
+                    <ul class="about-features">
+                        <li>Expert Landscape Design & Master Planning</li>
+                        <li>Comprehensive Garden Care & Lush Maintenance</li>
+                        <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
+                        " viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1<li>Bespoke Outdoor Lighting & Irrigation Systems</li>
                     </ul>
                 </div>
             </div>
@@ -831,8 +1623,8 @@
     <section id="cta" class="cta-section content-section">
         <div class="container cta-content">
             <h2>Transform Your Vision Into Reality</h2>
-            <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
-            <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
+            <p>Ready to.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44 create the outdoor space of your dreams? Our expert team is here to bring your landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
+            <a href="#footer-contact" class="btn btn-cta">CALL-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.5 US TODAY FOR A FREE ESTIMATE</a>
         </div>
     </section>
 </div>
@@ -841,78 +1633,249 @@
     <div class="container footer-content">
         <div class="footer-section footer-brand">
             <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
-            <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
+            <p4 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1 class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
             <div class="social-links">
-                <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
-                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-                <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-                <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1." fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.35.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.497-.63.41-1.11 1.04-1.36 1.75-3.566 1.008 0 2.063.18 2.0-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.863.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v7 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-11.72h2.813l-.445 3.048H9.87.79.06-3.57.07-5.36.01-45v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
+                <.03-.01-8.05.02-12.07z"/></svg></a>
+                <a href="https://www.instagram.com/miami_loves_green" targeta href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="="_blank" class="social-link" title="Instagram"><svg width="18" height="18"social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 24 24" fill="currentColor"><path d="M23.498 6.186.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.6a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.391 4.919 4.919.058 1.26577.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.7.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.12271-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 -2.136C24 15.93 24 12 24 120-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="https://www..919-4.919 1.266-.057 1.64tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24"5-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947 fill="currentColor"><path d="M12.525.02c1.31-.0.072-4.358.2-6.78 2.618-6.2 2.61-.01 3.91-.02.08 1.598 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.3.63 3.09 1.75 4.17 1.12 1.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.28111 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-..058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.61801 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.9 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.011 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.34-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-17-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.12.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.794 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.6-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.796 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                <a href="https://www.instagram.com/miami1 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="1 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>8" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058</a>
             </div>
         </div>
         <div class="footer-section"><h3>Quick Links</h3>
             <ul class="footer-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a 1.265.069 1.645.069 4.849  href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#footer-contact">Contact</a></li>
             </ul>
         </div>
-        <div class="footer-section"><h3>Our Services</h3>
+        <div class="footer-section"><h3>Our0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4. Services</h3>
             <ul class="footer-links">
                 <li><a href="#services">Landscape Design</a></li>
                 <li><a href="#services">Garden Maintenance</a></li>
-                <li><a href="#services">Irrigation Systems</a></li>
+                <li><a href="#services">Irr919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.5igation Systems</a></li>
                 <li><a href="#services">Hardscaping</a></li>
                 <li><a href="#services">Tree Care</a></li>
                 <li><a href="#services">Outdoor Lighting</a></li>
             </ul>
-        </div>
+        84-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.</div>
         <div class="footer-section"><h3>Contact Info</h3>
             <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786) 570-3215</a></div>
-            <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div>
-            <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
+            <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miam058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4ilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div>
+.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3            <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
             <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
         </div>
     </div>
-    <div class="footer-bottom"><p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
+    <div class="footer-bottom"><.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.07p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
 </footer>
 
 <a href="tel:786-570-3215" class="fab-call" aria-label="Call us">
     <svg viewBox="0 0 24 24">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        <path3 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3. .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281l-2.2 2.2z"/>
     </svg>
 </a>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('mainNav');
-        const mainNavHeight = nav ? nav.offsetHeight : 70;
+        const mainNav-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2Height = nav ? nav.offsetHeight : 70;
         window.addEventListener('scroll', () => {
             if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
         });
 
         const navLinks = document.querySelectorAll('nav .nav-links a');
-        const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
+        const sections.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
         function changeActiveLink() {
             let currentSectionId = 'home';
             const scrollPosition = window.scrollY + mainNavHeight + 70;
 
-            for (let i = sections.length - 1; i >= 0; i--) {
+            for (let i = sections.length - 1; i >=  6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-0; i--) {
                 const section = sections[i];
                 if (section.offsetTop <= scrollPosition) {
                     currentSectionId = section.id;
                     break;
                 }
             }
-            if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
+            2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
                  currentSectionId = 'footer-contact';
-            } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
+            } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 5-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.640) && document.getElementById('home')) {
                 currentSectionId = 'home';
             }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                if (link.getAttribute('href5 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-section"><h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        if (navLinks.length > 0 && sections.length > 0) {
+            changeActiveLink(); window.addEventListener('scroll', changeActiveLink);
+        }
+
+        const scrollProgressa href="#about">About</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section"><h3>Our Services</h3>
+            <ul class=" = document.getElementById('scrollProgress');
+        if(scrollProgress) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = scrollHeight > 0footer-links">
+                <li><a href="#services">Landscape Design</a></li>
+                <li><a href="#services">Garden Maintenance</a></li>
+                <li><a href="#services">Irrigation Systems</a></li>
+                <li>< ? (scrollTop / scrollHeight) * 100 : 0;
+                scrollProgress.style.width = scrollPercent + '%';
+            });
+        }
+
+        function createParticles() {
+            const particlesContainera href="#services">Hardscaping</a></li>
+                <li><a href="#services">Tree Care</a></li>
+                <li><a href="#services">Outdoor Lighting</a></li>
+            </ul>
+        </div>
+        <div class="footer-section"><h3>Contact Info</h3>
+            <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786 = document.getElementById('particles-js');
+            if(!particlesContainer) return;
+            const particleCount = 40;
+            for (let i = 0; i < particleCount; i++) {
+                ) 570-3215</a></div>
+            <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div>
+            <div class="contact-itemconst particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random()"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
+            <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
+        </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="currentYear * 15 + 's';
+                particle.style.animationDuration = (12 + Math.random() * 12) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        const observerOptions = {
+            root: null,
+            rootMargin:"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
+</footer>
+
+<a href="tel:786-570-3215" class="fab-call" aria-label="Call us">
+    <svg viewBox="0 0 24 24">
+        <path d="M6.62  '-50px 0px -100px 0px',
+            threshold: 0.01
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
+                        Array.from(entry.target.children).forEach((item, index) => {
+                            item.style.transitionDelay = '';
+                            void item.offsetWidth;
+                            item.style.transitionDelay =33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 `${index * 0.12 + 0.15}s`;
+                        });
+                    }
+                } else {
+                    entry.target.classList.remove('animate');
+                    if (entry.target.classList.contains('about-features')) {
+                        Array.from(entry.target.children).forEach((item 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z) => {
+                            item.style.transitionDelay = '';
+                        });
+                    }
+                }
+            });
+        };
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features,"/>
+    </svg>
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.getElementById('mainNav');
+        const mainNavHeight = nav ? nav.offsetHeight : footer').forEach(el => observer.observe(el));
+
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent && window.scrollY < 100) {
+            setTimeout(() => {
+                 if(!heroContent.classList.contains('animate')) {
+                    heroContent.classList.add(' 70;
+        window.addEventListener('scroll', () => {
+            if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+
+        const navLinks = document.querySelectorAll('nav .nav-links a');
+        const sections = Array.from(document.querySelectorAllanimate');
+                 }
+            }, 150);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(('section[id], header[id], footer[id]'));
+        function changeActiveLink() {
+            let currentSectionId = 'home';
+            const scrollPosition = window.scrollY + mainNavHeight + 70;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                consttargetId);
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" }); section = sections[i];
+                if (section.offsetTop <= scrollPosition) {
+                    currentSectionId = section.id;
+                    break;
+                }
+            }
+            if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
+
+                }
+            });
+        });
+
+        const currentYearEl = document.getElementById('currentYear');
+        if(currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+
+        const menuToggle =                 currentSectionId = 'footer-contact';
+            } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
+                currentSectionId = 'home';
+            }
+
+            navLinks.forEach(link document.querySelector('.mobile-menu-toggle');
+        const mainNavLinksUl = document.getElementById('mainNavLinks');
+
+        if (menuToggle && mainNavLinksUl) {
+            menuToggle.addEventListener('click', () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                mainNavLinksUl.classList.toggle(' => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#active');
+            });
+            mainNavLinksUl.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
+                        mainNavLinksUl.classList.remove('active');
+                        ${currentSectionId}`) {
                     link.classList.add('active');
                 }
             });
@@ -924,99 +1887,7 @@
         const scrollProgress = document.getElementById('scrollProgress');
         if(scrollProgress) {
             window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-                scrollProgress.style.width = scrollPercent + '%';
-            });
-        }
-
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles-js');
-            if(!particlesContainer) return;
-            const particleCount = 40;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + 'vh';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (12 + Math.random() * 12) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles();
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '-50px 0px -100px 0px',
-            threshold: 0.01
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
-                        Array.from(entry.target.children).forEach((item, index) => {
-                            item.style.transitionDelay = '';
-                            void item.offsetWidth;
-                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`;
-                        });
-                    }
-                } else {
-                    entry.target.classList.remove('animate');
-                    if (entry.target.classList.contains('about-features')) {
-                        Array.from(entry.target.children).forEach((item) => {
-                            item.style.transitionDelay = '';
-                        });
-                    }
-                }
-            });
-        };
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, footer').forEach(el => observer.observe(el));
-
-        const heroContent = document.querySelector('.hero-content');
-        if (heroContent && window.scrollY < 100) {
-            setTimeout(() => {
-                 if(!heroContent.classList.contains('animate')) {
-                    heroContent.classList.add('animate');
-                 }
-            }, 150);
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                }
-            });
-        });
-
-        const currentYearEl = document.getElementById('currentYear');
-        if(currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const mainNavLinksUl = document.getElementById('mainNavLinks');
-
-        if (menuToggle && mainNavLinksUl) {
-            menuToggle.addEventListener('click', () => {
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-                mainNavLinksUl.classList.toggle('active');
-            });
-            mainNavLinksUl.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
-                        mainNavLinksUl.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                constmenuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
             });
