@@ -83,13 +83,11 @@
     .particle {
         position: absolute;
         width: 3px; height: 3px;
-        /* MODIFIED: Brighter particle background */
-        background-color: rgba(141, 208, 141, 0.35); /* Was 0.2 */
+        background-color: rgba(141, 208, 141, 0.35); 
         border-radius: 50%;
         animation: float 25s infinite ease-in-out;
         opacity: 0;
-        /* MODIFIED: Brighter particle shadow */
-        box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35); /* Was 0.3, 0.2 */
+        box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
     }
     @keyframes float {
         0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; }
@@ -98,9 +96,9 @@
         95% { opacity: 1; }
         100% { transform: translateY(0vh) translateX(-8vw) scale(0.5); opacity: 0; }
     }
-    .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; } /* Slightly faster */
-    .particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.25); animation-direction: reverse; } /* Brighter accent */
-    .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 18s; } /* Slightly faster */
+    .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; } 
+    .particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.25); animation-direction: reverse; } 
+    .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 18s; } 
 
 
     .scroll-indicator {
@@ -135,28 +133,32 @@
         box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
     }
     .nav-container { display: flex; justify-content: space-between; align-items: center; }
-    /* MODIFIED: Logo font size increased */
+    
+    /* MODIFIED: Logo styling for mobile and desktop */
     .logo {
         font-family: var(--font-heading); 
-        font-size: clamp(0.9rem, 2.1vw, 1.5rem); /* Increased from 0.8rem, 1.8vw, 1.3rem */
         font-weight: 700; color: var(--text-hero); 
         text-decoration: none; letter-spacing: -0.1px; 
         transition: transform var(--transition-fast), text-shadow var(--transition-medium);
-        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 75%; 
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
         text-transform: uppercase; 
         position: relative; 
-        text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2); 
+        text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2);
+        
+        /* Base for smallest screens (e.g., < 480px) */
+        font-size: clamp(0.75rem, 1.9vw, 1.3rem); /* Reduced min font size */
+        max-width: calc(100% - 55px); /* Space for hamburger + small gap */
     }
-     @media (min-width: 400px) { 
+     @media (min-width: 480px) { /* Slightly larger phones */
         .logo {
-            max-width: 80%; 
-            font-size: clamp(1.0rem, 2.2vw, 1.6rem); /* Increased from 0.9rem, 1.9vw, 1.4rem */
+            font-size: clamp(0.9rem, 2.1vw, 1.5rem); /* Previous small screen base */
+            max-width: calc(100% - 60px); /* Similar calc, might allow slightly more text */
         } 
     }
-     @media (min-width: 768px) { 
+     @media (min-width: 769px) { /* Tablet and Desktop */
         .logo {
-            max-width: none; 
-            font-size: clamp(1.3rem, 2.5vw, 1.9rem); /* Increased from 1.1rem, 2.2vw, 1.6rem */
+            max-width: none; /* No restriction */
+            font-size: clamp(1.3rem, 2.5vw, 1.9rem); /* Larger font for desktop */
             letter-spacing: -0.25px;
         } 
     }
@@ -300,8 +302,7 @@
         opacity: 0; transform: translateY(40px);
         transition: opacity var(--transition-medium), transform var(--transition-medium);
     }
-    /* MODIFIED: Specific styling for #services .section-title */
-    #services .section-title {
+    #services .section-title { /* MODIFIED: Centered and Uppercase */
         text-align: center;
         text-transform: uppercase;
     }
@@ -841,15 +842,14 @@
         function createParticles() {
             const particlesContainer = document.getElementById('particles-js'); 
             if(!particlesContainer) return; 
-            // MODIFIED: Increased particle count
-            const particleCount = 40; /* Was 20 */
+            const particleCount = 40; 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle'; 
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + 'vh'; 
-                particle.style.animationDelay = Math.random() * 15 + 's'; // Slightly varied delay
-                particle.style.animationDuration = (12 + Math.random() * 12) + 's'; // Varied duration
+                particle.style.animationDelay = Math.random() * 15 + 's'; 
+                particle.style.animationDuration = (12 + Math.random() * 12) + 's'; 
                 particlesContainer.appendChild(particle);
             }
         }
