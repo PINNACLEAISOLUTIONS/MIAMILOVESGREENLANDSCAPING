@@ -32,7 +32,6 @@
         --card-background: #F8FFF8;
         --card-background-hover: #F0F8F0;
 
-        /* --cta-panel-background: linear-gradient(135deg, rgba(10, 30, 10, 0.95) 0%, rgba(5, 25, 5, 0.98) 100%); */ /* Original CTA BG, now handled differently */
         --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
 
         --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
@@ -521,7 +520,7 @@
         color: var(--primary-green-light);
     }
 
-    /* MODIFIED CTA SECTION */
+    /* === MODIFIED CTA SECTION === */
     .cta-section {
         padding: var(--spacing-lg) 0;
         text-align: center;
@@ -530,30 +529,31 @@
         transform-origin: center center;
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
-        background-image: url('./IMG_1254.jpg'); /* New background image */
-        background-size: 250% 250%;      /* For panning animation */
-        background-position: 0% 50%;     /* Initial position for animation */
+        background-image: url('./IMG_1254.jpg');
+        background-size: 180% auto; /* Adjusted for desktop panning */
+        background-position: 50% 50%; /* Start centered, animation will pan it */
         background-repeat: no-repeat;
-        position: relative;               /* For ::before pseudo-element stacking */
-        overflow: hidden;                 /* Good practice with pseudo-elements */
-
-        animation: ctaBackgroundFlow 20s ease-in-out infinite; /* Keep original animation name */
+        position: relative;
+        overflow: hidden;
+        filter: brightness(1.3); /* MAKE IMAGE ITSELF BRIGHTER */
+        animation: ctaBackgroundFlowDesktop 25s ease-in-out infinite; /* Animation for desktop */
     }
 
-    /* Original animation keyframes, now applies to the image */
-    @keyframes ctaBackgroundFlow {
+    /* Animation for desktop - horizontal pan */
+    @keyframes ctaBackgroundFlowDesktop {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
 
-    /* NEW: Overlay for text readability on CTA section */
+    /* Overlay for text readability on CTA section */
     .cta-section::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.75) 0%, rgba(0, 10, 0, 0.85) 100%); /* Dark green overlay */
-        z-index: 1; /* Sits above the section's background image, below content */
+        /* Overlay to ensure text readability over the (now brighter) image */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.75) 0%, rgba(0, 10, 0, 0.85) 100%);
+        z-index: 1;
     }
 
     .content-section.animate.cta-section,
@@ -562,10 +562,10 @@
         transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
     }
 
-    /* MODIFIED: Ensure CTA content is above the overlay */
+    /* Ensure CTA content is above the overlay */
     .cta-content {
-        position: relative; /* Required for z-index to work */
-        z-index: 2;         /* Sit on top of the ::before overlay */
+        position: relative;
+        z-index: 2;
     }
 
     .cta-content h2 {
@@ -587,6 +587,18 @@
         text-shadow: 0 1px 2px rgba(0,0,0,0.6);
     }
     .btn-cta { font-size: 0.9rem; padding: calc(var(--spacing-sm)*0.95) calc(var(--spacing-lg)*0.95); }
+
+    /* Media query for mobile CTA adjustments */
+    @media (max-width: 768px) {
+        .cta-section {
+            background-size: cover; /* Best fit for mobile, scales image to fill */
+            background-position: center center; /* Center the image content */
+            animation: none; /* Disable panning animation for 'cover' display */
+            /* filter: brightness(1.2); /* Optionally adjust brightness for mobile if needed */
+        }
+    }
+    /* === END OF MODIFIED CTA SECTION === */
+
 
     footer {
         background: var(--footer-background);
