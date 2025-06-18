@@ -12,10 +12,15 @@
         --primary-green-darkest: #0A1A0A;
         --primary-green-darkest-rgb: 10, 26, 10; /* RGB for rgba() usage */
         --primary-green-dark: #123012;
-        --primary-green-medium: #4CAF50;
+        --primary-green-medium: #4CAF50; /* Main Green: 76, 175, 80 */
         --primary-green: var(--primary-green-medium);
-        --primary-green-light: #8DD08D;
-        --primary-green-ultra-light: #E8F5E8;
+        --primary-green-light: #8DD08D; /* Light Green: 141, 208, 141 */
+        --primary-green-ultra-light: #E8F5E8; /* Ultra Light Green: 232, 245, 232 */
+
+        /* Additional shades for holographic effect if needed */
+        --holographic-green-1: #A8E0A8; /* Lighter shade */
+        --holographic-green-2: #61C964; /* Mid-bright shade */
+
 
         --accent-gold: #FFA726;
         --accent-gold-hover: #FFB74D;
@@ -45,8 +50,8 @@
         --hero-gradient: linear-gradient(135deg, rgba(5, 20, 5, 0.65) 0%, rgba(0, 15, 0, 0.75) 60%, rgba(0, 5, 0, 0.8) 100%);
 
         --sharp-glow-outline: rgba(0, 0, 0, 0.5);
-        --sharp-glow-main: rgba(230, 255, 230, 0.7);
-        --sharp-glow-soft: rgba(200, 255, 200, 0.3);
+        --sharp-glow-main: rgba(230, 255, 230, 0.7); /* Original very light green/white glow */
+        --sharp-glow-soft: rgba(200, 255, 200, 0.3); /* Original softer light green/white glow */
 
         --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         --font-heading: 'Playfair Display', Georgia, serif;
@@ -138,15 +143,26 @@
 
     .logo {
         font-family: var(--font-heading);
-        font-weight: 700; color: var(--text-hero);
+        font-weight: 700;
+        /* color: var(--text-hero); REMOVED FOR BACKGROUND-CLIP */
         text-decoration: none; letter-spacing: -0.1px;
         transition: transform var(--transition-fast), text-shadow var(--transition-medium);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         text-transform: uppercase;
         position: relative;
-        text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2);
+        /* text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2); UPDATED */
         font-size: clamp(0.75rem, 1.9vw, 1.3rem);
         max-width: calc(100% - 55px);
+
+        /* Holographic Green Text Fill */
+        background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; /* Text color must be transparent */
+        text-shadow: /* Updated for definition with gradient text */
+            0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb),0.8), /* Tight dark outline */
+            0 0 4px rgba(var(--primary-green-light), 0.6),      /* Greenish highlight/glow */
+            0 0 7px rgba(var(--primary-green-medium), 0.4);      /* Softer ambient green glow */
     }
      @media (min-width: 480px) {
         .logo {
@@ -163,15 +179,21 @@
     }
     .logo:hover {
         transform: scale(1.02);
-        text-shadow: 0px 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35);
+        /* text-shadow: 0px 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35); Ensure this still looks good or adjust */
     }
     .logo::before {
-        content: ''; position: absolute; top: 0; left: -150%;
-        width: 70%; height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 70%;
+        height: 100%;
+        /* Brighter, more concentrated green shimmer */
+        background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
         transform: skewX(-25deg);
         animation: logoShimmer 4s infinite linear;
         animation-delay: 1.5s;
+        z-index: 1;
     }
     @keyframes logoShimmer {
         0% { left: -150%; }
@@ -246,23 +268,57 @@
         font-family: var(--font-heading);
         font-size: clamp(2.5rem, 8vw, 5.5rem);
         font-weight: 800; margin-bottom: var(--spacing-sm);
-        color: var(--text-hero); letter-spacing: -1px;
+        /* color: var(--text-hero); REMOVED FOR BACKGROUND-CLIP */
+        letter-spacing: -1px;
         line-height: 1.05; text-transform: uppercase;
+        /* Original text-shadow kept as it provides a good outer glow for gradient text */
         text-shadow:
             0px 2px 3px var(--sharp-glow-outline),
             0 0 15px var(--sharp-glow-main),
             0 0 30px var(--sharp-glow-soft);
+        position: relative;
+        overflow: hidden;
+
+        /* Holographic Green Text Fill */
+        background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--primary-green-medium) 35%, var(--holographic-green-2) 65%, var(--primary-green-light) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; /* Text color must be transparent */
     }
+
+    .hero h1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 70%;
+        height: 100%;
+        /* Brighter, more concentrated green shimmer */
+        background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
+        transform: skewX(-25deg);
+        animation: heroHeadingShimmer 4.5s infinite linear;
+        animation-delay: 1s;
+        z-index: 1;
+    }
+
+    @keyframes heroHeadingShimmer {
+        0% { left: -150%; }
+        50% { left: 150%; }
+        100% { left: 150%; }
+    }
+
     .hero-subtitle {
         font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
         font-weight: 400; margin-bottom: var(--spacing-md);
         opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
+        color: var(--text-hero); /* Subtitle remains standard white text */
     }
     .hero p {
         font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
         margin-bottom: var(--spacing-lg); opacity: 0.9;
         max-width: 700px; margin-left: auto; margin-right: auto;
         line-height: 1.65; font-weight: 300;
+        color: var(--text-hero); /* Paragraph remains standard white text */
     }
 
     .btn {
@@ -563,30 +619,27 @@
         font-size: clamp(1.8rem, 4vw, 2.8rem);
         margin-bottom: var(--spacing-sm);
         letter-spacing: 0.5px;
-        /* Targeted background for readability */
-        background-color: rgba(var(--primary-green-darkest-rgb), 0.65); /* Shade behind H2 */
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.65);
         padding: 0.25em 0.5em;
         border-radius: var(--border-radius-sm);
-        display: inline; /* Allows text to wrap naturally, background hugs it */
-        box-decoration-break: clone; /* Ensures background continuity for wrapped lines */
-        -webkit-box-decoration-break: clone; /* For Safari */
-        text-shadow: 0px 1px 3px rgba(0,0,0,0.6); /* Simpler text shadow */
-        line-height: 1.3; /* Adjust if needed for multi-line heading background */
+        display: inline;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
+        line-height: 1.3;
     }
     .cta-content p {
         max-width: 650px;
-        margin: var(--spacing-md) auto; /* More margin for P from H2 */
+        margin: var(--spacing-md) auto;
         font-size: clamp(0.9rem, 2vw, 1.1rem);
         line-height: 1.7;
         color: var(--text-hero);
-        /* opacity: 0.95; /* Can remove or adjust if background provides enough visual separation */
         font-weight: 400;
-        /* Targeted background for readability */
-        background-color: rgba(var(--primary-green-darkest-rgb), 0.55); /* Shade behind P */
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.55);
         padding: 0.3em 0.6em;
         border-radius: var(--border-radius-xs);
-        display: inline-block; /* So it can be centered if parent is text-align:center */
-        text-shadow: 0px 1px 2px rgba(0,0,0,0.5); /* Simpler text shadow */
+        display: inline-block;
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
     }
 
     .btn-cta {
@@ -611,7 +664,7 @@
         max-width: 360px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: var(--spacing-lg); /* Added margin above button */
+        margin-top: var(--spacing-lg);
     }
     .btn-cta:hover, .btn-cta:focus {
         transform: translateY(-7px) scale(1.08);
@@ -685,10 +738,45 @@
         border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
     }
 
-    .fab-call {
+    /* === FLOATING ACTION BUTTONS === */
+    .fab-container {
         position: fixed;
-        bottom: 25px;
+        bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        text-decoration: none;
+        cursor: pointer;
+        background: transparent;
+        padding: 0;
+    }
+
+    .fab-call-style {
         right: 25px;
+    }
+
+    .fab-email-style {
+        left: 25px;
+    }
+
+    .fab-text {
+        color: var(--text-hero);
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 7px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+        padding: 4px 8px;
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.6);
+        border-radius: var(--border-radius-xs);
+        text-shadow: 0px 1px 2px rgba(0,0,0,0.7);
+        transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .fab-icon-wrapper {
         width: 60px;
         height: 60px;
         background: var(--accent-gold);
@@ -697,21 +785,26 @@
         align-items: center;
         justify-content: center;
         box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 20px var(--accent-gold-glow);
-        z-index: 1000;
         transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
-        text-decoration: none;
-        opacity: 1;
-        visibility: visible;
     }
-    .fab-call:hover {
-        transform: scale(1.1) translateY(-3px);
-        background: var(--accent-gold-hover);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
-    }
-    .fab-call svg {
+
+    .fab-icon-wrapper svg {
         width: 28px;
         height: 28px;
         fill: var(--primary-green-darkest);
+    }
+
+    /* Hover Effects */
+    .fab-container:hover .fab-text {
+        color: var(--accent-gold);
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.75);
+        transform: translateY(-2px);
+    }
+
+    .fab-container:hover .fab-icon-wrapper {
+        transform: scale(1.1) translateY(-3px);
+        background: var(--accent-gold-hover);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
     }
 
 </style>
@@ -875,11 +968,25 @@
     <div class="footer-bottom"><p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
 </footer>
 
-<a href="tel:786-570-3215" class="fab-call" aria-label="Call us">
-    <svg viewBox="0 0 24 24">
-        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-    </svg>
+<!-- START: Floating Action Buttons -->
+<a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
+    <span class="fab-text">CALL US</span>
+    <div class="fab-icon-wrapper">
+        <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+    </div>
 </a>
+
+<a href="mailto:Miamilovesgreenlandscaping@gmail.com" class="fab-container fab-email-style" aria-label="Email us">
+    <span class="fab-text">EMAIL US</span>
+    <div class="fab-icon-wrapper">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+    </div>
+</a>
+<!-- END: Floating Action Buttons -->
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
