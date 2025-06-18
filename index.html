@@ -5,983 +5,544 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
     <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
-    <link rel="preconnect" href="https://images.unsplash.com">
-    <style>/////// User request: 1. Change coloring below the header. 2. Change all instances of "Miami Green Scape" to "Miami Loves Green Landscaping". 3. Apply light green background theme to main content sections. 4. Update Nav Logo, Hero H1, and Hero P text colors and glows for a more exceptional, readable, and colorful stand-out look.
+    <style>
+        :root {
+            --primary-green-darkest: #0A1A0A; 
+            --primary-green-dark: #123012; 
+            --primary-green: #2A642A; 
+            --primary-green-medium: #4CAF50;
+            --primary-green-light: #8DD08D; 
+            
+            --accent-gold: #FFA726; 
+            --accent-gold-hover: #FFB74D;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --text-hero: #FFFFFF; 
+            --text-on-dark-bg: #E8F5E9; 
+            --text-dark-on-light-bg: #1C1C1C; 
+            --text-medium-on-light-bg: #4A4A4A; 
+
+            --body-bg-center: #142514; /* Dark green center for body vignette */
+            --body-bg-edge: #071007;   /* Even darker edge for body vignette */
+            --background-global: var(--body-bg-center); 
+
+            --background-section: #FFFFFF; /* Sections will be WHITE panels on dark body */
+            --card-background: #FDFDFD; /* Cards slightly off-white for subtle distinction */
+            --footer-background: #C8E6C9; 
+            
+            --shadow-color: rgba(0, 15, 0, 0.1); 
+            --shadow-soft: 0 5px 15px var(--shadow-color);
+            --shadow-medium: 0 7px 20px var(--shadow-color);
+            --shadow-strong: 0 10px 30px rgba(0, 15, 0, 0.12);
+
+            --hero-glow-color: #98FB98; 
+            --hero-glow-softness: 18px; 
+            --hero-glow-spread: 4px; 
+            --hero-inset-shadow-color: rgba(0, 20, 0, 0.4); 
+            --logo-glow-color: rgba(200, 255, 200, 0.45);
+
+            --font-body: Arial, Helvetica, sans-serif;
+            --font-heading-hero: 'Arial Black', 'Impact', Gadget, sans-serif; 
+            --font-heading-section: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: var(--font-body);
+            line-height: 1.7; 
             overflow-x: hidden;
+            background-color: var(--background-global); 
+            background-image: radial-gradient(ellipse at center, 
+                                              var(--body-bg-center) 0%, 
+                                              var(--body-bg-edge) 90%); 
+            color: var(--text-on-dark-bg); 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale; 
         }
 
-        /* Critical above-the-fold styles */
-        .floating-phone {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #4CAF50, #66BB6A);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            animation: pulse 2s infinite;
+        .container { width: 90%; max-width: 1180px; margin: 0 auto; } 
+
+        h1, h2, h3, h4 { font-family: var(--font-heading-section); line-height: 1.25; font-weight: 700; }
+        
+        .section-title {
+            text-align: center; font-size: clamp(2.2rem, 5vw, 3.2rem); 
+            margin-bottom: 1rem; 
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .section-subtitle {
+            text-align: center; max-width: 750px; 
+            margin: 0 auto 3.5rem; font-size: clamp(1rem, 2.5vw, 1.15rem);
+            line-height: 1.65;
         }
 
-        .floating-phone:hover {
-            transform: scale(1.1);
+        /* Text colors for elements directly on dark body background */
+        .content-section > .container > .section-title,
+        .content-section > .container > .section-subtitle,
+        .about-text > p, /* Targeting paragraphs directly under about-text */
+        .about-features li {
+            color: var(--text-on-dark-bg);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Add shadow for readability on dark */
         }
+        .about-text h2.section-title { /* For About section title specifically */
+             color: var(--text-on-dark-bg);
+             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+         .about-features li::before { color: var(--primary-green-light); }
 
-        .floating-phone svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            background-image: linear-gradient(rgba(46, 125, 50, 0.3), rgba(46, 125, 50, 0.3)), 
-                              url('https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=2160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        /* UPDATED Hero H1 styling for exceptional look */
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 4.5rem); /* Slightly increased size for impact */
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: #48D1CC; /* Vibrant MediumTurquoise */
-            text-shadow:
-              /* Dark Outline for contrast */
-              -1.5px -1.5px 0px rgba(0, 77, 77, 0.75), /* Dark Teal outline */
-               1.5px -1.5px 0px rgba(0, 77, 77, 0.75),
-              -1.5px  1.5px 0px rgba(0, 77, 77, 0.75),
-               1.5px  1.5px 0px rgba(0, 77, 77, 0.75),
-              /* Bright Inner Glow */
-               0 0 7px #FFFFFF,
-              /* Color Glow */
-               0 0 18px #7FFFD4, /* Aquamarine (lighter for glow) */
-               0 0 30px #48D1CC; /* Main color glow */
-            /* Removed yellowGlow animation */
-        }
-
-        /* UPDATED Hero Paragraph styling for readability and color */
-        .hero p {
-            font-size: clamp(1.1rem, 2.8vw, 1.4rem); /* Slightly increased size */
-            margin-bottom: 2rem;
-            color: #F0FFF0; /* Honeydew - very light green/almost white */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.85); /* Stronger dark shadow for readability */
-        }
 
         .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(45deg, #66BB6A, #81C784);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+            display: inline-block; padding: 0.9rem 2.2rem; background: var(--accent-gold); 
+            color: var(--primary-green-darkest); text-decoration: none; border-radius: 8px; 
+            font-weight: 700; font-family: var(--font-heading-section);
+            transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            box-shadow: 0 4px 12px var(--shadow-medium), 0 1px 3px rgba(0,0,0,0.1); 
+            text-transform: uppercase; letter-spacing: 1.2px; border: none; cursor: pointer;
         }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(76, 175, 80, 0.4);
+        .btn:hover, .btn:focus { 
+            transform: translateY(-4px); background: var(--accent-gold-hover);
+            box-shadow: 0 8px 20px var(--shadow-strong), 0 3px 6px rgba(0,0,0,0.15);
+            outline: 2px solid transparent; outline-offset: 2px;
         }
-
-        /* Navigation */
+        
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #2E7D32, #4CAF50);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(46, 125, 50, 0.3);
+            position: fixed; top: 0; width: 100%;
+            background: var(--primary-green-dark); 
+            z-index: 1000; padding: 0.7rem 0; 
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 12px rgba(0,0,0, 0.2); 
         }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* UPDATED Navigation Logo styling for exceptional look */
+        .nav-scrolled { background: var(--primary-green-darkest); box-shadow: 0 6px 18px rgba(0,0,0, 0.25); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo {
-            font-size: 1.6rem; /* Slightly increased size */
-            font-weight: bold;
-            color: #FFFFFF; /* Crisp White */
-            text-shadow: 0px 1px 1px rgba(0,0,0,0.5), 0px 2px 4px rgba(27, 94, 32, 0.75); /* Refined shadow for depth */
+            font-family: var(--font-heading-hero);
+            font-size: clamp(1.3rem, 3vw, 1.7rem); 
+            font-weight: 700; 
+            color: var(--text-hero); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            line-height: 1.2; 
+            text-shadow: 
+              0px 0px 1px rgba(0,0,0,0.6), 
+              0 0 10px var(--logo-glow-color),   
+              0 0 3px var(--text-hero);     
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
+        .nav-links { display: flex; list-style: none; gap: 0.75rem; } 
+        @media (max-width: 768px) { .nav-links { display: none; } }
         .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            text-decoration: none; color: rgba(240,247,240,0.9); font-weight: 600; 
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+            padding: 0.6rem 1.1rem; border-radius: 6px; 
+            text-transform: uppercase; letter-spacing: 0.8px; font-size: 0.85rem;
         }
+        .nav-links a:hover, .nav-links a.active { color: #FFFFFF; background-color: rgba(255,255,255, 0.18); transform: translateY(0); }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .hero {
+            position: relative; height: 100vh; min-height: 650px; 
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--text-hero); 
+            background-image: linear-gradient(rgba(10, 40, 10, 0.45) 0%, rgba(5, 25, 5, 0.65) 100%), 
+                              url('./pixel_studio_20250530_02355914.jpg'); 
+            background-size: cover; background-position: center center; background-attachment: fixed; 
         }
-
-        /* Lazy loaded sections */
-        .services, .about, .testimonials, .chatbot-section {
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .hero-content { max-width: 900px; padding: 1rem; animation: fadeInUp 1.2s ease-out 0.3s backwards; }
+        .hero h1 {
+            font-family: var(--font-heading-hero);
+            font-size: clamp(3rem, 8.5vw, 6rem); 
+            font-weight: 900; 
+            margin-bottom: 0.75rem; 
+            color: var(--text-hero); 
+            text-transform: uppercase; 
+            letter-spacing: 2.5px; 
+            line-height: 1.05; 
+            text-shadow:
+              1px 1px 0px var(--hero-inset-shadow-color), 
+              -0.5px -0.5px 0.5px rgba(255,255,255,0.15), 
+              0 0 var(--hero-glow-softness) var(--hero-glow-color),
+              0 0 calc(var(--hero-glow-softness) + var(--hero-glow-spread)) var(--hero-glow-color),
+              0 0 calc(var(--hero-glow-softness) + var(--hero-glow-spread) + 10px) rgba(144, 238, 144, 0.6); 
         }
-
-        .services.loaded, .about.loaded, .testimonials.loaded, .chatbot-section.loaded {
-            opacity: 1;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(225, 240, 225, 0.95)),
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: #2E7D32;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #2E7D32, #4CAF50, #66BB6A);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.98); 
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .service-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            color: #2E7D32;
-            margin-bottom: 1rem;
-        }
-
-        .service-content p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 2rem;
-            background: linear-gradient(rgba(232, 245, 232, 0.95), rgba(225, 240, 225, 0.95)),
-                        url('https://images.unsplash.com/photo-1519827202-4c2b93e30ac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            background-attachment: fixed;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: clamp(2rem, 3vw, 2.5rem);
-            color: #2E7D32;
-            margin-bottom: 2rem;
-        }
-        .about-features {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .about-features li {
-            padding: 0.5rem 0;
-            color: #555; 
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .about-features li:before {
-            content: "✓";
-            color: #4CAF50; 
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .about-image {
-            height: 400px;
-            background: url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(225, 240, 225, 0.95), rgba(232, 245, 232, 0.95)),
-                        url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            background-attachment: fixed;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.98); 
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card.animate {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .testimonial-card:before {
-            content: '"';
-            font-size: 4rem;
-            color: #66BB6A;
-            position: absolute;
-            top: -10px;
-            left: 20px;
-        }
-
-        .testimonial-text {
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            color: #666;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #2E7D32;
-        }
-
-        .testimonial-role {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Chatbot Section */
-        .chatbot-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(27, 94, 32, 0.85)),
-                        url('https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            background-attachment: fixed;
-            color: white;
-            text-align: center;
-        }
-
-        .chatbot-section .section-title {
-            color: white !important;
-            background: none !important;
-            -webkit-background-clip: unset !important;
-            -webkit-text-fill-color: white !important;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .chatbot {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 2rem auto 0;
-            color: #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 600px;
-        }
-
-        .chat-header {
-            background: linear-gradient(45deg, #66BB6A, #81C784);
-            color: white;
-            padding: 1rem;
-            border-radius: 15px 15px 0 0;
-            margin: -2rem -2rem 1rem -2rem;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .chat-messages {
-            height: 300px;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: #f9f9f9;
-        }
-
-        .message {
-            margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 15px;
-            max-width: 80%;
-        }
-
-        .bot-message {
-            background: #e8f5e8;
-            margin-right: auto;
-        }
-
-        .user-message {
-            background: #66BB6A;
-            color: white;
-            margin-left: auto;
-        }
-
-        .chat-input-container {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 1rem;
-            border: 2px solid #eee;
-            border-radius: 25px;
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .chat-input:focus {
-            border-color: #66BB6A;
-        }
-
-        .chat-send {
-            background: linear-gradient(45deg, #66BB6A, #81C784);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .chat-send:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2E7D32, #4CAF50);
-            color: white;
-            padding: 3rem 2rem 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 2rem;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .footer-description {
-            font-size: 0.95rem;
+        .hero p { 
+            font-family: var(--font-body);
+            font-size: clamp(1.2rem, 3.8vw, 1.8rem); 
+            margin-bottom: 2.5rem; color: var(--text-hero); opacity: 0.95; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.95); 
+            max-width: 720px; margin-left: auto; margin-right: auto; 
             line-height: 1.6;
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
         }
+        
+        .content-section { 
+            padding: 5rem 0; 
+            /* background-color: var(--background-section); */ /* REMOVED: Sections are transparent to dark body */
+            color: var(--text-on-dark-bg); 
+            /* margin-bottom: 3rem; */ /* Not needed if sections are not distinct panels */
+        } 
+        .hero + .content-section { padding-top: 5rem; } /* Ensure space after hero */
 
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 2.25rem; }
+        .service-card {
+            background: var(--card-background); /* Cards are light and pop on dark body */
+            color: var(--text-dark-on-light-bg); /* Dark text for card content */
+            border-radius: 10px; overflow: hidden;
+            box-shadow: var(--shadow-medium); 
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            display: flex; flex-direction: column;
+            opacity: 0; transform: translateY(35px); 
         }
+        .service-card.animate { opacity: 1; transform: translateY(0); transition-delay: calc(var(--card-index, 0) * 0.1s); } 
+        .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: var(--shadow-strong); }
+        
+        .service-image-area {
+            width: 100%; height: 220px; 
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; 
+            padding: 1.5rem; position: relative; text-align: center;
+        }
+        .service-image-area::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.4) 50%, rgba(0,30,0,0.85) 100%); 
+            z-index: 1; border-radius: 10px 10px 0 0; 
+        }
+        .service-image-title { 
+            font-family: var(--font-heading-hero); 
+            font-size: clamp(1.5rem, 4vw, 2rem); color: white; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            text-shadow: 1px 2px 4px rgba(0,0,0,1); 
+            position: relative; z-index: 2; width: 100%;
+        }
+        
+        .service-content { padding: 1.75rem; flex-grow: 1; text-align: center; }
+        .service-content h3 { 
+            font-family: var(--font-heading-section);
+            font-size: 1.3rem; color: var(--primary-green-darkest); margin-bottom: 0.6rem; 
+            text-transform: uppercase; font-weight: 700;
+        }
+        .service-content p { color: var(--text-medium-on-light-bg); font-size: 0.92rem; line-height: 1.65; }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 35px;
-            height: 35px;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
+        .about-content { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+        @media (min-width: 992px) { .about-content { grid-template-columns: 1.1fr 1fr; gap: 4rem; } } 
+        /* .about-text h2.section-title is handled by .content-section > .container > .section-title */
+        /* .about-text p is handled by .content-section > .container p (or more specific if needed) */
+        .about-features { list-style: none; margin-top: 1.75rem; padding-left: 0; }
+        /* .about-features li is handled by .content-section li */
+        .about-features li::before { 
+            content: "🌿"; color: var(--primary-green-light); 
+            font-size: 1.05rem; position: absolute; left: 0; top: 0.6em; 
+            transform: translateY(-50%);
+        }
+        .about-image-wrapper { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Shadow for image on dark bg */ }
+        .about-image-wrapper img { display: block; width: 100%; height: 100%; max-height: 450px; object-fit: cover; }
+        @media (min-width: 992px) { .about-text { order: 2; } .about-image-wrapper { order: 1; } } 
+
+        footer { 
+            background: var(--footer-background); 
+            color: var(--primary-green-darkest); 
+            padding: 4.5rem 0 2.5rem; 
+        }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 3rem; }
+        .footer-logo {
+            font-family: var(--font-heading-hero);
+            font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; 
+            text-transform: uppercase; letter-spacing: 1.2px; 
+            color: var(--primary-green-darkest); opacity: 0.9;
+        }
+        .footer-description { font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.5rem; color: var(--text-medium-on-light-bg); opacity: 0.9; }
+        .social-links { display: flex; gap: 0.8rem; margin-top: 1rem; }
+        .social-link { 
+            display: flex; align-items: center; justify-content: center; 
+            width: 40px; height: 40px; 
+            color: var(--primary-green-dark);
+            text-decoration: none; transition: all 0.25s ease; 
+            background: rgba(0, 50, 0, 0.08); 
             border-radius: 50%;
         }
-
-        .social-link:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .social-link svg { width: 18px; height: 18px; }
+        .social-link:hover, .social-link:focus { 
+            color: white; 
+            background: var(--primary-green); 
+            transform: scale(1.1); 
         }
-
-        .footer-section h3 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+        .footer-section h3 { 
+            font-family: var(--font-heading-section);
+            color: var(--primary-green-dark); opacity: 0.95; margin-bottom: 1.5rem; 
+            font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; 
         }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            margin-bottom: 0.6rem;
-            display: block;
-            transition: color 0.3s ease;
+        .footer-section a { 
+            color: var(--text-medium-on-light-bg); opacity: 0.9; text-decoration: none; 
+            margin-bottom: 0.75rem; display: block; 
+            transition: color 0.2s ease, padding-left 0.2s ease, opacity 0.2s ease; font-size: 0.9rem; 
         }
+        .footer-section a:hover, .footer-section a:focus { color: var(--primary-green-darkest); opacity: 1; padding-left: 6px; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 0.8rem; font-size: 0.9rem; color: var(--text-medium-on-light-bg); }
+        .contact-item a { margin-bottom: 0; font-size: 0.9rem; color: var(--text-medium-on-light-bg);} 
+        .contact-item a:hover { padding-left: 0; color: var(--primary-green-darkest); }
+        .contact-icon { margin-right: 0.8rem; width: 16px; color: var(--primary-green); }
+        .footer-bottom { 
+            text-align: center; margin-top: 3.5rem; padding-top: 2rem; 
+            border-top: 1px solid rgba(0, 30, 0, 0.1); 
+            color: var(--text-medium-on-light-bg); opacity: 0.8; 
+            font-size: 0.88rem; 
+        } 
 
-        .footer-section a:hover {
-            color: white;
+        .floating-phone {
+            position: fixed; bottom: 25px; right: 25px; width: 55px; height: 55px;
+            background: linear-gradient(45deg, var(--primary-green-medium), var(--primary-green-light));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; text-decoration: none;
+            animation: pulse 2.5s infinite;
+            overflow: hidden; 
         }
+        .floating-phone svg, .social-link svg { display: block; max-width: 100%; max-height: 100%; }
+        .floating-phone svg { width: 22px; height: 22px; fill: white; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.6rem;
-            color: rgba(255, 255, 255, 0.9);
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (max-width: 991px) { 
+            .hero h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: 1.5px;} 
+            .about-content { grid-template-columns: 1fr; }
+            .about-image-wrapper { max-width: 100%; margin: 2rem auto 0; height: 300px;}
         }
-
-        .contact-icon {
-            margin-right: 8px;
-            width: 15px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .floating-phone {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: clamp(2.2rem, 5vw, 3.5rem); /* Adjust for smaller screens */
-            }
-            .hero p {
-                font-size: clamp(1rem, 2.5vw, 1.2rem); /* Adjust for smaller screens */
-            }
+            .container {width: 92%;}
+            .floating-phone { width: 50px; height: 50px; bottom: 15px; right: 15px; }
+            .floating-phone svg { width: 20px; height: 20px; }
+            nav { padding: 0.6rem 0; }
+            .logo { font-size: clamp(1.1rem, 3.5vw, 1.4rem); letter-spacing: 0.5px; } 
+            .hero { background-attachment: scroll; min-height: 550px; } 
+            .hero h1 { font-size: clamp(2.4rem, 9vw, 3.8rem); letter-spacing: 1.5px; } 
+            .hero p { font-size: clamp(1.1rem, 4vw, 1.4rem); } 
+            .btn { padding: 0.8rem 1.8rem; font-size: 0.8rem; letter-spacing: 0.8px;}
+            .content-section { padding: 4rem 0; /* margin-bottom: 2rem; margin-top: 2rem; */ }
+             .hero + .content-section { padding-top: 4rem; } /* Ensure consistent padding after hero */
+            .section-title { font-size: clamp(1.8rem, 6vw, 2.6rem); letter-spacing: 1px; }
+            .section-subtitle { font-size: clamp(0.9rem, 3vw, 1.05rem); margin-bottom: 2.5rem;}
+            .services-grid { gap: 1.75rem; }
+            .service-card { border-radius: 8px; }
+            .service-image-area { height: 180px; }
+            .service-image-title { font-size: clamp(1.3rem, 4vw, 1.7rem); }
+            .service-content { padding: 1.25rem 1rem; }
+            .service-content h3 { font-size: 1.15rem; }
+            .service-content p { font-size: 0.88rem; }
+            .about-text h2.section-title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+            .footer-content { text-align: center; } 
+            .social-links, .contact-item { justify-content: center; } 
         }
-
-        /* Performance optimizations */
-        .service-image, .about-image {
-            will-change: transform;
-        }
-
-        /* Reduced motion for accessibility */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; animation: none !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Phone Button -->
-    <a href="tel:786-570-3215" class="floating-phone" title="Call us now!">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-    </a>
+    <a href="tel:786-570-3215" class="floating-phone" title="Call us now!"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Miami Loves Green Landscaping</div>
+    <nav id="mainNav">
+        <div class="container nav-container">
+            <div class="logo">Miami Loves Green Landscaping</div> <!-- FULL NAME HERE -->
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Miami Loves<br>Green Landscaping</h1>
-            <p>Transform your outdoor space into a breathtaking paradise with South Florida's premier landscaping service.</p>
-            <a href="#contact" class="btn">Get Your Free Consultation</a>
+            <p>Transforming outdoor spaces into breathtaking, sustainable paradises throughout South Florida.</p>
+            <a href="#footer-contact" class="btn">Get a Free Quote</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Services Section sits on dark body background; cards are light -->
+    <section id="services" class="services content-section">
         <div class="container">
-            <h2 class="section-title">Services Offered</h2>
-            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We offer a comprehensive range of landscaping solutions tailored to your vision and Miami's unique climate.</p>
+            <h2 class="section-title">Our Premier Services</h2>
+            <p class="section-subtitle">We offer a comprehensive range of landscaping solutions, meticulously tailored to your vision and Miami's unique climate.</p>
             
             <div class="services-grid">
-                <div class="service-card">
-<div class="service-image" style="background-image: url('./pixel_studio_.jpg');"></div>
-
+                <div class="service-card" style="--card-index: 1;">
+                    <div class="service-image-area" style="background-image: url('./pixel_studio_.jpg');">
+                        <h4 class="service-image-title">Landscape Design</h4>
+                    </div>
                     <div class="service-content">
-                        <h3>Landscape Design</h3>
-                        <p>Custom tropical paradise designs tailored to your style and property, maximizing beauty and functionality.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Creative Landscape Design</h3>
+                        <p>Custom tropical paradise designs reflecting your style, maximizing property beauty and functionality.</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                  
-                                    <div class="service-image" style="background-image: url('./gardenimage.jpg');"></div>
+                <div class="service-card" style="--card-index: 2;">
+                    <div class="service-image-area" style="background-image: url('./gardenimage.jpg');">
+                         <h4 class="service-image-title">Garden Maintenance</h4>
+                    </div>
                     <div class="service-content">
-                        <h3>Garden Maintenance</h3>
-                        <p>Regular upkeep to keep your garden vibrant and pristine year-round, ensuring its health and beauty.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Expert Garden Care</h3>
+                        <p>Regular, meticulous upkeep to ensure your garden remains vibrant, healthy, and pristine year-round.</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                          <div class="service-image" style="background-image: url('./irrigationimage.jpg');"></div>
+                <div class="service-card" style="--card-index: 3;">
+                    <div class="service-image-area" style="background-image: url('./irrigationimage.jpg');">
+                        <h4 class="service-image-title">Irrigation Systems</h4>
+                    </div>
                     <div class="service-content">
-                        <h3>Irrigation Systems</h3>
-                        <p>Smart, efficient watering solutions for sustainable and thriving gardens, conserving water and promoting growth.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Smart Irrigation</h3>
+                        <p>Efficient, water-conserving watering solutions for sustainable, thriving gardens and lush lawns.</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    
-                              <div class="service-image" style="background-image: url('./hardscarpingimag.jpg');"></div>
+                <div class="service-card" style="--card-index: 4;">
+                    <div class="service-image-area" style="background-image: url('./hardscarpingimag.jpg');">
+                         <h4 class="service-image-title">Hardscaping</h4>
+                    </div>
                     <div class="service-content">
-                        <h3>Hardscaping</h3>
-                        <p>Beautiful pathways, patios, retaining walls, and structural elements that enhance your outdoor living experience.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Durable Hardscaping</h3>
+                        <p>Beautiful pathways, patios, and retaining walls that enhance your outdoor living experience and usability.</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                        <div class="service-image" style="background-image: url('./treetriming.jpg');"></div>
-
-
+                <div class="service-card" style="--card-index: 5;">
+                    <div class="service-image-area" style="background-image: url('./treetriming.jpg');">
+                        <h4 class="service-image-title">Tree Care</h4>
+                    </div>
                     <div class="service-content">
-                        <h3>Tree Trimming & Care</h3>
-                        <p>Professional tree shaping, health assessments, and maintenance to ensure the longevity and beauty of your trees.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Professional Tree Care</h3>
+                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</p>
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-image" style="background-image: url('./landscapelighting.jpg');"></div>
-                        <h3>Outdoor Lighting</h3>
-                        <p>Elegant lighting solutions to enhance beauty and security, transforming your outdoor space after sunset.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                <div class="service-card" style="--card-index: 6;">
+                    <div class="service-image-area" style="background-image: url('./landscapelighting.jpg');">
+                        <h4 class="service-image-title">Outdoor Lighting</h4>
+                    </div>
+                    <div class="service-content">
+                        <h3>Elegant Lighting</h3>
+                        <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your outdoor space.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About Section sits on dark body background; image has its own definition -->
+    <section id="about" class="about content-section">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Your Vision, Our Expertise.</h2>
-                    <p>At Miami Loves Green Landscaping, we believe that your outdoor space should be a reflection of your personality and a sanctuary for relaxation and enjoyment. With years of experience serving the Miami area, our passionate team brings creativity, expertise, and meticulous attention to detail to every project.</p>
+                    <h2 class="section-title" style="text-align: left; margin-bottom:1.25rem;">Your Vision, Our Expertise</h2>
+                    <p>At Miami Loves Green Landscaping, your outdoor space is our canvas. We believe it should be a true reflection of your personality and a sanctuary for relaxation and enjoyment. With years of dedicated experience serving the Miami area, our passionate team brings creativity, deep horticultural knowledge, and meticulous attention to detail to every single project, ensuring a result that exceeds expectations.</p>
                     <ul class="about-features">
-                        <li>Licensed & Insured Professionals ensuring peace of mind</li>
-                        <li>Eco-Friendly & Sustainable Practices for a greener future</li>
-                        <li>Award-Winning & Innovative Designs that stand out</li>
+                        <li>Licensed & Insured Professionals</li>
+                        <li>Eco-Friendly & Sustainable Practices</li>
+                        <li>Award-Winning & Innovative Designs</li>
                         <li>Unwavering Commitment to Client Satisfaction</li>
                     </ul>
-                    <a href="#contact" class="btn" style="margin-top: 2rem;">Discuss Your Project</a>
+                    <a href="#footer-contact" class="btn" style="margin-top: 1.5rem;">Discuss Your Project</a>
                 </div>
-                <div class="about-image"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Kind Words From Our Clients</h2>
-            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto;">We're proud of the relationships we build and the beautiful spaces we create.</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Miami Loves Green Landscaping transformed our backyard into a stunning tropical oasis. Their attention to detail and creativity exceeded all our expectations!
-                    </div>
-                    <div class="testimonial-author">Sarah Rodriguez</div>
-                    <div class="testimonial-role">Homeowner, Coral Gables</div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        Professional, reliable, and always delivering exceptional quality. Our properties have never looked better. Highly recommended for any landscaping needs.
-                    </div>
-                    <div class="testimonial-author">Michael Chen</div>
-                    <div class="testimonial-role">Property Manager, Miami Beach</div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        They created an amazing outdoor dining space that our customers absolutely love. The design perfectly captures the Miami vibe. Fantastic work!
-                    </div>
-                    <div class="testimonial-author">Isabella Martinez</div>
-                    <div class="testimonial-role">Restaurant Owner, Wynwood</div>
+                <div class="about-image-wrapper">
+                     <img src="./image.jpg" alt="Professional landscaping team collaborating on a design"> 
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Chatbot Section -->
-    <section id="contact" class="chatbot-section">
-        <div class="container">
-            <h2 class="section-title">Ready to Create Your Dream Landscape?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Chat with us below to get started with your free consultation!</p>
-            
-            <div class="chatbot">
-                <div class="chat-header">
-                    🌿 Miami Loves Green Landscaping Assistant
-                </div>
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message bot-message">
-                        Hi! I'm here to help you get started with your landscaping project. What's your name?
-                    </div>
-                </div>
-                <div class="chat-input-container">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
-                    <button class="chat-send" onclick="sendMessage()">Send</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
+    
+    <footer id="footer-contact">
+        <div class="container footer-content">
             <div class="footer-brand">
                 <div class="footer-logo">Miami Loves Green Landscaping</div>
-                <p class="footer-description">
-                    Transforming Miami's outdoor spaces into breathtaking tropical paradises with professional landscaping excellence since 2015.
-                </p>
+                <p class="footer-description">Transforming Miami's outdoor spaces into breathtaking tropical paradises with professional landscaping excellence since 2015.</p>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
+                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+                    <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#contact">Contact</a>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Our Services</h3>
-                <a href="#services">Landscape Design</a>
-                <a href="#services">Garden Maintenance</a>
-                <a href="#services">Irrigation Systems</a>
-                <a href="#services">Hardscaping</a>
-                <a href="#services">Tree Care</a>
-                <a href="#services">Outdoor Lighting</a>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="contact-item">
-                    <span class="contact-icon">📞</span>
-                    <a href="tel:786-570-3215">(786) 570-3215</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">✉️</span>
-                    <a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">🕒</span>
-                    <span>Mon-Sat: 7AM-6PM</span>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-icon">📍</span>
-                    <span>Miami, Florida</span>
-                </div>
-            </div>
+            <div class="footer-section"><h3>Quick Links</h3> <a href="#home">Home</a> <a href="#services">Services</a> <a href="#about">About</a> <a href="#footer-contact">Contact</a></div>
+            <div class="footer-section"><h3>Our Services</h3> <a href="#services">Landscape Design</a> <a href="#services">Garden Maintenance</a> <a href="#services">Irrigation Systems</a> <a href="#services">Hardscaping</a> <a href="#services">Tree Care</a> <a href="#services">Outdoor Lighting</a></div>
+            <div class="footer-section"><h3>Contact Info</h3> <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786) 570-3215</a></div> <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div> <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div> <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div></div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 Miami Loves Green Landscaping. All rights reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
     </footer>
 
     <script>
-        // Optimized smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const mainNav = document.getElementById('mainNav');
 
-        // Optimized navbar scroll effect
-        let ticking = false;
-        function updateNavbar() {
-            const nav = document.querySelector('nav');
-            const scrolled = window.scrollY;
-            
-            if (scrolled > 100) {
-                nav.style.background = 'linear-gradient(135deg, #1B5E20, #2E7D32)';
-                nav.style.boxShadow = '0 8px 32px rgba(46, 125, 50, 0.4)';
-            } else {
-                nav.style.background = 'linear-gradient(135deg, #2E7D32, #4CAF50)';
-                nav.style.boxShadow = '0 2px 20px rgba(46, 125, 50, 0.3)';
-            }
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        });
-
-        // Optimized Intersection Observer
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const animateOnScroll = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const element = entry.target;
-                    element.classList.add('animate');
-                    
-                    // Lazy load sections
-                    if (element.classList.contains('services') || 
-                        element.classList.contains('about') || 
-                        element.classList.contains('testimonials') || 
-                        element.classList.contains('chatbot-section')) {
-                        element.classList.add('loaded');
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = mainNav ? mainNav.offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight - 10; 
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
-                }
+                });
             });
-        }, observerOptions);
 
-        // Optimized chatbot functionality
-        let chatStep = 0;
-        let userInfo = {};
-        const chatQuestions = [
-            "What's your name? 😊",
-            "What's your email address? 📧", 
-            "What's your phone number? 📱",
-            "What type of landscaping service interests you most? 🌿",
-            "What's your property address in Miami? 🏡",
-            "Tell us about your dream outdoor space... ✨"
-        ];
+            let ticking = false;
+            const sections = document.querySelectorAll('section[id], footer[id]');
+             if (!mainNav) { console.warn("mainNav not found, scroll effects might be impacted."); }
 
-        function addMessage(message, isUser = false) {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+            function updateNavbarOnScroll() {
+                if (!mainNav) return;
+                const scrolled = window.scrollY;
+                
+                if (scrolled > 50) { mainNav.classList.add('nav-scrolled'); } 
+                else { mainNav.classList.remove('nav-scrolled'); }
 
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            addMessage(message, true);
-            input.value = '';
-            
-            const fields = ['name', 'email', 'phone', 'service', 'address', 'vision'];
-            if (chatStep < fields.length) {
-                userInfo[fields[chatStep]] = message;
-            }
-            
-            chatStep++;
-            
-            setTimeout(() => {
-                if (chatStep < chatQuestions.length) {
-                    addMessage(chatQuestions[chatStep]);
-                } else {
-                    addMessage("🎉 Perfect! We have everything we need. Our team will contact you within 24 hours!");
-                    setTimeout(() => {
-                        addMessage("📧 Your consultation request has been sent! Expect a call from (786) 570-3215 soon. Thank you! 🌴");
-                    }, 1500);
+                let currentSectionId = '';
+                const navHeight = mainNav.offsetHeight;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navHeight - 70; 
+                    if (scrolled >= sectionTop) { currentSectionId = section.getAttribute('id'); }
+                });
+                
+                if ((window.innerHeight + window.scrollY + 150) >= document.body.offsetHeight && document.getElementById('footer-contact')) {
+                    currentSectionId = 'footer-contact';
                 }
-            }, 1000);
-        }
 
-        // Enter key support
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
-        });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) { link.classList.add('active'); }
+                });
+                
+                if (!currentSectionId && sections.length > 0 && scrolled < (sections[0].offsetTop - navHeight - 70)) {
+                     const homeLink = document.querySelector('.nav-links a[href="#home"]');
+                     if (homeLink) homeLink.classList.add('active');
+                }
+                ticking = false;
+            }
 
-        // Initialize observers when page loads
-        window.addEventListener('load', function() {
-            const elementsToAnimate = document.querySelectorAll(
-                '.service-card, .testimonial-card, .services, .about, .testimonials, .chatbot-section'
-            );
-            
-            elementsToAnimate.forEach(element => {
+            window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateNavbarOnScroll); ticking = true; } });
+            updateNavbarOnScroll();
+
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }; 
+            const animateOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate'); 
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.service-card, .about-content > div, .hero-content > *');
+             elementsToAnimate.forEach((element, index) => {
+                if (element.parentElement && element.parentElement.classList.contains('hero-content')) { 
+                    element.style.animationDelay = `${index * 0.12}s`; 
+                }
+                if (element.classList.contains('service-card')) {
+                    element.style.setProperty('--card-index', index % 3); 
+                }
                 animateOnScroll.observe(element);
             });
+
+            const currentYearSpan = document.getElementById('currentYear');
+            if (currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
         });
     </script>
 </body>
