@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miami Green Scape - Premier Landscaping Services</title>
+    <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
     <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
     <link rel="preconnect" href="https://images.unsplash.com">
-    <style>
+    <style>/////// User request: 1. Change coloring below the header. 2. Change all instances of "Miami Green Scape" to "Miami Loves Green Landscaping". 3. Apply light green background theme to main content sections. 4. Update Nav Logo, Hero H1, and Hero P text colors and glows for a more exceptional, readable, and colorful stand-out look.
+
         * {
             margin: 0;
             padding: 0;
@@ -64,11 +65,11 @@
             justify-content: center;
             text-align: center;
             color: white;
-              background-image: url('https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=2160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover; /* or contain */
-  background-repeat: no-repeat;
-  background-position: center;
-
+            background-image: linear-gradient(rgba(46, 125, 50, 0.3), rgba(46, 125, 50, 0.3)), 
+                              url('https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?q=80&w=2160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             background-attachment: fixed;
         }
 
@@ -78,25 +79,32 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        /* UPDATED Hero H1 styling for exceptional look */
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 6vw, 4.5rem); /* Slightly increased size for impact */
             font-weight: bold;
             margin-bottom: 1rem;
-            color: #FFFF00;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.5);
-            animation: yellowGlow 3s ease-in-out infinite alternate;
+            color: #48D1CC; /* Vibrant MediumTurquoise */
+            text-shadow:
+              /* Dark Outline for contrast */
+              -1.5px -1.5px 0px rgba(0, 77, 77, 0.75), /* Dark Teal outline */
+               1.5px -1.5px 0px rgba(0, 77, 77, 0.75),
+              -1.5px  1.5px 0px rgba(0, 77, 77, 0.75),
+               1.5px  1.5px 0px rgba(0, 77, 77, 0.75),
+              /* Bright Inner Glow */
+               0 0 7px #FFFFFF,
+              /* Color Glow */
+               0 0 18px #7FFFD4, /* Aquamarine (lighter for glow) */
+               0 0 30px #48D1CC; /* Main color glow */
+            /* Removed yellowGlow animation */
         }
 
-        @keyframes yellowGlow {
-            from { text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.5); }
-            to { text-shadow: 0 0 20px rgba(255, 255, 0, 1), 0 0 40px rgba(255, 255, 0, 0.7); }
-        }
-
+        /* UPDATED Hero Paragraph styling for readability and color */
         .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem); /* Slightly increased size */
             margin-bottom: 2rem;
-            color: #FFFF00;
-            text-shadow: 0 0 5px rgba(255, 255, 0, 0.6);
+            color: #F0FFF0; /* Honeydew - very light green/almost white */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.85); /* Stronger dark shadow for readability */
         }
 
         .btn {
@@ -136,11 +144,12 @@
             margin: 0 auto;
         }
 
+        /* UPDATED Navigation Logo styling for exceptional look */
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem; /* Slightly increased size */
             font-weight: bold;
-            color: #FFFF00;
-            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+            color: #FFFFFF; /* Crisp White */
+            text-shadow: 0px 1px 1px rgba(0,0,0,0.5), 0px 2px 4px rgba(27, 94, 32, 0.75); /* Refined shadow for depth */
         }
 
         .nav-links {
@@ -176,7 +185,7 @@
         /* Services Section */
         .services {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(248, 249, 250, 0.95), rgba(232, 245, 232, 0.95)),
+            background: linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(225, 240, 225, 0.95)),
                         url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             background-attachment: fixed;
         }
@@ -211,7 +220,7 @@
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.98); 
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -254,7 +263,7 @@
         /* About Section */
         .about {
             padding: 5rem 2rem;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(248, 255, 248, 0.9)),
+            background: linear-gradient(rgba(232, 245, 232, 0.95), rgba(225, 240, 225, 0.95)),
                         url('https://images.unsplash.com/photo-1519827202-4c2b93e30ac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             background-attachment: fixed;
         }
@@ -271,7 +280,6 @@
             color: #2E7D32;
             margin-bottom: 2rem;
         }
-
         .about-features {
             list-style: none;
             margin-top: 2rem;
@@ -279,14 +287,14 @@
 
         .about-features li {
             padding: 0.5rem 0;
-            color: #666;
+            color: #555; 
             position: relative;
             padding-left: 2rem;
         }
 
         .about-features li:before {
             content: "✓";
-            color: #66BB6A;
+            color: #4CAF50; 
             font-weight: bold;
             position: absolute;
             left: 0;
@@ -302,7 +310,7 @@
         /* Testimonials */
         .testimonials {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(232, 245, 232, 0.95), rgba(248, 249, 250, 0.95)),
+            background: linear-gradient(135deg, rgba(225, 240, 225, 0.95), rgba(232, 245, 232, 0.95)),
                         url('https://images.unsplash.com/photo-1574958269340-fa927503f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             background-attachment: fixed;
         }
@@ -315,7 +323,7 @@
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.98); 
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -581,6 +589,12 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+            .hero h1 {
+                font-size: clamp(2.2rem, 5vw, 3.5rem); /* Adjust for smaller screens */
+            }
+            .hero p {
+                font-size: clamp(1rem, 2.5vw, 1.2rem); /* Adjust for smaller screens */
+            }
         }
 
         /* Performance optimizations */
@@ -609,7 +623,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">Miami Green Scape</div>
+            <div class="logo">Miami Loves Green Landscaping</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -703,7 +717,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Your Vision, Our Expertise.</h2>
-                    <p>At Miami Green Scape, we believe that your outdoor space should be a reflection of your personality and a sanctuary for relaxation and enjoyment. With years of experience serving the Miami area, our passionate team brings creativity, expertise, and meticulous attention to detail to every project.</p>
+                    <p>At Miami Loves Green Landscaping, we believe that your outdoor space should be a reflection of your personality and a sanctuary for relaxation and enjoyment. With years of experience serving the Miami area, our passionate team brings creativity, expertise, and meticulous attention to detail to every project.</p>
                     <ul class="about-features">
                         <li>Licensed & Insured Professionals ensuring peace of mind</li>
                         <li>Eco-Friendly & Sustainable Practices for a greener future</li>
@@ -726,7 +740,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        Miami Green Scape transformed our backyard into a stunning tropical oasis. Their attention to detail and creativity exceeded all our expectations!
+                        Miami Loves Green Landscaping transformed our backyard into a stunning tropical oasis. Their attention to detail and creativity exceeded all our expectations!
                     </div>
                     <div class="testimonial-author">Sarah Rodriguez</div>
                     <div class="testimonial-role">Homeowner, Coral Gables</div>
@@ -759,7 +773,7 @@
             
             <div class="chatbot">
                 <div class="chat-header">
-                    🌿 Miami Green Scape Assistant
+                    🌿 Miami Loves Green Landscaping Assistant
                 </div>
                 <div class="chat-messages" id="chatMessages">
                     <div class="message bot-message">
@@ -778,7 +792,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <div class="footer-logo">Miami Green Scape</div>
+                <div class="footer-logo">Miami Loves Green Landscaping</div>
                 <p class="footer-description">
                     Transforming Miami's outdoor spaces into breathtaking tropical paradises with professional landscaping excellence since 2015.
                 </p>
@@ -847,7 +861,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Miami Green Scape. All rights reserved.</p>
+            <p>© 2025 Miami Loves Green Landscaping. All rights reserved.</p>
         </div>
     </footer>
 
