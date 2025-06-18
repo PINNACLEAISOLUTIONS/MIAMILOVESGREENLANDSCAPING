@@ -213,11 +213,11 @@
         position: relative; height: 100vh; min-height: 650px;
         display: flex; align-items: center; justify-content: center;
         text-align: center; color: var(--text-hero);
-        background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.jpg');
+        background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.webp'); /* UPDATED to .webp */
         background-size: cover, cover;
         background-position: center center, center center;
         background-attachment: fixed, fixed; overflow: hidden;
-        filter: brightness(1.9); /* INCREASED Hero Brightness */
+        filter: brightness(1.9);
     }
      .hero::before {
         content: '';
@@ -369,7 +369,7 @@
         filter: brightness(1.5);
     }
     .service-image-area.lighting-image {
-        filter: brightness(2.0); /* INCREASED Outdoor Lighting Brightness */
+        filter: brightness(2.0);
     }
 
     .service-card:hover .service-image-area { transform: scale(1.08); }
@@ -532,7 +532,7 @@
         transform-origin: center center;
         transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
 
-        background-image: url('./IMG_1254.jpg');
+        background-image: url('./IMG_1254.webp'); /* UPDATED to .webp */
         background-size: 180% auto;
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -552,7 +552,7 @@
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(5, 20, 5, 0.85) 0%, rgba(0, 10, 0, 0.95) 100%); /* Stronger overlay for very bright image */
+        background: linear-gradient(135deg, rgba(5, 20, 5, 0.85) 0%, rgba(0, 10, 0, 0.95) 100%); /* Adjusted overlay opacity */
         z-index: 1;
     }
 
@@ -586,24 +586,22 @@
         text-shadow: 0 1px 2px rgba(0,0,0,0.6);
     }
 
-    /* NEW Enhanced CTA Button Styling */
     .btn-cta {
-        /* Inherits base .btn styles but we override/add here */
-        font-size: 0.85rem; /* Adjusted for longer text, can be slightly smaller if needed */
-        padding: calc(var(--spacing-sm) * 1.1) calc(var(--spacing-lg) * 0.7); /* More vertical padding */
+        font-size: 0.85rem;
+        padding: calc(var(--spacing-sm) * 1.1) calc(var(--spacing-lg) * 0.7);
         font-weight: 700;
         letter-spacing: 0.5px;
-        line-height: 1.45; /* Helps if text wraps */
+        line-height: 1.45;
         background: linear-gradient(145deg, var(--accent-gold-hover) 0%, var(--accent-gold) 70%, var(--accent-gold-hover) 100%);
         box-shadow:
-            0 5px 15px rgba(0,0,0,0.15), /* Softer, wider base shadow */
+            0 5px 15px rgba(0,0,0,0.15),
             0 0 20px var(--accent-gold-glow),
-            inset 0 -2px 3px rgba(0,0,0,0.2), /* Bottom inset for depth */
-            inset 0 1px 1px rgba(255,255,255,0.4); /* Top highlight */
-        border: 1px solid rgba(0,0,0,0.15); /* Subtle border */
+            inset 0 -2px 3px rgba(0,0,0,0.2),
+            inset 0 1px 1px rgba(255,255,255,0.4);
+        border: 1px solid rgba(0,0,0,0.15);
         transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.3s ease-out;
-        white-space: normal; /* Allow text to wrap */
-        max-width: 320px; /* Prevent button from becoming overly wide on larger text */
+        white-space: normal;
+        max-width: 320px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -616,7 +614,7 @@
             inset 0 -3px 4px rgba(0,0,0,0.25),
             inset 0 1px 2px rgba(255,255,255,0.5);
         border-color: rgba(0,0,0,0.3);
-        outline: 2px solid transparent; /* For focus visibility, can be styled */
+        outline: 2px solid transparent;
         outline-offset: 2px;
     }
     /* === END OF MODIFIED CTA SECTION === */
@@ -745,7 +743,7 @@
             <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
             <div class="services-grid">
                 <div class="service-card" style="--card-index: 0;">
-                    <div class="service-image-area" style="background-image: url('./gardenimage.jpg');">
+                    <div class="service-image-area" style="background-image: url('./gardenimage.webp');"> <!-- UPDATED to .webp -->
                         <h3 class="service-image-title">Landscape Design</h3>
                     </div>
                     <div class="service-content">
@@ -754,7 +752,7 @@
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 1;">
-                    <div class="service-image-area" style="background-image: url('./IMG_1255 (1).jpg');">
+                    <div class="service-image-area" style="background-image: url('./IMG_1255 (1).webp');"> <!-- UPDATED to .webp -->
                          <h3 class="service-image-title">Garden Maintenance</h3>
                     </div>
                     <div class="service-content">
@@ -763,7 +761,7 @@
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 2;">
-                    <div class="service-image-area" style="background-image: url('./irrigationimage.jpg');">
+                    <div class="service-image-area" style="background-image: url('./irrigationimage.webp');"> <!-- UPDATED to .webp -->
                          <h3 class="service-image-title">Irrigation Systems</h3>
                     </div>
                     <div class="service-content">
@@ -772,7 +770,7 @@
                     </div>
                 </div>
                  <div class="service-card" style="--card-index: 3;">
-                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscarpingimag.jpg');">
+                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscarpingimag.webp');"> <!-- UPDATED to .webp -->
                          <h3 class="service-image-title">Hardscaping</h3>
                     </div>
                     <div class="service-content">
@@ -781,7 +779,7 @@
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 4;">
-                    <div class="service-image-area" style="background-image: url('./treetriming.jpg');">
+                    <div class="service-image-area" style="background-image: url('./treetriming.webp');"> <!-- UPDATED to .webp -->
                          <h3 class="service-image-title">Tree Care</h3>
                     </div>
                     <div class="service-content">
@@ -790,7 +788,7 @@
                     </div>
                 </div>
                 <div class="service-card" style="--card-index: 5;">
-                    <div class="service-image-area lighting-image" style="background-image: url('./landscapelighting.jpg');">
+                    <div class="service-image-area lighting-image" style="background-image: url('./landscapelighting.webp');"> <!-- UPDATED to .webp -->
                          <h3 class="service-image-title">Outdoor Lighting</h3>
                     </div>
                     <div class="service-content">
