@@ -807,13 +807,13 @@ left: calc(100% + var(--carousel-item-gap));
 width: var(--carousel-item-width);
 height: var(--carousel-item-height);
 display: grid;
-grid-template-rows: 200px auto 1fr auto;
-gap: 0.25rem;
+grid-template-rows: 1fr; /* MODIFIED: Image row fills article */
+/* gap: 0.25rem; REMOVED */
 border: 1px solid light-dark(rgba(0 0 0 / 0.25), rgba(255 255 255 / 0.15));
-padding-block-end: 1rem;
+/* padding-block-end: 1rem; REMOVED */
 border-radius: 10px;
 background: light-dark(white, rgba(255 255 255 / 0.05));
-color: light-dark(rgb(49, 65, 88), white);
+/* color: light-dark(rgb(49, 65, 88), white); REMOVED */
 
 /* animation */
 will-change: transform;
@@ -837,7 +837,7 @@ animation-delay: calc(
 width: 100%;
 height: 100%;
 object-fit: cover;
-border-radius: 10px 10px 0 0;
+border-radius: inherit; /* MODIFIED: Inherits article's border-radius */
 }
 .carousel > article > *:not(img) {
 padding: 0 1rem;
@@ -997,56 +997,26 @@ min-height: 750px;
         <div class="carousel" mask>
             <article>
                 <img src="./503889421_18508401811007660_7253479364693418141_n.jpg" alt="Landscaping Project 1">
-                <h2>Creative Design</h2>
-                <div>
-                    <p>Breathtaking landscape transformation combining aesthetics and function.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="./503851911_18508401799007660_5096063837397163195_n.jpg" alt="Landscaping Project 2">
-                <h2>Lush Gardens</h2>
-                <div>
-                    <p>Vibrant, healthy gardens that bring life to your outdoor space.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="./IMG_1254.jpg" alt="Landscaping Project 3">
-                <h2>Hardscape Elegance</h2>
-                <div>
-                    <p>Custom patios and walkways that define outdoor living areas.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="./IMG_1255 (1).jpg" alt="Landscaping Project 4">
-                <h2>Lighting Ambiance</h2>
-                <div>
-                    <p>Expertly placed lighting to enhance beauty and security.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="./480401945_1157070916002743_5183818224020437460_n.jpg" alt="Landscaping Project 5">
-                <h2>Water Features</h2>
-                <div>
-                    <p>Serene water features that add tranquility to your garden.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="./16183e67-f597-441f-8ea7-beff127d3c99.png" alt="Landscaping Project 6">
-                <h2>Sustainable Solutions</h2>
-                <div>
-                    <p>Eco-conscious practices for a greener, healthier landscape.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
         </div>
     </div>
