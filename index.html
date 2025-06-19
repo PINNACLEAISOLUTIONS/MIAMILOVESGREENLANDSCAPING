@@ -548,4 +548,110 @@ animation: pulseTextGlow 3s infinite alternate ease-in-out; /* Continuous pulse 
 
 @keyframes pulseTextGlow {
   0% { text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5), 0 0 8px rgba(var(--primary-green-light-rgb), 0.2); }
-  100% { text-shadow: 0 0 8px 
+  100% { text-shadow: 0 0 8px rgba(var(--primary-green-light-rgb), 0.7), 0 0 12px rgba(var(--primary-green-light-rgb), 0.4); } /* <-- Corrected & Completed */
+} /* <-- Added closing brace */
+
+/* Your code was cut off here. Make sure you have the rest of your HTML structure (closing </style>, </head>, <body> content, </body>, </html>) after this point. */
+</style>
+</head>
+<body>
+  <!-- Your existing body content like nav, hero, services, about sections goes here -->
+
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">Miami Loves Green</a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="particles-container"></div>
+  <div class="scroll-indicator"><div class="scroll-progress"></div></div>
+
+  <div class="main-content-wrapper">
+    <header class="hero">
+      <div class="hero-content container">
+        <h1>Green Spaces, Happy Faces</h1>
+        <div class="hero-subtitle">Premier Landscaping Services in Miami</div>
+        <p>We specialize in creating and maintaining beautiful, sustainable landscapes that enhance the beauty and value of your property.</p>
+        <a href="#contact" class="btn">Get a Free Quote</a>
+      </div>
+    </header>
+
+    <section id="services" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">From routine lawn care to complete outdoor transformations, we offer a comprehensive range of services tailored to the Miami climate.</p>
+            <div class="services-grid">
+                <div class="service-card" style="--card-index: 0;">
+                    <div class="service-image-area" style="background-image: url('./design-install.webp');">
+                        <div class="service-image-title">Design & Installation</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Creative Design & Installation</h3>
+                        <p>Bring your vision to life with expert landscape design and flawless installation.</p>
+                    </div>
+                </div>
+                 <div class="service-card" style="--card-index: 1;">
+                    <div class="service-image-area" style="background-image: url('./lawn-care.webp'); filter: brightness(1.4);">
+                         <div class="service-image-title">Maintenance & Lawn Care</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Maintenance</h3>
+                        <p>Keep your property looking its best year-round with our comprehensive maintenance plans.</p>
+                    </div>
+                </div>
+                 <div class="service-card hardscape-image" style="--card-index: 2;">
+                    <div class="service-image-area" style="background-image: url('./hardscape.webp');">
+                         <div class="service-image-title">Hardscaping</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Beautiful Hardscapes</h3>
+                        <p>Add functional beauty with patios, walkways, retaining walls, and other hardscape features.</p>
+                    </div>
+                </div>
+                 <div class="service-card lighting-image" style="--card-index: 3;">
+                    <div class="service-image-area" style="background-image: url('./lighting.webp');">
+                         <div class="service-image-title">Outdoor Lighting</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ambient Outdoor Lighting</h3>
+                        <p>Extend the enjoyment of your outdoor space and enhance security with custom lighting solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <div class="container about-content">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-text">
+                <p class="section-subtitle">Miami Loves Green Landscaping is dedicated to providing exceptional landscaping services throughout the South Florida area. With years of experience, our team understands the unique challenges and opportunities of subtropical climates.</p>
+                <p>We are passionate about creating outdoor spaces that are not only beautiful but also sustainable and functional. We work closely with our clients to understand their needs and deliver results that exceed expectations, focusing on quality craftsmanship and reliable service.</p>
+            </div>
+             <ul class="about-features">
+                 <li style="transition-delay: 0.5s;">Local Experts</li>
+                 <li style="transition-delay: 0.6s;">Quality Craftsmanship</li>
+                 <li style="transition-delay: 0.7s;">Sustainable Practices</li>
+                 <li style="transition-delay: 0.8s;">Client Satisfaction</li>
+             </ul>
+        </div>
+    </section>
+
+    <!-- Add your other sections (like Contact) and the Footer here -->
+
+  </div> <!-- End of main-content-wrapper -->
+
+  <!-- Add your closing body and html tags here -->
+  <!-- For example: -->
+  <!-- <footer>...</footer> -->
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>
