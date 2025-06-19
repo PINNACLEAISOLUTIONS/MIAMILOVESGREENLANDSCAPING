@@ -1,1549 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
-<meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
+    <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-@import url(https://fonts.bunny.net/css?family=abel:400);
+    /* --- Existing CSS --- */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+    @import url(https://fonts.bunny.net/css?family=abel:400);
 
-:root {
-    --primary-green-darkest: #0A1A0A;
-    --primary-green-darkest-rgb: 10, 26, 10; /* RGB for rgba() usage */
-    --primary-green-dark: #123012;
-    --primary-green-medium: #4CAF50; /* Main Green: 76, 175, 80 */
-    --primary-green: var(--primary-green-medium);
-    --primary-green-light: #8DD08D; /* Light Green: 141, 208, 141 */
-    --primary-green-light-rgb: 141, 208, 141; /* RGB for light green */
-    --primary-green-ultra-light: #E8F5E8; /* Ultra Light Green: 232, 245, 232 */
-    --primary-green-ultra-light-rgb: 232, 245, 232;
-
-
-    /* Additional shades for holographic effect if needed */
-    --holographic-green-1: #A8E0A8; /* Lighter shade */
-    --holographic-green-2: #61C964; /* Mid-bright shade */
+    :root {
+        --primary-green-darkest: #0A1A0A;
+        --primary-green-darkest-rgb: 10, 26, 10; /* RGB for rgba() usage */
+        --primary-green-dark: #123012;
+        --primary-green-medium: #4CAF50; /* Main Green: 76, 175, 80 */
+        --primary-green: var(--primary-green-medium);
+        --primary-green-light: #8DD08D; /* Light Green: 141, 208, 141 */
+        --primary-green-light-rgb: 141, 208, 141; /* RGB for light green */
+        --primary-green-ultra-light: #E8F5E8; /* Ultra Light Green: 232, 245, 232 */
+        --primary-green-ultra-light-rgb: 232, 245, 232;
 
 
-    --accent-gold: #FFA726;
-    --accent-gold-hover: #FFB74D;
-    --accent-gold-glow: rgba(255, 167, 38, 0.3);
-    --accent-gold-darker: #E69500;
+        /* Additional shades for holographic effect if needed */
+        --holographic-green-1: #A8E0A8; /* Lighter shade */
+        --holographic-green-2: #61C964; /* Mid-bright shade */
 
 
-    --text-hero: #FFFFFF;
-    --text-on-dark-bg: #E8F5E9;
-    --text-dark-on-light-bg: #1C1C1C;
-    --text-medium-on-light-bg: #4A4A4A;
+        --accent-gold: #FFA726;
+        --accent-gold-hover: #FFB74D;
+        --accent-gold-glow: rgba(255, 167, 38, 0.3);
+        --accent-gold-darker: #E69500;
 
-    --body-bg-center: #0D1F0D;
-    --body-bg-edge: #050F05;
-    --background-global: var(--body-bg-center);
 
-    --card-background: #F8FFF8;
-    --card-background-hover: #F0F8F0;
+        --text-hero: #FFFFFF;
+        --text-on-dark-bg: #E8F5E9;
+        --text-dark-on-light-bg: #1C1C1C;
+        --text-medium-on-light-bg: #4A4A4A;
 
-    --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
+        --body-bg-center: #0D1F0D;
+        --body-bg-edge: #050F05;
+        --background-global: var(--body-bg-center);
 
-    --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
-    --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
-    --shadow-strong: 0 20px 60px rgba(0,0,0, 0.15);
-    --shadow-glow: 0 0 50px rgba(76, 175, 80, 0.2);
+        /* Footer background will now be an image */
+        /* --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); */
 
-    --hero-gradient: linear-gradient(135deg, rgba(5, 20, 5, 0.65) 0%, rgba(0, 15, 0, 0.75) 60%, rgba(0, 5, 0, 0.8) 100%);
+        --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
+        --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
+        --shadow-strong: 0 20px 60px rgba(0,0,0, 0.15);
+        --shadow-glow: 0 0 50px rgba(76, 175, 80, 0.2);
 
-    --sharp-glow-outline: rgba(0, 0, 0, 0.5);
-    --sharp-glow-main: rgba(230, 255, 230, 0.7); /* Original very light green/white glow */
-    --sharp-glow-soft: rgba(200, 255, 200, 0.3); /* Original softer light green/white glow */
+        --hero-gradient: linear-gradient(135deg, rgba(5, 20, 5, 0.65) 0%, rgba(0, 15, 0, 0.75) 60%, rgba(0, 5, 0, 0.8) 100%);
 
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-heading: 'Playfair Display', Georgia, serif;
-    --font-display: 'Inter', sans-serif;
+        --sharp-glow-outline: rgba(0, 0, 0, 0.5);
+        --sharp-glow-main: rgba(230, 255, 230, 0.7); /* Original very light green/white glow */
+        --sharp-glow-soft: rgba(200, 255, 200, 0.3); /* Original softer light green/white glow */
 
-    --spacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem;
-    --spacing-lg: 3rem; --spacing-xl: 4rem;
+        --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-heading: 'Playfair Display', Georgia, serif;
+        --font-display: 'Inter', sans-serif;
 
-    --border-radius-sm: 8px; --border-radius-xs: 6px; --border-radius-md: 16px; --border-radius-lg: 24px;
-    --border-radius-xl: 50px;
+        --spacing-xs: 0.5rem; --spacing-sm: 1rem; --spacing-md: 2rem;
+        --spacing-lg: 3rem; --spacing-xl: 4rem;
 
-    --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
+        --border-radius-sm: 8px; --border-radius-xs: 6px; --border-radius-md: 16px; --border-radius-lg: 24px;
+        --border-radius-xl: 50px;
 
-    --service-content-bg-teal: rgba(32, 178, 170, 0.07);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; font-size: 16px; }
-@media (min-width: 768px) { html { font-size: clamp(16px, 1.5vw, 18px); } }
-body {
-    font-family: var(--font-body); line-height: 1.7; overflow-x: hidden;
-    background: var(--background-global); color: var(--text-on-dark-bg);
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-    display: flex; flex-direction: column; min-height: 100vh; position: relative;
-}
-.particles-container {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 0; overflow: hidden;
-    background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 70%);
-}
-.particle {
-    position: absolute;
-    width: 3px; height: 3px;
-    background-color: rgba(141, 208, 141, 0.35);
-    border-radius: 50%;
-    animation: float 25s infinite ease-in-out;
-    opacity: 0;
-    box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
-}
-@keyframes float {
-    0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; }
-    5% { opacity: 1; }
-    50% { transform: translateY(50vh) translateX(8vw) scale(1.2); }
-    95% { opacity: 1; }
-    100% { transform: translateY(0vh) translateX(-8vw) scale(0.5); opacity: 0; }
-}
-.particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; }
-.particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.25); animation-direction: reverse; }
-.particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 18s; }
-.scroll-indicator {
-    position: fixed; top: 0; left: 0; width: 100%; height: 4px;
-    z-index: 2000; pointer-events: none;
-}
-.scroll-progress {
-    width: 0%; height: 100%;
-    background: var(--accent-gold);
-    box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
-    transition: width 0.1s ease-out;
-}
-.main-content-wrapper {
-    flex-grow: 1;
-    position: relative;
-    z-index: 2;
-}
-.container {
-    width: 90%; max-width: 1200px;
-    margin: 0 auto; padding: 0 var(--spacing-sm);
-}
-@media (min-width: 768px) { .container { padding: 0 var(--spacing-md); } }
-nav {
-    position: fixed; top: 0; left: 0; width: 100%;
-    z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--transition-medium);
-    padding: var(--spacing-sm) 0;
-}
-nav.nav-scrolled {
-    background: rgba(10, 26, 10, 0.95);
-    box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
-}
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
+        --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-medium: 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
-/* === MODIFIED TEXT LOGO STYLES === */
-.logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: -0.1px;
-    transition: transform var(--transition-fast), text-shadow var(--transition-medium);
-    /* Remove nowrap and ellipsis to allow line break */
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    text-transform: uppercase;
-    position: relative;
-    /* Adjust font size - clamp is still good */
-    font-size: clamp(0.9rem, 2.2vw, 1.8rem); /* Slightly larger base font */
-    line-height: 1.1; /* Adjust line height for two lines */
-    max-width: calc(100% - 60px); /* Allow more width for mobile if needed */
+        --service-content-bg-teal: rgba(32, 178, 170, 0.07);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    @media (min-width: 768px) { html { font-size: clamp(16px, 1.5vw, 18px); } }
+    body {
+        font-family: var(--font-body); line-height: 1.7; overflow-x: hidden;
+        background: var(--background-global); color: var(--text-on-dark-bg);
+        -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        display: flex; flex-direction: column; min-height: 100vh; position: relative;
+    }
+    .particles-container {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 0; overflow: hidden;
+        background: radial-gradient(ellipse at 70% 30%, var(--body-bg-edge) 0%, var(--body-bg-center) 70%);
+    }
+    .particle {
+        position: absolute;
+        width: 3px; height: 3px;
+        background-color: rgba(141, 208, 141, 0.35);
+        border-radius: 50%;
+        animation: float 25s infinite ease-in-out;
+        opacity: 0;
+        box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
+    }
+    @keyframes float {
+        0% { transform: translateY(100vh) translateX(0vw) scale(0.5); opacity: 0; }
+        5% { opacity: 1; }
+        50% { transform: translateY(50vh) translateX(8vw) scale(1.2); }
+        95% { opacity: 1; }
+        100% { transform: translateY(0vh) translateX(-8vw) scale(0.5); opacity: 0; }
+    }
+    .particle:nth-child(2n) { width: 2px; height: 2px; animation-duration: 28s; }
+    .particle:nth-child(3n) { background-color: rgba(76, 175, 80, 0.25); animation-direction: reverse; }
+    .particle:nth-child(4n) { width: 4px; height: 4px; animation-duration: 18s; }
+    .scroll-indicator {
+        position: fixed; top: 0; left: 0; width: 100%; height: 4px;
+        z-index: 2000; pointer-events: none;
+    }
+    .scroll-progress {
+        width: 0%; height: 100%;
+        background: var(--accent-gold);
+        box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
+        transition: width 0.1s ease-out;
+    }
+    .main-content-wrapper {
+        flex-grow: 1;
+        position: relative;
+        z-index: 2;
+    }
+    .container {
+        width: 90%; max-width: 1200px;
+        margin: 0 auto; padding: 0 var(--spacing-sm);
+    }
+    @media (min-width: 768px) { .container { padding: 0 var(--spacing-md); } }
+    nav {
+        position: fixed; top: 0; left: 0; width: 100%;
+        z-index: 1000; transition: background-color var(--transition-medium), box-shadow var(--transition-medium), padding var(--transition-medium);
+        padding: var(--spacing-sm) 0;
+    }
+    nav.nav-scrolled {
+        background: rgba(10, 26, 10, 0.95);
+        box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
+    }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-    /* Holographic Green Text Fill */
-    background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; /* Text color must be transparent */
-    text-shadow: /* Updated for definition with gradient text */
-        0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb),0.8), /* Tight dark outline */
-        0 0 4px rgba(var(--primary-green-light-rgb), 0.6), /* Greenish highlight/glow */
-        0 0 7px rgba(var(--primary-green-medium), 0.4); /* Softer ambient green glow */
-}
-.logo br {
-    content: ""; /* Ensure br tag is rendered */
-    display: block; /* Make sure it acts as a line break */
-}
-
-@media (min-width: 480px) {
+    /* === MODIFIED TEXT LOGO STYLES === */
     .logo {
-        font-size: clamp(1.1rem, 2.5vw, 2rem); /* Adjust size for slightly larger screens */
+        font-family: var(--font-heading);
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: -0.1px;
+        transition: transform var(--transition-fast), text-shadow var(--transition-medium);
+        /* Allow text wrapping */
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        text-transform: uppercase;
+        position: relative;
+        /* Adjust font size - Increased by ~20% */
+        font-size: clamp(1.05rem, 2.5vw, 2.1rem); /* Increased from 0.9rem, 2.2vw, 1.8rem */
+        line-height: 1.1; /* Adjust line height for two lines */
+        max-width: calc(100% - 60px); /* Allow more width for mobile if needed */
+        text-align: left; /* Align text to the left */
+        display: inline-block; /* Needed for max-width on anchor tag */
+
+        /* Holographic Green Text Fill */
+        background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; /* Text color must be transparent */
+        text-shadow: /* Updated for definition with gradient text */
+            0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb),0.8), /* Tight dark outline */
+            0 0 4px rgba(var(--primary-green-light-rgb), 0.6), /* Greenish highlight/glow */
+            0 0 7px rgba(var(--primary-green-medium), 0.4); /* Softer ambient green glow */
     }
-}
-@media (min-width: 769px) {
-    .logo {
-        max-width: none; /* Allow full width on desktop */
-        font-size: clamp(1.5rem, 3vw, 2.2rem); /* Adjust size for desktop */
-        letter-spacing: -0.25px;
+    .logo br {
+        content: ""; /* Ensure br tag is rendered */
+        display: block; /* Make sure it acts as a line break */
     }
-}
-.logo:hover {
-    transform: scale(1.02);
-}
-.logo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
-    transform: skewX(-25deg);
-    animation: logoShimmer 4s infinite linear;
-    animation-delay: 1.5s;
-    z-index: 1;
-}
-@keyframes logoShimmer {
-    0% { left: -150%; }
-    50% { left: 150%; }
-    100% { left: 150%; }
-}
-/* === END MODIFIED TEXT LOGO STYLES === */
 
-
-.nav-links { display: none; }
-@media (min-width: 769px) {
-    .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
-}
-.nav-links.active {
-    display: flex; position: absolute; top: 100%;
-    left: 0; right: 0; background: rgba(10, 26, 10, 0.98);
-    flex-direction: column; padding: var(--spacing-sm);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.08);
-}
-.nav-links.active a { padding: var(--spacing-sm) 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%;}
-.nav-links.active li:last-child a { border-bottom: none; }
-.nav-links a {
-    text-decoration: none; color: rgba(232, 245, 233, 0.85);
-    font-weight: 500;
-    transition: color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-    font-size: 0.85rem; letter-spacing: 0.5px;
-}
-.nav-links a:hover, .nav-links a.active {
-    color: #FFFFFF;
-    transform: translateY(-1px);
-    background-color: rgba(255,255,255,0.1);
-}
-.mobile-menu-toggle {
-    display: block; background: none; border: none; cursor: pointer; padding: 0.5rem;
-    z-index: 1001;
-}
-.mobile-menu-toggle svg { width: 28px; height: 28px; fill: var(--text-hero); }
-@media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
-.hero {
-    position: relative; height: 100vh; min-height: 650px;
-    display: flex; align-items: center; justify-content: center;
-    text-align: center; color: var(--text-hero);
-    /* Using IMG_1254.webp from the root based on previous info and screenshot */
-    background-image: var(--hero-gradient), url('./IMG_1254.webp'); /* Keeping webp for Hero if you want to optimize */
-    background-size: cover, cover;
-    background-position: center center, center center;
-    background-attachment: fixed, fixed; overflow: hidden;
-    filter: brightness(1.9);
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.15) 100%);
-}
-.hero-content {
-    max-width: 950px; padding: var(--spacing-md);
-    position: relative; z-index: 3;
-}
-.hero-content > * {
-    opacity: 0; transform: translateY(50px) scale(0.95);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
-}
-.hero-content.animate > * { opacity: 1; transform: translateY(0) scale(1); }
-.hero-content.animate h1 { transition-delay: 0.25s; }
-.hero-content.animate .hero-subtitle { transition-delay: 0.4s; }
-.hero-content.animate p { transition-delay: 0.55s; }
-.hero-content.animate .btn { transition-delay: 0.7s; }
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    font-weight: 800; margin-bottom: var(--spacing-sm);
-    letter-spacing: -1px;
-    line-height: 1.05; text-transform: uppercase;
-    text-shadow:
-        0px 2px 3px var(--sharp-glow-outline),
-        0 0 15px var(--sharp-glow-main),
-        0 0 30px var(--sharp-glow-soft);
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--primary-green-medium) 35%, var(--holographic-green-2) 65%, var(--primary-green-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-.hero h1::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
-    transform: skewX(-25deg);
-    animation: heroHeadingShimmer 4.5s infinite linear;
-    animation-delay: 1s;
-    z-index: 1;
-}
-@keyframes heroHeadingShimmer {
-    0% { left: -150%; }
-    50% { left: 150%; }
-    100% { left: 150%; }
-}
-.hero-subtitle {
-    font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
-    font-weight: 400; margin-bottom: var(--spacing-md);
-    opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
-    color: var(--text-hero);
-}
-.hero p {
-    font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
-    margin-bottom: var(--spacing-lg); opacity: 0.9;
-    max-width: 700px; margin-left: auto; margin-right: auto;
-    line-height: 1.65; font-weight: 300;
-    color: var(--text-hero);
-}
-.btn {
-    display: inline-block;
-    padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 0.9);
-    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%);
-    color: var(--primary-green-darkest); text-decoration: none;
-    border-radius: var(--border-radius-xl);
-    font-weight: 600;
-    font-family: var(--font-body);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-    box-shadow: var(--shadow-medium), 0 0 15px var(--accent-gold-glow);
-    text-transform: uppercase; letter-spacing: 1px;
-    border: none; cursor: pointer; font-size: 0.85rem;
-}
-.btn:hover, .btn:focus {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: var(--shadow-strong), 0 0 20px var(--accent-gold-glow);
-    background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 100%);
-    outline: none;
-}
-.content-section {
-    padding: var(--spacing-lg) 0; position: relative;
-    opacity: 0;
-    transform: translateY(60px) scale(0.98);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
-}
-@media (min-width: 768px) { .content-section { padding: var(--spacing-xl) 0; } }
-.content-section.animate { opacity: 1; transform: translateY(0) scale(1); }
-.section-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3rem);
-    margin-bottom: var(--spacing-md); font-weight: 700;
-    color: var(--text-on-dark-bg); letter-spacing: -0.5px;
-    opacity: 0; transform: translateY(40px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
-}
-#services .section-title,
-#gallery .section-title { /* Added gallery title here */
-    text-align: center;
-    text-transform: uppercase;
-}
-.content-section.animate .section-title {
-    opacity: 1; transform: translateY(0);
-    transition-delay: 0.15s;
-}
-
-/* --- Gallery Title Animation --- */
-/* Make sure the animate class is applied by the IntersectionObserver */
-#gallery .section-title.animate {
-    animation: glowTitle 2s infinite alternate ease-in-out; /* Apply glow animation */
-}
-
-@keyframes glowTitle {
-    0% {
-        text-shadow: 0 0 5px rgba(76, 175, 80, 0.3), /* Soft green glow */
-                     0 0 10px rgba(76, 175, 80, 0.2);
+    @media (min-width: 480px) {
+        .logo {
+            font-size: clamp(1.3rem, 2.8vw, 2.4rem); /* Increased from 1.1rem, 2.5vw, 2rem */
+        }
     }
-    100% {
-        text-shadow: 0 0 10px rgba(76, 175, 80, 0.6), /* Brighter green glow */
-                     0 0 20px rgba(76, 175, 80, 0.4);
+    @media (min-width: 769px) {
+        .logo {
+            max-width: none; /* Allow full width on desktop */
+            font-size: clamp(1.8rem, 3.6vw, 2.6rem); /* Increased from 1.5rem, 3vw, 2.2rem */
+            letter-spacing: -0.25px;
+        }
     }
-}
-/* --- End Gallery Title Animation --- */
-
-
-.section-subtitle {
-    max-width: 750px; margin: 0 auto var(--spacing-lg);
-    font-size: clamp(0.95rem, 2vw, 1.15rem);
-    line-height: 1.6; color: var(--text-on-dark-bg); opacity: 0.85; font-weight: 300;
-    opacity: 0; transform: translateY(30px);
-    transition: opacity var(--transition-medium), transform var(--transition-medium);
-}
-.content-section.animate .section-subtitle {
-    opacity: 1; transform: translateY(0);
-    transition-delay: 0.25s;
-}
-
-.services-grid {
-    display: grid; grid-template-columns: 1fr;
-    gap: var(--spacing-md); margin-top: var(--spacing-md);
-}
-@media (min-width: 600px) { .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
-@media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
-
-.service-card {
-    background: var(--card-background); color: var(--text-dark-on-light-bg);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden; box-shadow: var(--shadow-soft);
-    display: flex; flex-direction: column;
-    opacity: 0;
-    transform: translateY(70px) rotateX(-20deg) scale(0.9);
-    transform-origin: bottom center;
-    transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium), background var(--transition-fast);
-    cursor: pointer;
-    min-height: 400px; /* Ensure cards have some height */
-}
-.content-section.animate .service-card {
-    opacity: 1;
-    transform: translateY(0) rotateX(0deg) scale(1);
-    transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s);
-}
-.service-card:hover {
-    transform: translateY(-10px) scale(1.03) rotateX(2deg);
-    box-shadow: var(--shadow-strong), var(--shadow-glow);
-    background: var(--card-background-hover);
-}
-/* === MODIFIED SERVICE CARD STYLES === */
-.service-image-area {
-    width: 100%;
-    height: 200px; /* Or adjust to desired top half portion */
-    background-size: cover; background-position: center;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: var(--spacing-sm);
-    position: relative; text-align: center;
-    overflow: hidden;
-    transition: transform 0.5s var(--transition-bounce);
-    filter: brightness(1.3);
-}
-.service-content {
-    padding: var(--spacing-md);
-    flex-grow: 1; /* Allows this to fill remaining space */
-    background-color: rgba(var(--primary-green-light-rgb), 0.1); /* Light green tint */
-    text-align: center;
-    display: flex; /* For vertical centering if needed */
-    flex-direction: column; /* For vertical centering if needed */
-    justify-content: center; /* For vertical centering if needed */
-}
-
-
-.service-image-area.hardscape-image {
-    filter: brightness(1.5);
-}
-.service-image-area.lighting-image {
-    filter: brightness(2.0);
-}
-.service-card:hover .service-image-area { transform: scale(1.08); }
-
-.service-image-area::before {
-    content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.55) 65%, rgba(0,30,0,0.9) 100%);
-    z-index: 1; transition: background var(--transition-medium);
-}
-.service-card:hover .service-image-area::before {
-    background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,20,0,0.3) 50%, rgba(0,30,0,0.7) 100%);
-}
-.service-card .service-image-title,
-.service-card .service-content h3,
-.service-card .service-content p {
-    opacity: 0; transform: translateY(25px) scale(0.98);
-    transition-property: opacity, transform;
-    transition-duration: 0.5s;
-    transition-timing-function: var(--transition-bounce);
-}
-.service-card.animate .service-image-title {
-    opacity: 1; transform: translateY(0) scale(1);
-    transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.2s);
-}
-.service-card.animate .service-content h3 {
-    opacity: 1; transform: translateY(0) scale(1);
-    transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.3s);
-}
-.service-card.animate .service-content p {
-    opacity: 1; transform: translateY(0) scale(1);
-    transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s + 0.4s);
-}
-.service-image-title {
-    font-family: var(--font-heading); color: var(--text-hero);
-    font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 700;
-    text-shadow:
-        -1px -1px 0 var(--primary-green-darkest),
-         1px -1px 0 var(--primary-green-darkest),
-        -1px 1px 0 var(--primary-green-darkest),
-         1px 1px 0 var(--primary-green-darkest),
-         0 2px 4px rgba(0,0,0,0.7);
-    z-index: 2; position: relative;
-    max-width: 90%;
-}
-
-.service-content h3 {
-    font-family: var(--font-heading);
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    margin-bottom: var(--spacing-xs);
-    color: var(--primary-green-darkest);
-    font-weight: 700;
-}
-.service-content p {
-    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-    line-height: 1.6;
-    color: var(--text-medium-on-light-bg);
-    font-weight: 500;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.about-content {
-    display: flex; flex-direction: column; align-items: center;
-    gap: var(--spacing-lg); text-align: center;
-}
-.about-text {
-    max-width: 800px; width: 100%;
-    opacity: 0;
-    transform: translateY(50px) scale(0.95);
-    transition: opacity var(--transition-slow) 0.25s, transform var(--transition-slow) 0.25s;
-}
-.content-section.animate .about-text,
-.about-text.animate {
-    opacity: 1; transform: translateY(0) scale(1);
-}
-.about-text p {
-    margin-bottom: var(--spacing-sm);
-    font-size: clamp(0.9rem, 1.9vw, 1.05rem);
-    line-height: 1.75;
-}
-.about-text p:last-of-type { margin-bottom: var(--spacing-md); }
-.about-features {
-    list-style: none; padding: 0; margin: var(--spacing-md) auto 0;
-    display: grid; gap: var(--spacing-md);
-    max-width: 700px; width: 100%;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.about-features.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-@media (min-width: 768px) {
-    .about-features { grid-template-columns: 1fr 1fr; }
-}
-/* === MODIFIED ABOUT FEATURES STYLES === */
-.about-features li {
-    padding: var(--spacing-sm) var(--spacing-md);
-    position: relative;
-    font-size: clamp(0.9rem, 1.8vw, 1rem);
-    font-weight: 400;
-    color: var(--text-on-dark-bg);
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow:
-        inset 0 2px 4px rgba(0,0,0,0.25),
-        inset 0 -1px 2px rgba(255,255,255,0.03),
-        0 1px 2px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(40px) scale(0.9);
-    transition: opacity var(--transition-medium), transform var(--transition-bounce),
-                background var(--transition-fast), box-shadow var(--transition-fast), text-shadow 0.3s ease-out;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5); /* Initial glow */
-    animation: pulseTextGlow 3s infinite alternate ease-in-out; /* Continuous pulse animation */
-}
-
-@keyframes pulseTextGlow {
-  0% { text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5), 0 0 8px rgba(var(--primary-green-light-rgb), 0.2); }
-  100% { text-shadow: 0 0 8px rgba(var(--primary-green-light-rgb), 0.8), 0 0 12px rgba(var(--primary-green-light-rgb), 0.5); }
-}
-/* Animation for when the 'animate' class is applied - maybe a quick bounce? */
-/* .about-features.animate li { ... existing styles + add bounce animation if desired ... } */
-
-
-.about-features li::before {
-    content: '🌿';
-    margin-right: var(--spacing-sm);
-    font-size: 1.2em;
-    color: var(--primary-green-light);
-}
-
-/* --- START Simple JS Carousel Styles --- */
-.simple-carousel {
-  position: relative;
-  width: 90%;
-  max-width: 800px; /* Adjust max-width as needed */
-  /* Set a height or use aspect-ratio */
-  height: 450px; /* Example fixed height */
-  /* aspect-ratio: 16 / 9; /* Or use aspect-ratio for flexible height */ */
-  overflow: hidden;
-  margin: var(--spacing-md) auto var(--spacing-lg) auto;
-  box-shadow: var(--shadow-medium);
-  border-radius: var(--border-radius-md);
-  background-color: rgba(0, 0, 0, 0.3); /* Dark subtle background */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  /* Animation for scroll reveal (already applied via content-section) */
-  /* opacity: 0; */
-  /* transform: scale(0.98); */
-  /* transition: opacity var(--transition-slow), transform var(--transition-slow); */
-}
-
-/* Animation for scroll reveal (This rule is now on the .simple-carousel inside .content-section) */
-/* .content-section.animate .simple-carousel {
-    opacity: 1;
-    transform: scale(1);
-} */
-
-.carousel-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out; /* Smooth fade transition */
-    z-index: 1; /* Default z-index */
-}
-
-.carousel-slide.active {
-    opacity: 1;
-    z-index: 2; /* Active slide on top */
-}
-
- .carousel-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure image covers the slide area */
-    object-position: center;
- }
-
-.carousel-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    color: var(--text-hero); /* White text */
-    text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.4);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    font-weight: 500;
-    z-index: 3; /* Ensure caption is above image */
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark background */
-    padding: 8px 12px;
-    border-radius: var(--border-radius-xs);
-    text-align: left;
-    /* Hide initially, fade in with the slide */
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out 0.2s; /* Delay caption fade-in slightly */
-}
-
-.carousel-slide.active .carousel-caption {
-    opacity: 1;
-}
-
-.carousel-controls {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3; /* Ensure controls are above slides */
-    display: flex;
-    gap: 8px;
-}
-
-.control-dot {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4); /* Light grey dot */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: 1px solid rgba(0,0,0,0.1); /* Subtle outline */
-}
-
-.control-dot.active {
-    background-color: var(--accent-gold); /* Active dot color */
-    transform: scale(1.2);
-    box-shadow: 0 0 5px rgba(255, 167, 38, 0.5);
-}
-
-.control-dot:hover {
-    background-color: rgba(255, 255, 255, 0.7); /* Hover effect */
-}
-
-.control-dot.active:hover {
-     background-color: var(--accent-gold-hover);
-}
-/* --- END Simple JS Carousel Styles --- */
-
-
-/* === REVISED CTA SECTION === */
-.cta-section {
-    padding: var(--spacing-lg) 0;
-    text-align: center;
-    opacity: 0;
-    transform: perspective(1200px) translateY(70px) rotateX(-25deg) scale(0.85);
-    transform-origin: center center;
-    transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
-
-    /* Background image is now removed from here */
-    /* background-image: url('./IMG_1254.webp'); */
-    /* background-size: cover; */
-    /* background-position: center center; */
-    /* background-repeat: no-repeat; */
-    /* filter: brightness(1.7) contrast(1.1); */
-
-    /* Added a background color/gradient since the image is removed */
-    background: linear-gradient(135deg, var(--primary-green-darkest) 0%, var(--primary-green-dark) 100%);
-
-
-    position: relative;
-    overflow: hidden;
-}
-
-/* No full ::before overlay on .cta-section itself */
-
-.content-section.animate.cta-section,
-.cta-section.animate {
-    opacity: 1;
-    transform: perspective(1200px) translateY(0) rotateX(0deg) scale(1);
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-}
-
-.cta-content h2 {
-    font-family: var(--font-heading);
-    color: var(--text-hero);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.5px;
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.65);
-    padding: 0.25em 0.5em;
-    border-radius: var(--border-radius-sm);
-    display: inline;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
-    line-height: 1.3;
-}
-.cta-content p {
-    max-width: 650px;
-    margin: var(--spacing-md) auto;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    line-height: 1.7;
-    color: var(--text-hero);
-    font-weight: 400;
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.55);
-    padding: 0.3em 0.6em;
-    border-radius: var(--border-radius-xs);
-    display: inline-block;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.5);
-}
-
-.btn-cta {
-    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
-    padding: var(--spacing-sm) calc(var(--spacing-md) * 0.9);
-    font-weight: 800;
-    letter-spacing: 0.75px;
-    line-height: 1.5;
-    background: linear-gradient(135deg, var(--accent-gold-hover) 0%, var(--accent-gold) 40%, var(--accent-gold-darker) 100%);
-    box-shadow:
-        0 7px 20px rgba(0,0,0,0.25),
-        0 0 30px var(--accent-gold-glow),
-        inset 0 3px 3px rgba(255,255,255,0.55),
-        inset 0 -4px 4px rgba(0,0,0,0.2);
-    border: 1px solid var(--accent-gold-darker);
-    color: var(--primary-green-darkest);
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.25);
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                background 0.35s ease-out;
-    white-space: normal;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: var(--spacing-lg);
-}
-.btn-cta:hover, .btn-cta:focus {
-    transform: translateY(-7px) scale(1.08);
-    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 60%, var(--accent-gold) 100%);
-    box-shadow:
-        0 12px 28px rgba(0,0,0,0.3),
-        0 0 40px var(--accent-gold-glow),
-        inset 0 3px 4px rgba(255,255,255,0.65),
-        inset 0 -5px 5px rgba(0,0,0,0.25);
-    border-color: var(--accent-gold);
-    outline: 3px solid rgba(255, 183, 77, 0.5);
-    outline-offset: 4px;
-}
-/* === END OF MODIFIED CTA SECTION === */
-
-
-footer {
-    /* Set background image */
-    background-image: url('./imagesmiami.jpg/16183e67-f597-441f-8ea7-beff127d3c99.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: relative; /* Needed for pseudo-element overlay */
-    z-index: 1;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s var(--transition-medium), transform 0.8s var(--transition-medium);
-
-    color: var(--primary-green-darkest); /* Keep text color */
-    padding: var(--spacing-lg) 0 var(--spacing-md); /* Keep padding */
-    font-size: 0.9rem; /* Keep font size */
-    overflow: hidden; /* Hide parts of background image if needed */
-}
-
- /* Add a subtle overlay to improve text readability on the footer background image */
- footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark green */
-    z-index: 0; /* Place behind content but above background image */
-}
-
-/* Ensure footer content is above the overlay */
-footer .container {
-    position: relative;
-    z-index: 1;
-}
-
-footer.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-}
-.footer-section h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem; margin-bottom: var(--spacing-sm);
-    color: var(--primary-green-dark);
-}
-.footer-logo {
-    font-family: var(--font-heading); font-size: 1.5rem;
-    font-weight: 700; margin-bottom: var(--spacing-xs);
-    color: var(--primary-green-darkest); text-transform: uppercase;
-}
-.footer-description { margin-bottom: var(--spacing-sm); line-height: 1.6; font-size: 0.85rem; }
-.footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: var(--spacing-xs); }
-.footer-links a {
-    text-decoration: none; color: var(--primary-green-dark);
-    transition: color var(--transition-fast), padding-left var(--transition-fast);
-}
-.footer-links a:hover { color: var(--accent-gold-hover); padding-left: 4px; }
-.social-links { display: flex; gap: var(--spacing-sm); margin-top: var(--spacing-sm); }
-.social-link svg {
-    width: 20px; height: 20px; fill: var(--primary-green-dark);
-    transition: fill var(--transition-fast), transform var(--transition-fast);
-}
-.social-link:hover svg { fill: var(--accent-gold-hover); transform: scale(1.1); }
-.contact-item {
-    display: flex; align-items: center;
-    margin-bottom: var(--spacing-xs); font-size: 0.85rem;
-}
-.contact-item .contact-icon { margin-right: var(--spacing-xs); font-size: 1.1em; color: var(--primary-green-dark); }
-.contact-item a { color: var(--primary-green-dark); text-decoration: none; }
-.contact-item a:hover { color: var(--accent-gold-hover); }
-.footer-bottom {
-    text-align: center; padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
-    position: relative; /* Ensure bottom text is above overlay */
-    z-index: 1;
-}
-
-
-/* === FLOATING ACTION BUTTONS === */
-.fab-container {
-    position: fixed;
-    bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1000;
-    text-decoration: none;
-    cursor: pointer;
-    background: transparent;
-    padding: 0;
-}
-
-.fab-call-style {
-    right: 25px;
-}
-
-.fab-email-style {
-    left: 25px;
-}
-
-.fab-text {
-    color: var(--text-hero);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 7px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    padding: 4px 8px;
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.6);
-    border-radius: var(--border-radius-xs);
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.7);
-    transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.fab-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    background: var(--accent-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 0 20px var(--accent-gold-glow);
-    transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.fab-icon-wrapper svg {
-    width: 28px;
-    height: 28px;
-    fill: var(--primary-green-darkest);
-}
-
-/* Hover Effects */
-.fab-container:hover .fab-text {
-    color: var(--accent-gold);
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.75);
-    transform: translateY(-2px);
-}
-
-.fab-container:hover .fab-icon-wrapper {
-    transform: scale(1.1) translateY(-3px);
-    background: var(--accent-gold-hover);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
-}
-
-/* --- END Floating Action Buttons --- */
-
-</style>
-</head>
-<body>
-    <div class="particles-container" id="particles-js"></div>
-    <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
-
-<nav id="mainNav">
-    <div class="container nav-container">
-        <!-- Modified Logo HTML for two lines -->
-        <a href="#home" class="logo">MIAMI LOVES GREEN<br>LANDSCAPING</a>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
-            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-        </button>
-        <ul class="nav-links" id="mainNavLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#gallery">Our Gallery</a></li> <!-- Added link for the new gallery section -->
-            <li><a href="#footer-contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="main-content-wrapper">
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h1>Miami Loves Green</h1>
-            <p class="hero-subtitle">Premier Landscaping Artistry</p>
-            <p>Crafting breathtaking, sustainable outdoor sanctuaries that elevate your lifestyle and property value. Experience the art of green with Miami's trusted landscaping experts.</p>
-            <a href="#services" class="btn">Explore Our Services</a>
-        </div>
-    </header>
-
-    <section id="services" class="content-section">
-        <div class="container">
-            <h2 class="section-title">Our Premier Services</h2>
-            <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life. Each project is a testament to our commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
-            <div class="services-grid">
-                <div class="service-card" style="--card-index: 0;">
-                    <!-- Using gardenimage.jpg from the root based on screenshot -->
-                    <div class="service-image-area" style="background-image: url('./gardenimage.jpg');">
-                        <h3 class="service-image-title">Landscape Design</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Creative Landscape Design</h3>
-                        <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal style and enhancing your property's natural charm.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 1;">
-                     <!-- Using IMG_1255 (1).jpg from the root based on screenshot -->
-                    <div class="service-image-area" style="background-image: url('./IMG_1255 (1).jpg');">
-                         <h3 class="service-image-title">Garden Maintenance</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Expert Care & Maintenance</h3>
-                        <p>Comprehensive horticultural services ensuring your landscape remains vibrant and healthy year-round with professional expertise.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 2;">
-                    <!-- Keeping irrigationimage.webp - assumed correct path as not shown clearly in screenshot -->
-                    <div class="service-image-area" style="background-image: url('./irrigationimage.webp');">
-                         <h3 class="service-image-title">Irrigation Systems</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Efficient Irrigation</h3>
-                        <p>Smart irrigation solutions, professionally installed and maintained, for optimal water use and thriving landscapes.</p>
-                    </div>
-                </div>
-                 <div class="service-card" style="--card-index: 3;">
-                    <!-- Keeping hardscarpingimag.webp - assumed correct path as not shown clearly in screenshot -->
-                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscarpingimag.webp');">
-                         <h3 class="service-image-title">Hardscaping</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Elegant Hardscape Design</h3>
-                        <p>Custom patios, walkways, water features, and architectural elements that create stunning focal points and enhance outdoor functionality.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 4;">
-                     <!-- Keeping treetriming.webp - assumed correct path as not shown clearly in screenshot -->
-                    <div class="service-image-area" style="background-image: url('./treetriming.webp');">
-                         <h3 class="service-image-title">Tree Care</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Professional Tree Care</h3>
-                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of your trees.</p>
-                    </div>
-                </div>
-                <div class="service-card" style="--card-index: 5;">
-                     <!-- Keeping landscapelighting.webp - assumed correct path as not shown clearly in screenshot -->
-                    <div class="service-image-area lighting-image" style="background-image: url('./landscapelighting.webp');">
-                         <h3 class="service-image-title">Outdoor Lighting</h3>
-                    </div>
-                    <div class="service-content">
-                        <h3>Elegant Lighting</h3>
-                        <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your outdoor space.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- START: About Section -->
-    <section id="about" class="content-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">About Miami Loves Green</h2>
-                    <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for life. Our passionate team, a collective of certified horticulturists, visionary landscape architects, and meticulous design specialists, brings a wealth of expertise and a fresh perspective to every project, dedicated to realizing your unique vision.</p>
-                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and intelligent functionality. It's about enhancing your property's value and enriching your quality of life through sustainable, cutting-edge practices. From initial concept to flawless execution, we're committed to transforming your ideas into breathtaking, living environments.</p>
-                 </div> <!-- Correctly closed about-text div -->
-                 <!-- About Features List - Correctly positioned as a sibling inside about-content -->
-                 <ul class="about-features">
-                    <li>Expert Landscape Design & Master Planning</li>
-                    <li>Comprehensive Garden Care & Lush Maintenance</li>
-                    <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
-                    <li>Bespoke Outdoor Lighting & Irrigation Systems</li>
-                </ul>
-            </div> <!-- End about-content -->
-        </div> <!-- End container -->
-    </section> <!-- End about section -->
-
-
-    <!-- START: Our Work Gallery Section -->
-    <section id="gallery" class="content-section">
-        <div class="container">
-            <!-- Animated Gallery Title -->
-            <h2 class="section-title">OUR WORK GALLERY</h2>
-
-            <!-- Simple JS Carousel Structure -->
-            <div class="simple-carousel">
-                <div class="carousel-slides">
-                    <!-- Slide 1 (Lawn - from imagesmiami.jpg folder) -->
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503332282_18508401787007660_1966149630338819014_n.jpg" alt="Lush green lawn installation.">
-                        <div class="carousel-caption">Lush green lawn installation and maintenance.</div>
-                    </div>
-                    <!-- Slide 2 (Palm Trees - from imagesmiami.jpg folder) -->
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503551923_18508401178007660_1047634941543886825_n.jpg" alt="Expertly trimmed palm trees framing a property.">
-                        <div class="carousel-caption">Expertly trimmed palm trees framing a property.</div>
-                    </div>
-                    <!-- Slide 3 (Tropical Planting - from imagesmiami.jpg folder) -->
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503851911_18508401799007660_5096063837397163195_n.jpg" alt="Vibrant garden planting with tropical foliage.">
-                        <div class="carousel-caption">Vibrant garden planting with tropical foliage.</div>
-                    </div>
-                    <!-- Slide 4 (Patio - from imagesmiami.jpg folder) -->
-                     <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503889421_18508401811007660_7253479364693418141_n.jpg" alt="Stunning patio design with lush surrounding landscape.">
-                        <div class="carousel-caption">Stunning patio design with lush surrounding landscape.</div>
-                    </div>
-                     <!-- Slide 5 (IMG_1254.jpg - from the root level based on screenshot) -->
-                     <div class="carousel-slide">
-                        <img src="./IMG_1254.jpg" alt="Overview of beautifully landscaped property.">
-                        <div class="carousel-caption">Overview of a beautifully landscaped Miami property.</div>
-                    </div>
-                </div>
-                <!-- Carousel Controls (Dots) - Added by JavaScript -->
-                 <div class="carousel-controls">
-                     <!-- Dots will be added here by the JS -->
-                 </div>
-            </div> <!-- End simple-carousel -->
-        </div> <!-- End container -->
-    </section>
-    <!-- END: Our Work Gallery Section -->
-
-
-    <section id="cta" class="cta-section content-section">
-        <div class="container cta-content">
-            <h2>Transform Your Vision Into Reality</h2>
-            <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
-            <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
-        </div>
-    </section>
-</div> <!-- End main-content-wrapper -->
-
-<footer id="footer-contact">
-    <!-- Set background image and overlay via CSS -->
-    <!-- Using 16183e67-f597-441f-8ea7-beff127d3c99.png from imagesmiami.jpg folder -->
-    <div class="container footer-content">
-        <div class="footer-section footer-brand">
-            <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
-            <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
-                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-                <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-                <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg></a>
-            </div>
-        </div>
-        <div class="footer-section"><h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Our Gallery</a></li> <!-- Added link here too -->
-                <li><a href="#footer-contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-section"><h3>Our Services</h3>
-            <ul class="footer-links">
-                <li><a href="#services">Landscape Design</a></li>
-                <li><a href="#services">Garden Maintenance</a></li>
-                <li><a href="#services">Irrigation Systems</a></li>
-                <li><a href="#services">Hardscaping</a></li>
-                <li><a href="#services">Tree Care</a></li>
-                <li><a href="#services">Outdoor Lighting</a></li>
-            </ul>
-        </div>
-        <div class="footer-section"><h3>Contact Info</h3>
-            <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786) 570-3215</a></div>
-            <div class="contact-item"><span class="contact-icon">✉️</span><a href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a></div>
-            <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
-            <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
-        </div>
-    </div>
-    <div class="footer-bottom"><p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p></div>
-</footer>
-
-<!-- START: Floating Action Buttons -->
-<a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
-    <span class="fab-text">CALL US</span>
-    <div class="fab-icon-wrapper">
-        <svg viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-    </div>
-</a>
-
-<a href="mailto:Miamilovesgreenlandscaping@gmail.com" class="fab-container fab-email-style" aria-label="Email us">
-    <span class="fab-text">EMAIL US</span>
-    <div class="fab-icon-wrapper">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-    </div>
-</a>
-<!-- END: Floating Action Buttons -->
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const nav = document.getElementById('mainNav');
-        // Use clientHeight for more reliable height measurement
-        const mainNavHeight = nav ? nav.clientHeight : 70;
-        window.addEventListener('scroll', () => {
-            if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
-        });
-
-        const navLinks = document.querySelectorAll('nav .nav-links a');
-        const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
-        function changeActiveLink() {
-            let currentSectionId = 'home';
-             // Adjust offset to account for fixed header height and some padding
-            const scrollPosition = window.scrollY + mainNavHeight + 70;
-
-            // Find the highest section whose top is above or at the scroll position
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                 // Check if the section is above the adjusted scroll line
-                if (section.offsetTop <= scrollPosition) {
-                    currentSectionId = section.id;
-                    break; // Found the current section, stop searching
-                }
-            }
-
-            // Special case for footer if scrolled almost to the very bottom
-            // Check if the bottom of the viewport is near the bottom of the document
-            const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 150); // 150px tolerance
-            if (nearBottom && document.getElementById('footer-contact')) {
-                 currentSectionId = 'footer-contact';
-            }
-            // Special case for home if scrolled near the very top
-            else if (window.scrollY < 100 && document.getElementById('home')) { // Within the first 100px
-                currentSectionId = 'home';
-            }
-
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        <!-- Only add scroll listener if there are nav links and sections to observe -->
-        if (navLinks.length > 0 && sections.length > 0) {
-             <!-- Initial check on load -->
-            changeActiveLink();
-            window.addEventListener('scroll', changeActiveLink);
-        }
-
-
-        const scrollProgress = document.getElementById('scrollProgress');
-        if(scrollProgress) {
-            window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-                scrollProgress.style.width = scrollPercent + '%';
-            });
-        }
-
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles-js');
-            if(!particlesContainer) return;
-            const particleCount = 40; <!-- Number of particles -->
-            <!-- Clear existing particles before adding new ones -->
-            particlesContainer.innerHTML = '';
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                <!-- Random starting position (slightly offscreen or anywhere within bounds) -->
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + 'vh'; <!-- Start from anywhere vertically -->
-                <!-- Randomize animation properties -->
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (12 + Math.random() * 12) + 's'; <!-- Duration between 12s and 24s -->
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles(); <!-- Create particles initially -->
-
-        <!-- Optional: Recreate particles on window resize if needed (can be resource intensive) -->
-        <!-- window.addEventListener('resize', createParticles); -->
-
-
-        const observerOptions = {
-            root: null, <!-- Use the viewport as the root -->
-            rootMargin: '-50px 0px -100px 0px', <!-- Adjust margin around viewport (top, right, bottom, left) -->
-            threshold: 0.01 <!-- Trigger when 1% of the element is visible -->
-        };
-
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                <!-- Check if the element is currently intersecting -->
-                if (entry.isIntersecting) {
-                    <!-- Add the 'animate' class to the element that became visible -->
-                    entry.target.classList.add('animate');
-
-                    <!-- If the intersecting element is the about-features list, apply staggered delays to its children -->
-                    if (entry.target.classList.contains('about-features')) {
-                        Array.from(entry.target.children).forEach((item, index) => {
-                            <!-- Reset and re-apply delay to allow animation to replay on scroll back into view -->
-                            item.style.transitionDelay = ''; <!-- Clear previous delay -->
-                            void item.offsetWidth; <!-- Trigger reflow to restart animation -->
-                            item.style.transitionDelay = `${index * 0.15 + 0.2}s`; <!-- Apply staggered delay (slightly adjusted delay for more noticeable effect) -->
-                        });
-                    }
-                } else {
-                    <!-- If the element is no longer intersecting, remove the 'animate' class -->
-                     entry.target.classList.remove('animate');
-                    <!-- Also clear the staggered delays when the element is out of view -->
-                    if (entry.target.classList.contains('about-features')) {
-                         Array.from(entry.target.children).forEach((item) => {
-                            item.style.transitionDelay = ''; <!-- Remove delay when out of view -->
-                        });
-                    }
-                }
-            });
-        };
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        <!-- Observe relevant sections for scroll animation -->
-        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, #gallery, footer').forEach(el => {
-             <!-- Ensure the element exists before observing -->
-             if(el) observer.observe(el);
-         });
-
-
-        <!-- Manually trigger animation for hero section if it's visible on page load -->
-        <!-- This prevents the hero animation from waiting for the observer if the page loads scrolled to the top -->
-        const heroContent = document.querySelector('.hero-content');
-         <!-- Use requestAnimationFrame for better performance check on load -->
-        requestAnimationFrame(() => {
-            if (heroContent && window.scrollY < 100) { <!-- Check if at the very top of the page -->
-                 setTimeout(() => { <!-- Add a slight delay -->
-                     if(!heroContent.classList.contains('animate')) { <!-- Only add if not already added -->
-                        heroContent.classList.add('animate');
-                     }
-                 }, 150);
-            }
-        });
-
-
-        <!-- Smooth scrolling for anchor links -->
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault(); <!-- Prevent default jump behavior -->
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    <!-- Adjust position based on fixed header height -->
-                    <!-- Use clientHeight for more reliable height measurement -->
-                    const navHeight = document.getElementById('mainNav') ? document.getElementById('mainNav').clientHeight : 70;
-                    const offsetPosition = elementPosition - navHeight - 10; <!-- Add a little extra padding -->
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                }
-
-                <!-- Close mobile menu after clicking a link -->
-                const menuToggle = document.querySelector('.mobile-menu-toggle');
-                const mainNavLinksUl = document.getElementById('mainNavLinks');
-                 <!-- Check if mobile menu is active and screen is mobile size -->
-                 if (window.innerWidth < 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
-                    mainNavLinksUl.classList.remove('active');
-                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-
-        <!-- Update current year in footer -->
-        const currentYearEl = document.getElementById('currentYear');
-        if(currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-
-        <!-- Mobile menu toggle functionality -->
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const mainNavLinksUl = document.getElementById('mainNavLinks');
-
-        if (menuToggle && mainNavLinksUl) {
-            menuToggle.addEventListener('click', () => {
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-                mainNavLinksUl.classList.toggle('active');
-            });
-             <!-- Close menu when clicking outside (optional, but good practice) -->
-             document.addEventListener('click', (event) => {
-                <!-- Check if the click was inside the menu or the toggle button -->
-                const isClickInsideMenu = mainNavLinksUl.contains(event.target);
-                const isClickOnToggle = menuToggle.contains(event.target);
-                 <!-- If menu is active, screen is mobile size, and click is outside both menu and toggle -->
-                 if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
-                    mainNavLinksUl.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-             });
-             <!-- Close menu if window is resized to larger than mobile while menu is open -->
-             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
-                    mainNavLinksUl.classList.remove('active');
-                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-                }
-             });
-        }
-
-        /* --- START Simple JS Carousel Logic --- */
-        const carousel = document.querySelector('.simple-carousel');
-        if (carousel) { <!-- Check if the carousel element exists -->
-            const slidesContainer = carousel.querySelector('.carousel-slides');
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const controlsContainer = carousel.querySelector('.carousel-controls');
-            let currentSlideIndex = 0;
-            const intervalTime = 3000; <!-- 3 seconds -->
-            let slideInterval;
-
-            <!-- Function to show a specific slide -->
-            function showSlide(index) {
-                 <!-- Ensure index wraps around -->
-                index = index % slides.length;
-                if (index < 0) {
-                    index = slides.length - 1;
-                }
-                currentSlideIndex = index; <!-- Update the current index -->
-
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === currentSlideIndex) {
-                        slide.classList.add('active');
-                    }
-                });
-                 <!-- Update dots -->
-                 updateControls(currentSlideIndex);
-            }
-
-            <!-- Function to move to the next slide -->
-            function nextSlide() {
-                showSlide(currentSlideIndex + 1);
-            }
-
-             <!-- Function to create control dots -->
-            function createControls() {
-                controlsContainer.innerHTML = ''; <!-- Clear any existing controls -->
-                 <!-- Only create controls if there's more than one slide -->
-                 if (slides.length > 1) {
-                    slides.forEach((_, index) => {
-                        const dot = document.createElement('span');
-                        dot.classList.add('control-dot');
-                        <!-- Add aria label for accessibility -->
-                        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                        <!-- Add data-slide-index for easy access in event listener -->
-                        dot.dataset.slideIndex = index;
-                        dot.addEventListener('click', handleDotClick); <!-- Use a single handler function -->
-                        controlsContainer.appendChild(dot);
-                    });
-                    <!-- Initially update dots state -->
-                    updateControls(currentSlideIndex);
-                 }
-            }
-
-             <!-- Handler for control dot clicks -->
-            function handleDotClick(event) {
-                const index = parseInt(event.target.dataset.slideIndex, 10);
-                <!-- Check if the clicked dot's index is a valid number -->
-                if (!isNaN(index)) {
-                    stopAutoAdvance(); <!-- Stop auto-advance when clicking a dot -->
-                    showSlide(index);
-                    <!-- currentSlideIndex is already updated by showSlide -->
-                    startAutoAdvance(); <!-- Restart auto-advance after clicking -->
-                }
-            }
-
-
-             <!-- Function to update control dot states (active/inactive) -->
-            function updateControls(activeIndex) {
-                const dots = controlsContainer.querySelectorAll('.control-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.remove('active');
-                    if (index === activeIndex) {
-                        dot.classList.add('active');
-                    }
-                });
-            }
-
-
-            <!-- Function to start auto-advancing the carousel -->
-            function startAutoAdvance() {
-                <!-- Clear any existing interval before starting a new one -->
-                clearInterval(slideInterval);
-                <!-- Only start auto-advance if there's more than one slide -->
-                if (slides.length > 1) {
-                     slideInterval = setInterval(nextSlide, intervalTime);
-                }
-            }
-
-             <!-- Function to stop auto-advancing the carousel -->
-            function stopAutoAdvance() {
-                clearInterval(slideInterval);
-            }
-
-
-            <!-- Initialize carousel -->
-            if (slides.length > 0) {
-                createControls(); <!-- Create dots (only if > 1 slide) -->
-                showSlide(currentSlideIndex); <!-- Show the first slide -->
-
-                 <!-- Pause auto-advance on hover for desktop/larger screens -->
-                const applyHoverPause = () => {
-                    <!-- Remove existing listeners first -->
-                    carousel.removeEventListener('mouseenter', stopAutoAdvance);
-                    carousel.removeEventListener('mouseleave', startAutoAdvance);
-                    <!-- Add listeners only if screen is larger than mobile AND there's more than one slide -->
-                    if (window.innerWidth >= 769 && slides.length > 1) {
-                        carousel.addEventListener('mouseenter', stopAutoAdvance);
-                        carousel.addEventListener('mouseleave', startAutoAdvance);
-                     } else if (slides.length > 1) { <!-- On smaller screens, just ensure it auto-advances -->
-                         startAutoAdvance();
-                     } else { <!-- Only one slide, no auto-advance needed -->
-                         stopAutoAdvance();
-                     }
-                };
-
-                 <!-- Apply initial hover pause logic -->
-                 applyHoverPause();
-
-                <!-- Handle resize to adjust hover pause logic -->
-                window.addEventListener('resize', () => {
-                    <!-- Stop interval during resize to avoid issues -->
-                     stopAutoAdvance();
-                     <!-- Re-apply hover pause logic based on new window size -->
-                     applyHoverPause();
-                     <!-- Re-show current slide to ensure correct state after resize -->
-                     showSlide(currentSlideIndex);
-                });
-
-                <!-- Start auto-advance (will only start if > 1 slide) -->
-                <!-- No need to call explicitly here, applyHoverPause will handle it on load/resize -->
-            }
-        }
-         /* --- END Simple JS Carousel Logic --- */
-
-    });
-</script>
-</body>
-</html>
+    .logo:hover {
+        transform: scale(1.02);
+    }
+    .logo::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
+        transform: skewX(-25deg);
+        animation: logoShimmer 4s infinite linear;
+        animation-delay: 1.5s;
+        z-index: 1;
+    }
+    @keyframes logoShimmer {
+        0% { left: -150%; }
+        50% { left: 150%; }
+        100% { left: 150%; }
+    }
+    /* === END MODIFIED TEXT LOGO STYLES === */
+
+
+    .nav-links { display: none; }
+    @media (min-width: 769px) {
+        .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
+    }
+    .nav-links.active {
+        display: flex; position: absolute; top: 100%;
+        left: 0; right: 0; background: rgba(10, 26, 10, 0.98);
+        flex-direction: column; padding: var(--spacing-sm);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.active a { padding: var(--spacing-sm) 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); width: 100%;}
+    .nav-links.active li:last-child a { border-bottom: none; }
+    .nav-links a {
+        text-decoration: none; color: rgba(232, 245, 233, 0.85);
+        font-weight: 500;
+        transition: color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: var(--border-radius-sm);
+        font-size: 0.85rem; letter-spacing: 0.5px;
+    }
+    .nav-links a:hover, .nav-links a.active {
+        color: #FFFFFF;
+        transform: translateY(-1px);
+        background-color: rgba(255,255,255,0.1);
+    }
+    .mobile-menu-toggle {
+        display: block; background: none; border: none; cursor: pointer; padding: 0.5rem;
+        z-index: 1001;
+    }
+    .mobile-menu-toggle svg { width: 28px; height: 28px; fill: var(--text-hero); }
+    @media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
+    .hero {
+        position: relative; height: 100vh; min-height: 650px;
+        display: flex; align-items: center; justify-content: center;
+        text-align: center; color: var(--text-hero);
+        /* --- Reverted Hero Background Image --- */
+        background-image: var(--hero-gradient), url('./pixel_studio_20250530_02355914.webp');
+        background-size: cover, cover;
+        background-position: center center, center center;
+        background-attachment: fixed, fixed; overflow: hidden;
+        filter: brightness(1.9);
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(ellipse at center, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.15) 100%);
+    }
+    .hero-content {
+        max-width: 950px; padding: var(--spacing-md);
+        position: relative; z-index: 3;
+    }
+    .hero-content > * {
+        opacity: 0; transform: translateY(50px) scale(0.95);
+        transition: opacity var(--transition-slow), transform var(--transition-slow);
+    }
+    .hero-content.animate > * { opacity: 1; transform: translateY(0) scale(1); }
+    .hero-content.animate h1 { transition-delay: 0.25s; }
+    .hero-content.animate .hero-subtitle { transition-delay: 0.4s; }
+    .hero-content.animate p { transition-delay: 0.55s; }
+    .hero-content.animate .btn { transition-delay: 0.7s; }
+    .hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 8vw, 5.5rem);
+        font-weight: 800; margin-bottom: var(--spacing-sm);
+        letter-spacing: -1px;
+        line-height: 1.05; text-transform: uppercase;
+        text-shadow:
+            0px 2px 3px var(--sharp-glow-outline),
+            0 0 15px var(--sharp-glow-main),
+            0 0 30px var(--sharp-glow-soft);
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--primary-green-medium) 35%, var(--holographic-green-2) 65%, var(--primary-green-light) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .hero h1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 70%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
+        transform: skewX(-25deg);
+        animation: heroHeadingShimmer 4.5s infinite linear;
+        animation-delay: 1s;
+        z-index: 1;
+    }
+    @keyframes heroHeadingShimmer {
+        0% { left: -150%; }
+        50% { left: 150%; }
+        100% { left: 150%; }
+    }
+    .hero-subtitle {
+        font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
+        font-weight: 400; margin-bottom: var(--spacing-md);
+        opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
+        color: var(--text-hero);
+    }
+    .hero p {
+        font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
+        margin-bottom: var(--spacing-lg); opacity: 0.9;
+        max-width: 700px; margin-left: auto;
