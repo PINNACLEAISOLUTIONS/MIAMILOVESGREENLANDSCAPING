@@ -130,25 +130,9 @@ box-shadow: 0 0 10px var(--accent-gold-glow), 0 0 5px var(--accent-gold);
 transition: width 0.1s ease-out;
 }
 .main-content-wrapper {
-    flex-grow: 1;
-    position: relative;
-    z-index: 2;
-    /* ---- ADDED PADDING-TOP TO PREVENT OVERLAP ---- */
-    /* Adjust these values by inspecting your nav's height in the browser. */
-    padding-top: 5rem; /* Default for smallest screens (mobile) */
-}
-
-/* Adjust padding-top for different screen sizes based on nav height */
-@media (min-width: 480px) { /* Approx tablet */
-    .main-content-wrapper {
-        padding-top: 6rem; /* Adjust as needed */
-    }
-}
-
-@media (min-width: 769px) { /* Approx desktop */
-    .main-content-wrapper {
-        padding-top: 7.5rem; /* Adjust as needed */
-    }
+flex-grow: 1;
+position: relative;
+z-index: 2;
 }
 .container {
 width: 90%; max-width: 1200px;
@@ -166,77 +150,61 @@ box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 
-/* === UPDATED TEXT LOGO STYLES (For 2 lines & size) === */
+/* === ORIGINAL TEXT LOGO STYLES === */
 .logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: -0.1px;
-    transition: transform var(--transition-fast), text-shadow var(--transition-medium);
-    text-transform: uppercase;
-    position: relative;
-    
-    /* Adjustments for two lines and larger size */
-    font-size: clamp(1.3rem, 5vw, 2.0rem); /* Mobile first: min, preferred, max */
-    line-height: 1.15; /* Spacing between the two lines of the logo */
-    text-align: center; /* Center "LANDSCAPING" under "MIAMI LOVES GREEN" */
-
-    /* This was in your original to make space for the mobile menu icon */
-    max-width: calc(100% - 55px); 
-
-    /* Holographic Green Text Fill - from your original */
-    background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow:
-        0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb),0.8),
-        0 0 4px rgba(var(--primary-green-light-rgb), 0.6),
-        0 0 7px rgba(var(--primary-green-medium), 0.4);
+font-family: var(--font-heading);
+font-weight: 700;
+text-decoration: none; letter-spacing: -0.1px;
+transition: transform var(--transition-fast), text-shadow var(--transition-medium);
+white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+text-transform: uppercase;
+position: relative;
+font-size: clamp(0.75rem, 1.9vw, 1.3rem);
+max-width: calc(100% - 55px);
+/* Holographic Green Text Fill */
+background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent; /* Text color must be transparent */
+text-shadow: /* Updated for definition with gradient text */
+    0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb),0.8), /* Tight dark outline */
+    0 0 4px rgba(var(--primary-green-light-rgb), 0.6), /* Greenish highlight/glow */
+    0 0 7px rgba(var(--primary-green-medium), 0.4); /* Softer ambient green glow */
 }
-
 @media (min-width: 480px) {
-    .logo {
-        font-size: clamp(1.5rem, 5.5vw, 2.4rem); /* Tablet size */
-        max-width: calc(100% - 60px); /* Your original adjustment */
-    }
+.logo {
+font-size: clamp(0.9rem, 2.1vw, 1.5rem);
+max-width: calc(100% - 60px);
 }
-
+}
 @media (min-width: 769px) {
-    .logo {
-        max-width: none; /* Allow full width on desktop */
-        font-size: clamp(1.8rem, 3.8vw, 2.8rem); /* Desktop size */
-        letter-spacing: -0.25px; /* Your original letter-spacing for desktop */
-        /* text-align: left; */ /* Optional: if you prefer left-alignment for the logo on desktop */
-    }
+.logo {
+max-width: none;
+font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+letter-spacing: -0.25px;
 }
-
-/* Keep your existing .logo:hover and .logo::before styles for the shimmer effect */
+}
 .logo:hover {
-    transform: scale(1.02);
+transform: scale(1.02);
 }
-
 .logo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
-    transform: skewX(-25deg);
-    animation: logoShimmer 4s infinite linear;
-    animation-delay: 1.5s;
-    z-index: 1;
+content: '';
+position: absolute;
+top: 0;
+left: -150%;
+width: 70%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
+transform: skewX(-25deg);
+animation: logoShimmer 4s infinite linear;
+animation-delay: 1.5s;
+z-index: 1;
 }
-
-/* Ensure your @keyframes logoShimmer is present */
 @keyframes logoShimmer {
-    0% { left: -150%; }
-    50% { left: 150%; }
-    100% { left: 150%; }
+0% { left: -150%; }
+50% { left: 150%; }
+100% { left: 150%; }
 }
-/* === END OF UPDATED LOGO STYLES === */
 
 .nav-links { display: none; }
 @media (min-width: 769px) {
@@ -580,52 +548,13 @@ animation: pulseTextGlow 3s infinite alternate ease-in-out; /* Continuous pulse 
 
 @keyframes pulseTextGlow {
   0% { text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5), 0 0 8px rgba(var(--primary-green-light-rgb), 0.2); }
-  100% { text-shadow: 0 0 8px rgba(var(--primary-green-light-rgb), 0.7), 0 0 16px rgba(var(--primary-green-light-rgb), 0.35); }
-}
-</style>
-</head>
-<!-- THE REST OF YOUR HTML BODY CONTENT WOULD GO HERE -->
-<!-- For example: -->
-<!-- 
-<body>
-    <div class="particles-container"> -->
-        <!-- Particles will be generated by JS -->
-    <!-- </div>
-
-    <div class="scroll-indicator">
-        <div class="scroll-progress"></div>
-    </div>
-
-    <nav>
-        <div class="nav-container container"> -->
-            <!-- MODIFIED LOGO HTML -->
-            <!-- <a href="#hero" class="logo">MIAMI LOVES GREEN<br>LANDSCAPING</a>
-            
-            <button class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                </svg>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#hero" class="active">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="main-content-wrapper"> -->
-        <!-- Your sections (.hero, #services, #about, #contact, carousel, etc.) -->
-    <!-- </div>
-
-    <footer> -->
-        <!-- Your footer content -->
-    <!-- </footer>
-
-    <script> -->
-        // Your JavaScript
-    <!-- </script>
-</body> 
-</html> 
--->
+  100% { text-shadow: 0 0 8px 
+Translate to
+Translate to
+Summarize
+Paraphrase
+Expand
+Check Grammar
+Answer
+Explain
+Go to chat
