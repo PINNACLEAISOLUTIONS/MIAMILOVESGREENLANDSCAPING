@@ -6,7 +6,6 @@
     <title>Miami Loves Green Landscaping - Premier Landscaping Services</title>
     <meta name="description" content="Transform your outdoor space with Miami's premier landscaping service. Professional design, maintenance, and installation.">
 <style>
-    /* --- Existing CSS --- */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
     :root {
@@ -41,8 +40,7 @@
         --card-background: #F8FFF8;
         --card-background-hover: #F0F8F0;
 
-        /* Footer background will now be an image */
-        /* --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); */
+        --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
 
         --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
         --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
@@ -360,8 +358,7 @@
         opacity: 0; transform: translateY(40px);
         transition: opacity var(--transition-medium), transform var(--transition-medium);
     }
-    #services .section-title,
-    #gallery .section-title { /* Added gallery title here */
+    #services .section-title {
         text-align: center;
         text-transform: uppercase;
     }
@@ -369,25 +366,6 @@
         opacity: 1; transform: translateY(0);
         transition-delay: 0.15s;
     }
-
-    /* --- Gallery Title Animation --- */
-    /* Make sure the animate class is applied by the IntersectionObserver */
-    #gallery .section-title.animate {
-        animation: glowTitle 2s infinite alternate ease-in-out; /* Apply glow animation */
-    }
-
-    @keyframes glowTitle {
-        0% {
-            text-shadow: 0 0 5px rgba(76, 175, 80, 0.3), /* Soft green glow */
-                         0 0 10px rgba(76, 175, 80, 0.2);
-        }
-        100% {
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.6), /* Brighter green glow */
-                         0 0 20px rgba(76, 175, 80, 0.4);
-        }
-    }
-    /* --- End Gallery Title Animation --- */
-
 
     .section-subtitle {
         max-width: 750px; margin: 0 auto var(--spacing-lg);
@@ -604,122 +582,6 @@
         color: var(--primary-green-light);
     }
 
-    /* --- START Simple JS Carousel Styles --- */
-    .simple-carousel {
-      position: relative;
-      width: 90%;
-      max-width: 800px; /* Adjust max-width as needed */
-      /* Set a height or use aspect-ratio */
-      height: 450px; /* Example fixed height */
-      /* aspect-ratio: 16 / 9; /* Or use aspect-ratio for flexible height */ */
-      overflow: hidden;
-      margin: var(--spacing-md) auto var(--spacing-lg) auto;
-      box-shadow: var(--shadow-medium);
-      border-radius: var(--border-radius-md);
-      background-color: rgba(0, 0, 0, 0.3); /* Dark subtle background */
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      /* Animation for scroll reveal (already applied via content-section) */
-      /* opacity: 0; */
-      /* transform: scale(0.98); */
-      /* transition: opacity var(--transition-slow), transform var(--transition-slow); */
-    }
-
-    /* Animation for scroll reveal (This rule is now on the .simple-carousel inside .content-section) */
-    /* .content-section.animate .simple-carousel {
-        opacity: 1;
-        transform: scale(1);
-    } */
-
-    .carousel-slides {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-
-    .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.8s ease-in-out; /* Smooth fade transition */
-        z-index: 1; /* Default z-index */
-    }
-
-    .carousel-slide.active {
-        opacity: 1;
-        z-index: 2; /* Active slide on top */
-    }
-
-     .carousel-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensure image covers the slide area */
-        object-position: center;
-     }
-
-    .carousel-caption {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        color: var(--text-hero); /* White text */
-        text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.4);
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-        font-weight: 500;
-        z-index: 3; /* Ensure caption is above image */
-        background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark background */
-        padding: 8px 12px;
-        border-radius: var(--border-radius-xs);
-        text-align: left;
-        /* Hide initially, fade in with the slide */
-        opacity: 0;
-        transition: opacity 0.8s ease-in-out 0.2s; /* Delay caption fade-in slightly */
-    }
-
-    .carousel-slide.active .carousel-caption {
-        opacity: 1;
-    }
-
-    .carousel-controls {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 3; /* Ensure controls are above slides */
-        display: flex;
-        gap: 8px;
-    }
-
-    .control-dot {
-        display: block;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.4); /* Light grey dot */
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        border: 1px solid rgba(0,0,0,0.1); /* Subtle outline */
-    }
-
-    .control-dot.active {
-        background-color: var(--accent-gold); /* Active dot color */
-        transform: scale(1.2);
-        box-shadow: 0 0 5px rgba(255, 167, 38, 0.5);
-    }
-
-    .control-dot:hover {
-        background-color: rgba(255, 255, 255, 0.7); /* Hover effect */
-    }
-
-    .control-dot.active:hover {
-         background-color: var(--accent-gold-hover);
-    }
-    /* --- END Simple JS Carousel Styles --- */
-
-
     /* === REVISED CTA SECTION === */
     .cta-section {
         padding: var(--spacing-lg) 0;
@@ -820,41 +682,16 @@
 
 
     footer {
-        /* Set background image */
-        background-image: url('./imagesmiami.jpg/16183e67-f597-441f-8ea7-beff127d3c99.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        position: relative; /* Needed for pseudo-element overlay */
+        background: var(--footer-background);
+        color: var(--primary-green-darkest);
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+        font-size: 0.9rem;
+        position: relative;
         z-index: 1;
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 0.8s var(--transition-medium), transform 0.8s var(--transition-medium);
-
-        color: var(--primary-green-darkest); /* Keep text color */
-        padding: var(--spacing-lg) 0 var(--spacing-md); /* Keep padding */
-        font-size: 0.9rem; /* Keep font size */
-        overflow: hidden; /* Hide parts of background image if needed */
     }
-
-     /* Add a subtle overlay to improve text readability on the footer background image */
-     footer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark green */
-        z-index: 0; /* Place behind content but above background image */
-    }
-
-    /* Ensure footer content is above the overlay */
-    footer .container {
-        position: relative;
-        z-index: 1;
-    }
-
     footer.animate {
         opacity: 1;
         transform: translateY(0);
@@ -899,10 +736,7 @@
     .footer-bottom {
         text-align: center; padding-top: var(--spacing-md);
         border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
-        position: relative; /* Ensure bottom text is above overlay */
-        z-index: 1;
     }
-
 
     /* === FLOATING ACTION BUTTONS === */
     .fab-container {
@@ -973,8 +807,6 @@
         box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
     }
 
-    /* --- END Floating Action Buttons --- */
-
 </style>
 </head>
 <body>
@@ -991,7 +823,6 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#gallery">Our Gallery</a></li> {/* Added link for the new gallery section */}
             <li><a href="#footer-contact">Contact</a></li>
         </ul>
     </div>
@@ -1088,41 +919,6 @@
         </div>
     </section>
 
-    {/* <!-- START: Our Work Gallery Section --> */}
-    <section id="gallery" class="content-section">
-        <div class="container">
-            {/* Animated Gallery Title */}
-            <h2 class="section-title">OUR WORK GALLERY</h2>
-
-            {/* Simple JS Carousel Structure */}
-            <div class="simple-carousel">
-                <div class="carousel-slides">
-                    {/* Slide 1 */}
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503889421_18508401811007660_7253479364693418141_n.jpg" alt="Completed landscape patio project">
-                        <div class="carousel-caption">Stunning patio design with lush surrounding landscape.</div>
-                    </div>
-                    {/* Slide 2 */}
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/503851911_18508401799007660_5096063837397163195_n.jpg" alt="Vibrant garden planting with tropical foliage.">
-                        <div class="carousel-caption">Vibrant garden planting with tropical foliage.</div>
-                    </div>
-                    {/* Slide 3 */}
-                    <div class="carousel-slide">
-                        <img src="./imagesmiami.jpg/480401945_1157070916002728_5183818224020437460_n.jpg" alt="Beautifully designed garden pathway with landscape lighting.">
-                        <div class="carousel-caption">Beautifully designed garden pathway with landscape lighting.</div>
-                    </div>
-                </div>
-                {/* Carousel Controls (Dots) - Added by JavaScript */}
-                 <div class="carousel-controls">
-                     {/* Dots will be added here by the JS */}
-                 </div>
-            </div> {/* End simple-carousel */}
-        </div> {/* End container */}
-    </section>
-    <!-- END: Our Work Gallery Section -->
-
-
     <section id="cta" class="cta-section content-section">
         <div class="container cta-content">
             <h2>Transform Your Vision Into Reality</h2>
@@ -1130,11 +926,9 @@
             <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
         </div>
     </section>
-</div> {/* End main-content-wrapper */}
+</div>
 
 <footer id="footer-contact">
-    {/* Set background image */
-    /* The background image and overlay are applied via CSS to the footer tag itself */}
     <div class="container footer-content">
         <div class="footer-section footer-brand">
             <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
@@ -1143,7 +937,7 @@
                 <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z"/></svg></a>
                 <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link" title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
                 <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link" title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-                <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/></svg></a>
+                <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
             </div>
         </div>
         <div class="footer-section"><h3>Quick Links</h3>
@@ -1151,7 +945,6 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Our Gallery</a></li> {/* Added link here too */}
                 <li><a href="#footer-contact">Contact</a></li>
             </ul>
         </div>
@@ -1198,8 +991,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('mainNav');
-        // Use clientHeight for more reliable height measurement
-        const mainNavHeight = nav ? nav.clientHeight : 70;
+        const mainNavHeight = nav ? nav.offsetHeight : 70;
         window.addEventListener('scroll', () => {
             if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
         });
@@ -1208,30 +1000,20 @@
         const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
         function changeActiveLink() {
             let currentSectionId = 'home';
-             // Adjust offset to account for fixed header height and some padding
             const scrollPosition = window.scrollY + mainNavHeight + 70;
 
-            // Find the highest section whose top is above or at the scroll position
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];
-                 // Check if the section is above the adjusted scroll line
                 if (section.offsetTop <= scrollPosition) {
                     currentSectionId = section.id;
-                    break; // Found the current section, stop searching
+                    break;
                 }
             }
-
-            // Special case for footer if scrolled almost to the very bottom
-            // Check if the bottom of the viewport is near the bottom of the document
-            const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 150); // 150px tolerance
-            if (nearBottom && document.getElementById('footer-contact')) {
+            if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
                  currentSectionId = 'footer-contact';
-            }
-            // Special case for home if scrolled near the very top
-            else if (window.scrollY < 100 && document.getElementById('home')) { // Within the first 100px
+            } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
                 currentSectionId = 'home';
             }
-
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -1240,13 +1022,9 @@
                 }
             });
         }
-        // Only add scroll listener if there are nav links and sections to observe
         if (navLinks.length > 0 && sections.length > 0) {
-             // Initial check on load
-            changeActiveLink();
-            window.addEventListener('scroll', changeActiveLink);
+            changeActiveLink(); window.addEventListener('scroll', changeActiveLink);
         }
-
 
         const scrollProgress = document.getElementById('scrollProgress');
         if(scrollProgress) {
@@ -1261,53 +1039,41 @@
         function createParticles() {
             const particlesContainer = document.getElementById('particles-js');
             if(!particlesContainer) return;
-            const particleCount = 40; // Number of particles
-            // Clear existing particles before adding new ones
-            particlesContainer.innerHTML = '';
+            const particleCount = 40;
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                // Random starting position (slightly offscreen or anywhere within bounds)
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + 'vh'; // Start from anywhere vertically
-                // Randomize animation properties
+                particle.style.top = Math.random() * 100 + 'vh';
                 particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (12 + Math.random() * 12) + 's'; // Duration between 12s and 24s
+                particle.style.animationDuration = (12 + Math.random() * 12) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
-        createParticles(); // Create particles initially
-
-        // Optional: Recreate particles on window resize if needed (can be resource intensive)
-        // window.addEventListener('resize', createParticles);
-
+        createParticles();
 
         const observerOptions = {
-            root: null, // Use the viewport as the root
-            rootMargin: '-50px 0px -100px 0px', // Adjust margin around viewport (top, right, bottom, left)
-            threshold: 0.01 // Trigger when 1% of the element is visible
+            root: null,
+            rootMargin: '-50px 0px -100px 0px',
+            threshold: 0.01
         };
 
         const observerCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
-                    // Special handling for about features list animation
-                    if (entry.target.classList.contains('about-features')) { // Removed check for 'animate' class here
+                    if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
                         Array.from(entry.target.children).forEach((item, index) => {
-                            // Reset and re-apply delay for animation on scroll back into view
-                            item.style.transitionDelay = ''; // Clear previous delay
-                            void item.offsetWidth; // Trigger reflow to restart animation
-                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`; // Apply staggered delay
+                            item.style.transitionDelay = '';
+                            void item.offsetWidth;
+                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`;
                         });
                     }
                 } else {
-                    // Optional: Remove 'animate' class when out of view
-                    // This makes the animation replay if the user scrolls back up and down
-                     entry.target.classList.remove('animate');
+                    entry.target.classList.remove('animate');
                     if (entry.target.classList.contains('about-features')) {
-                         Array.from(entry.target.children).forEach((item) => {
-                            item.style.transitionDelay = ''; // Remove delay when out of view
+                        Array.from(entry.target.children).forEach((item) => {
+                            item.style.transitionDelay = '';
                         });
                     }
                 }
@@ -1315,59 +1081,33 @@
         };
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        // Observe relevant sections for scroll animation
-        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, #gallery, footer').forEach(el => {
-             // Ensure the element exists before observing
-             if(el) observer.observe(el);
-         });
+        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, footer').forEach(el => observer.observe(el));
 
-
-        // Manually trigger animation for hero section if it's visible on page load
-        // This prevents the hero animation from waiting for the observer if the page loads scrolled to the top
         const heroContent = document.querySelector('.hero-content');
-         // Use requestAnimationFrame for better performance check on load
-        requestAnimationFrame(() => {
-            if (heroContent && window.scrollY < 100) { // Check if at the very top of the page
-                 setTimeout(() => { // Add a slight delay
-                     if(!heroContent.classList.contains('animate')) { // Only add if not already added
-                        heroContent.classList.add('animate');
-                     }
-                 }, 150);
-            }
-        });
+        if (heroContent && window.scrollY < 100) {
+            setTimeout(() => {
+                 if(!heroContent.classList.contains('animate')) {
+                    heroContent.classList.add('animate');
+                 }
+            }, 150);
+        }
 
-
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default jump behavior
+                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    // Adjust position based on fixed header height
-                    // Use clientHeight for more reliable height measurement
-                    const navHeight = document.getElementById('mainNav') ? document.getElementById('mainNav').clientHeight : 70;
-                    const offsetPosition = elementPosition - navHeight - 10; // Add a little extra padding
+                    const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10;
                     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                }
-
-                // Close mobile menu after clicking a link
-                const menuToggle = document.querySelector('.mobile-menu-toggle');
-                const mainNavLinksUl = document.getElementById('mainNavLinks');
-                 // Check if mobile menu is active and screen is mobile size
-                 if (window.innerWidth < 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
-                    mainNavLinksUl.classList.remove('active');
-                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
                 }
             });
         });
 
-        // Update current year in footer
         const currentYearEl = document.getElementById('currentYear');
         if(currentYearEl) currentYearEl.textContent = new Date().getFullYear();
 
-        // Mobile menu toggle functionality
         const menuToggle = document.querySelector('.mobile-menu-toggle');
         const mainNavLinksUl = document.getElementById('mainNavLinks');
 
@@ -1377,143 +1117,15 @@
                 menuToggle.setAttribute('aria-expanded', !isExpanded);
                 mainNavLinksUl.classList.toggle('active');
             });
-             // Close menu when clicking outside (optional, but good practice)
-             document.addEventListener('click', (event) => {
-                // Check if the click was inside the menu or the toggle button
-                const isClickInsideMenu = mainNavLinksUl.contains(event.target);
-                const isClickOnToggle = menuToggle.contains(event.target);
-                 // If menu is active, screen is mobile size, and click is outside both menu and toggle
-                 if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
-                    mainNavLinksUl.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-             });
-             // Close menu if window is resized to larger than mobile while menu is open
-             window.addEventListener('resize', () => {
-                if (window.innerWidth >= 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
-                    mainNavLinksUl.classList.remove('active');
-                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-                }
-             });
-        }
-
-        /* --- START Simple JS Carousel Logic --- */
-        const carousel = document.querySelector('.simple-carousel');
-        if (carousel) { // Check if the carousel element exists
-            const slidesContainer = carousel.querySelector('.carousel-slides');
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const controlsContainer = carousel.querySelector('.carousel-controls');
-            let currentSlideIndex = 0;
-            const intervalTime = 3000; // 3 seconds
-            let slideInterval;
-
-            // Function to show a specific slide
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    if (i === index) {
-                        slide.classList.add('active');
+            mainNavLinksUl.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
+                        mainNavLinksUl.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
-                 // Update dots
-                 updateControls(index);
-            }
-
-            // Function to move to the next slide
-            function nextSlide() {
-                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                showSlide(currentSlideIndex);
-            }
-
-             // Function to create control dots
-            function createControls() {
-                controlsContainer.innerHTML = ''; // Clear any existing controls
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('control-dot');
-                    // Add aria label for accessibility
-                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                    // Add data-slide-index for easy access in event listener
-                    dot.dataset.slideIndex = index;
-                    dot.addEventListener('click', handleDotClick); // Use a single handler function
-                    controlsContainer.appendChild(dot);
-                });
-                 // Initially update dots state
-                 updateControls(currentSlideIndex);
-            }
-
-             // Handler for control dot clicks
-            function handleDotClick(event) {
-                const index = parseInt(event.target.dataset.slideIndex, 10);
-                // Check if the clicked dot's index is a valid number
-                if (!isNaN(index)) {
-                    clearInterval(slideInterval); // Stop auto-advance when clicking a dot
-                    showSlide(index);
-                    currentSlideIndex = index; // Update index
-                    startAutoAdvance(); // Restart auto-advance after clicking
-                }
-            }
-
-
-             // Function to update control dot states (active/inactive)
-            function updateControls(activeIndex) {
-                const dots = controlsContainer.querySelectorAll('.control-dot');
-                dots.forEach((dot, index) => {
-                    dot.classList.remove('active');
-                    if (index === activeIndex) {
-                        dot.classList.add('active');
-                    }
-                });
-            }
-
-
-            // Function to start auto-advancing the carousel
-            function startAutoAdvance() {
-                // Clear any existing interval before starting a new one
-                clearInterval(slideInterval);
-                // Only start auto-advance if there's more than one slide
-                if (slides.length > 1) {
-                     slideInterval = setInterval(nextSlide, intervalTime);
-                }
-            }
-
-             // Function to stop auto-advancing the carousel
-            function stopAutoAdvance() {
-                clearInterval(slideInterval);
-            }
-
-
-            // Initialize carousel
-            if (slides.length > 0) {
-                createControls(); // Create dots
-                showSlide(currentSlideIndex); // Show the first slide
-
-                 // Pause auto-advance on hover for desktop/larger screens
-                if (window.innerWidth >= 769) { // Apply hover pause only on larger screens
-                     carousel.addEventListener('mouseenter', stopAutoAdvance);
-                     carousel.addEventListener('mouseleave', startAutoAdvance);
-                }
-                // Handle resize to add/remove hover listener
-                window.addEventListener('resize', () => {
-                     stopAutoAdvance(); // Stop interval during resize
-                     if (window.innerWidth >= 769) {
-                        carousel.addEventListener('mouseenter', stopAutoAdvance);
-                        carousel.addEventListener('mouseleave', startAutoAdvance);
-                     } else {
-                         // Remove listeners if switching to smaller screen
-                         carousel.removeEventListener('mouseenter', stopAutoAdvance);
-                         carousel.removeEventListener('mouseleave', startAutoAdvance);
-                     }
-                     startAutoAdvance(); // Restart after resize handling
-                });
-
-
-                // Start auto-advance
-                startAutoAdvance();
-            }
+            });
         }
-         /* --- END Simple JS Carousel Logic --- */
-
     });
 </script>
 </body>
