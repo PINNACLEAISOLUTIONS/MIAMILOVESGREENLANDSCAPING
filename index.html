@@ -41,7 +41,8 @@
         --card-background: #F8FFF8;
         --card-background-hover: #F0F8F0;
 
-        --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%);
+        /* Footer background will now be an image */
+        /* --footer-background: linear-gradient(135deg, #C8E6C9 0%, #A5D6A7 100%); */
 
         --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
         --shadow-medium: 0 12px 40px rgba(0,0,0,0.12);
@@ -369,6 +370,25 @@
         transition-delay: 0.15s;
     }
 
+    /* --- Gallery Title Animation --- */
+    /* Make sure the animate class is applied by the IntersectionObserver */
+    #gallery .section-title.animate {
+        animation: glowTitle 2s infinite alternate ease-in-out; /* Apply glow animation */
+    }
+
+    @keyframes glowTitle {
+        0% {
+            text-shadow: 0 0 5px rgba(76, 175, 80, 0.3), /* Soft green glow */
+                         0 0 10px rgba(76, 175, 80, 0.2);
+        }
+        100% {
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.6), /* Brighter green glow */
+                         0 0 20px rgba(76, 175, 80, 0.4);
+        }
+    }
+    /* --- End Gallery Title Animation --- */
+
+
     .section-subtitle {
         max-width: 750px; margin: 0 auto var(--spacing-lg);
         font-size: clamp(0.95rem, 2vw, 1.15rem);
@@ -584,6 +604,122 @@
         color: var(--primary-green-light);
     }
 
+    /* --- START Simple JS Carousel Styles --- */
+    .simple-carousel {
+      position: relative;
+      width: 90%;
+      max-width: 800px; /* Adjust max-width as needed */
+      /* Set a height or use aspect-ratio */
+      height: 450px; /* Example fixed height */
+      /* aspect-ratio: 16 / 9; /* Or use aspect-ratio for flexible height */ */
+      overflow: hidden;
+      margin: var(--spacing-md) auto var(--spacing-lg) auto;
+      box-shadow: var(--shadow-medium);
+      border-radius: var(--border-radius-md);
+      background-color: rgba(0, 0, 0, 0.3); /* Dark subtle background */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      /* Animation for scroll reveal (already applied via content-section) */
+      /* opacity: 0; */
+      /* transform: scale(0.98); */
+      /* transition: opacity var(--transition-slow), transform var(--transition-slow); */
+    }
+
+    /* Animation for scroll reveal (This rule is now on the .simple-carousel inside .content-section) */
+    /* .content-section.animate .simple-carousel {
+        opacity: 1;
+        transform: scale(1);
+    } */
+
+    .carousel-slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out; /* Smooth fade transition */
+        z-index: 1; /* Default z-index */
+    }
+
+    .carousel-slide.active {
+        opacity: 1;
+        z-index: 2; /* Active slide on top */
+    }
+
+     .carousel-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure image covers the slide area */
+        object-position: center;
+     }
+
+    .carousel-caption {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        color: var(--text-hero); /* White text */
+        text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 8px rgba(0,0,0,0.4);
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-weight: 500;
+        z-index: 3; /* Ensure caption is above image */
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark background */
+        padding: 8px 12px;
+        border-radius: var(--border-radius-xs);
+        text-align: left;
+        /* Hide initially, fade in with the slide */
+        opacity: 0;
+        transition: opacity 0.8s ease-in-out 0.2s; /* Delay caption fade-in slightly */
+    }
+
+    .carousel-slide.active .carousel-caption {
+        opacity: 1;
+    }
+
+    .carousel-controls {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3; /* Ensure controls are above slides */
+        display: flex;
+        gap: 8px;
+    }
+
+    .control-dot {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.4); /* Light grey dot */
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border: 1px solid rgba(0,0,0,0.1); /* Subtle outline */
+    }
+
+    .control-dot.active {
+        background-color: var(--accent-gold); /* Active dot color */
+        transform: scale(1.2);
+        box-shadow: 0 0 5px rgba(255, 167, 38, 0.5);
+    }
+
+    .control-dot:hover {
+        background-color: rgba(255, 255, 255, 0.7); /* Hover effect */
+    }
+
+    .control-dot.active:hover {
+         background-color: var(--accent-gold-hover);
+    }
+    /* --- END Simple JS Carousel Styles --- */
+
+
     /* === REVISED CTA SECTION === */
     .cta-section {
         padding: var(--spacing-lg) 0;
@@ -684,16 +820,41 @@
 
 
     footer {
-        background: var(--footer-background);
-        color: var(--primary-green-darkest);
-        padding: var(--spacing-lg) 0 var(--spacing-md);
-        font-size: 0.9rem;
-        position: relative;
+        /* Set background image */
+        background-image: url('./imagesmiami.jpg/16183e67-f597-441f-8ea7-beff127d3c99.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative; /* Needed for pseudo-element overlay */
         z-index: 1;
         opacity: 0;
         transform: translateY(50px);
         transition: opacity 0.8s var(--transition-medium), transform 0.8s var(--transition-medium);
+
+        color: var(--primary-green-darkest); /* Keep text color */
+        padding: var(--spacing-lg) 0 var(--spacing-md); /* Keep padding */
+        font-size: 0.9rem; /* Keep font size */
+        overflow: hidden; /* Hide parts of background image if needed */
     }
+
+     /* Add a subtle overlay to improve text readability on the footer background image */
+     footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(var(--primary-green-darkest-rgb), 0.5); /* Semi-transparent dark green */
+        z-index: 0; /* Place behind content but above background image */
+    }
+
+    /* Ensure footer content is above the overlay */
+    footer .container {
+        position: relative;
+        z-index: 1;
+    }
+
     footer.animate {
         opacity: 1;
         transform: translateY(0);
@@ -738,7 +899,10 @@
     .footer-bottom {
         text-align: center; padding-top: var(--spacing-md);
         border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
+        position: relative; /* Ensure bottom text is above overlay */
+        z-index: 1;
     }
+
 
     /* === FLOATING ACTION BUTTONS === */
     .fab-container {
@@ -809,186 +973,7 @@
         box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
     }
 
-    /* --- END Existing CSS --- */
-
-
-    /* --- BEGIN Carousel Styles (Modified from CodePen) --- */
-    .carousel {
-      position: relative;
-      /* Make it responsive */
-      width: 90%;
-      max-width: 700px; /* Adjust max-width as needed */
-      height: 450px; /* Adjust height as needed */
-      overflow: hidden;
-      /* Center and add margin */
-      margin: var(--spacing-lg) auto var(--spacing-xl) auto;
-      /* Use existing design tokens */
-      box-shadow: var(--shadow-medium);
-      border-radius: var(--border-radius-md);
-      background-color: rgba(0,0,0,0.2); /* Fallback background */
-      border: 1px solid rgba(255,255,255,0.08); /* Subtle border */
-
-      /* Animation for scroll reveal */
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity var(--transition-slow), transform var(--transition-slow);
-    }
-
-    /* Animation for scroll reveal */
-    .content-section.animate .carousel {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    /* Hover effect on the carousel container */
-    .carousel:hover
-      .slide:after, /* This one is removed below, can remove from :hover too */
-      .counter,
-      .slide:before {
-        opacity: 1;
-      }
-
-    /* Style for each slide container */
-    .slide {
-      float: right; /* This float might not be strictly necessary with absolute positioning */
-      position: absolute;
-      z-index: 1;
-      /* Match parent dimensions */
-      width: 100%;
-      height: 100%;
-      background-color: transparent; /* Images will cover */
-      text-align: center;
-      transition: opacity 0.4s ease-in-out; /* Smoother transition */
-      opacity: 1;
-      pointer-events: none; /* Prevent interaction with the slide div itself */
-    }
-
-    /* Style for images within slides */
-    .carousel .slide img {
-      display: block; /* Prevents extra space below image */
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Scale the image to cover the area, maintaining aspect ratio */
-      object-position: center; /* Center the image within the area */
-      filter: brightness(0.85); /* Slightly dim images for text readability */
-      transition: filter 0.4s ease;
-    }
-
-    .carousel:hover .slide img {
-        filter: brightness(1); /* Full brightness on hover */
-    }
-
-
-    /* Style for annotation text (using :before) */
-    .slide:before {
-      content: attr(annot);
-      display: block;
-      position: absolute;
-      left: 20px;
-      bottom: 50px; /* Adjust position */
-      color: rgba(255,255,255,0.95);
-      font-size: 15px;
-      font-weight: 500;
-      z-index: 12;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      text-shadow: 0 0 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.6);
-      background-color: rgba(var(--primary-green-darkest-rgb), 0.65); /* Subtle background */
-      padding: 5px 10px;
-      border-radius: var(--border-radius-xs);
-      max-width: calc(100% - 40px); /* Limit width */
-      text-align: left;
-    }
-
-    /* Remove the 'after' pseudo-element (originally used for slide number) */
-    .slide:after {
-       display: none;
-    }
-
-
-    /* Style for the counter text */
-    .counter {
-      position: absolute;
-      bottom: 20px;
-      right: 20px; /* Adjust position */
-      height: 25px;
-      width: 80px; /* Adjust width */
-      z-index: 10; /* Ensure it's above the slide content overlay */
-      text-align: center;
-      color: rgba(255,255,255,0.9);
-      line-height: 25px;
-      font-size: 14px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      background-color: rgba(var(--primary-green-darkest-rgb), 0.55); /* Subtle background */
-      border-radius: var(--border-radius-xs);
-      pointer-events: none; /* Prevent interfering with clicks */
-      text-shadow: 0 0 2px rgba(0,0,0,0.8);
-    }
-
-    /* Styles for the hidden checkbox inputs that control the slides */
-    .faux-ui-facia {
-      top: 0;
-      right: 0;
-      float: right; /* Might not be necessary with absolute positioning */
-      position: absolute;
-      margin-top: 0;
-      z-index: 9; /* Default z-index */
-      height: 100%;
-      width: 100%;
-      opacity: 0; /* Keep hidden */
-      cursor: pointer;
-      /* Add distinct background for debugging if needed */
-      /* background-color: rgba(255,0,0,0.1); */
-    }
-
-    /* When a checkbox is checked */
-    .faux-ui-facia:checked {
-      z-index: 8; /* Lower z-index when checked, allows interaction with next unchecked checkbox */
-    }
-
-    /* Hide the sibling slide when the preceding checkbox is checked */
-    .faux-ui-facia:checked + .slide {
-      opacity: 0;
-      z-index: 7; /* Ensure hidden slides are behind visible ones */
-    }
-
-    /* Specific logic for the first checkbox (which should appear last in HTML) */
-    /* This checkbox controls the visibility of the first slide */
-    .faux-ui-facia:nth-child(1):checked {
-      z-index: 9; /* Keep top z-index when checked */
-    }
-
-    /* When the first checkbox is checked, make the first slide visible */
-    .faux-ui-facia:nth-child(1):checked + .slide {
-        opacity: 1;
-        z-index: 8; /* Ensure the first slide is visible and above others */
-    }
-
-    /* When the first checkbox is checked, subsequent checkboxes should not hide slides */
-    /* Let's keep the original CodePen logic here */
-    .faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia {
-      z-index: 8; /* Lower z-index for subsequent unchecked checkboxes when the first one is checked */
-    }
-
-    /* If a subsequent checkbox (after the first) is checked while the first is also checked,
-       it gains high z-index to control the next slide visibility, overriding the previous rule.
-    */
-    .faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia:checked {
-      z-index: 9;
-    }
-
-    /* This rule hides subsequent slides when the first checkbox is checked. */
-    .faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia + .slide {
-        opacity: 0;
-    }
-
-    /* If a subsequent checkbox (after the first) is checked, make its sibling slide visible. */
-    .faux-ui-facia:nth-child(1):checked ~ .faux-ui-facia:checked + .slide {
-        opacity: 1;
-        z-index: 8;
-    }
-    /* --- END Carousel Styles --- */
+    /* --- END Floating Action Buttons --- */
 
 </style>
 </head>
@@ -1106,55 +1091,36 @@
     {/* <!-- START: Our Work Gallery Section --> */}
     <section id="gallery" class="content-section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center;">Our Work Gallery</h2>
-            <div class="carousel">
-              {/* Inputs and Slides go here, in REVERSE order of appearance in the gallery (Slide 5 content first) */}
+            {/* Animated Gallery Title */}
+            <h2 class="section-title">OUR WORK GALLERY</h2>
 
-              {/* Input for Slide 5 (Clicking this advances from Slide 4 to 5) */}
-              <input type="checkbox" class="faux-ui-facia">
-              {/* Slide 5 Content */}
-              <div class="slide" slide="5" annot="Stunning patio design with lush surrounding landscape.">
-                <img src="./imagesmiami.jpg/503889421_18508401811007660_7253479364693418141_n.jpg" alt="Completed landscape patio project">
-              </div>
-
-              {/* Input for Slide 4 (Clicking this advances from Slide 3 to 4) */}
-              <input type="checkbox" class="faux-ui-facia">
-              {/* Slide 4 Content */}
-              <div class="slide" slide="4" annot="Vibrant garden planting with tropical foliage.">
-                <img src="./imagesmiami.jpg/503851911_18508401799007660_5096063837397163195_n.jpg" alt="Tropical garden planting project">
-              </div>
-
-              {/* Input for Slide 3 (Clicking this advances from Slide 2 to 3) */}
-              <input type="checkbox" class="faux-ui-facia">
-              {/* Slide 3 Content */}
-              <div class="slide" slide="3" annot="Expertly trimmed palm trees framing a property.">
-                <img src="./imagesmiami.jpg/503551923_18508401178007660_1047634941543886825_n.jpg" alt="Professional palm tree trimming">
-              </div>
-
-              {/* Input for Slide 2 (Clicking this advances from Slide 1 to 2) */}
-              <input type="checkbox" class="faux-ui-facia">
-              {/* Slide 2 Content */}
-              <div class="slide" slide="2" annot="Lush green lawn installation and maintenance.">
-                <img src="./imagesmiami.jpg/503332282_18508401787007660_1966149630338819014_n.jpg" alt="Lush lawn installation">
-              </div>
-
-              {/* Input for Slide 1 (Clicking this wraps around from Slide 5 back to 1)
-                 This input MUST be the last one in the HTML structure. */}
-              <input type="checkbox" class="faux-ui-facia">
-              {/* Slide 1 Content
-                  This slide MUST be the last one in the HTML structure, just before the counter.
-                  It is the one visible by default when no checkboxes are checked. */}
-              <div class="slide" slide="1" annot="Beautifully designed garden pathway with landscape lighting.">
-                <img src="./imagesmiami.jpg/480401945_1157070916002743_5183818224020437460_n.jpg" alt="Garden pathway with lighting">
-              </div>
-
-              {/* Counter (Place after all slides) */}
-              <div class="counter" count="5"> / 5</div>
-
-            </div>{/* End carousel */}
-        </div>{/* End container */}
+            {/* Simple JS Carousel Structure */}
+            <div class="simple-carousel">
+                <div class="carousel-slides">
+                    {/* Slide 1 */}
+                    <div class="carousel-slide">
+                        <img src="./imagesmiami.jpg/503889421_18508401811007660_7253479364693418141_n.jpg" alt="Completed landscape patio project">
+                        <div class="carousel-caption">Stunning patio design with lush surrounding landscape.</div>
+                    </div>
+                    {/* Slide 2 */}
+                    <div class="carousel-slide">
+                        <img src="./imagesmiami.jpg/503851911_18508401799007660_5096063837397163195_n.jpg" alt="Vibrant garden planting with tropical foliage.">
+                        <div class="carousel-caption">Vibrant garden planting with tropical foliage.</div>
+                    </div>
+                    {/* Slide 3 */}
+                    <div class="carousel-slide">
+                        <img src="./imagesmiami.jpg/480401945_1157070916002728_5183818224020437460_n.jpg" alt="Beautifully designed garden pathway with landscape lighting.">
+                        <div class="carousel-caption">Beautifully designed garden pathway with landscape lighting.</div>
+                    </div>
+                </div>
+                {/* Carousel Controls (Dots) - Added by JavaScript */}
+                 <div class="carousel-controls">
+                     {/* Dots will be added here by the JS */}
+                 </div>
+            </div> {/* End simple-carousel */}
+        </div> {/* End container */}
     </section>
-    {/* <!-- END: Our Work Gallery Section --> */}
+    <!-- END: Our Work Gallery Section -->
 
 
     <section id="cta" class="cta-section content-section">
@@ -1167,6 +1133,8 @@
 </div> {/* End main-content-wrapper */}
 
 <footer id="footer-contact">
+    {/* Set background image */
+    /* The background image and overlay are applied via CSS to the footer tag itself */}
     <div class="container footer-content">
         <div class="footer-section footer-brand">
             <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
@@ -1230,7 +1198,8 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const nav = document.getElementById('mainNav');
-        const mainNavHeight = nav ? nav.offsetHeight : 70;
+        // Use clientHeight for more reliable height measurement
+        const mainNavHeight = nav ? nav.clientHeight : 70;
         window.addEventListener('scroll', () => {
             if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
         });
@@ -1239,23 +1208,27 @@
         const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
         function changeActiveLink() {
             let currentSectionId = 'home';
+             // Adjust offset to account for fixed header height and some padding
             const scrollPosition = window.scrollY + mainNavHeight + 70;
 
-            // Find the highest section that is currently in view
+            // Find the highest section whose top is above or at the scroll position
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];
+                 // Check if the section is above the adjusted scroll line
                 if (section.offsetTop <= scrollPosition) {
                     currentSectionId = section.id;
-                    break;
+                    break; // Found the current section, stop searching
                 }
             }
 
-            // Special case for footer if scrolled almost to the bottom
-            if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
+            // Special case for footer if scrolled almost to the very bottom
+            // Check if the bottom of the viewport is near the bottom of the document
+            const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 150); // 150px tolerance
+            if (nearBottom && document.getElementById('footer-contact')) {
                  currentSectionId = 'footer-contact';
             }
-            // Special case for home if scrolled to the top
-            else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
+            // Special case for home if scrolled near the very top
+            else if (window.scrollY < 100 && document.getElementById('home')) { // Within the first 100px
                 currentSectionId = 'home';
             }
 
@@ -1289,10 +1262,12 @@
             const particlesContainer = document.getElementById('particles-js');
             if(!particlesContainer) return;
             const particleCount = 40; // Number of particles
+            // Clear existing particles before adding new ones
+            particlesContainer.innerHTML = '';
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                // Random starting position (slightly offscreen)
+                // Random starting position (slightly offscreen or anywhere within bounds)
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + 'vh'; // Start from anywhere vertically
                 // Randomize animation properties
@@ -1301,11 +1276,15 @@
                 particlesContainer.appendChild(particle);
             }
         }
-        createParticles();
+        createParticles(); // Create particles initially
+
+        // Optional: Recreate particles on window resize if needed (can be resource intensive)
+        // window.addEventListener('resize', createParticles);
+
 
         const observerOptions = {
             root: null, // Use the viewport as the root
-            rootMargin: '-50px 0px -100px 0px', // Adjust margin around viewport
+            rootMargin: '-50px 0px -100px 0px', // Adjust margin around viewport (top, right, bottom, left)
             threshold: 0.01 // Trigger when 1% of the element is visible
         };
 
@@ -1314,12 +1293,12 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate');
                     // Special handling for about features list animation
-                    if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
+                    if (entry.target.classList.contains('about-features')) { // Removed check for 'animate' class here
                         Array.from(entry.target.children).forEach((item, index) => {
                             // Reset and re-apply delay for animation on scroll back into view
-                            item.style.transitionDelay = '';
+                            item.style.transitionDelay = ''; // Clear previous delay
                             void item.offsetWidth; // Trigger reflow to restart animation
-                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`;
+                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`; // Apply staggered delay
                         });
                     }
                 } else {
@@ -1337,18 +1316,25 @@
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
         // Observe relevant sections for scroll animation
-        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, #gallery, footer').forEach(el => observer.observe(el)); {/* Added #gallery here */}
+        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, #gallery, footer').forEach(el => {
+             // Ensure the element exists before observing
+             if(el) observer.observe(el);
+         });
 
 
         // Manually trigger animation for hero section if it's visible on page load
+        // This prevents the hero animation from waiting for the observer if the page loads scrolled to the top
         const heroContent = document.querySelector('.hero-content');
-        if (heroContent && window.scrollY < 100) { // Check if at the very top of the page
-            setTimeout(() => { // Add a slight delay
-                 if(!heroContent.classList.contains('animate')) { // Only add if not already added
-                    heroContent.classList.add('animate');
-                 }
-            }, 150);
-        }
+         // Use requestAnimationFrame for better performance check on load
+        requestAnimationFrame(() => {
+            if (heroContent && window.scrollY < 100) { // Check if at the very top of the page
+                 setTimeout(() => { // Add a slight delay
+                     if(!heroContent.classList.contains('animate')) { // Only add if not already added
+                        heroContent.classList.add('animate');
+                     }
+                 }, 150);
+            }
+        });
 
 
         // Smooth scrolling for anchor links
@@ -1360,13 +1346,16 @@
                 if (targetElement) {
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     // Adjust position based on fixed header height
-                    const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10; // Add a little extra padding
+                    // Use clientHeight for more reliable height measurement
+                    const navHeight = document.getElementById('mainNav') ? document.getElementById('mainNav').clientHeight : 70;
+                    const offsetPosition = elementPosition - navHeight - 10; // Add a little extra padding
                     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                 }
 
                 // Close mobile menu after clicking a link
                 const menuToggle = document.querySelector('.mobile-menu-toggle');
                 const mainNavLinksUl = document.getElementById('mainNavLinks');
+                 // Check if mobile menu is active and screen is mobile size
                  if (window.innerWidth < 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
                     mainNavLinksUl.classList.remove('active');
                     if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
@@ -1390,14 +1379,141 @@
             });
              // Close menu when clicking outside (optional, but good practice)
              document.addEventListener('click', (event) => {
+                // Check if the click was inside the menu or the toggle button
                 const isClickInsideMenu = mainNavLinksUl.contains(event.target);
                 const isClickOnToggle = menuToggle.contains(event.target);
+                 // If menu is active, screen is mobile size, and click is outside both menu and toggle
                  if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
                     mainNavLinksUl.classList.remove('active');
                     menuToggle.setAttribute('aria-expanded', 'false');
                 }
              });
+             // Close menu if window is resized to larger than mobile while menu is open
+             window.addEventListener('resize', () => {
+                if (window.innerWidth >= 769 && mainNavLinksUl && mainNavLinksUl.classList.contains('active')) {
+                    mainNavLinksUl.classList.remove('active');
+                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+                }
+             });
         }
+
+        /* --- START Simple JS Carousel Logic --- */
+        const carousel = document.querySelector('.simple-carousel');
+        if (carousel) { // Check if the carousel element exists
+            const slidesContainer = carousel.querySelector('.carousel-slides');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const controlsContainer = carousel.querySelector('.carousel-controls');
+            let currentSlideIndex = 0;
+            const intervalTime = 3000; // 3 seconds
+            let slideInterval;
+
+            // Function to show a specific slide
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+                 // Update dots
+                 updateControls(index);
+            }
+
+            // Function to move to the next slide
+            function nextSlide() {
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                showSlide(currentSlideIndex);
+            }
+
+             // Function to create control dots
+            function createControls() {
+                controlsContainer.innerHTML = ''; // Clear any existing controls
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('control-dot');
+                    // Add aria label for accessibility
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    // Add data-slide-index for easy access in event listener
+                    dot.dataset.slideIndex = index;
+                    dot.addEventListener('click', handleDotClick); // Use a single handler function
+                    controlsContainer.appendChild(dot);
+                });
+                 // Initially update dots state
+                 updateControls(currentSlideIndex);
+            }
+
+             // Handler for control dot clicks
+            function handleDotClick(event) {
+                const index = parseInt(event.target.dataset.slideIndex, 10);
+                // Check if the clicked dot's index is a valid number
+                if (!isNaN(index)) {
+                    clearInterval(slideInterval); // Stop auto-advance when clicking a dot
+                    showSlide(index);
+                    currentSlideIndex = index; // Update index
+                    startAutoAdvance(); // Restart auto-advance after clicking
+                }
+            }
+
+
+             // Function to update control dot states (active/inactive)
+            function updateControls(activeIndex) {
+                const dots = controlsContainer.querySelectorAll('.control-dot');
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === activeIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+
+
+            // Function to start auto-advancing the carousel
+            function startAutoAdvance() {
+                // Clear any existing interval before starting a new one
+                clearInterval(slideInterval);
+                // Only start auto-advance if there's more than one slide
+                if (slides.length > 1) {
+                     slideInterval = setInterval(nextSlide, intervalTime);
+                }
+            }
+
+             // Function to stop auto-advancing the carousel
+            function stopAutoAdvance() {
+                clearInterval(slideInterval);
+            }
+
+
+            // Initialize carousel
+            if (slides.length > 0) {
+                createControls(); // Create dots
+                showSlide(currentSlideIndex); // Show the first slide
+
+                 // Pause auto-advance on hover for desktop/larger screens
+                if (window.innerWidth >= 769) { // Apply hover pause only on larger screens
+                     carousel.addEventListener('mouseenter', stopAutoAdvance);
+                     carousel.addEventListener('mouseleave', startAutoAdvance);
+                }
+                // Handle resize to add/remove hover listener
+                window.addEventListener('resize', () => {
+                     stopAutoAdvance(); // Stop interval during resize
+                     if (window.innerWidth >= 769) {
+                        carousel.addEventListener('mouseenter', stopAutoAdvance);
+                        carousel.addEventListener('mouseleave', startAutoAdvance);
+                     } else {
+                         // Remove listeners if switching to smaller screen
+                         carousel.removeEventListener('mouseenter', stopAutoAdvance);
+                         carousel.removeEventListener('mouseleave', startAutoAdvance);
+                     }
+                     startAutoAdvance(); // Restart after resize handling
+                });
+
+
+                // Start auto-advance
+                startAutoAdvance();
+            }
+        }
+         /* --- END Simple JS Carousel Logic --- */
+
     });
 </script>
 </body>
