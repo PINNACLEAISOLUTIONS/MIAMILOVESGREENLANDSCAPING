@@ -17,6 +17,8 @@
 --primary-green-light: #8DD08D; /* Light Green: 141, 208, 141 */
 --primary-green-light-rgb: 141, 208, 141; /* RGB for light green */
 --primary-green-ultra-light: #E8F5E8; /* Ultra Light Green: 232, 245, 232 */
+--primary-green-ultra-light-rgb: 232, 245, 232;
+
 
 /* Additional shades for holographic effect if needed */
 --holographic-green-1: #A8E0A8; /* Lighter shade */
@@ -69,8 +71,6 @@
 --transition-slow: 0.75s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
---service-content-bg-teal: rgba(32, 178, 170, 0.07);
-
 /* Carousel variables */
 --items: 6;
 --carousel-duration: 40s;
@@ -80,7 +80,7 @@
 --carousel-width: min(
 80vw,
 1200px
-); /* note - it will "break" if it gets too wide and there aren't enough items */
+);
 --carousel-item-width: 280px;
 --carousel-item-height: 450px;
 --carousel-item-gap: 2rem;
@@ -149,16 +149,16 @@ background: rgba(10, 26, 10, 0.95);
 box-shadow: var(--shadow-medium); padding: var(--spacing-xs) 0;
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+/* === ORIGINAL TEXT LOGO STYLES === */
 .logo {
 font-family: var(--font-heading);
 font-weight: 700;
-/* color: var(--text-hero); REMOVED FOR BACKGROUND-CLIP */
 text-decoration: none; letter-spacing: -0.1px;
 transition: transform var(--transition-fast), text-shadow var(--transition-medium);
 white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 text-transform: uppercase;
 position: relative;
-/* text-shadow: 0px 1px 1px rgba(0,0,0,0.6), 0 0 5px rgba(255, 255, 255, 0.2); UPDATED */
 font-size: clamp(0.75rem, 1.9vw, 1.3rem);
 max-width: calc(100% - 55px);
 /* Holographic Green Text Fill */
@@ -186,7 +186,6 @@ letter-spacing: -0.25px;
 }
 .logo:hover {
 transform: scale(1.02);
-/* text-shadow: 0px 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(255, 255, 255, 0.35); Ensure this still looks good or adjust */
 }
 .logo::before {
 content: '';
@@ -195,7 +194,6 @@ top: 0;
 left: -150%;
 width: 70%;
 height: 100%;
-/* Brighter, more concentrated green shimmer */
 background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
 transform: skewX(-25deg);
 animation: logoShimmer 4s infinite linear;
@@ -207,6 +205,7 @@ z-index: 1;
 50% { left: 150%; }
 100% { left: 150%; }
 }
+
 .nav-links { display: none; }
 @media (min-width: 769px) {
 .nav-links { display: flex; list-style: none; margin:0; padding:0; gap: var(--spacing-xs); }
@@ -271,21 +270,18 @@ transition: opacity var(--transition-slow), transform var(--transition-slow);
 font-family: var(--font-heading);
 font-size: clamp(2.5rem, 8vw, 5.5rem);
 font-weight: 800; margin-bottom: var(--spacing-sm);
-/* color: var(--text-hero); REMOVED FOR BACKGROUND-CLIP */
 letter-spacing: -1px;
 line-height: 1.05; text-transform: uppercase;
-/* Original text-shadow kept as it provides a good outer glow for gradient text */
 text-shadow:
 0px 2px 3px var(--sharp-glow-outline),
 0 0 15px var(--sharp-glow-main),
 0 0 30px var(--sharp-glow-soft);
 position: relative;
 overflow: hidden;
-/* Holographic Green Text Fill */
 background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--primary-green-medium) 35%, var(--holographic-green-2) 65%, var(--primary-green-light) 100%);
 -webkit-background-clip: text;
 background-clip: text;
-color: transparent; /* Text color must be transparent */
+color: transparent;
 }
 .hero h1::before {
 content: '';
@@ -294,7 +290,6 @@ top: 0;
 left: -150%;
 width: 70%;
 height: 100%;
-/* Brighter, more concentrated green shimmer */
 background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
 transform: skewX(-25deg);
 animation: heroHeadingShimmer 4.5s infinite linear;
@@ -310,14 +305,14 @@ z-index: 1;
 font-family: var(--font-display); font-size: clamp(1rem, 2.2vw, 1.4rem);
 font-weight: 400; margin-bottom: var(--spacing-md);
 opacity: 0.9; letter-spacing: 1px; text-transform: uppercase;
-color: var(--text-hero); /* Subtitle remains standard white text */
+color: var(--text-hero);
 }
 .hero p {
 font-family: var(--font-body); font-size: clamp(0.95rem, 2vw, 1.2rem);
 margin-bottom: var(--spacing-lg); opacity: 0.9;
 max-width: 700px; margin-left: auto; margin-right: auto;
 line-height: 1.65; font-weight: 300;
-color: var(--text-hero); /* Paragraph remains standard white text */
+color: var(--text-hero);
 }
 .btn {
 display: inline-block;
@@ -389,6 +384,7 @@ transform: translateY(70px) rotateX(-20deg) scale(0.9);
 transform-origin: bottom center;
 transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium), background var(--transition-fast);
 cursor: pointer;
+min-height: 400px; /* Ensure cards have some height */
 }
 .content-section.animate .service-card {
 opacity: 1;
@@ -400,21 +396,31 @@ transform: translateY(-10px) scale(1.03) rotateX(2deg);
 box-shadow: var(--shadow-strong), var(--shadow-glow);
 background: var(--card-background-hover);
 }
+/* === MODIFIED SERVICE CARD STYLES === */
 .service-image-area {
-width: 100%; height: 200px;
+width: 100%;
+height: 200px; /* Or adjust to desired top half portion */
 background-size: cover; background-position: center;
 display: flex;
 align-items: flex-start;
 justify-content: center;
-padding-top: var(--spacing-sm);
-padding-left: var(--spacing-sm);
-padding-right: var(--spacing-sm);
-padding-bottom: var(--spacing-sm);
+padding: var(--spacing-sm);
 position: relative; text-align: center;
 overflow: hidden;
 transition: transform 0.5s var(--transition-bounce);
 filter: brightness(1.3);
 }
+.service-content {
+padding: var(--spacing-md);
+flex-grow: 1; /* Allows this to fill remaining space */
+background-color: rgba(var(--primary-green-light-rgb), 0.1); /* Light green tint */
+text-align: center;
+display: flex; /* For vertical centering if needed */
+flex-direction: column; /* For vertical centering if needed */
+justify-content: center; /* For vertical centering if needed */
+}
+
+
 .service-image-area.hardscape-image {
 filter: brightness(1.5);
 }
@@ -422,15 +428,7 @@ filter: brightness(1.5);
 filter: brightness(2.0);
 }
 .service-card:hover .service-image-area { transform: scale(1.08); }
-@media (min-width: 768px) {
-.service-image-area {
-height: 220px;
-padding-top: var(--spacing-md);
-padding-left: var(--spacing-md);
-padding-right: var(--spacing-md);
-padding-bottom: var(--spacing-md);
-}
-}
+
 .service-image-area::before {
 content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
 background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,20,0,0.55) 65%, rgba(0,30,0,0.9) 100%);
@@ -471,12 +469,7 @@ text-shadow:
 z-index: 2; position: relative;
 max-width: 90%;
 }
-.service-content {
-padding: var(--spacing-md);
-flex-grow: 1;
-background-color: var(--service-content-bg-teal);
-text-align: center;
-}
+
 .service-content h3 {
 font-family: var(--font-heading);
 font-size: clamp(1.1rem, 2.5vw, 1.3rem);
@@ -528,6 +521,7 @@ transform: translateY(0);
 @media (min-width: 768px) {
 .about-features { grid-template-columns: 1fr 1fr; }
 }
+/* === MODIFIED ABOUT FEATURES STYLES === */
 .about-features li {
 padding: var(--spacing-sm) var(--spacing-md);
 position: relative;
@@ -544,11 +538,19 @@ inset 0 -1px 2px rgba(255,255,255,0.03),
 opacity: 0;
 transform: translateY(40px) scale(0.9);
 transition: opacity var(--transition-medium), transform var(--transition-bounce),
-background var(--transition-fast), box-shadow var(--transition-fast);
+background var(--transition-fast), box-shadow var(--transition-fast), text-shadow 0.3s ease-out;
 text-align: left;
 display: flex;
 align-items: center;
+text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5); /* Initial glow */
+animation: pulseTextGlow 3s infinite alternate ease-in-out; /* Continuous pulse animation */
 }
+
+@keyframes pulseTextGlow {
+  0% { text-shadow: 0 0 4px rgba(var(--primary-green-light-rgb), 0.5), 0 0 8px rgba(var(--primary-green-light-rgb), 0.2); }
+  100% { text-shadow: 0 0 8px rgba(var(--primary-green-light-rgb), 0.8), 0 0 16px rgba(var(--primary-green-light-rgb), 0.4); }
+}
+
 .about-features.animate li {
 opacity: 1;
 transform: translateY(0) scale(1);
@@ -560,6 +562,8 @@ box-shadow:
 inset 0 3px 5px rgba(0,0,0,0.4),
 inset 0 -2px 3px rgba(255,255,255,0.06),
 0 5px 15px rgba(0,0,0,0.3);
+text-shadow: 0 0 10px rgba(var(--primary-green-light-rgb), 0.9), 0 0 20px rgba(var(--primary-green-light-rgb), 0.6); /* Enhanced glow on hover */
+animation-play-state: paused; /* Pause pulse on hover to emphasize hover glow */
 }
 .about-features li::before {
 content: '🌿';
@@ -567,7 +571,7 @@ margin-right: var(--spacing-sm);
 font-size: 1.2em;
 color: var(--primary-green-light);
 }
-/* === REVISED CTA SECTION === */
+
 .cta-section {
 padding: var(--spacing-lg) 0;
 text-align: center;
@@ -581,9 +585,8 @@ background-position: center center;
 background-repeat: no-repeat;
 position: relative;
 overflow: hidden;
-filter: brightness(1.7) contrast(1.1); /* Adjusted image filter */
+filter: brightness(1.7) contrast(1.1);
 }
-/* No full ::before overlay on .cta-section itself */
 .content-section.animate.cta-section,
 .cta-section.animate {
 opacity: 1;
@@ -657,7 +660,6 @@ border-color: var(--accent-gold);
 outline: 3px solid rgba(255, 183, 77, 0.5);
 outline-offset: 4px;
 }
-/* === END OF MODIFIED CTA SECTION === */
 footer {
 background: var(--footer-background);
 color: var(--primary-green-darkest);
@@ -714,7 +716,6 @@ margin-bottom: var(--spacing-xs); font-size: 0.85rem;
 text-align: center; padding-top: var(--spacing-md);
 border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.8rem;
 }
-/* === FLOATING ACTION BUTTONS === */
 .fab-container {
 position: fixed;
 bottom: 20px;
@@ -764,7 +765,6 @@ width: 28px;
 height: 28px;
 fill: var(--primary-green-darkest);
 }
-/* Hover Effects */
 .fab-container:hover .fab-text {
 color: var(--accent-gold);
 background-color: rgba(var(--primary-green-darkest-rgb), 0.75);
@@ -775,18 +775,16 @@ transform: scale(1.1) translateY(-3px);
 background: var(--accent-gold-hover);
 box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 25px var(--accent-gold-glow);
 }
-/* === CAROUSEL STYLES === */
 .carousel {
 position: relative;
 width: var(--carousel-width);
 height: var(--carousel-item-height);
 overflow: clip;
-margin: 4rem auto; /* Centering the carousel */
-border-radius: 10px; /* Added for visual consistency */
-box-shadow: var(--shadow-strong); /* Added for visual depth */
+margin: 4rem auto;
+border-radius: 10px;
+box-shadow: var(--shadow-strong);
 }
 .carousel[mask] {
-/* fade out on sides */
 mask-image: linear-gradient(
 to right,
 transparent,
@@ -797,7 +795,6 @@ transparent
 .carousel[reverse] > article {
 animation-direction: reverse;
 }
-/* hover pauses animation */
 .carousel:hover > article {
 animation-play-state: paused;
 }
@@ -808,12 +805,10 @@ left: calc(100% + var(--carousel-item-gap));
 width: var(--carousel-item-width);
 height: var(--carousel-item-height);
 display: grid;
-grid-template-rows: 1fr; /* Image row fills article */
+grid-template-rows: 1fr;
 border: 1px solid light-dark(rgba(0 0 0 / 0.25), rgba(255 255 255 / 0.15));
 border-radius: 10px;
 background: light-dark(white, rgba(255 255 255 / 0.05));
-
-/* animation */
 will-change: transform;
 animation-name: marquee;
 animation-duration: var(--carousel-duration);
@@ -835,10 +830,8 @@ animation-delay: calc(
 width: 100%;
 height: 100%;
 object-fit: cover;
-border-radius: inherit; /* Inherits article's border-radius */
+border-radius: inherit;
 }
-/* Removed styles for .carousel > article > *:not(img), h2, p, a as they are no longer in the HTML */
-
 @keyframes marquee {
 100% {
 transform: translateX(
@@ -852,18 +845,17 @@ calc(
 .gallery-title {
 font-family: var(--font-heading);
 font-size: clamp(2.5rem, 6vw, 4rem);
-font-weight: 700; /* Already bold */
+font-weight: 700;
 text-align: center;
 margin-bottom: var(--spacing-lg);
-letter-spacing: -0.5px; /* Adjust if needed with uppercase */
+letter-spacing: -0.5px;
 color: var(--text-on-dark-bg);
-text-transform: uppercase; /* ADDED */
-text-shadow: /* MODIFIED for glow */
-    0 1px 2px rgba(0,0,0,0.3), /* Subtle dark outline for definition */
-    0 0 8px rgba(var(--primary-green-light-rgb), 0.7), /* Light green glow */
-    0 0 16px rgba(var(--primary-green-light-rgb), 0.5); /* Wider, softer light green glow */
+text-transform: uppercase;
+text-shadow:
+    0 1px 2px rgba(0,0,0,0.3),
+    0 0 8px rgba(var(--primary-green-light-rgb), 0.7),
+    0 0 16px rgba(var(--primary-green-light-rgb), 0.5);
 }
-/* === END OF CAROUSEL STYLES === */
 @media (min-width: 1024px) {
 .hero {
 min-height: 750px;
@@ -876,16 +868,17 @@ min-height: 750px;
 <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
 <nav id="mainNav">
 <div class="container nav-container">
-<a href="#home" class="logo">Miami Loves Green Landscaping</a>
-<button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
-<svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
-</button>
-<ul class="nav-links" id="mainNavLinks">
-<li><a href="#home">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#footer-contact">Contact</a></li>
-</ul>
+    <!-- Restored Original Text Logo -->
+    <a href="#home" class="logo">Miami Loves Green Landscaping</a>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNavLinks">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+    </button>
+    <ul class="nav-links" id="mainNavLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#footer-contact">Contact</a></li>
+    </ul>
 </div>
 </nav>
 <div class="main-content-wrapper">
@@ -960,7 +953,7 @@ min-height: 750px;
     </div>
 </section>
 
-<!-- ========== UPDATED CAROUSEL SECTION STARTS HERE ========== -->
+<!-- ========== CAROUSEL SECTION WITH IMAGE REPLACEMENT ========== -->
 <section id="gallery" class="content-section">
     <div class="container">
         <h2 class="gallery-title">Our Gallery</h2>
@@ -986,12 +979,11 @@ min-height: 750px;
             </article>
 
             <article>
-                <img src="./16183e67-f597-441f-8ea7-beff127d3c99.png" alt="Landscaping Project 6">
+                <img src="./16183e67-f597-441f-8ea7-beff127d3c99.png" alt="Landscaping Project 6 - Logo Showcase">
             </article>
         </div>
     </div>
 </section>
-<!-- ========== UPDATED CAROUSEL SECTION ENDS HERE ========== -->
 
 <section id="about" class="content-section">
     <div class="container">
@@ -1004,7 +996,7 @@ min-height: 750px;
                     <li>Expert Landscape Design & Master Planning</li>
                     <li>Comprehensive Garden Care & Lush Maintenance</li>
                     <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
-                    <li>Bespoke Outdoor Lighting & Irrigation Systems</li>
+                    <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
                 </ul>
             </div>
         </div>
