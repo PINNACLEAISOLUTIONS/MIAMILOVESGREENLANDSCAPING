@@ -896,45 +896,7 @@ footer.animate {
     border-radius: 10px 10px 0 0;
 }
 
-.carousel > article > *:not(img) {
-    padding: 0 1rem;
-}
-
-.carousel > article > div {
-    grid-row: span 2;
-    display: grid;
-    grid-template-rows: subgrid;
-    font-size: 0.8rem;
-}
-
-.carousel > article h2 {
-    font-size: 1.2rem;
-    font-weight: 300;
-    padding-block: 0.75rem 0.25rem;
-    margin: 0;
-}
-
-.carousel > article p {
-    margin: 0;
-}
-
-.carousel > article a {
-    text-decoration: none;
-    text-transform: lowercase;
-    border: 1px solid var(--clr-cta);
-    color: light-dark(var(--clr-cta), white);
-    border-radius: 3px;
-    padding: 0.25rem 0.5rem;
-    place-self: start;
-    transition: 150ms ease-in-out;
-}
-
-.carousel > article a:hover,
-.carousel > article a:focus-visible {
-    background-color: var(--clr-cta);
-    color: white;
-    outline: none;
-}
+/* No text content inside articles anymore */
 
 @keyframes marquee {
     100% {
@@ -1060,60 +1022,30 @@ footer.animate {
 
 <section id="gallery" class="content-section">
     <div class="container">
-        <h2 class="gallery-title">Our Gallery</h2>
+        <h2 class="gallery-title">OUR GALLERY</h2>
         <div class="carousel" mask>
             <article>
                 <img src="https://i.imgur.com/480401945_1157070916002743_5183818224020437460_n.jpg" alt="Landscaping Project 1">
-                <h2>Creative Design</h2>
-                <div>
-                    <p>Breathtaking landscape transformation combining aesthetics and function.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="https://i.imgur.com/imagesmiami.jpg" alt="Landscaping Project 2">
-                <h2>Lush Gardens</h2>
-                <div>
-                    <p>Vibrant, healthy gardens that bring life to your outdoor space.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="https://i.imgur.com/503851911_18508401799007660_5096063837397163195_n.jpg" alt="Landscaping Project 3">
-                <h2>Hardscape Elegance</h2>
-                <div>
-                    <p>Custom patios and walkways that define outdoor living areas.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="https://i.imgur.com/503889421_18508401811007660_7253479364693418141_n.jpg" alt="Landscaping Project 4">
-                <h2>Lighting Ambiance</h2>
-                <div>
-                    <p>Expertly placed lighting to enhance beauty and security.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="https://i.imgur.com/IMG_1254.jpg" alt="Landscaping Project 5">
-                <h2>Water Features</h2>
-                <div>
-                    <p>Serene water features that add tranquility to your garden.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
 
             <article>
                 <img src="https://i.imgur.com/IMG_1254.webp" alt="Landscaping Project 6">
-                <h2>Sustainable Solutions</h2>
-                <div>
-                    <p>Eco-conscious practices for a greener, healthier landscape.</p>
-                    <a href="#">View Details</a>
-                </div>
             </article>
         </div>
     </div>
