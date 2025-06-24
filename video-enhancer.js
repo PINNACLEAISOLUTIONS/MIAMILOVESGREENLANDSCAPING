@@ -6,11 +6,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Find the hero video
     const heroVideo = document.querySelector('.hero-video');
     
-    if (heroVideo) {
+    if (heroVideo && !heroVideo.hasAttribute('data-skip-enhancement')) {
         // Wait for the video to load metadata
         heroVideo.addEventListener('loadedmetadata', function() {
             console.log('Video loaded, applying enhancements...');
             enhanceVideo(heroVideo);
+        });
+    } else if (heroVideo) {
+        console.log('Video enhancement skipped due to data-skip-enhancement attribute');
+        // Make sure video is visible and plays
+        heroVideo.style.display = 'block';
+        heroVideo.play().catch(err => {
+            console.error('Error playing video:', err);
         });
     }
 });
