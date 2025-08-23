@@ -72,7 +72,7 @@
 --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
 /* Carousel variables */
---items: 6;
+--items: 8; /* UPDATED from 6 to 8 */
 --carousel-duration: 40s;
 @media (width > 600px) {
     --carousel-duration: 30s;
@@ -837,8 +837,6 @@ min-height: 750px;
 </nav>
 <div class="main-content-wrapper">
     <header id="home" class="hero">
-        <!-- Logo image -->
-        <img src="./16183e67-f597-441f-8ea7-beff127d3c99.png" alt="Miami Loves Green Landscaping Logo" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; z-index: 2;">
         <!-- Background image -->
         <img src="https://raw.githubusercontent.com/YourUsername/YourRepository/main/miami1.jpg" alt="Luxury Landscaping Background" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0;">
         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1;"></div>
@@ -907,33 +905,34 @@ min-height: 750px;
         </div>
     </section>
 
-<!-- ========== CAROUSEL SECTION WITH IMAGE REPLACEMENT ========== -->
+<!-- ========== CAROUSEL SECTION WITH UPDATED IMAGES ========== -->
 <section id="gallery" class="content-section">
     <div class="container">
         <h2 class="gallery-title">Our Gallery</h2>
         <div class="carousel" mask>
             <article>
-                <img src="./503889421_18508401811007660_7253479364693418141_n.jpg" alt="Landscaping Project 1">
+                <img src="./IMG_3535.jpg" alt="Gallery Image 1">
             </article>
-
             <article>
-                <img src="./503551923_18508401178007660_1047634941543886825_n.jpg" alt="Landscaping Project 2">
+                <img src="./IMG_3734.jpg" alt="Gallery Image 2">
             </article>
-
             <article>
-                <img src="./IMG_1254.jpg" alt="Landscaping Project 3">
+                <img src="./IMG_3735.jpg" alt="Gallery Image 3">
             </article>
-
             <article>
-                <img src="./IMG_1255 (1).jpg" alt="Landscaping Project 4">
+                <img src="./IMG_3942.jpg" alt="Gallery Image 4">
             </article>
-
             <article>
-                <img src="./480401945_1157070916002743_5183818224020437460_n.jpg" alt="Landscaping Project 5">
+                <img src="./IMG_3943.jpg" alt="Gallery Image 5">
             </article>
-
             <article>
-                <img src="./16183e67-f597-441f-8ea7-beff127d3c99.png" alt="Landscaping Project 6 - Logo Showcase">
+                <img src="./IMG_4011.png" alt="Gallery Image 6">
+            </article>
+            <article>
+                <img src="./IMG_4012.png" alt="Gallery Image 7">
+            </article>
+            <article>
+                <img src="./IMG_4013.png" alt="Gallery Image 8">
             </article>
         </div>
     </div>
@@ -1021,59 +1020,6 @@ min-height: 750px;
 </div>
 </a>
 <!-- END: Floating Action Buttons -->
-
-<!-- THE SCRIPT THAT INSERTED THE VIDEO IS NOW COMMENTED OUT -->
-<!-- <script src="./video-enhancer.js"></script> -->
-
-<!-- THE SCRIPT THAT PLAYED THE VIDEO IS NOW COMMENTED OUT -->
-<!--
-<script>
-// Direct video playback script
-document.addEventListener('DOMContentLoaded', function() {
-    const mainVideo = document.getElementById('main-video');
-    if (mainVideo) {
-        console.log('Attempting to play video directly...');
-        // Force video to be visible
-        mainVideo.style.display = 'block';
-        mainVideo.style.opacity = '1';
-        mainVideo.style.visibility = 'visible';
-        
-        // Try to play the video
-        const playPromise = mainVideo.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                console.log('Video playback started successfully');
-            })
-            .catch(error => {
-                console.error('Video playback failed:', error);
-                // If autoplay is blocked, show a play button
-                const playButton = document.createElement('button');
-                playButton.textContent = 'Play Video';
-                playButton.style.position = 'absolute';
-                playButton.style.top = '50%';
-                playButton.style.left = '50%';
-                playButton.style.transform = 'translate(-50%, -50%)';
-                playButton.style.zIndex = '10';
-                playButton.style.padding = '10px 20px';
-                playButton.style.background = '#FFA726';
-                playButton.style.color = '#0A1A0A';
-                playButton.style.border = 'none';
-                playButton.style.borderRadius = '50px';
-                playButton.style.cursor = 'pointer';
-                
-                playButton.addEventListener('click', () => {
-                    mainVideo.play();
-                    playButton.remove();
-                });
-                
-                mainVideo.parentNode.appendChild(playButton);
-            });
-        }
-    }
-});
-</script>
--->
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
