@@ -245,6 +245,7 @@ z-index: 1001;
 position: relative; height: 100vh; min-height: 650px;
 display: flex; align-items: center; justify-content: center;
 overflow: hidden;
+background-color: var(--primary-green-darkest); /* Fallback for image loading and mobile view */
 }
 
 .hero-image {
@@ -253,7 +254,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-object-fit: cover; /* This makes the image cover the area without distortion */
+object-fit: cover; /* This makes the image cover the area without distortion on DESKTOP */
 z-index: -1;
 filter: brightness(1.1) contrast(1.1);
 }
@@ -825,6 +826,15 @@ text-shadow:
 min-height: 750px;
 }
 }
+/* === START: MOBILE RESPONSIVE FIX FOR HERO IMAGE === */
+@media (max-width: 768px) {
+    .hero-image {
+        object-fit: contain; /* This ensures the whole image is visible on mobile */
+        object-position: center center;
+    }
+}
+/* === END: MOBILE RESPONSIVE FIX FOR HERO IMAGE === */
+
 </style>
 </head>
 <body>
@@ -847,7 +857,7 @@ min-height: 750px;
 </nav>
 <div class="main-content-wrapper">
 <header id="home" class="hero">
-    <img src="./aabeb6c6-bd6c-42f0-8318-721242bb47f5.png" alt="Beautifully landscaped luxury home" class="hero-image">
+    <img src="./aabeb6c6-bd6c-42f0-8318-721242bb47f5.png" alt="Miami Loves Green Landscaping Logo" class="hero-image">
 </header>
 <section id="services" class="content-section">
     <div class="container">
