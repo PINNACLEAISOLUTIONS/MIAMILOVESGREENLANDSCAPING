@@ -72,7 +72,7 @@
 --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
 /* Carousel variables */
---items: 8; /* UPDATED from 6 to 8 */
+--items: 8; /* CORRECTED: Was 6, now 8 to match the number of new images */
 --carousel-duration: 40s;
 @media (width > 600px) {
     --carousel-duration: 30s;
@@ -837,6 +837,7 @@ min-height: 750px;
 </nav>
 <div class="main-content-wrapper">
     <header id="home" class="hero">
+        <!-- Logo image removed as requested -->
         <!-- Background image -->
         <img src="https://raw.githubusercontent.com/YourUsername/YourRepository/main/miami1.jpg" alt="Luxury Landscaping Background" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 0;">
         <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 1;"></div>
@@ -846,7 +847,7 @@ min-height: 750px;
             <h2 class="section-title">Our Premier Services</h2>
             <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive suite of services to bring your ideal outdoor space to life.</p>
             <div class="services-grid">
-                <!-- Second image replacement -->
+                <!-- Service cards -->
                 <div class="service-card" style="--card-index: 0;">
                     <div class="service-image-area" style="background-image: url('./480401945_1157070916002743_5183818224020437460_n.jpg');">
                         <h3 class="service-image-title">Landscape Design</h3>
@@ -905,34 +906,41 @@ min-height: 750px;
         </div>
     </section>
 
-<!-- ========== CAROUSEL SECTION WITH UPDATED IMAGES ========== -->
+<!-- ========== CORRECTED CAROUSEL SECTION ========== -->
 <section id="gallery" class="content-section">
     <div class="container">
         <h2 class="gallery-title">Our Gallery</h2>
         <div class="carousel" mask>
             <article>
-                <img src="./IMG_3535.jpg" alt="Gallery Image 1">
+                <img src="./IMG_3535.jpg" alt="Landscaping Project - New Gallery Image 1">
             </article>
+
             <article>
-                <img src="./IMG_3734.jpg" alt="Gallery Image 2">
+                <img src="./IMG_3734.jpg" alt="Landscaping Project - New Gallery Image 2">
             </article>
+
             <article>
-                <img src="./IMG_3735.jpg" alt="Gallery Image 3">
+                <img src="./IMG_3735.jpg" alt="Landscaping Project - New Gallery Image 3">
             </article>
+
             <article>
-                <img src="./IMG_3942.jpg" alt="Gallery Image 4">
+                <img src="./IMG_3942.jpg" alt="Landscaping Project - New Gallery Image 4">
             </article>
+
             <article>
-                <img src="./IMG_3943.jpg" alt="Gallery Image 5">
+                <img src="./IMG_3943.jpg" alt="Landscaping Project - New Gallery Image 5">
             </article>
+
             <article>
-                <img src="./IMG_4011.png" alt="Gallery Image 6">
+                <img src="./IMG_4011.png" alt="Landscaping Project - New Gallery Image 6">
             </article>
+
             <article>
-                <img src="./IMG_4012.png" alt="Gallery Image 7">
+                <img src="./IMG_4012.png" alt="Landscaping Project - New Gallery Image 7">
             </article>
+
             <article>
-                <img src="./IMG_4013.png" alt="Gallery Image 8">
+                <img src="./IMG_4013.png" alt="Landscaping Project - New Gallery Image 8">
             </article>
         </div>
     </div>
@@ -949,7 +957,7 @@ min-height: 750px;
                     <li>Expert Landscape Design & Master Planning</li>
                     <li>Comprehensive Garden Care & Lush Maintenance</li>
                     <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
-                    <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
+                    <li>Outdoor Lighting & Irrigation Systems</li>
                 </ul>
             </div>
         </div>
