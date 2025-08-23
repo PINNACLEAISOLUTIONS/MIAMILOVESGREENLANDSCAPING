@@ -72,7 +72,7 @@
 --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
 /* Carousel variables */
---items: 8; /* CORRECTED FROM 6 to 8 */
+--items: 8; /* <<< --- CRITICAL FIX: Changed from 6 to 8 */
 --carousel-duration: 40s;
 @media (width > 600px) {
     --carousel-duration: 30s;
@@ -903,7 +903,7 @@ min-height: 750px;
     </div>
 </section>
 
-<!-- ========== CORRECTED AND FINAL CAROUSEL SECTION ========== -->
+<!-- ========== GALLERY SECTION WITH YOUR NEW IMAGES ========== -->
 <section id="gallery" class="content-section">
     <div class="container">
         <h2 class="gallery-title">Our Gallery</h2>
@@ -1193,6 +1193,4 @@ menuToggle.setAttribute('aria-expanded', 'false');
 });
 </script>
 </body>
-</html>```
-
-After you have saved this new code, please wait one or two minutes 
+</html>
