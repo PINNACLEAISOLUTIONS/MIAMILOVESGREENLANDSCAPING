@@ -72,7 +72,7 @@
 --transition-bounce: 0.7s cubic-bezier(0.68, -0.6, 0.265, 1.55);
 
 /* Carousel variables */
---items: 8; /* <<< --- CRITICAL FIX: Changed from 6 to 8 */
+--items: 8;
 --carousel-duration: 40s;
 @media (width > 600px) {
     --carousel-duration: 30s;
@@ -324,17 +324,22 @@ gap: var(--spacing-md); margin-top: var(--spacing-md);
 }
 @media (min-width: 600px) { .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
 @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); } }
+
+/* === START: NEW SERVICE CARD STYLES === */
 .service-card {
-background: var(--card-background); color: var(--text-dark-on-light-bg);
+background: linear-gradient(145deg, rgba(18, 38, 18, 0.85), rgba(8, 18, 8, 0.9));
+color: var(--text-on-dark-bg);
 border-radius: var(--border-radius-lg);
-overflow: hidden; box-shadow: var(--shadow-soft);
+overflow: hidden; 
+box-shadow: var(--shadow-soft);
 display: flex; flex-direction: column;
 opacity: 0;
 transform: translateY(70px) rotateX(-20deg) scale(0.9);
 transform-origin: bottom center;
-transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium), background var(--transition-fast);
+transition: opacity var(--transition-medium), transform var(--transition-bounce), box-shadow var(--transition-medium), border-color var(--transition-medium);
 cursor: pointer;
-min-height: 450px; /* Increased height to accommodate larger images */
+min-height: 450px;
+border: 1px solid rgba(var(--primary-green-light-rgb), 0.15);
 }
 .content-section.animate .service-card {
 opacity: 1;
@@ -343,13 +348,12 @@ transition-delay: calc(var(--card-index, 0) * 0.15s + 0.35s);
 }
 .service-card:hover {
 transform: translateY(-10px) scale(1.03) rotateX(2deg);
-box-shadow: var(--shadow-strong), var(--shadow-glow);
-background: var(--card-background-hover);
+box-shadow: 0 0 35px rgba(var(--primary-green-light-rgb), 0.25), 0 0 15px rgba(var(--accent-gold-glow), 0.15);
+border-color: rgba(var(--primary-green-light-rgb), 0.4);
 }
-/* === MODIFIED SERVICE CARD STYLES === */
 .service-image-area {
 width: 100%;
-height: 280px; /* Increased height for larger photos */
+height: 280px; 
 background-size: cover; background-position: center;
 display: flex;
 align-items: flex-start;
@@ -361,22 +365,16 @@ transition: transform 0.5s var(--transition-bounce);
 filter: brightness(1.3);
 }
 .service-content {
-padding: var(--spacing-sm); /* Reduced padding */
-flex-grow: 1; /* Allows this to fill remaining space */
-background-color: rgba(var(--primary-green-light-rgb), 0.1); /* Light green tint */
+padding: var(--spacing-md); /* Increased padding for more space */
+flex-grow: 1;
 text-align: center;
-display: flex; /* For vertical centering if needed */
-flex-direction: column; /* For vertical centering if needed */
-justify-content: center; /* For vertical centering if needed */
+display: flex; 
+flex-direction: column; 
+justify-content: center; 
+background-color: transparent; /* Removed old background tint */
 }
-
-
-.service-image-area.hardscape-image {
-filter: brightness(1.5);
-}
-.service-image-area.lighting-image {
-filter: brightness(2.0);
-}
+.service-image-area.hardscape-image { filter: brightness(1.5); }
+.service-image-area.lighting-image { filter: brightness(2.0); }
 .service-card:hover .service-image-area { transform: scale(1.08); }
 
 .service-image-area::before {
@@ -421,21 +419,31 @@ max-width: 90%;
 }
 
 .service-content h3 {
-font-family: var(--font-heading);
-font-size: clamp(0.9rem, 2vw, 1.1rem); /* Smaller font size */
-margin-bottom: calc(var(--spacing-xs) * 0.7); /* Reduced margin */
-color: var(--primary-green-darkest);
+font-family: var(--font-body); /* Switched to a more readable font */
+font-size: clamp(1.1rem, 2.2vw, 1.25rem); /* Increased font size */
+margin-bottom: var(--spacing-sm); /* Increased margin */
+color: #FFFFFF; /* Changed to white for contrast */
 font-weight: 700;
+letter-spacing: 0.5px; /* Added letter spacing */
+text-transform: uppercase;
+/* Cinematic 3D Glow */
+text-shadow: 0 1px 2px rgba(0,0,0,0.8), 
+             0 0 12px rgba(var(--primary-green-light-rgb), 0.7), 
+             0 0 25px rgba(var(--primary-green-light-rgb), 0.5);
 }
 .service-content p {
-font-size: clamp(0.75rem, 1.5vw, 0.85rem); /* Smaller font size */
-line-height: 1.5; /* Slightly reduced line height */
-color: var(--text-medium-on-light-bg);
-font-weight: 400; /* Slightly lighter weight */
-max-width: 95%; /* Slightly wider to accommodate smaller text */
+font-size: clamp(0.85rem, 1.6vw, 0.9rem);
+line-height: 1.6;
+color: rgba(232, 245, 233, 0.85); /* Lightened for contrast */
+font-weight: 400;
+max-width: 95%;
 margin-left: auto;
 margin-right: auto;
+/* Subtle Cinematic Glow */
+text-shadow: 0 0 8px rgba(var(--primary-green-darkest-rgb), 0.9);
 }
+/* === END: NEW SERVICE CARD STYLES === */
+
 .about-content {
 display: flex; flex-direction: column; align-items: center;
 gap: var(--spacing-lg); text-align: center;
