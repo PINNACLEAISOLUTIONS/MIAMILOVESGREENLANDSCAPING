@@ -530,6 +530,7 @@ font-size: 1.2em;
 color: var(--primary-green-light);
 }
 
+/* === START: UPDATED CTA SECTION STYLES === */
 .cta-section {
 padding: var(--spacing-lg) 0;
 text-align: center;
@@ -537,14 +538,16 @@ opacity: 0;
 transform: perspective(1200px) translateY(70px) rotateX(-25deg) scale(0.85);
 transform-origin: center center;
 transition: opacity var(--transition-slow) 0.1s, transform var(--transition-slow) 0.1s;
-background-image: url('./gardenimage.webp');
+background-image: url('./hero-background.jpg'); /* <<< --- THIS IS THE CHANGED IMAGE */
 background-size: cover;
 background-position: center center;
 background-repeat: no-repeat;
 position: relative;
 overflow: hidden;
-filter: brightness(1.3) contrast(1.1);
+filter: brightness(1.1) contrast(1.1); /* Adjusted filter for the new image */
 }
+/* === END: UPDATED CTA SECTION STYLES === */
+
 .content-section.animate.cta-section,
 .cta-section.animate {
 opacity: 1;
