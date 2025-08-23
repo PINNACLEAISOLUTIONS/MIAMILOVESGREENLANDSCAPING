@@ -13,6 +13,7 @@
 --primary-green-darkest-rgb: 10, 26, 10; /* RGB for rgba() usage */
 --primary-green-dark: #123012;
 --primary-green-medium: #4CAF50; /* Main Green: 76, 175, 80 */
+--primary-green-medium-rgb: 76, 175, 80;
 --primary-green: var(--primary-green-medium);
 --primary-green-light: #8DD08D; /* Light Green: 141, 208, 141 */
 --primary-green-light-rgb: 141, 208, 141; /* RGB for light green */
@@ -238,31 +239,25 @@ z-index: 1001;
 }
 .mobile-menu-toggle svg { width: 28px; height: 28px; fill: var(--text-hero); }
 @media (min-width: 769px) { .mobile-menu-toggle { display: none; } }
+
+/* === START: NEW HERO IMAGE STYLES === */
 .hero {
 position: relative; height: 100vh; min-height: 650px;
 display: flex; align-items: center; justify-content: center;
 overflow: hidden;
 }
 
-.hero-video {
+.hero-image {
 position: absolute;
 top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-object-fit: cover;
+object-fit: cover; /* This makes the image cover the area without distortion */
 z-index: -1;
-filter: brightness(1.15) contrast(1.25) saturate(1.4);
-image-rendering: -webkit-optimize-contrast; /* For Chrome/Safari */
-image-rendering: crisp-edges; /* For Firefox */
-transform: translateZ(0); /* Force hardware acceleration */
-backface-visibility: hidden; /* Reduce flickering */
-will-change: transform; /* Hint for browser optimization */
--webkit-filter: brightness(1.15) contrast(1.25) saturate(1.4);
-display: block !important; /* Ensure video is visible */
-opacity: 1 !important; /* Ensure video is visible */
-visibility: visible !important; /* Ensure video is visible */
+filter: brightness(1.1) contrast(1.1);
 }
+/* === END: NEW HERO IMAGE STYLES === */
 
 .btn {
 display: inline-block;
@@ -534,7 +529,6 @@ color: var(--primary-green-light);
 .cta-section {
     padding: var(--spacing-xl) 0;
     display: flex;
-    align-items: center;
     min-height: 60vh;
     background-image: url('./hero-background.jpg');
     background-size: cover;
@@ -542,7 +536,7 @@ color: var(--primary-green-light);
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    filter: brightness(1.1) contrast(1.1);
+    filter: brightness(1.1) contrast(1.1) saturate(1.2); /* Enhanced image */
 }
 .content-section.animate.cta-section,
 .cta-section.animate {
@@ -557,7 +551,7 @@ color: var(--primary-green-light);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: inherit;
+    min-height: calc(60vh - 2 * var(--spacing-xl)); /* Match parent padding */
 }
 .cta-content h2 {
     width: 100%;
@@ -567,20 +561,22 @@ color: var(--primary-green-light);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     line-height: 1.1;
     margin: 0;
-    padding: 0;
+    padding-top: var(--spacing-lg); /* Pushes title higher */
     background-color: transparent;
     text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.5);
 }
 .cta-details {
-    align-self: flex-end;
-    max-width: 500px;
-    background-color: rgba(var(--primary-green-darkest-rgb), 0.75);
+    align-self: flex-end; /* Aligns to the right */
+    max-width: 450px;
+    background-color: rgba(var(--primary-green-darkest-rgb), 0.65);
     padding: var(--spacing-lg);
     border-radius: var(--border-radius-md);
     border: 1px solid rgba(var(--primary-green-light-rgb), 0.2);
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     text-align: center;
-    margin-top: auto; /* Push to the bottom */
+    margin: auto var(--spacing-lg) var(--spacing-lg) auto; /* Pushes to bottom-right */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 .cta-content p {
     background-color: transparent;
@@ -595,18 +591,32 @@ color: var(--primary-green-light);
 }
 .btn-cta {
     margin: 0;
-    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
-    padding: var(--spacing-sm) calc(var(--spacing-md) * 0.9);
+    font-size: clamp(0.9rem, 2.2vw, 1rem);
+    padding: var(--spacing-sm) calc(var(--spacing-md) * 1.1);
+    font-weight: 700;
+    /* New Green Button Style */
+    background: linear-gradient(135deg, var(--primary-green-medium) 0%, var(--primary-green-dark) 100%);
+    color: var(--text-hero);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    border: 1px solid rgba(var(--primary-green-light-rgb), 0.5);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3), 0 0 25px rgba(var(--primary-green-medium-rgb), 0.3);
+}
+.btn-cta:hover, .btn-cta:focus {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(135deg, var(--primary-green-light) 0%, var(--primary-green-medium) 100%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 35px rgba(var(--primary-green-light-rgb), 0.4);
 }
 @media (max-width: 768px) {
     .cta-details {
-        align-self: center;
+        align-self: center; /* Center on mobile */
         max-width: 90%;
         padding: var(--spacing-md);
+        margin: 0 auto var(--spacing-md); /* Center margin on mobile */
     }
     .cta-content h2 {
         font-size: clamp(2rem, 8vw, 2.8rem);
         margin-bottom: var(--spacing-lg);
+        padding-top: var(--spacing-md);
     }
     .cta-section {
         min-height: 70vh;
@@ -837,12 +847,7 @@ min-height: 750px;
 </nav>
 <div class="main-content-wrapper">
 <header id="home" class="hero">
-<video class="hero-video" autoplay muted loop playsinline id="main-video" data-skip-enhancement="true">
-    <source src="./enancemiami.mp4" type="video/mp4">
-    <!-- Fallback for browsers that don't support video -->
-    Your browser does not support the video tag.
-</video>
-<!-- Removed all text content from hero section -->
+    <img src="./aabeb6c6-bd6c-42f0-8318-721242bb47f5.png" alt="Beautifully landscaped luxury home" class="hero-image">
 </header>
 <section id="services" class="content-section">
     <div class="container">
