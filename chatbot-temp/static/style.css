@@ -726,6 +726,7 @@ textarea {
     opacity: 0 !important;
     pointer-events: none !important;
     overflow: hidden !important;
+    visibility: hidden !important;
 }
 
 /* Ensure Main Chat is Full Width */
