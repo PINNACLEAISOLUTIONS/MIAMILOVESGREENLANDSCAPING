@@ -521,7 +521,7 @@
             overflow: hidden;
             background-color: var(--primary-green-darkest);
             /* Fallback color */
-            background-image: url('./aabeb6c6-bd6c-42f0-8318-721242bb47f5.png');
+            background-image: url('./hero-main.png');
             background-size: cover;
             /* Default for desktop */
             background-position: center center;
@@ -530,11 +530,11 @@
 
         @media (max-width: 768px) {
             .hero {
-                background-size: contain;
-                /* CRITICAL FIX: Ensures the whole logo is visible on mobile */
-                height: 40vh;
+                background-size: cover;
+                /* Photo looks better with cover on mobile */
+                height: 50vh;
                 /* Adjust height for a better fit on mobile */
-                min-height: 250px;
+                min-height: 300px;
             }
         }
 
