@@ -250,11 +250,11 @@
             position: absolute;
             width: 3px;
             height: 3px;
-            background-color: rgba(141, 208, 141, 0.35);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 25s infinite ease-in-out;
             opacity: 0;
-            box-shadow: 0 0 8px rgba(141, 208, 141, 0.5), 0 0 12px rgba(141, 208, 141, 0.35);
+            box-shadow: none;
         }
 
         @keyframes float {
@@ -549,10 +549,11 @@
         .hero-content h1 {
             font-family: var(--font-heading);
             font-size: clamp(2rem, 6vw, 4rem);
-            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 30%, #CDDC39 50%, #8BC34A 70%, #4CAF50 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF;
+            background: none;
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            -webkit-text-fill-color: initial;
             margin-bottom: var(--spacing-sm);
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -563,10 +564,11 @@
 
         .hero-tagline {
             font-size: clamp(1rem, 2.5vw, 1.5rem);
-            background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFFFFF;
+            background: none;
+            -webkit-background-clip: border-box;
+            background-clip: border-box;
+            -webkit-text-fill-color: initial;
             margin-bottom: var(--spacing-md);
             font-weight: 600;
             letter-spacing: 1px;
