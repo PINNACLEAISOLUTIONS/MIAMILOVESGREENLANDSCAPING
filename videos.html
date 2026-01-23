@@ -5,50 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos | Miami Loves Green Landscaping</title>
-    <meta name="description"
-        content="Watch our latest landscaping projects and transformations in Miami. See our work in action.">
+    <meta name="description" content="Watch real landscaping projects by Miami Loves Green. See our work in action.">
 
-    <!-- Reuse styles from index.html -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
-            --primary-green-darkest: #0A1A0A;
-            --primary-green-medium: #4CAF50;
-            --primary-green-light: #8DD08D;
+            --primary-green: #4CAF50;
             --accent-gold: #FFA726;
-            --text-hero: #FFFFFF;
-            --text-on-dark-bg: #E8F5E9;
-            --background-global: #101010;
-            --font-body: 'Inter', sans-serif;
-            --font-heading: 'Playfair Display', serif;
-            --spacing-md: 2rem;
-            --spacing-lg: 3rem;
+            --text-light: #E8F5E9;
+            --bg-dark: #101010;
         }
 
         body {
-            font-family: var(--font-body);
-            background: var(--background-global);
-            color: var(--text-on-dark-bg);
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-md);
+            margin: auto;
+            padding: 2rem 0;
         }
 
         nav {
             background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -59,47 +44,28 @@
         }
 
         .logo {
-            font-family: var(--font-heading);
-            font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            background: linear-gradient(135deg, #FFD700 0%, var(--primary-green-light) 50%, #B8860B 100%);
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: linear-gradient(135deg, #FFD700, #8DD08D);
             -webkit-background-clip: text;
-            background-clip: text;
             color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-on-dark-bg);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
         h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2.5rem, 5vw, 4rem);
             text-align: center;
-            margin: var(--spacing-lg) 0;
-            color: var(--text-hero);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 2.5rem 0;
+            color: #ffffff;
         }
 
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: var(--spacing-lg);
         }
 
         .video-card {
@@ -107,36 +73,21 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary-green-medium);
         }
 
         .video-wrapper {
             position: relative;
             padding-bottom: 177.78%;
-            /* 9:16 Aspect Ratio (Vertical Video) */
-            height: 0;
             background: #000;
         }
 
-        /* Adjust aspect ratio for landscape videos if needed, currently assuming vertical social/phone style based on filenames */
-        .video-wrapper.landscape {
-            padding-bottom: 56.25%;
-            /* 16:9 */
-        }
-
-        .video-wrapper video {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: 0;
         }
 
         .video-info {
@@ -146,24 +97,17 @@
         .video-title {
             font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
             color: var(--accent-gold);
+            margin-bottom: 0.5rem;
         }
 
         .back-link {
             display: block;
             text-align: center;
-            margin: 2rem 0;
+            margin: 3rem 0 1rem;
             text-decoration: none;
-            color: var(--primary-green-light);
+            color: var(--primary-green);
             font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                /* Simplify for now, focus on back link in content */
-            }
         }
     </style>
 </head>
@@ -173,12 +117,6 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">Miami Loves Green</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="videos.html" style="color: var(--accent-gold);">Videos</a></li>
-                <li><a href="index.html#footer-contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -186,33 +124,22 @@
         <h1>Project Videos</h1>
 
         <div class="videos-grid">
-            <!-- Video 1 -->
+
+            <!-- VIDEO 1 -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <video controls preload="metadata">
-                        <source src="enancemiami.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <iframe
+                        src="https://drive.google.com/file/d/1t78eyFO3DHtpsl1NdO7yS0LGJxHls5mg/preview"
+                        allow="autoplay"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="video-info">
-                    <div class="video-title">Miami Enhancement Project</div>
-                    <p>See our team in action transforming landscape spaces.</p>
+                    <div class="video-title">Recent Landscaping Project</div>
+                    <p>Real work. Real results. Watch our team transform outdoor spaces.</p>
                 </div>
             </div>
 
-            <!-- Video 2 -->
-            <div class="video-card">
-                <div class="video-wrapper">
-                    <video controls preload="metadata">
-                        <source src="Untitled (Facebook Post).mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="video-info">
-                    <div class="video-title">Latest Project Feature</div>
-                    <p>Highlights from our recent work in the community.</p>
-                </div>
-            </div>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
