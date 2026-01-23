@@ -279,7 +279,7 @@ class MCPChatbot:
             logger.info("Smart filter: Skipping KB for definition question")
             return None
 
-        # Pattern 2: Generic factual questions (not about "you/your/pinnacle")
+        # Pattern 2: Generic factual questions (not about "you/your/miami loves green")
         if re.match(
             r"^(who|what|when|where|why|how) (is|are|was|were|do|does|did|can|could|would|should|to)\b",
             msg_lower,
