@@ -182,7 +182,7 @@ class MCPChatbot:
         return any(kw in msg_lower for kw in keywords)
 
     async def _request_quote_permission(self) -> str:
-        """Ask for permission to collect info and email Pinnacle AI."""
+        """Ask for permission to collect info and email Miami Loves Green."""
         self.lead_state["awaiting_permission"] = True
         return (
             "I'd be happy to help you get a personalized quote! \n\n"
@@ -263,12 +263,12 @@ class MCPChatbot:
         """Classify message and return relevant business knowledge if applicable.
 
         SMART FILTER: Skips KB injection for generic questions to improve response speed.
-        All existing Pinnacle AI detection logic is preserved below.
+        All existing Miami Loves Green detection logic is preserved below.
         """
         msg_lower = message.lower()
 
         # ========== SMART FILTER (ADDITIVE - can be removed to revert) ==========
-        # Early exit for generic questions that don't need Pinnacle AI context
+        # Early exit for generic questions that don't need Miami Loves Green context
         # This makes general knowledge questions MUCH faster
 
         # Pattern 1: Definition/meaning questions
@@ -284,10 +284,16 @@ class MCPChatbot:
             r"^(who|what|when|where|why|how) (is|are|was|were|do|does|did|can|could|would|should|to)\b",
             msg_lower,
         ):
-            # Only skip if NOT asking about Pinnacle/the chatbot
+            # Only skip if NOT asking about Miami Loves Green/the chatbot
             if not any(
                 term in msg_lower
-                for term in ["you", "your", "pinnacle", "this company", "this business"]
+                for term in [
+                    "you",
+                    "your",
+                    "miami loves green",
+                    "this company",
+                    "this business",
+                ]
             ):
                 logger.info("Smart filter: Skipping KB for generic factual question")
                 return None
@@ -300,7 +306,8 @@ class MCPChatbot:
         # Pattern 4: Very short questions (likely simple queries, not about services)
         words = message.split()
         if len(words) <= 3 and not any(
-            kw in msg_lower for kw in ["price", "cost", "quote", "service", "pinnacle"]
+            kw in msg_lower
+            for kw in ["price", "cost", "quote", "service", "miami loves green"]
         ):
             logger.info("Smart filter: Skipping KB for short generic question")
             return None
@@ -345,7 +352,7 @@ class MCPChatbot:
 
         if any(kw in msg_lower for kw in all_keywords) and self.knowledge_base:
             # Return business knowledge to help answer service inquiries
-            logger.info("Injecting business knowledge for Pinnacle AI query")
+            logger.info("Injecting business knowledge for Miami Loves Green query")
             return self.knowledge_base
         return None
 

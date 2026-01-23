@@ -500,13 +500,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="message assistant-message first">
                 <div class="message-content">
                     <strong>👋 Welcome to Miami Loves Green Landscaping Chatbot!</strong><br><br>
-                    We help homeowners transform their outdoor spaces with <strong>expert landscaping services</strong> — custom design, garden maintenance, hardscaping, and eco-friendly solutions.<br><br>
-                    I can help you:<br>
-                    • Learn about our landscaping services<br>
-                    • Get a free quote for your project<br>
-                    • Answer questions about plants and garden care<br>
-                    • Schedule a consultation<br><br>
-                    <em>How can I assist you with your landscape today?</em>
+                    I am your AI assistant for all things landscaping in South Florida. I can help you with:<br>
+                    • <strong>Custom Landscape Design</strong> & 3D Renderings<br>
+                    • <strong>Garden Maintenance</strong> (Weekly/Bi-weekly)<br>
+                    • <strong>Irrigation Systems</strong> & Hardscaping<br>
+                    • <strong>Tree Care</strong> & Outdoor Lighting<br><br>
+                    <em>How can I help you transform your outdoor space today?</em>
                 </div>
             </div>
         `;
