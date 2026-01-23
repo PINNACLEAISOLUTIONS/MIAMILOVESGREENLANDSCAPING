@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('send-btn');
     const statusDot = document.querySelector('.status-dot');
     const statusText = document.querySelector('.status-text');
-    const historyList = document.getElementById('history-list');
-    const newChatBtn = document.getElementById('new-chat-btn');
 
     const micBtn = document.getElementById('mic-btn');
     const hdToggleBtn = document.getElementById('hd-toggle-btn');
@@ -489,17 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sendBtn.addEventListener('click', sendMessage);
 
-    // New Chat Button
-    if (newChatBtn) {
-        newChatBtn.addEventListener('click', () => {
-            startNewChat();
-        });
-    }
-
-    const clearChatOld = document.getElementById('clear-chat');
-    if (clearChatOld) {
-        clearChatOld.addEventListener('click', startNewChat);
-    }
 
     function startNewChat() {
         currentSessionId = null;
@@ -520,9 +507,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
-
-        document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
-        loadSessions();
     }
 
     let messageIdCounter = 0;
@@ -590,15 +574,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
+
                 if (data.session_id) {
                     currentSessionId = data.session_id;
                     localStorage.setItem('chatbot_session_id', data.session_id);
-                }
-
-                // Update sidebar title if a new one was generated
-                if (data.session_title) {
-                    console.log("New session title:", data.session_title);
-                    loadSessions(); // Refresh sidebar
                 }
             } else if (data.detail) {
                 addErrorMessage("Error: " + data.detail);
@@ -616,61 +595,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function loadSessions() {
-        try {
-            const res = await fetch('/api/sessions');
-            const data = await res.json();
 
-            historyList.innerHTML = '';
-
-            if (data.sessions && data.sessions.length > 0) {
-                data.sessions.forEach(session => {
-                    const item = document.createElement('div');
-                    item.className = 'history-item';
-                    if (session.id === currentSessionId) item.classList.add('active');
-
-                    item.innerHTML = `<span class="history-title">${escapeHTML(session.title)}</span>`;
-                    item.addEventListener('click', () => loadSession(session.id));
-
-                    historyList.appendChild(item);
-                });
-            } else {
-                historyList.innerHTML = '<div class="sidebar-info">No history yet</div>';
-            }
-        } catch (e) {
-            console.error("Load sessions error:", e);
-        }
-    }
-
-    async function loadSession(sessionId, force = false) {
-        if (!force && currentSessionId === sessionId) return;
-
-        stopSpeaking(); // Stop any ongoing speech
-
-        try {
-            const res = await fetch(`/api/chat/${sessionId}`);
-            const data = await res.json();
-
-            currentSessionId = sessionId;
-            chatMessages.innerHTML = '';
-
-            if (data.history) {
-                data.history.forEach(msg => {
-                    if (msg.role === 'user') addUserMessage(msg.content);
-                    else if (msg.role === 'assistant') {
-                        if (msg.content) addBotMessage(msg.content);
-                    }
-                });
-            }
-            scrollToBottom();
-
-            document.querySelectorAll('.history-item').forEach(el => el.classList.remove('active'));
-            loadSessions();
-
-        } catch (e) {
-            console.error("Load session error:", e);
-        }
-    }
+    // Sidebar logic removed
 
     function addUserMessage(text) {
         const msgDiv = document.createElement('div');
@@ -792,32 +718,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Init
+
     async function init() {
         if (currentSessionId) {
-            loadSession(currentSessionId, true); // Force load the specific ID from storage
-        } else {
-            loadSessions();
+            loadSessionContent(currentSessionId);
         }
+    }
 
-        if (statusText) statusText.textContent = 'Connecting...';
-
+    async function loadSessionContent(sessionId) {
         try {
-            const res = await fetch('/api/health');
+            const res = await fetch(`/api/chat/${sessionId}`);
             const data = await res.json();
 
-            if (data.status === 'ready') {
-                if (statusText) statusText.textContent = 'Online';
-                if (statusDot) statusDot.style.background = 'var(--success)';
-            } else if (data.status === 'warming_up') {
-                if (statusText) statusText.textContent = 'Warming up...';
-                if (statusDot) statusDot.style.background = 'var(--warning)';
-                setTimeout(init, 5000);
+            chatMessages.innerHTML = '';
+
+            if (data.history) {
+                data.history.forEach(msg => {
+                    if (msg.role === 'user') addUserMessage(msg.content);
+                    else if (msg.role === 'assistant') {
+                        if (msg.content) addBotMessage(msg.content);
+                    }
+                });
             }
-        } catch (error) {
-            console.error("Health check failed:", error);
-            if (statusText) statusText.textContent = 'Offline';
-            if (statusDot) statusDot.style.background = 'var(--error)';
+            scrollToBottom();
+        } catch (e) {
+            console.error("Load session error:", e);
         }
     }
 

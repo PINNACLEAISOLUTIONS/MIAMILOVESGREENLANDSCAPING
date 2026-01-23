@@ -2070,10 +2070,10 @@
         /* Chat Widget Container - Base Styles */
         .chat-widget-container {
             position: fixed;
-            left: 20px;
-            bottom: 20px;
-            width: 400px;
-            height: 600px;
+            right: 25px;
+            bottom: 25px;
+            width: 480px;
+            height: 700px;
             max-width: calc(100vw - 40px);
             max-height: calc(100vh - 100px);
             z-index: 10000;
@@ -2081,9 +2081,10 @@
             flex-direction: column;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(76, 175, 80, 0.2);
-            animation: fadeInUp 0.3s ease-out;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(76, 175, 80, 0.2);
+            animation: fadeInUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             transition: all 0.3s ease;
+            border: 1px solid rgba(76, 175, 80, 0.3);
         }
 
         .chat-widget-container.active {
@@ -2299,9 +2300,9 @@
                 chatbotContainer.style.left = '0';
                 chatbotContainer.style.right = '0';
                 chatbotContainer.style.bottom = '0';
-                chatbotContainer.style.width = '100vw';
-                chatbotContainer.style.height = h + 'px';
-                chatbotContainer.style.maxHeight = h + 'px';
+                chatbotContainer.style.width = '100%';
+                chatbotContainer.style.height = '100%';
+                chatbotContainer.style.maxHeight = '100dvh';
                 chatbotContainer.style.margin = '0';
                 chatbotContainer.style.borderRadius = '0';
                 chatbotContainer.style.zIndex = '999999';
@@ -2309,8 +2310,7 @@
                 chatbotContainer.style.flexDirection = 'column';
                 chatbotContainer.style.overflow = 'hidden';
                 chatbotContainer.style.boxSizing = 'border-box';
-                chatbotContainer.style.paddingTop = 'env(safe-area-inset-top)';
-                chatbotContainer.style.paddingBottom = 'env(safe-area-inset-bottom)';
+                chatbotContainer.style.padding = '0';
                 chatbotContainer.style.transform = 'none';
 
                 // Header styles
