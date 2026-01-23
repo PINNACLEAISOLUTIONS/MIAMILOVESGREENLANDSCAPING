@@ -548,8 +548,10 @@
         }
 
         .hero-content h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 6vw, 4rem);
+            /* Changed to 'Outfit' for a modern, clean look, or use 'Playfair Display' if imported */
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            /* Slightly larger */
             color: #FFFFFF;
             background: none;
             -webkit-background-clip: border-box;
@@ -557,26 +559,32 @@
             -webkit-text-fill-color: initial;
             margin-bottom: var(--spacing-sm);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
+            /* Reduced letter spacing slightly for better cohesion */
+            line-height: 1.1;
+            /* Tighter line height */
             -webkit-text-stroke: 0;
             filter: none;
-            /* Added strong drop shadow for readability against busy background */
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+            /* Refined shadow: softer glow + hard edge for readability */
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .hero-tagline {
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
-            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            /* Ensure tagline uses body font */
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            color: #e0e0e0;
+            /* Slightly off-white for hierarchy */
             background: none;
             -webkit-background-clip: border-box;
             background-clip: border-box;
             -webkit-text-fill-color: initial;
             margin-bottom: var(--spacing-md);
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 1px;
             filter: none;
-            /* Added strong drop shadow for readability */
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            /* Softer shadow for tagline */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .btn {
