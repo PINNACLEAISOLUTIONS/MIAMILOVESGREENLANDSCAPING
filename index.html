@@ -1664,45 +1664,21 @@
     </footer>
 
     <!-- Chatbot Widget -->
-    <button id="chatbot-toggle" class="chat-toggle-btn" title="Chat with us">
+    <!-- Chatbot Widget -->
+    <button id="chatbot-toggle-btn" class="chat-toggle-btn" title="Chat with us" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
         </svg>
     </button>
     <div id="chatbot-container" class="chat-widget-container">
+        <!-- Close button for mobile accessibility -->
+        <button id="chatbot-close-btn"
+            style="position: absolute; top: 10px; right: 10px; z-index: 100000; background: rgba(0,0,0,0.5); border: none; color: white; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; display: none;">✕</button>
         <iframe src="https://miamilovesgreenlandscaping.onrender.com"
             style="width: 100%; height: 100%; border: none; background: #0a120c;"></iframe>
     </div>
-    <script>
-        const chatToggle = document.getElementById('chatbot-toggle');
-        const chatContainer = document.getElementById('chatbot-container');
-        let isChatOpen = false;
+    <script src="chatbot.js"></script>
 
-        chatToggle.addEventListener('click', () => {
-            isChatOpen = !isChatOpen;
-            if (isChatOpen) {
-                chatContainer.classList.add('visible');
-                chatToggle.style.transform = 'scale(1.1) rotate(10deg)';
-                // Change icon to close X
-                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
-            } else {
-                chatContainer.classList.remove('visible');
-                chatToggle.style.transform = 'scale(1) rotate(0deg)';
-                // Change icon back to chat
-                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
-            }
-        });
-
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-            if (isChatOpen && !chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
-                isChatOpen = false;
-                chatContainer.classList.remove('visible');
-                chatToggle.style.transform = 'scale(1) rotate(0deg)';
-                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
-            }
-        });
-    </script>
     <style>
         /* === Chatbot Widget Styles === */
         .chat-toggle-btn {
@@ -1723,12 +1699,15 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        .chat-toggle-btn[aria-expanded="true"] {
+            transform: scale(1.1) rotate(90deg);
+        }
+
         .chat-widget-container {
             display: none;
             position: fixed;
             z-index: 9999;
             background: #0a120c;
-            /* Match iframe bg to avoid white flash */
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
@@ -1738,13 +1717,17 @@
             bottom: 100px;
             right: 25px;
             width: 420px;
-            /* Slightly wider */
             height: 650px;
-            /* Taller */
             max-height: 85vh;
         }
 
-        .chat-widget-container.visible {
+        /* Active state controlled by chatbot.js */
+        .chat-widget-container.active {
+            display: block;
+        }
+
+        /* Show close button on mobile when active */
+        .chat-widget-container.active #chatbot-close-btn {
             display: block;
         }
 
