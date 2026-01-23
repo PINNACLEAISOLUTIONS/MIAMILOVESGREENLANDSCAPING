@@ -795,10 +795,52 @@ textarea {
     transform: translateY(0) scale(0.98);
 }
 
-.voice-mode-button.active {
-    background: linear-gradient(135deg, rgba(0, 230, 118, 0.25), rgba(0, 229, 255, 0.2));
-    border-color: #00e676;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
+/* ============ RESPONSIVE LAYOUT (WIDGET/MOBILE) ============ */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none;
+        /* Hide sidebar by default on widget/mobile */
+        position: absolute;
+        top: 64px;
+        /* Below header */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 64px);
+        z-index: 100;
+        border-right: none;
+    }
+
+    .sidebar.active {
+        display: flex;
+    }
+
+    .chat-header {
+        padding: 0 20px;
+        justify-content: space-between;
+        /* Space for menu button if added */
+    }
+
+    .chat-messages {
+        padding: 20px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .input-area {
+        padding: 15px 20px 20px;
+    }
+
+    /* Show a menu toggle if needed, or just keep it simple for now */
+    /* For this specific request, the goal is to fix the "squished" look */
+}
+
+box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
 }
 
 .voice-icon {
