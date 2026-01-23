@@ -186,7 +186,7 @@ class MCPChatbot:
         self.lead_state["awaiting_permission"] = True
         return (
             "I'd be happy to help you get a personalized quote! \n\n"
-            "**Please allow me to email Pinnacle AI Solutions with your project details**, "
+            "**Please allow me to email the Miami Loves Green Landscaping Team with your project details**, "
             "and I'll collect some quick information to get you an accurate estimate for your specific needs.\n\n"
             "May I proceed with collecting your information? (Just say 'yes' or 'sure' to continue)"
         )
@@ -505,7 +505,7 @@ class MCPChatbot:
                 return f"The user is in {state}. Adjust your recommendations for that market."
 
         # Default to home region
-        return f"When discussing local business strategies, you may reference {self.default_region} as the home region for Pinnacle AI Solutions."
+        return f"When discussing local business strategies, you may reference {self.default_region} as the home region for Miami Loves Green Landscaping."
 
     def load_history(self, session_id: str) -> List[Dict]:
         """Load conversation history and optional title from SQLite database."""
