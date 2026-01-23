@@ -44,18 +44,21 @@ h2,
     z-index: 10;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styling - Hidden as requested */
 .sidebar {
-    width: 280px;
-    background: var(--sidebar-bg);
-    backdrop-filter: blur(20px);
-    border-right: 1px solid var(--glass-border);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    height: 100%;
-    min-height: 0;
+    display: none !important;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
 }
+
+.main-chat {
+    flex: 1;
+    width: 100%;
+}
+
 
 /* Sidebar Header - Reverted */
 .sidebar-header {

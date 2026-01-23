@@ -569,14 +569,25 @@
         }
 
         .hero-tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(1.2rem, 3vw, 2.2rem);
-            color: #ffffff;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-            margin-top: 10px;
-            opacity: 0.9;
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+            /* Matching Accent Gold */
+            color: #FFD700;
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            /* 3D and Glow Effect */
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+            text-shadow:
+                0 1px 0 #888,
+                0 2px 0 #777,
+                0 5px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 15px;
+            opacity: 1;
         }
 
         .btn {
