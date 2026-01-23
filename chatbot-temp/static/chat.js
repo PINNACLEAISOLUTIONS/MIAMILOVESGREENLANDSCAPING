@@ -509,15 +509,14 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.innerHTML = `
             <div class="message assistant-message first">
                 <div class="message-content">
-                    <strong>👋 Welcome to Pinnacle AI Solutions!</strong><br><br>
-                    We help small businesses and professionals grow with <strong>AI-powered tools</strong> — custom chatbots, modern websites, smart automation, and local business optimization.<br><br>
+                    <strong>👋 Welcome to Miami Loves Green Landscaping!</strong><br><br>
+                    We help homeowners transform their outdoor spaces with <strong>expert landscaping services</strong> — custom design, garden maintenance, hardscaping, and eco-friendly solutions.<br><br>
                     I can help you:<br>
-                    • Learn about our services<br>
+                    • Learn about our landscaping services<br>
                     • Get a free quote for your project<br>
-                    • Find local business resources and listings<br>
-                    • Ask about <strong>1-on-1 AI training</strong> (available remotely, anywhere in the world!)<br>
-                    • Answer questions about AI and automation<br><br>
-                    <em>What can I help you with today?</em>
+                    • Answer questions about plants and garden care<br>
+                    • Schedule a consultation<br><br>
+                    <em>How can I assist you with your landscape today?</em>
                 </div>
             </div>
         `;
