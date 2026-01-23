@@ -551,6 +551,12 @@ class MCPChatbot:
         self.conversation_history.append(
             {"role": "system", "content": self.system_instruction}
         )
+        self.conversation_history.append(
+            {
+                "role": "assistant",
+                "content": "Welcome to Miami Loves Green Landscaping, how can I help you?",
+            }
+        )
 
     def _get_context_summary(self, messages: List[Dict]) -> str:
         """Helper to create a short summary of older messages."""
@@ -574,7 +580,11 @@ class MCPChatbot:
     def start_chat(self) -> None:
         """Initialize a new chat session (reset history)"""
         self.conversation_history = [
-            {"role": "system", "content": self.system_instruction}
+            {"role": "system", "content": self.system_instruction},
+            {
+                "role": "assistant",
+                "content": "Welcome to Miami Loves Green Landscaping, how can I help you?",
+            },
         ]
         logger.info("Chat session reset.")
 
