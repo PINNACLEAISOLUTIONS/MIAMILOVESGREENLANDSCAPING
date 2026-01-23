@@ -424,7 +424,7 @@ h2,
 }
 
 .assistant-message {
-    background: var(--bot-msg);
+    background: transparent;
     align-self: flex-start;
     border-bottom-left-radius: 4px;
     border: 1px solid rgba(124, 77, 255, 0.2);
