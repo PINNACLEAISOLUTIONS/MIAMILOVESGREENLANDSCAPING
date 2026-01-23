@@ -632,10 +632,8 @@
             opacity: 0;
             transform: translateY(40px);
             transition: opacity var(--transition-medium), transform var(--transition-medium);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6),
-                0 0 10px rgba(var(--primary-green-light-rgb), 0.7),
-                0 0 25px rgba(var(--primary-green-light-rgb), 0.5),
-                0 0 40px rgba(var(--primary-green-darkest-rgb), 0.8);
+            /* Removed green border/glow as requested */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
         }
 
         /* === END: ENHANCED SECTION TITLE GLOW === */
@@ -977,7 +975,7 @@
             padding: var(--spacing-xl) 0;
             display: flex;
             min-height: 60vh;
-            background-image: url('./bottom-showcase.jpg');
+            background-image: url('./bottom-showcase.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -1648,9 +1646,66 @@
                 <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p>
-        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <button id="chatbot-toggle" title="Chat with us"
+        style="position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--accent-gold); border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+        </svg>
+    </button>
+    <div id="chatbot-container"
+        style="display: none; position: fixed; bottom: 100px; right: 25px; width: 380px; height: 600px; max-height: 80vh; max-width: 90vw; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.4); z-index: 9999; animation: slideIn 0.3s ease-out;">
+        <iframe src="https://miamilovesgreenlandscaping.onrender.com"
+            style="width: 100%; height: 100%; border: none; background: #0a120c;"></iframe>
+    </div>
+    <script>
+        const chatToggle = document.getElementById('chatbot-toggle');
+        const chatContainer = document.getElementById('chatbot-container');
+        let isChatOpen = false;
+
+        chatToggle.addEventListener('click', () => {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                chatContainer.style.display = 'block';
+                chatToggle.style.transform = 'scale(1.1) rotate(10deg)';
+                // Change icon to close X
+                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+            } else {
+                chatContainer.style.display = 'none';
+                chatToggle.style.transform = 'scale(1) rotate(0deg)';
+                // Change icon back to chat
+                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isChatOpen && !chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
+                isChatOpen = false;
+                chatContainer.style.display = 'none';
+                chatToggle.style.transform = 'scale(1) rotate(0deg)';
+                chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
+            }
+        });
+    </script>
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <div class="footer-bottom">
+        <p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p>
+    </div>
     </footer>
     <!-- START: Floating Action Buttons -->
     <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
