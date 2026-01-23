@@ -537,36 +537,51 @@
         /* === Hero Content Overlay === */
         .hero-content {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+            top: 15%;
+            /* Moved to top */
+            left: 5%;
+            /* Moved to left */
+            transform: none;
+            /* Removed center transform */
+            text-align: left;
+            /* Aligned text to left */
             z-index: 10;
             padding: 0;
-            max-width: 90%;
+            max-width: 80%;
+            /* Adjusted width */
             background: transparent;
         }
 
         .hero-content h1 {
-            /* Changed to 'Outfit' for a modern, clean look, or use 'Playfair Display' if imported */
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            /* Slightly larger */
-            color: #FFFFFF;
-            background: none;
-            -webkit-background-clip: border-box;
-            background-clip: border-box;
-            -webkit-text-fill-color: initial;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            /* 3D Gradient Text Effect */
+            background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 50%, #b2dfdb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: var(--spacing-sm);
             text-transform: uppercase;
             letter-spacing: 2px;
-            /* Reduced letter spacing slightly for better cohesion */
             line-height: 1.1;
-            /* Tighter line height */
-            -webkit-text-stroke: 0;
-            filter: none;
-            /* Refined shadow: softer glow + hard edge for readability */
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.3);
+            /* 3D Drop Shadow for depth */
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.8));
+            text-shadow: none;
+            /* Using drop-shadow filter instead for transparent text */
+            animation: floatHero 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHero {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         .hero-tagline {
