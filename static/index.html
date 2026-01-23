@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miami Loves Green Agent</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🌿</span>
+                    <h1 class="logo-3d">Miami Loves Green<br><span class="subtitle">AI Agent</span></h1>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="quick-actions">
+                    <button id="new-chat-btn" class="quick-action-btn"
+                        style="background: var(--accent); color: white; width: 100%; justify-content: center;">
+                        ✨ New Chat
+                    </button>
+                </div>
+
+                <div class="section-title" style="margin-top: 24px;">History</div>
+                <div id="history-list" class="history-list">
+                    <!-- History populated by JS -->
+                    <div class="loader-small"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+            </div>
+
+        </aside>
+
+        <!-- Main Content -->
+        <!-- Main Content -->
+        <main class="main-chat">
+            <header class="chat-header">
+                <button id="voice-mode-btn" class="voice-mode-button" title="Activate Voice Mode">
+                    <span class="voice-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="23" />
+                            <line x1="8" y1="23" x2="16" y2="23" />
+                        </svg>
+                    </span>
+                    <span class="voice-text">Voice Mode</span>
+                    <span class="voice-pulse"></span>
+                </button>
+            </header>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="message assistant-message first">
+                    <div class="message-content">
+                        Hello! I'm the <strong>Miami Loves Green Agent</strong> 🌿 I can help you with landscaping
+                        questions,
+                        provide information about our services, get you a free quote, or schedule a consultation.
+                        Just ask about landscape design, garden maintenance, irrigation, hardscaping, tree care, or
+                        outdoor lighting!
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-row">
+                        <textarea id="user-input" placeholder="Ask about our landscaping services..."
+                            rows="1"></textarea>
+                        <button id="mic-btn" class="mic-button" title="Speak to type">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </button>
+                        <button id="send-btn" class="send-button">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-blur blur-1"></div>
+    <div class="bg-blur blur-2"></div>
+
+    <script src="/static/chat.js"></script>
+</body>
+
+</html>
