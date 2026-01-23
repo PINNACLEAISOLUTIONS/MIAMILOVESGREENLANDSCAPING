@@ -378,14 +378,7 @@
             background-clip: text;
             color: transparent;
             /* Text color must be transparent */
-            text-shadow:
-                /* Updated for definition with gradient text */
-                0px 0.5px 0.5px rgba(var(--primary-green-darkest-rgb), 0.8),
-                /* Tight dark outline */
-                0 0 4px rgba(var(--primary-green-light-rgb), 0.6),
-                /* Greenish highlight/glow */
-                0 0 7px rgba(var(--primary-green-medium), 0.4);
-            /* Softer ambient green glow */
+            text-shadow: none;
         }
 
         @media (min-width: 480px) {
@@ -563,6 +556,7 @@
             margin-bottom: var(--spacing-sm);
             text-transform: uppercase;
             letter-spacing: 3px;
+            -webkit-text-stroke: 0;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
         }
 
