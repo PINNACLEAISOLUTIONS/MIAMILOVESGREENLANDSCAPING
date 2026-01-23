@@ -360,44 +360,26 @@
         /* === ORIGINAL TEXT LOGO STYLES === */
         .logo {
             font-family: var(--font-heading);
-            font-weight: 700;
+            font-weight: 800;
             text-decoration: none;
-            letter-spacing: -0.1px;
             transition: transform var(--transition-fast), text-shadow var(--transition-medium);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             text-transform: uppercase;
             position: relative;
-            font-size: clamp(0.85rem, 2.1vw, 1.5rem);
-            max-width: calc(100% - 55px);
-            line-height: 1.2;
-            /* Holographic Green Text Fill */
-            background: linear-gradient(135deg, var(--holographic-green-1) 0%, var(--primary-green-medium) 30%, var(--holographic-green-2) 60%, var(--primary-green-light) 100%);
+            font-size: clamp(1.2rem, 2.8vw, 2.2rem);
+            line-height: 1.1;
+            /* Improved 3D Gold/Green Gradient */
+            background: linear-gradient(135deg, #FFD700 0%, var(--primary-green-light) 50%, #B8860B 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            /* Text color must be transparent */
-            text-shadow: none;
-        }
-
-        @media (min-width: 480px) {
-            .logo {
-                font-size: clamp(0.9rem, 2.1vw, 1.5rem);
-                max-width: calc(100% - 60px);
-            }
-        }
-
-        @media (min-width: 769px) {
-            .logo {
-                max-width: none;
-                font-size: clamp(1.5rem, 2.8vw, 2.2rem);
-                letter-spacing: -0.25px;
-            }
+            /* 3D text effect */
+            filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+            letter-spacing: 1px;
         }
 
         .logo:hover {
-            transform: scale(1.02);
+            transform: scale(1.05) translateZ(20px);
+            filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.6));
         }
 
         .logo::before {
@@ -407,20 +389,15 @@
             left: -150%;
             width: 70%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(180, 255, 180, 0.3) 35%, rgba(210, 255, 210, 0.6) 50%, rgba(180, 255, 180, 0.3) 65%, transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4) 50%, transparent);
             transform: skewX(-25deg);
-            animation: logoShimmer 4s infinite linear;
-            animation-delay: 1.5s;
+            animation: logoShimmer 3s infinite linear;
             z-index: 1;
         }
 
         @keyframes logoShimmer {
             0% {
                 left: -150%;
-            }
-
-            50% {
-                left: 150%;
             }
 
             100% {
@@ -537,69 +514,69 @@
         /* === Hero Content Overlay === */
         .hero-content {
             position: absolute;
-            top: 15%;
-            /* Moved to top */
-            left: 5%;
-            /* Moved to left */
-            transform: none;
-            /* Removed center transform */
-            text-align: left;
-            /* Aligned text to left */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
             z-index: 10;
             padding: 0;
-            max-width: 80%;
-            /* Adjusted width */
+            max-width: 95%;
             background: transparent;
+            width: 100%;
         }
 
         .hero-content h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 800;
-            /* 3D Gradient Text Effect */
-            background: linear-gradient(135deg, #ffffff 0%, #e0f2f1 50%, #b2dfdb 100%);
+            font-size: clamp(2.8rem, 9vw, 6rem);
+            font-weight: 900;
+            /* Vibrant 3D Branding Gradient */
+            background: linear-gradient(to bottom, #FFFFFF 0%, #B2FF59 50%, #76FF03 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: var(--spacing-sm);
             text-transform: uppercase;
             letter-spacing: 2px;
-            line-height: 1.1;
-            /* 3D Drop Shadow for depth */
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.8));
-            text-shadow: none;
-            /* Using drop-shadow filter instead for transparent text */
-            animation: floatHero 6s ease-in-out infinite;
+            line-height: 1;
+            /* Multi-layered 3D text effect + Outer Glow */
+            filter: drop-shadow(0 0 15px rgba(118, 255, 3, 0.4));
+            text-shadow:
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0, 0, 0, .1),
+                0 0 5px rgba(0, 0, 0, .1),
+                0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .25),
+                0 10px 10px rgba(0, 0, 0, .2),
+                0 20px 20px rgba(0, 0, 0, .15);
+            animation: floatHero 5s ease-in-out infinite;
         }
 
         @keyframes floatHero {
 
             0%,
             100% {
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
 
             50% {
-                transform: translateY(-5px);
+                transform: translateY(-10px) scale(1.02);
             }
         }
 
         .hero-tagline {
             font-family: 'Inter', sans-serif;
-            /* Ensure tagline uses body font */
-            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
-            color: #e0e0e0;
-            /* Slightly off-white for hierarchy */
-            background: none;
-            -webkit-background-clip: border-box;
-            background-clip: border-box;
-            -webkit-text-fill-color: initial;
-            margin-bottom: var(--spacing-md);
-            font-weight: 500;
+            font-size: clamp(1.2rem, 3vw, 2.2rem);
+            color: #ffffff;
+            font-weight: 700;
             letter-spacing: 1px;
-            filter: none;
-            /* Softer shadow for tagline */
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
         .btn {

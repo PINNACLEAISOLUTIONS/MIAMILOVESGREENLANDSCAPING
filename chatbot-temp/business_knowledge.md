@@ -100,6 +100,7 @@ Simply ask me for a quote right here in the chat! I'll collect some basic inform
 ### What information do you need for a quote?
 
 To provide an accurate quote, we typically need:
+
 - Your name and contact information (phone or email)
 - Property address
 - Type of service you're interested in
@@ -133,13 +134,14 @@ We accept cash, checks, and all major credit cards. For larger projects, we offe
 ## Contact Information
 
 - **Phone:** (305) CALL-US (Your actual number)
-- **Email:** info@miamilovesgreenlandscaping.com
-- **Website:** www.miamilovesgreenlandscaping.com
+- **Email:** <info@miamilovesgreenlandscaping.com>
+- **Website:** <www.miamilovesgreenlandscaping.com>
 - **Service Hours:** Monday - Saturday, 7:00 AM - 6:00 PM
 
 ## Lead Capture - Quote Request Flow
 
 When a customer asks for a quote, collect the following information:
+
 1. **Full Name** (required)
 2. **Phone Number** or **Email** (at least one required)
 3. **Property Address** (required for accurate quoting)
