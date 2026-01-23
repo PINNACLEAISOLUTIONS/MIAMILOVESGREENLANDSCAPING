@@ -74,10 +74,14 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .video-wrapper {
             position: relative;
+            width: 100%;
+            /* Default to 9:16 aspect ratio for Shorts */
             padding-bottom: 177.78%;
             background: #000;
         }
@@ -93,6 +97,7 @@
 
         .video-info {
             padding: 1.5rem;
+            flex-grow: 1;
         }
 
         .video-title {
@@ -109,6 +114,7 @@
             text-decoration: none;
             color: var(--primary-green);
             font-weight: 600;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -118,6 +124,7 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">Miami Loves Green</a>
+            <a href="index.html" style="color: white; text-decoration: none;">Home</a>
         </div>
     </nav>
 
@@ -130,7 +137,6 @@
             <div class="video-card">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/dhUFymQzPCs" title="Recent Landscaping Project"
-                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -144,8 +150,7 @@
             <!-- VIDEO 2 -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/BKgL82ryx90" title="Recent Landscaping Project 2"
-                        frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/BKgL82ryx90" title="Project Highlight"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -159,8 +164,7 @@
             <!-- VIDEO 3 -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/oecLMGKOOyQ" title="Recent Landscaping Project 3"
-                        frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/oecLMGKOOyQ" title="Garden Transformation"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -174,8 +178,7 @@
             <!-- VIDEO 4 -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/5pV_jzB18AY" title="Recent Landscaping Project 4"
-                        frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/5pV_jzB18AY" title="Lush & Green"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -189,8 +192,7 @@
             <!-- VIDEO 5 -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/Bf00keMLrDU" title="Recent Landscaping Project 5"
-                        frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/Bf00keMLrDU" title="Outdoor Design"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
@@ -201,11 +203,10 @@
                 </div>
             </div>
 
-            <!-- VIDEO 6 -->
+            <!-- VIDEO 6 (NEW) -->
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/iHsY7xGO2M4" title="Recent Landscaping Project 6"
-                        frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/iHsY7xGO2M4" title="Landscape Maintenance"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
