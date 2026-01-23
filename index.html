@@ -514,7 +514,8 @@
             overflow: hidden;
             background-color: transparent;
             /* Fallback color */
-            background-image: url('./hero-main.png');
+            /* Added dark gradient overlay for better text contrast */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./hero-main.png');
             background-size: cover;
             /* Default for desktop */
             background-position: center center;
@@ -559,7 +560,8 @@
             letter-spacing: 3px;
             -webkit-text-stroke: 0;
             filter: none;
-            text-shadow: none;
+            /* Added strong drop shadow for readability against busy background */
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .hero-tagline {
@@ -573,7 +575,8 @@
             font-weight: 600;
             letter-spacing: 1px;
             filter: none;
-            text-shadow: none;
+            /* Added strong drop shadow for readability */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
         }
 
         .btn {
