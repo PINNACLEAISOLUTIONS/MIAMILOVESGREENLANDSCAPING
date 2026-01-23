@@ -82,13 +82,10 @@
 
 .chatbot-toggle-btn {
     position: fixed;
-    top: 50%;
-    /* Middle */
-    left: 20px;
-    /* Left */
-    bottom: auto;
-    transform: translateY(-50%);
-    /* Center vertically */
+    bottom: 25px;
+    left: 25px;
+    top: auto;
+    /* Reset top from previous middle setting */
     width: auto;
     height: auto;
     padding: 10px 25px 10px 10px;
@@ -226,7 +223,7 @@
     }
 
     .chatbot-header::after {
-        content: "PINNACLE AI MCP CHATBOT";
+        content: "MIAMI LOVES GREEN CHATBOT";
         font-size: 0.9rem;
         font-weight: 700;
         letter-spacing: 1px;
