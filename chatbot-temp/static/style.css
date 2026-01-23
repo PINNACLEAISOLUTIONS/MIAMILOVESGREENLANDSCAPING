@@ -712,7 +712,9 @@ textarea {
         width: 16px;
         height: 16px;
     }
-}/* FORCE HIDE SIDEBAR per user request */
+}
+
+/* FORCE HIDE SIDEBAR per user request */
 .sidebar,
 .left-sidebar,
 .sidebar-content,
@@ -731,4 +733,28 @@ textarea {
     width: 100% !important;
     max-width: 100% !important;
     flex: 1 !important;
+}
+
+/* User Requested Fix: Mobile Sidebar Hiding & Layout Adjustment */
+@media (max-width: 768px) {
+
+    .sidebar,
+    .sidebar-content,
+    #sidebar {
+        display: none !important;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    /* Ensure full width for mobile */
+    .main-chat {
+        width: 100%;
+        max-width: 100vw;
+    }
 }
