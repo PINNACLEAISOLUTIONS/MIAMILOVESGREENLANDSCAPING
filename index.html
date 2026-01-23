@@ -540,6 +540,40 @@
 
         /* === END: FINAL HERO STYLES WITH MOBILE FIX === */
 
+        /* === Hero Content Overlay === */
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            padding: var(--spacing-md);
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--border-radius-lg);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            max-width: 90%;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: var(--text-hero);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-hero);
+            margin-bottom: var(--spacing-md);
+            opacity: 0.95;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
         .btn {
             display: inline-block;
             padding: calc(var(--spacing-sm) * 0.9) calc(var(--spacing-lg) * 0.9);
@@ -1397,9 +1431,11 @@
     </nav>
     <div class="main-content-wrapper">
         <header id="home" class="hero">
-            <!-- Hidden H1 for SEO - This section uses CSS background-image -->
-            <h1 class="visually-hidden">Miami Loves Green Landscaping - Professional Landscaping Services in Miami,
-                Florida</h1>
+            <div class="hero-content">
+                <h1>Miami Loves Green Landscaping</h1>
+                <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
+                <a href="#footer-contact" class="btn">Get a Free Estimate</a>
+            </div>
         </header>
         <section id="services" class="content-section">
             <div class="container">
@@ -1419,7 +1455,7 @@
                         </div>
                     </div>
                     <div class="service-card" style="--card-index: 1;">
-                        <div class="service-image-area" style="background-image: url('./IMG_1255 (1).webp');">
+                        <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');">
                             <h3 class="service-image-title">Garden Maintenance</h3>
                         </div>
                         <div class="service-content">
@@ -1429,7 +1465,7 @@
                         </div>
                     </div>
                     <div class="service-card" style="--card-index: 2;">
-                        <div class="service-image-area" style="background-image: url('./irrigationimage.webp');">
+                        <div class="service-image-area" style="background-image: url('./irrigation-systems.png');">
                             <h3 class="service-image-title">Irrigation Systems</h3>
                         </div>
                         <div class="service-content">
@@ -1440,7 +1476,7 @@
                     </div>
                     <div class="service-card" style="--card-index: 3;">
                         <div class="service-image-area hardscape-image"
-                            style="background-image: url('./hardscarpingimag.webp');">
+                            style="background-image: url('./hardscaping.jpg');">
                             <h3 class="service-image-title">Hardscaping</h3>
                         </div>
                         <div class="service-content">
@@ -1461,7 +1497,7 @@
                     </div>
                     <div class="service-card" style="--card-index: 5;">
                         <div class="service-image-area lighting-image"
-                            style="background-image: url('./landscapelighting.webp');">
+                            style="background-image: url('./outdoor-lighting.jpg');">
                             <h3 class="service-image-title">Outdoor Lighting</h3>
                         </div>
                         <div class="service-content">
