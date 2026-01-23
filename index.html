@@ -1985,206 +1985,35 @@
         });
     </script>
 
-    <!-- Floating Chat Widget -->
-    <style>
-        /* Floating Chat Button - Bottom Right */
-        /* Floating Chat Button - Middle Left */
-        .chat-widget-btn {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(76, 175, 80, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulseGlow 2s infinite;
-            writing-mode: horizontal-tb;
-        }
-
-        .chat-widget-btn:hover {
-            transform: translateY(calc(-50% - 5px));
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 40px rgba(76, 175, 80, 0.5);
-        }
-
-        .chat-widget-btn .chat-icon {
-            font-size: 20px;
-        }
-
-        @keyframes pulseGlow {
-
-            0%,
-            100% {
-                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 175, 80, 0.3);
-            }
-
-            50% {
-                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(76, 175, 80, 0.5);
-            }
-        }
-
-        /* Chat Widget Container - Base Styles */
-        .chat-widget-container {
-            position: fixed;
-            left: 25px;
-            bottom: 100px;
-            width: 480px;
-            height: 700px;
-            max-width: calc(100vw - 40px);
-            max-height: calc(100vh - 100px);
-            z-index: 10000;
-            display: none;
-            flex-direction: column;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(76, 175, 80, 0.2);
-            animation: fadeInUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-        }
-
-        .chat-widget-container.active {
-            display: flex;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .chat-widget-header {
-            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Montserrat', sans-serif;
-            flex: 0 0 auto;
-        }
-
-        .chat-widget-header h3 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .chat-widget-close {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .chat-widget-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        .chat-widget-iframe {
-            flex: 1 1 auto;
-            border: none;
-            background: #0a120c;
-            width: 100%;
-            height: 100%;
-            min-height: 0;
-        }
-
-        /* Mobile-specific styles: fullscreen on mobile */
-        @media (max-width: 767px) {
-
-
-            /* JavaScript will apply inline styles for mobile fullscreen on .active */
-
-
-            .chat-widget-btn {
-                padding: 10px 15px 10px 12px;
-                font-size: 12px;
-            }
-
-            .chat-widget-btn .btn-text {
-                display: none;
-            }
-        }
-
-        /* Prevent body scroll when chatbot is open on mobile */
-        html.chatbot-open,
-        body.chatbot-open {
-            overflow: hidden !important;
-            position: fixed !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
-
-        /* Optional debug overlay */
-        #chatbot-mobile-debug {
-            display: none;
-        }
-
-        body.chatbot-debug-active #chatbot-mobile-debug {
-            display: block;
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: lime;
-            padding: 8px;
-            font-size: 10px;
-            font-family: monospace;
-            z-index: 999999;
-            pointer-events: none;
-            border-radius: 4px;
-        }
-    </style>
+    <!-- Chatbot Resources -->
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Floating Button -->
-    <button class="chat-widget-btn" id="chatbot-toggle-btn" aria-expanded="false">
-        <span class="chat-icon">💬</span>
-        <span class="btn-text">Talk Live to Our Agent</span>
+    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-expanded="false">
+        <div class="icon-wrapper">
+            <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Talk Live</span>
+        </div>
     </button>
 
     <!-- Chat Widget Container -->
-    <div class="chat-widget-container" id="chatbot-container">
-        <div class="chat-widget-header chatbot-header">
-            <h3>🌿 Miami Loves Green Agent</h3>
-            <button class="chat-widget-close" id="chatbot-close-btn" aria-label="Close chat">×</button>
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <span>Chat Support</span>
+            <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close chat">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <iframe class="chat-widget-iframe" id="chatWidgetIframe"
-            src="https://miamilovesgreenlandscaping.onrender.com?v=2" title="Miami Loves Green Agent Chat"
+        <iframe src="https://miamilovesgreenlandscaping.onrender.com?v=2" title="Miami Loves Green Agent Chat"
             loading="lazy">
         </iframe>
     </div>
 
-
+    <script src="chatbot.js"></script>
 </body>
 
 </html>

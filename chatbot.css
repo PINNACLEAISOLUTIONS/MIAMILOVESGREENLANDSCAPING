@@ -1,0 +1,365 @@
+:root {
+    --neon-cyan: #00f3ff;
+    --neon-purple: #bd00ff;
+    --text-bright: #fff;
+    --text-muted: #aaa;
+    --primary-green-darkest: #0A1A0A;
+}
+
+/* Chatbot panel fixed overlay that fits on mobile */
+.chatbot-container {
+    position: fixed;
+    right: 20px;
+    /* Default for desktop? Or left? User request said button middle left. Panel usually follows. */
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    width: min(750px, calc(100vw - 40px));
+    height: min(640px, calc(100dvh - 140px));
+    z-index: 999999;
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    display: none;
+    /* Controlled by .active */
+    box-sizing: border-box;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: opacity 0.3s ease;
+}
+
+/* If user wants button on LEFT, maybe panel should be on LEFT too? */
+.chatbot-container {
+    left: 20px;
+    right: auto;
+}
+
+/* Toggle visibility */
+.chatbot-container.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Header stays fixed height */
+.chatbot-header {
+    flex: 0 0 auto;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), rgba(189, 0, 255, 0.1));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-bright);
+    font-family: var(--font-heading, sans-serif);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.chatbot-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0 5px;
+}
+
+.chatbot-close-btn:hover {
+    color: var(--neon-cyan);
+}
+
+/* Desktop: Iframe fills remaining space */
+.chatbot-container iframe {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.chatbot-toggle-btn {
+    position: fixed;
+    top: 50%;
+    /* Middle */
+    left: 20px;
+    /* Left */
+    bottom: auto;
+    transform: translateY(-50%);
+    /* Center vertically */
+    width: auto;
+    height: auto;
+    padding: 10px 25px 10px 10px;
+    border-radius: 50px;
+    /* Dark Green Background as requested */
+    background: linear-gradient(135deg, #0a2e0a, #004d00);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(76, 175, 80, 0.4);
+    z-index: 10000;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.chatbot-toggle-btn:hover {
+    transform: translateY(calc(-50% - 3px)) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(76, 175, 80, 0.6);
+    border-color: rgba(76, 175, 80, 0.8);
+}
+
+.chatbot-toggle-btn .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    /* Green gradient for icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    flex-shrink: 0;
+}
+
+.chatbot-toggle-btn .btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+    font-family: 'Inter', sans-serif;
+}
+
+.chatbot-toggle-btn .line-1 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff, #a5d6a7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.5px;
+}
+
+.chatbot-toggle-btn .line-2 {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #c8e6c9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Add a subtle glow animation */
+.chatbot-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.2) 0%, transparent 60%);
+    animation: pulseBtn 3s infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes pulseBtn {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Mobile Responsiveness for Chatbot - PHASE 5 HARD RESET */
+@media (max-width: 767px) {
+
+    /* Step 3: Remove transform interference when chatbot is open */
+    html.chatbot-open,
+    body.chatbot-open {
+        overflow: hidden !important;
+        touch-action: none !important;
+        transform: none !important;
+        filter: none !important;
+        perspective: none !important;
+    }
+
+    /* Step 2A: Hard reset fullscreen overlay */
+    #chatbot-container.active {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        z-index: 999999 !important;
+        box-sizing: border-box !important;
+        padding-top: env(safe-area-inset-top) !important;
+        padding-bottom: env(safe-area-inset-bottom) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        transform: none !important;
+        background: #000 !important;
+    }
+
+    /* Update Header Text for Mobile */
+    .chatbot-header span {
+        display: none !important;
+    }
+
+    .chatbot-header::after {
+        content: "PINNACLE AI MCP CHATBOT";
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--neon-cyan);
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+    /* Step 2B: Fallback for browsers without dvh */
+    @supports not (height: 100dvh) {
+        #chatbot-container.active {
+            height: var(--vhpx, 100vh) !important;
+            max-height: var(--vhpx, 100vh) !important;
+        }
+    }
+
+    /* Hidden state */
+    #chatbot-container {
+        display: none;
+    }
+
+    /* Step 4: Header with flex auto and min-height */
+    #chatbot-container .chatbot-header {
+        flex: 0 0 auto !important;
+        min-height: 56px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: linear-gradient(90deg, rgba(0, 243, 255, 0.2), rgba(189, 0, 255, 0.2)) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Step 5: Iframe - wider and shifted left to hide sidebar */
+    #chatbot-container iframe {
+        flex: 1 1 auto !important;
+        width: calc(100% + 280px) !important;
+        margin-left: -280px !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        display: block !important;
+        border: none !important;
+        padding: 0 !important;
+        max-width: none !important;
+    }
+
+    .chatbot-toggle-btn {
+        bottom: 15px !important;
+        left: 15px !important;
+        padding: 5px 12px !important;
+        gap: 8px !important;
+        z-index: 10001 !important;
+        top: auto !important;
+        /* Reset top for mobile? User wants middle left on desktop. Mobile usually bottom corner. */
+        transform: none !important;
+        /* Reset transform */
+    }
+
+    /* If user wants middle-left on mobile too? 
+       Usually mobile buttons are bottom corner. 
+       "fix the siing for this chatbot... fite great on mbil"
+       The user Step 10 code had bottom: 15px on mobile. 
+       I will keep mobile at bottom to avoid covering content or being hard to reach. */
+
+    .chatbot-toggle-btn .icon-wrapper {
+        display: flex !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .chatbot-toggle-btn .btn-text {
+        display: flex !important;
+    }
+
+    .chatbot-toggle-btn .line-1 {
+        font-size: 0.7rem !important;
+    }
+
+    .chatbot-toggle-btn .line-2 {
+        font-size: 0.55rem !important;
+    }
+}
+
+/* Enhancement: Phone icon animation */
+.chatbot-toggle-btn i {
+    animation: phoneShake 2s infinite ease-in-out;
+}
+
+@keyframes phoneShake {
+
+    0%,
+    90%,
+    100% {
+        transform: rotate(0);
+    }
+
+    92% {
+        transform: rotate(15deg);
+    }
+
+    94% {
+        transform: rotate(-15deg);
+    }
+
+    96% {
+        transform: rotate(15deg);
+    }
+
+    98% {
+        transform: rotate(-15deg);
+    }
+}
+
+/* Mobile-only Debug Overlay Styling */
+#chatbot-mobile-debug {
+    position: fixed;
+    top: 50px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #0f0;
+    font-size: 10px;
+    font-family: monospace;
+    padding: 10px;
+    border: 1px solid #0f0;
+    z-index: 2147483647;
+    pointer-events: none;
+    display: none;
+}
+
+@media (max-width: 767px) {
+    body.chatbot-debug-active #chatbot-mobile-debug {
+        display: block;
+    }
+}

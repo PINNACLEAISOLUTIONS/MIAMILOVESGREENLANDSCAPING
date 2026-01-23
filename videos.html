@@ -123,6 +123,8 @@
             font-size: 1.1rem;
         }
     </style>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -138,6 +140,21 @@
         <h1>Project Videos</h1>
 
         <div class="videos-grid">
+
+            <!-- FACEBOOK VIDEO -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=false&width=267&t=0"
+                        style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Featured on Facebook</div>
+                    <p>Watch this project showcase on our Facebook page.</p>
+                </div>
+            </div>
 
             <!-- VIDEO 1 -->
             <div class="video-card">
@@ -237,11 +254,53 @@
                 </div>
             </div>
 
+            <!-- VIDEO 8 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=0"
+                        title="Facebook Feature"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <div class="video-title">Facebook Feature</div>
+                    <p>Check out our latest update on Facebook.</p>
+                </div>
+            </div>
+
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
+    <!-- Chatbot Resources -->
+    <!-- Floating Button -->
+    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-expanded="false">
+        <div class="icon-wrapper">
+            <i class="fas fa-phone-alt"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Talk Live</span>
+        </div>
+    </button>
+
+    <!-- Chat Widget Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <span>Chat Support</span>
+            <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <iframe src="https://miamilovesgreenlandscaping.onrender.com?v=2" title="Miami Loves Green Agent Chat"
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <script src="chatbot.js"></script>
 </body>
 
 </html>
