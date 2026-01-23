@@ -124,7 +124,7 @@ class MCPChatbot:
         self.context_summary = ""  # Holds summarized history
 
         self.system_instruction = (
-            "You are the Miami Loves Green AI Agent, a helpful assistant for a premier landscaping company in Miami, Florida. "
+            "You are the Miami Loves Green Landscaping Chatbot, a helpful assistant for a premier landscaping company in Miami, Florida. "
             "Help with: landscape design, garden maintenance, hardscaping, irrigation, tree care, and outdoor lighting. "
             "Be friendly, professional, and concise. "
             "Our contact info: (786) 570-3215 | Miamilovesgreenlandscaping@gmail.com. "
@@ -554,7 +554,7 @@ class MCPChatbot:
         self.conversation_history.append(
             {
                 "role": "assistant",
-                "content": "Welcome to Miami Loves Green Landscaping, how can I help you?",
+                "content": "Welcome to Miami Loves Green Landscaping Chatbot, how can I help you?",
             }
         )
 
@@ -583,7 +583,7 @@ class MCPChatbot:
             {"role": "system", "content": self.system_instruction},
             {
                 "role": "assistant",
-                "content": "Welcome to Miami Loves Green Landscaping, how can I help you?",
+                "content": "Welcome to Miami Loves Green Landscaping Chatbot, how can I help you?",
             },
         ]
         logger.info("Chat session reset.")

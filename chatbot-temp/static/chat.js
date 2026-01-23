@@ -82,27 +82,27 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         recognition.onresult = (event) => {
-            const transcript = Array.from(event.results)
-                .map(result => result[0].transcript)
-                .join('');
+            let finalTranscript = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript;
+                }
+            }
 
-            console.log("STT (STD) result:", transcript, "final:", event.results[0].isFinal);
-
-            if (event.results[0].isFinal) {
-                userInput.value = transcript;
+            if (finalTranscript) {
+                console.log("STT (STD) Final Result:", finalTranscript);
+                userInput.value = finalTranscript;
                 userInput.dispatchEvent(new Event('input'));
 
-                // Auto-submit after voice input
-                console.log("Triggering auto-send for STT result");
-                stopListening(); // Force stop before sending
+                // Stop listening before sending to prevent overlapping
+                stopListening();
 
-                // Add a small delay to ensure UI is updated
+                // Auto-submit
                 setTimeout(() => {
                     if (userInput.value.trim().length > 0) {
-                        console.log("Auto-sending message:", userInput.value.trim());
                         sendMessage();
                     }
-                }, 300);
+                }, 400);
             }
         };
 
@@ -110,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Speech recognition error', event.error);
             isRecording = false;
             micBtn.classList.remove('recording');
+            if (event.error === 'not-allowed') {
+                alert("Microphone access denied. Please check your browser settings or allow microphone permissions in the URL bar.");
+            }
         };
     }
 
@@ -496,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.innerHTML = `
             <div class="message assistant-message first">
                 <div class="message-content">
-                    <strong>👋 Welcome to Miami Loves Green Landscaping!</strong><br><br>
+                    <strong>👋 Welcome to Miami Loves Green Landscaping Chatbot!</strong><br><br>
                     We help homeowners transform their outdoor spaces with <strong>expert landscaping services</strong> — custom design, garden maintenance, hardscaping, and eco-friendly solutions.<br><br>
                     I can help you:<br>
                     • Learn about our landscaping services<br>
