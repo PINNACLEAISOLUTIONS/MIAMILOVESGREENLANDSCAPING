@@ -8,13 +8,18 @@
     <meta name="description" content="Watch real landscaping projects by Miami Loves Green. See our work in action.">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
         :root {
             --primary-green: #4CAF50;
+            --primary-green-deep: #0f3d0e;
+            --primary-green-glow: rgba(76, 175, 80, 0.4);
             --accent-gold: #FFA726;
-            --text-light: #E8F5E9;
-            --bg-dark: #101010;
+            --text-light: #f1f8f1;
+            --text-muted: #b0c4b0;
+            --bg-dark: #0a0e0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --transition-premium: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         body {
@@ -22,6 +27,8 @@
             font-family: 'Inter', sans-serif;
             background: var(--bg-dark);
             color: var(--text-light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -34,13 +41,11 @@
         nav {
             background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -53,43 +58,80 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            transition: var(--transition-premium);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         h1 {
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin: 2.5rem 0;
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 900;
+            margin: 4rem 0 3rem;
             color: #ffffff;
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.8), 0 0 20px rgba(76, 175, 80, 0.6);
-            background: linear-gradient(to bottom, #1a2e1a, #0a120c);
-            padding: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(76, 175, 80, 0.3);
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #ffffff 40%, #4CAF50 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.2));
+            animation: titleEntrance 1.2s ease-out;
+        }
+
+        @keyframes titleEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            opacity: 0;
+            animation: gridEntrance 1s ease-out 0.4s forwards;
+        }
+
+        @keyframes gridEntrance {
+            to {
+                opacity: 1;
+            }
         }
 
         .video-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
+            background: var(--card-bg);
+            border-radius: 30px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(76, 175, 80, 0.08);
             display: flex;
             flex-direction: column;
+            transition: var(--transition-premium);
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px) scale(1.01);
+            border-color: rgba(76, 175, 80, 0.4);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(76, 175, 80, 0.15);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
-            /* Default to 9:16 aspect ratio for Shorts */
             padding-bottom: 177.78%;
             background: #000;
+            overflow: hidden;
         }
 
         .video-wrapper iframe {
@@ -102,25 +144,80 @@
         }
 
         .video-info {
-            padding: 1.5rem;
+            padding: 2.5rem;
             flex-grow: 1;
+            transition: transform 0.4s ease;
         }
 
         .video-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-gold);
-            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #123d12;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
+            transition: var(--transition-premium);
+            display: inline-block;
+        }
+
+        .video-card:hover .video-title {
+            color: #4CAF50;
+            transform: translateX(8px);
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .video-info p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 400;
+            transition: var(--transition-premium);
+            opacity: 0.85;
+        }
+
+        .video-card:hover .video-info p {
+            color: #ffffff;
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         .back-link {
-            display: block;
-            text-align: center;
-            margin: 3rem 0 1rem;
+            display: table;
+            margin: 6rem auto;
             text-decoration: none;
             color: var(--primary-green);
-            font-weight: 600;
+            font-weight: 800;
             font-size: 1.1rem;
+            padding: 1.2rem 3.5rem;
+            border: 2px solid rgba(76, 175, 80, 0.25);
+            border-radius: 100px;
+            transition: var(--transition-premium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-link:hover {
+            background: var(--primary-green);
+            color: #000;
+            box-shadow: 0 20px 50px rgba(76, 175, 80, 0.4);
+            transform: translateY(-8px) scale(1.05);
+            border-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .video-info {
+                padding: 1.8rem;
+            }
+
+            .back-link {
+                padding: 1rem 2.5rem;
+            }
         }
     </style>
     <link rel="stylesheet" href="chatbot.css">

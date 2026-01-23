@@ -162,36 +162,47 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Toggle Chatbot
-    chatbotToggleBtn.addEventListener('click', function (e) {
-        e.preventDefault();
+    // Robust Toggle Function
+    function toggleChatbotAction(e) {
+        // Prevent double firing if both events exist
+        if (e.type === 'touchstart') {
+            e.preventDefault();
+        } else if (e.type === 'click') {
+            e.preventDefault();
+        }
+
         const becomingActive = !chatbotContainer.classList.contains('active');
 
         if (becomingActive) {
-            // Move to body on mobile to escape clipping
+            // Move to body on mobile to ensure z-index stacking
             if (isMobile() && chatbotContainer.parentElement !== document.body) {
                 document.body.appendChild(chatbotContainer);
             }
 
-            chatbotContainer.classList.add('active');
+            // Force display first to ensure transitions work
+            chatbotContainer.style.display = 'flex';
 
-            if (isMobile()) {
-                // Add chatbot-open class to html and body
-                document.documentElement.classList.add('chatbot-open');
-                document.body.classList.add('chatbot-open');
+            // Small delay to allow display:flex to apply before adding active class (for transitions if needed)
+            requestAnimationFrame(() => {
+                chatbotContainer.classList.add('active');
 
-                // Apply inline styles for guaranteed fullscreen
-                applyMobileFullscreenStyles();
+                if (isMobile()) {
+                    document.documentElement.classList.add('chatbot-open');
+                    document.body.classList.add('chatbot-open');
+                    applyMobileFullscreenStyles();
+                    window.scrollTo(0, 0);
+                }
+            });
 
-                // Safari keyboard fix: scroll to top
-                window.scrollTo(0, 0);
-            }
         } else {
             closeChatbot();
         }
 
         chatbotToggleBtn.setAttribute('aria-expanded', becomingActive);
-    });
+    }
+
+    chatbotToggleBtn.addEventListener('click', toggleChatbotAction);
+    chatbotToggleBtn.addEventListener('touchstart', toggleChatbotAction, { passive: false });
 
     function closeChatbot() {
         chatbotContainer.classList.remove('active');

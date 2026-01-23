@@ -216,6 +216,8 @@
         overflow: hidden !important;
         transform: none !important;
         background: #000 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
     /* Update Header Text for Mobile */

@@ -133,9 +133,9 @@ We accept cash, checks, and all major credit cards. For larger projects, we offe
 
 ## Contact Information
 
-- **Phone:** (305) CALL-US (Your actual number)
-- **Email:** <info@miamilovesgreenlandscaping.com>
-- **Website:** <www.miamilovesgreenlandscaping.com>
+- **Phone:** (786) 570-3215
+- **Email:** <miamilovesgreenlandscaping@gmail.com>
+- **Website:** <https://www.miamilovesgreenlandscaping.com>
 - **Service Hours:** Monday - Saturday, 7:00 AM - 6:00 PM
 
 ## Lead Capture - Quote Request Flow
