@@ -361,10 +361,34 @@ h2,
     border-bottom: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0 40px;
     background: transparent;
     backdrop-filter: blur(10px);
+}
+
+.chat-header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-icon {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
 }
 
 @keyframes headerGradient {
@@ -841,7 +865,15 @@ textarea {
     .chat-header {
         padding: 0 20px;
         justify-content: space-between;
-        /* Space for menu button if added */
+        gap: 10px;
+    }
+
+    .header-text {
+        font-size: 16px;
+    }
+
+    .header-icon {
+        font-size: 20px;
     }
 
     .chat-messages {
@@ -858,9 +890,6 @@ textarea {
 
     /* Show a menu toggle if needed, or just keep it simple for now */
     /* For this specific request, the goal is to fix the "squished" look */
-}
-
-box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
 }
 
 .voice-icon {
