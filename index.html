@@ -1967,10 +1967,12 @@
     <!-- Floating Chat Widget -->
     <style>
         /* Floating Chat Button - Bottom Right */
+        /* Floating Chat Button - Middle Left */
         .chat-widget-btn {
             position: fixed;
-            right: 25px;
-            bottom: 25px;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -1986,29 +1988,17 @@
             font-weight: 600;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(76, 175, 80, 0.3);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: slideInUp 0.5s ease-out, pulseGlow 2s infinite;
+            animation: pulseGlow 2s infinite;
             writing-mode: horizontal-tb;
         }
 
         .chat-widget-btn:hover {
-            transform: translateY(-5px);
+            transform: translateY(calc(-50% - 5px));
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4), 0 0 40px rgba(76, 175, 80, 0.5);
         }
 
         .chat-widget-btn .chat-icon {
             font-size: 20px;
-        }
-
-        @keyframes slideInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         @keyframes pulseGlow {
@@ -2020,18 +2010,6 @@
 
             50% {
                 box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(76, 175, 80, 0.5);
-            }
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-3px);
             }
         }
 
