@@ -102,6 +102,15 @@ h2,
     line-height: 1.2;
 }
 
+@media (max-width: 480px) {
+
+    .logo h1,
+    .logo-3d {
+        font-size: 24px;
+        /* Smaller font on mobile */
+    }
+}
+
 .logo-3d .subtitle {
     display: block;
     font-size: 16px;
@@ -115,6 +124,14 @@ h2,
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 3s ease infinite reverse;
+}
+
+@media (max-width: 480px) {
+    .logo-3d .subtitle {
+        font-size: 12px;
+        /* Smaller subtitle on mobile */
+        letter-spacing: 2px;
+    }
 }
 
 @keyframes gradientShift {
