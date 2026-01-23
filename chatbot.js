@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         chatbotContainer.style.paddingTop = 'env(safe-area-inset-top)';
         chatbotContainer.style.paddingBottom = 'env(safe-area-inset-bottom)';
         chatbotContainer.style.transform = 'none';
-        chatbotContainer.style.outline = '3px solid red'; // Debug outline
+        // Debug outline removed for production
 
         // Header styles
         if (chatbotHeader) {
