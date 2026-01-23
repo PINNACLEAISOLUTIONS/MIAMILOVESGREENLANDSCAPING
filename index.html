@@ -1279,33 +1279,35 @@
         }
 
         .fab-icon-wrapper {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-gold);
+            width: 45px;
+            height: 45px;
+            background: #8BC34A;
+            /* Light Green */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 20px var(--accent-gold-glow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 15px rgba(139, 195, 74, 0.4);
             transition: transform var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
         }
 
         .fab-icon-wrapper svg {
-            width: 28px;
-            height: 28px;
-            fill: var(--primary-green-darkest);
+            width: 24px;
+            height: 24px;
+            fill: #0a1a0a;
         }
 
         .fab-container:hover .fab-text {
-            color: var(--accent-gold);
+            color: #8BC34A;
             background-color: rgba(var(--primary-green-darkest-rgb), 0.75);
             transform: translateY(-2px);
         }
 
         .fab-container:hover .fab-icon-wrapper {
             transform: scale(1.1) translateY(-3px);
-            background: var(--accent-gold-hover);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25), 0 0 25px var(--accent-gold-glow);
+            background: #9ccc65;
+            /* Brighter Light Green */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25), 0 0 20px rgba(139, 195, 74, 0.5);
         }
 
         .carousel {

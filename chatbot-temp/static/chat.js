@@ -110,8 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Speech recognition error', event.error);
             isRecording = false;
             micBtn.classList.remove('recording');
+
             if (event.error === 'not-allowed') {
-                alert("Microphone access denied. Please check your browser settings or allow microphone permissions in the URL bar.");
+                alert("Microphone access denied. Please click the Lock icon in your browser's address bar and allow microphone permissions.");
+            } else if (event.error === 'no-speech') {
+                console.log("No speech detected.");
+            } else if (event.error === 'network') {
+                alert("STT requires an internet connection. Please check your network.");
             }
         };
     }
@@ -147,7 +152,11 @@ document.addEventListener('DOMContentLoaded', () => {
     async function startListening() {
         // Interruption logic: Stop any ongoing speech when user starts talking
         stopSpeakingElevenLabs();
-        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if ('speechSynthesis' in window) {
+            try {
+                window.speechSynthesis.cancel();
+            } catch (e) { }
+        }
 
         if (useHDMode) {
             // HD Mode: Record audio and send to Groq Whisper
@@ -250,12 +259,22 @@ document.addEventListener('DOMContentLoaded', () => {
         utterance.volume = 1.0;
 
         // Try to use a natural voice
-        const voices = window.speechSynthesis.getVoices();
+        let voices = window.speechSynthesis.getVoices();
+
+        // Final fallback for Windows PC where voices load slowly
+        if (voices.length === 0) {
+            setTimeout(() => {
+                voices = window.speechSynthesis.getVoices();
+            }, 100);
+        }
+
         const preferredVoice = voices.find(v =>
+            v.name.includes('Natural') ||
+            v.name.includes('Online') ||
             v.name.includes('Google') ||
             v.name.includes('Samantha') ||
-            v.name.includes('Daniel') ||
-            v.name.includes('Microsoft')
+            v.name.includes('Microsoft David') ||
+            v.name.includes('Microsoft Mark')
         );
         if (preferredVoice) {
             utterance.voice = preferredVoice;
@@ -499,13 +518,9 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.innerHTML = `
             <div class="message assistant-message first">
                 <div class="message-content">
-                    <strong>👋 Welcome to Miami Loves Green Landscaping Chatbot!</strong><br><br>
-                    I am your AI assistant for all things landscaping in South Florida. I can help you with:<br>
-                    • <strong>Custom Landscape Design</strong> & 3D Renderings<br>
-                    • <strong>Garden Maintenance</strong> (Weekly/Bi-weekly)<br>
-                    • <strong>Irrigation Systems</strong> & Hardscaping<br>
-                    • <strong>Tree Care</strong> & Outdoor Lighting<br><br>
-                    <em>How can I help you transform your outdoor space today?</em>
+                    <strong>👋 Hello! I'm Miami Loves Green Landscaping Chatbot.</strong><br><br>
+                    I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!<br><br>
+                    <em>How can I assist you today?</em>
                 </div>
             </div>
         `;
