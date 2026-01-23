@@ -549,13 +549,7 @@
             text-align: center;
             z-index: 10;
             padding: var(--spacing-lg) var(--spacing-xl);
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(20, 40, 20, 0.8) 100%);
-            border-radius: var(--border-radius-lg);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             max-width: 90%;
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 60px rgba(76, 175, 80, 0.2);
         }
 
         .hero-content h1 {
@@ -1855,6 +1849,233 @@
                         }
                     });
                 });
+            }
+        });
+    </script>
+
+    <!-- Floating Chat Widget -->
+    <style>
+        /* Floating Chat Button - Left Side */
+        .chat-widget-btn {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px 12px 15px;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: slideInLeft 0.5s ease-out, pulseGlow 2s infinite;
+            writing-mode: horizontal-tb;
+        }
+
+        .chat-widget-btn:hover {
+            padding-left: 25px;
+            padding-right: 25px;
+            box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(76, 175, 80, 0.5);
+        }
+
+        .chat-widget-btn .chat-icon {
+            font-size: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateY(-50%) translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-50%) translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 175, 80, 0.3);
+            }
+
+            50% {
+                box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(76, 175, 80, 0.5);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        /* Chat Widget Container */
+        .chat-widget-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            width: 400px;
+            height: 600px;
+            max-width: calc(100vw - 40px);
+            max-height: calc(100vh - 100px);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(76, 175, 80, 0.2);
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .chat-widget-container.active {
+            display: flex;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-widget-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .chat-widget-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-widget-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .chat-widget-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .chat-widget-iframe {
+            flex: 1;
+            border: none;
+            background: #0a120c;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .chat-widget-container {
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                width: auto;
+                height: 70vh;
+            }
+
+            .chat-widget-btn {
+                padding: 10px 15px 10px 12px;
+                font-size: 12px;
+            }
+
+            .chat-widget-btn .btn-text {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Floating Button -->
+    <button class="chat-widget-btn" id="chatWidgetBtn" onclick="toggleChatWidget()">
+        <span class="chat-icon">💬</span>
+        <span class="btn-text">Talk Live to Our Agent</span>
+    </button>
+
+    <!-- Chat Widget Container -->
+    <div class="chat-widget-container" id="chatWidgetContainer">
+        <div class="chat-widget-header">
+            <h3>🌿 Miami Loves Green Agent</h3>
+            <button class="chat-widget-close" onclick="toggleChatWidget()">×</button>
+        </div>
+        <iframe class="chat-widget-iframe" id="chatWidgetIframe" src="" title="Miami Loves Green Agent Chat"
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <script>
+        // CONFIGURE YOUR RENDER URL HERE
+        const CHATBOT_URL = 'https://mcpaichatbot-2.onrender.com'; // Your Render chatbot URL
+
+        let chatWidgetLoaded = false;
+
+        function toggleChatWidget() {
+            const container = document.getElementById('chatWidgetContainer');
+            const iframe = document.getElementById('chatWidgetIframe');
+            const btn = document.getElementById('chatWidgetBtn');
+
+            if (container.classList.contains('active')) {
+                container.classList.remove('active');
+                btn.style.display = 'flex';
+            } else {
+                // Load iframe only on first open
+                if (!chatWidgetLoaded) {
+                    iframe.src = CHATBOT_URL;
+                    chatWidgetLoaded = true;
+                }
+                container.classList.add('active');
+                btn.style.display = 'none';
+            }
+        }
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('chatWidgetContainer');
+                if (container.classList.contains('active')) {
+                    toggleChatWidget();
+                }
             }
         });
     </script>
