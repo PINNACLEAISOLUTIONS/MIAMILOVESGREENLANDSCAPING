@@ -1652,14 +1652,12 @@
     </footer>
 
     <!-- Chatbot Widget -->
-    <button id="chatbot-toggle" title="Chat with us"
-        style="position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--accent-gold); border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+    <button id="chatbot-toggle" class="chat-toggle-btn" title="Chat with us">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
         </svg>
     </button>
-    <div id="chatbot-container"
-        style="display: none; position: fixed; bottom: 100px; right: 25px; width: 380px; height: 600px; max-height: 80vh; max-width: 90vw; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.4); z-index: 9999; animation: slideIn 0.3s ease-out;">
+    <div id="chatbot-container" class="chat-widget-container">
         <iframe src="https://miamilovesgreenlandscaping.onrender.com"
             style="width: 100%; height: 100%; border: none; background: #0a120c;"></iframe>
     </div>
@@ -1671,12 +1669,12 @@
         chatToggle.addEventListener('click', () => {
             isChatOpen = !isChatOpen;
             if (isChatOpen) {
-                chatContainer.style.display = 'block';
+                chatContainer.classList.add('visible');
                 chatToggle.style.transform = 'scale(1.1) rotate(10deg)';
                 // Change icon to close X
                 chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
             } else {
-                chatContainer.style.display = 'none';
+                chatContainer.classList.remove('visible');
                 chatToggle.style.transform = 'scale(1) rotate(0deg)';
                 // Change icon back to chat
                 chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
@@ -1687,13 +1685,57 @@
         document.addEventListener('click', (e) => {
             if (isChatOpen && !chatContainer.contains(e.target) && !chatToggle.contains(e.target)) {
                 isChatOpen = false;
-                chatContainer.style.display = 'none';
+                chatContainer.classList.remove('visible');
                 chatToggle.style.transform = 'scale(1) rotate(0deg)';
                 chatToggle.innerHTML = '<svg viewBox="0 0 24 24" width="32" height="32" fill="#0A1A0A"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>';
             }
         });
     </script>
     <style>
+        /* === Chatbot Widget Styles === */
+        .chat-toggle-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .chat-widget-container {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            background: #0a120c;
+            /* Match iframe bg to avoid white flash */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.3s ease-out;
+
+            /* Desktop Defaults */
+            bottom: 100px;
+            right: 25px;
+            width: 420px;
+            /* Slightly wider */
+            height: 650px;
+            /* Taller */
+            max-height: 85vh;
+        }
+
+        .chat-widget-container.visible {
+            display: block;
+        }
+
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -1705,6 +1747,41 @@
                 transform: translateY(0);
             }
         }
+
+        /* Responsive Mobile Styles */
+        @media (max-width: 768px) {
+            .chat-widget-container {
+                width: 90vw;
+                /* Take up most of width */
+                height: 75vh;
+                /* Reasonable height */
+                bottom: 95px;
+                /* Just above button */
+                right: 5vw;
+                /* Center roughly */
+                max-width: none;
+                max-height: none;
+                border-radius: 20px;
+            }
+
+            .chat-toggle-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        /* Very Small Screens */
+        @media (max-width: 480px) {
+            .chat-widget-container {
+                width: 95vw;
+                right: 2.5vw;
+                bottom: 85px;
+                height: 80vh;
+            }
+        }
+    </style>
     </style>
     <div class="footer-bottom">
         <p>© <span id="currentYear"></span> Miami Loves Green Landscaping. All rights reserved.</p>
