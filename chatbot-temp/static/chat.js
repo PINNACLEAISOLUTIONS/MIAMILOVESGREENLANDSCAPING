@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/api/tts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text, voice: 'josh' })
+                body: JSON.stringify({ text: text, voice: 'adam' })
             });
 
             if (!response.ok) {
@@ -519,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="message assistant-message first">
                 <div class="message-content">
                     <strong>👋 Hello! I'm Miami Loves Green Landscaping Chatbot.</strong><br><br>
-                    I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!<br><br>
+                    I can search the web, give you quotes, set up appointments for yougenerate images, remember information, and help you with code or research tasks. Just ask!<br><br>
                     <em>How can I assist you today?</em>
                 </div>
             </div>

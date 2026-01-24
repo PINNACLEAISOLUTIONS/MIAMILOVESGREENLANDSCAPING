@@ -22,8 +22,9 @@ class VoiceAgent:
         "josh": "TxGEqnHWrfWFTfGW9XjX",  # Friendly male
         "bella": "EXAVITQu4vr4xnSDxMaL",  # Young female
         "adam": "pNInz6obpgDQGcFmaJgB",  # Deep male
+        "antoni": "ErXwobaYiN019PkySvjV",  # Antoni (Deep, well rounded)
     }
-    DEFAULT_VOICE = "josh"
+    DEFAULT_VOICE = "adam"
 
     def __init__(self):
         """Initialize voice agent with API keys from environment."""
