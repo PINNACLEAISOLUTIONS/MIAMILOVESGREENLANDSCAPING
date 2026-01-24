@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 autoSpeak = true;
 
                 // Speak short status when voice mode activates (Interruption-friendly)
-                speakWithElevenLabs("Voice mode on. How can I help you?", null);
+                speakWithElevenLabs("Voice mode active for Miami Loves Green. Ready for your questions.", null);
             } else {
                 // Stop any current playback
                 stopSpeakingElevenLabs();

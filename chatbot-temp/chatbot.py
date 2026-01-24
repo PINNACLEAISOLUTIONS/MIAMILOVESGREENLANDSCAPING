@@ -293,6 +293,13 @@ class MCPChatbot:
                     "miami loves green",
                     "this company",
                     "this business",
+                    "landscape",
+                    "landscaping",
+                    "garden",
+                    "green",
+                    "service",
+                    "design",
+                    "maintenance",
                 ]
             ):
                 logger.info("Smart filter: Skipping KB for generic factual question")
