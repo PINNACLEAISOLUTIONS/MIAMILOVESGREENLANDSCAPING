@@ -329,18 +329,30 @@ class MCPChatbot:
             "what can you",
             "help with",
             "help me",
-            "website",
-            "chatbot",
-            "automation",
-            "automate",
-            "scraping",
-            "scrape",
-            "tutoring",
-            "teach",
-            "training",
-            "build",
-            "create",
-            "develop",
+            "landscape",
+            "landscaping",
+            "garden",
+            "maintenance",
+            "mowing",
+            "lawn",
+            "irrigation",
+            "sprinkler",
+            "hardscape",
+            "hardscaping",
+            "paving",
+            "paver",
+            "patios",
+            "patio",
+            "tree care",
+            "palm",
+            "trimming",
+            "pruning",
+            "lighting",
+            "outdoor lighting",
+            "design",
+            "consultation",
+            "quote",
+            "estimate",
         ]
 
         # General inquiry keywords
@@ -348,11 +360,16 @@ class MCPChatbot:
             "business",
             "company",
             "pricing",
+            "cost",
             "contact",
             "support",
             "who are you",
             "about you",
             "tell me about",
+            "miami loves green",
+            "hours",
+            "service area",
+            "location",
         ]
 
         all_keywords = service_keywords + general_keywords
@@ -886,8 +903,7 @@ class MCPChatbot:
                 res_content = await self._start_lead_capture()
                 return {"response": res_content}
             elif any(kw in msg_lower for kw in negative_keywords):
-                self.lead_state["awaiting_permission"] = False
-                res_content = "No problem! Feel free to ask me any questions about our services, or request a quote whenever you're ready. You can also contact us directly at 352-231-9154 or futureai4all@gmail.com."
+                res_content = "No problem! Feel free to ask me any questions about our services, or request a quote whenever you're ready. You can also contact us directly at (786) 570-3215 or miamilovesgreenlandscaping@gmail.com."
                 return {"response": res_content}
             else:
                 res_content = "I didn't quite catch that. Would you like me to proceed with collecting your information for a quote? (Please say 'yes' or 'no')"
