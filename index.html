@@ -486,50 +486,49 @@
 
         @media (max-width: 768px) {
             .nav-container {
-                padding: 0 5px !important;
+                padding: 5px !important;
                 display: flex !important;
                 justify-content: space-between !important;
-                align-items: center !important;
+                align-items: flex-start !important;
+                /* Align logos to top */
             }
 
             .nav-left,
             .nav-right {
-                flex: 0 0 50px !important;
+                flex: 0 0 100px !important;
                 display: flex !important;
-                align-items: center !important;
+            }
+
+            .nav-left {
+                justify-content: flex-start !important;
+            }
+
+            .nav-right {
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: flex-end !important;
+                gap: 5px !important;
             }
 
             .logo-img,
             .header-logo-right {
-                height: 28px !important;
+                height: 80px !important;
                 width: auto !important;
-                max-width: 45px !important;
+                max-width: 100px !important;
                 object-fit: contain !important;
             }
 
             .logo {
                 flex: 1 !important;
-                font-size: 0.9rem !important;
+                font-size: 1.6rem !important;
                 text-align: center !important;
-                margin: 0 5px !important;
-                gap: 0 !important;
+                margin: 10px 5px !important;
                 display: block !important;
-                line-height: 1.1 !important;
-                min-width: 0 !important;
+                line-height: 1.2 !important;
             }
 
             .logo span {
                 display: block !important;
-                white-space: nowrap !important;
-                overflow: hidden !important;
-                text-overflow: ellipsis !important;
-            }
-
-            .nav-right {
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: flex-end !important;
-                gap: 5px !important;
             }
 
             .mobile-menu-toggle {
@@ -537,11 +536,13 @@
                 padding: 0 !important;
                 order: 2 !important;
                 display: flex !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                border-radius: 5px !important;
             }
 
             .mobile-menu-toggle svg {
-                width: 20px !important;
-                height: 20px !important;
+                width: 25px !important;
+                height: 25px !important;
             }
 
             .header-logo-right {
