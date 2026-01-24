@@ -50,10 +50,13 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             background: linear-gradient(135deg, #FFD700, #8DD08D);
             -webkit-background-clip: text;
             background-clip: text;
@@ -61,8 +64,34 @@
             transition: var(--transition-premium);
         }
 
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 8px;
+        }
+
         .logo:hover {
             transform: scale(1.05);
+        }
+
+        /* Hero Header Style */
+        .video-hero {
+            position: relative;
+            height: 40vh;
+            min-height: 300px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('video-header.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .video-hero h1 {
+            margin: 0;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         }
 
         h1 {
@@ -227,14 +256,22 @@
 <body>
 
     <nav>
-        <div class="container nav-container">
-            <a href="index.html" class="logo">Miami Loves Green</a>
-            <a href="index.html" style="color: white; text-decoration: none;">Home</a>
+        <div class="container nav-container"
+            style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <span>Miami Loves Green</span>
+            </a>
+            <a href="index.html"
+                style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
         </div>
     </nav>
 
-    <div class="container">
+    <header class="video-hero">
         <h1>Project Videos</h1>
+    </header>
+
+    <div class="container">
 
         <div class="videos-grid">
 

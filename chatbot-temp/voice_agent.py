@@ -30,12 +30,14 @@ class VoiceAgent:
         "adam": "pNInz6obpgDQGcFmaJgB",  # Deep male
         "antoni": "ErXwobaYiN019PkySvjV",  # Antoni (Deep, well rounded)
     }
-    DEFAULT_VOICE = "adam"
+    DEFAULT_VOICE = "josh"
 
     def __init__(self):
         """Initialize voice agent with API keys from environment."""
         # Load API keys from Render environment
         self.elevenlabs_api_key = os.getenv("ELEVENLABS_API_KEY")
+        self.custom_voice_id = os.getenv("ELEVENLABS_VOICE_ID")
+
         # Reuse existing Google key if specific TTS key isn't provided
         self.google_tts_api_key = os.getenv("GOOGLE_TTS_API_KEY") or os.getenv(
             "GEMINI_API_KEY"
@@ -46,6 +48,14 @@ class VoiceAgent:
             if AsyncElevenLabs:
                 self.client = AsyncElevenLabs(api_key=self.elevenlabs_api_key)
                 logger.info("✅ ElevenLabs SDK client initialized")
+                if self.custom_voice_id:
+                    logger.info(
+                        f"🎤 Custom ElevenLabs Voice ID detected: {self.custom_voice_id}"
+                    )
+                    # Allow 'custom' as a voice name
+                    self.VOICES["custom"] = self.custom_voice_id
+                    # Also override the requested voice if it's the default
+                    self.VOICES["josh"] = self.custom_voice_id
             else:
                 self.client = None
                 logger.warning("⚠️ ElevenLabs API key found but SDK not installed!")

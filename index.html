@@ -365,8 +365,11 @@
             transition: transform var(--transition-fast), text-shadow var(--transition-medium);
             text-transform: uppercase;
             position: relative;
-            font-size: clamp(1.2rem, 2.8vw, 2.2rem);
+            font-size: clamp(1.2rem, 2.8vw, 1.8rem);
             line-height: 1.1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
             /* Improved 3D Gold/Green Gradient */
             background: linear-gradient(135deg, #FFD700 0%, var(--primary-green-light) 50%, #B8860B 100%);
             -webkit-background-clip: text;
@@ -375,6 +378,13 @@
             /* 3D text effect */
             filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
             letter-spacing: 1px;
+        }
+
+        .logo-img {
+            height: clamp(50px, 8vw, 70px);
+            width: auto;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
         }
 
         .logo:hover {
@@ -407,26 +417,11 @@
 
         .nav-links {
             display: none;
-        }
-
-        @media (min-width: 769px) {
-            .nav-links {
-                display: flex;
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                gap: var(--spacing-xs);
-            }
-        }
-
-        .nav-links.active {
-            display: flex;
             position: absolute;
-            top: calc(100% + 10px);
+            top: 100%;
             right: var(--spacing-sm);
-            left: auto;
             width: 220px;
-            background: rgba(18, 48, 18, 0.98);
+            background: rgba(10, 26, 10, 0.95);
             flex-direction: column;
             padding: var(--spacing-sm);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(76, 175, 80, 0.2);
@@ -435,7 +430,38 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
+        }
+
+        .nav-links.active {
+            display: flex;
             animation: dropdownFadeIn 0.3s ease-out forwards;
+        }
+
+        .mobile-menu-toggle {
+            display: block !important;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(232, 245, 233, 0.85);
+            list-style: none;
+            /* Add list-style none here to be safe */
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-links li {
+            list-style: none;
+            width: 100%;
+        }
+
+        .nav-links li:last-child a {
+            border-bottom: none;
         }
 
         @keyframes dropdownFadeIn {
@@ -450,32 +476,9 @@
             }
         }
 
-        .nav-links.active a {
-            padding: var(--spacing-sm) 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            width: 100%;
-        }
-
-        .nav-links.active li:last-child a {
-            border-bottom: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: rgba(232, 245, 233, 0.85);
-            font-weight: 500;
-            transition: color var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--border-radius-sm);
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-
         .nav-links a:hover,
         .nav-links a.active {
             color: #FFFFFF;
-            transform: translateY(-1px);
             background-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -1447,8 +1450,11 @@
     </div>
     <nav id="mainNav">
         <div class="container nav-container">
-            <!-- Restored Original Text Logo -->
-            <a href="#home" class="logo">Miami Loves Green<br>Landscaping</a>
+            <!-- Logo with Image -->
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Miami Loves Green Logo" class="logo-img">
+                <span>Miami Loves Green<br>Landscaping</span>
+            </a>
             <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
                 aria-controls="mainNavLinks">
                 <svg viewBox="0 0 24 24">
@@ -1645,7 +1651,8 @@
     <footer id="footer-contact">
         <div class="container footer-content">
             <div class="footer-section footer-brand">
-                <div class="footer-logo">MIAMI LOVES GREEN LANDSCAPING</div>
+                <img src="logo.png" alt="Miami Loves Green" class="footer-logo-img"
+                    style="height: 100px; width: auto; border-radius: 12px; margin-bottom: 15px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
                 <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative
                     outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
                 <div class="social-links">

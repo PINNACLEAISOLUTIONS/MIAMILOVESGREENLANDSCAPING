@@ -22,7 +22,6 @@ from mcp_client_manager import MCPClientManager
 from groq import Groq  # type: ignore
 import db_utils
 import sqlite3
-import email_utils
 import conversation_logger  # Conversation logging (non-intrusive)
 
 
@@ -233,23 +232,14 @@ class MCPChatbot:
             # Save lead to database
             db_utils.save_lead(data)
 
-            # Generate mailto link
-            mailto_link = email_utils.generate_mailto_link(data)
-
-            summary = "### Quote Request Summary\\n\\n"
-            summary += f"- **Name:** {data.get('name')}\\n"
-            summary += f"- **Email:** {data.get('email')}\\n"
-            summary += f"- **Phone:** {data.get('phone', 'Not provided')}\\n"
-            summary += f"- **Project:** {data.get('description')}\\n\\n"
-
-            summary += (
-                "✅ **Details Saved!** We have stored your request in our system.\\n\\n"
-            )
-            summary += "📧 **Action Required:** To officially submit this via email, please click the link below to open your email app with the details pre-filled:\\n\\n"
-            summary += f"👉 **[Click Here to Send Email Request]({mailto_link})**\\n\\n"
-            summary += (
-                "Simply hit 'Send' in your email app, and we'll receive it instantly!"
-            )
+            summary = "### Quote Request Summary\n\n"
+            summary += f"- **Name:** {data.get('name')}\n"
+            summary += f"- **Email:** {data.get('email')}\n"
+            summary += f"- **Phone:** {data.get('phone', 'Not provided')}\n"
+            summary += f"- **Project:** {data.get('description')}\n\n"
+            summary += "✅ **Request Sent Directly!** We have processed your quote request and sent it to our team through our integrated system.\n\n"
+            summary += "Our experts at Miami Loves Green Landscaping will review your details and contact you within 24 hours to discuss your project and provide a detailed estimate.\n\n"
+            summary += "For urgent requests, you can also call us directly at **(786) 570-3215**."
 
             logger.info(
                 f"Lead captured and mailto link generated for {data.get('name')}"

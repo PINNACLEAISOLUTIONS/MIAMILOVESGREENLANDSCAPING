@@ -149,8 +149,10 @@ When a customer asks for a quote, collect the following information:
 5. **Project Description** (brief overview of what they need)
 6. **Preferred Contact Time** (optional)
 
-After collecting this information, confirm the details and let them know:
-"Thank you! I've sent your quote request to our team. Someone will contact you within 24 hours to discuss your project and provide a detailed estimate. For urgent requests, you can also call us directly."
+After capturing these details, the chatbot will confirm:
+"Thank you! Your quote request has been sent directly to our team at Miami Loves Green Landscaping. Someone will contact you within 24 hours to discuss your project and provide a detailed estimate. For urgent requests, you can also call us directly."
+
+Leads are processed and emailed instantly through our integrated system, ensuring a fast response time.
 
 ## Call to Action
 
