@@ -384,8 +384,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (elevenLabsAvailable) {
                         console.log('Voice mode: ElevenLabs/Google TTS forced active');
+                        voiceModeBtn.querySelector('.voice-text').innerText = 'Voice: Premium';
+                        voiceModeBtn.style.boxShadow = '0 0 20px rgba(0, 243, 255, 0.4)';
                     } else {
                         console.log('Voice mode: Using browser TTS (no API keys configured)');
+                        voiceModeBtn.querySelector('.voice-text').innerText = 'Voice: Standard';
                     }
                 } catch (err) {
                     console.warn('Voice status check failed, using browser TTS');
