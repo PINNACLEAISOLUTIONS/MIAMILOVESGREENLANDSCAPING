@@ -1,7 +1,7 @@
-import cv2
-import numpy as np
 import os
-from tqdm import tqdm
+import cv2  # type: ignore
+import numpy as np
+from tqdm import tqdm  # type: ignore
 
 
 def enhance_video(

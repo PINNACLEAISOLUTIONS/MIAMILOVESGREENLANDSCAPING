@@ -82,8 +82,8 @@
 
 .chatbot-toggle-btn {
     position: fixed;
-    bottom: 40px;
-    /* Moved to bottom-left corner as shown in image */
+    bottom: 20px;
+    /* Aligned with Call Us button */
     left: 20px;
     top: auto;
     transform: none;
@@ -96,7 +96,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(76, 175, 80, 0.5);
     color: #fff;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(76, 175, 80, 0.4);
@@ -273,15 +273,17 @@
     }
 
     .chatbot-toggle-btn {
-        bottom: 15px !important;
-        left: 15px !important;
+        bottom: 20px !important;
+        left: 20px !important;
         padding: 5px 12px !important;
         gap: 8px !important;
         z-index: 10001 !important;
         top: auto !important;
-        /* Reset top for mobile? User wants middle left on desktop. Mobile usually bottom corner. */
         transform: none !important;
-        /* Reset transform */
+        display: flex !important;
+        /* Force visible */
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 
     /* If user wants middle-left on mobile too? 

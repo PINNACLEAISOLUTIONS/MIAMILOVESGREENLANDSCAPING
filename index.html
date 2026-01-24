@@ -92,6 +92,8 @@
   }
 }
 </script>
+    <link rel="stylesheet" href="chatbot.css?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
@@ -523,7 +525,7 @@
             }
 
             .mobile-menu-toggle {
-                margin: 10px 45px 0 0 !important;
+                margin: 30px 45px 0 0 !important;
                 padding: 0 !important;
                 order: 2 !important;
                 display: flex !important;
@@ -1710,158 +1712,12 @@
             <span>Assistant</span>
             <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
         </div>
-        <iframe src="https://mediafiles1.blabber.co/" allow="microphone;"></iframe>
+        <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
     </div>
 
     <script src="chatbot.js"></script>
 
-    <style>
-        /* === Chatbot Widget Styles === */
-        .chat-toggle-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: var(--accent-gold);
-            border-radius: 50%;
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 9999;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
 
-        .chat-toggle-btn[aria-expanded="true"] {
-            transform: scale(1.1) rotate(90deg);
-        }
-
-        .chat-widget-container {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            background: #0a120c;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            animation: slideIn 0.3s ease-out;
-
-            /* Desktop Defaults */
-            bottom: 100px;
-            right: 25px;
-            width: 420px;
-            height: 650px;
-            max-height: 85vh;
-        }
-
-        /* Active state controlled by chatbot.js */
-        .chat-widget-container.active {
-            display: block;
-        }
-
-        /* Show close button on mobile when active */
-        .chat-widget-container.active #chatbot-close-btn {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Mobile Styles */
-        @media (max-width: 768px) {
-            .chat-widget-container {
-                width: 90vw;
-                /* Take up most of width */
-                height: 75vh;
-                /* Reasonable height */
-                bottom: 95px;
-                /* Just above button */
-                right: 5vw;
-                /* Center roughly */
-                max-width: none;
-                max-height: none;
-                border-radius: 20px;
-            }
-
-            .logo-img {
-                height: 140px !important;
-                margin-left: 0 !important;
-                border-radius: 8px;
-            }
-
-            .header-logo-right {
-                height: 140px !important;
-                display: block !important;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-
-            .hero-content h1 {
-                font-size: 1.35rem !important;
-                text-align: center !important;
-                /* Centered as requested */
-                margin-top: 155px !important;
-                /* Move below large banners */
-                -webkit-text-fill-color: #ffffff !important;
-                color: #ffffff !important;
-                text-shadow: 0 4px 20px rgba(0, 0, 0, 1) !important;
-                background: rgba(0, 0, 0, 0.5) !important;
-                padding: 12px;
-                border-radius: 12px;
-                display: block;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                width: 90%;
-            }
-
-            .mobile-menu-toggle {
-                display: flex !important;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.8rem !important;
-                color: #ffffff !important;
-                border: none;
-                background: none;
-                padding: 0 !important;
-                margin: 0 !important;
-                /* Aligned under the logo group */
-                position: static !important;
-                order: 2 !important;
-                z-index: 1001;
-            }
-
-            .chat-toggle-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
-            }
-        }
-
-        /* Very Small Screens */
-        @media (max-width: 480px) {
-            .chat-widget-container {
-                width: 95vw;
-                right: 2.5vw;
-                bottom: 85px;
-                height: 80vh;
-            }
-        }
-    </style>
-    </footer>
     <!-- START: Floating Action Buttons -->
     <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
         <span class="fab-text">CALL US</span>

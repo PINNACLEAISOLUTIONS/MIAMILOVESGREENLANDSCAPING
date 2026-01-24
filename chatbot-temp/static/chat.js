@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let isChatOpen = true;
     let debugMode = false;
 
+    // Get API Base URL from config.js or default to relative
+    const API_BASE = (typeof getApiBaseUrl === 'function') ? getApiBaseUrl() : '';
+    console.log('Chatbot API Base:', API_BASE);
+
     // --- Voice State ---
     let useHDMode = false; // HD = Groq Whisper, STD = Browser API
     let autoSpeak = false;
@@ -177,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     micBtn.classList.add('processing');
 
                     try {
-                        const response = await fetch('/api/transcribe', {
+                        const response = await fetch(`${API_BASE}/api/transcribe`, {
                             method: 'POST',
                             body: formData
                         });
@@ -375,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (voiceModeActive) {
                 // Check if ElevenLabs is available (only once per session)
                 try {
-                    const statusRes = await fetch('/api/status');
+                    const statusRes = await fetch(`${API_BASE}/api/status`);
                     const status = await statusRes.json();
                     // WORKAROUND: Force availability for testing per user request
                     elevenLabsAvailable = true;
@@ -421,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Calling ElevenLabs TTS API...');
             // Use Direct Voice ID for Josh to prevent mapping errors
             const voiceId = "TxGEqnHWrfWFTfGW9XjX";
-            const response = await fetch('/api/tts', {
+            const response = await fetch(`${API_BASE}/api/tts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text: text, voice: voiceId })
@@ -567,7 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const indicator = showTypingIndicator();
 
         try {
-            const response = await fetch('/api/chat', {
+            const response = await fetch(`${API_BASE}/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -761,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadSessionContent(sessionId) {
         try {
-            const res = await fetch(`/api/chat/${sessionId}`);
+            const res = await fetch(`${API_BASE}/api/chat/${sessionId}`);
             const data = await res.json();
 
             chatMessages.innerHTML = '';
