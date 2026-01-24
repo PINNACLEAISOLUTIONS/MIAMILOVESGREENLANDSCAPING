@@ -388,8 +388,8 @@
             transition: transform var(--transition-fast), text-shadow var(--transition-medium);
             text-transform: uppercase;
             position: relative;
-            font-size: clamp(1.2rem, 3.5vw, 2.2rem);
-            /* Reduced size for better fit */
+            font-size: clamp(1.8rem, 6vw, 3.8rem);
+            /* Significantly larger for desktop impact */
             line-height: 1.1;
             display: flex;
             align-items: center;
@@ -407,7 +407,7 @@
         }
 
         .logo-img {
-            height: clamp(60px, 10vw, 90px);
+            height: clamp(45px, 8vw, 70px);
             width: auto;
             border-radius: 12px;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
@@ -473,7 +473,7 @@
         }
 
         .header-logo-right {
-            height: clamp(60px, 10vw, 90px);
+            height: clamp(45px, 8vw, 70px);
             width: auto;
             border-radius: 12px;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
