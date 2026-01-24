@@ -441,6 +441,24 @@
             display: block !important;
         }
 
+        .header-logo-right {
+            height: clamp(50px, 8vw, 70px);
+            width: auto;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo-right:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-logo-right {
+                height: 40px;
+            }
+        }
+
         .nav-links a {
             text-decoration: none;
             color: rgba(232, 245, 233, 0.85);
@@ -1468,6 +1486,7 @@
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="#footer-contact">Contact</a></li>
             </ul>
+            <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
         </div>
     </nav>
     <div class="main-content-wrapper">
@@ -1707,6 +1726,10 @@
                 </div>
                 <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
                 <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
+            </div>
+            <div class="footer-section footer-logo-right">
+                <img src="logo-tropical.png" alt="Miami Loves Green Logo"
+                    style="max-width: 151px; height: auto; border-radius: 20px; filter: drop-shadow(0 0 20px rgba(0,255,0,0.2));">
             </div>
         </div>
     </footer>

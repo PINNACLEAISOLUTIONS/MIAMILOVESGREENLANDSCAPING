@@ -23,18 +23,22 @@
                         style="width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--accent);">
                     <span class="header-text">Miami Loves Green Landscaping Chatbot</span>
                 </div>
-                <button id="voice-mode-btn" class="voice-mode-button" title="Activate Voice Mode">
-                    <span class="voice-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                            <line x1="12" y1="19" x2="12" y2="23" />
-                            <line x1="8" y1="23" x2="16" y2="23" />
-                        </svg>
-                    </span>
-                    <span class="voice-text">Voice Mode</span>
-                    <span class="voice-pulse"></span>
-                </button>
+                <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
+                    <button id="voice-mode-btn" class="voice-mode-button" title="Activate Voice Mode">
+                        <span class="voice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </span>
+                        <span class="voice-text">Voice Mode</span>
+                        <span class="voice-pulse"></span>
+                    </button>
+                    <img src="/static/logo-tropical.png" alt="Miami Loves Green"
+                        style="height: 40px; border-radius: 8px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                </div>
             </header>
 
             <div id="chat-messages" class="chat-messages">
