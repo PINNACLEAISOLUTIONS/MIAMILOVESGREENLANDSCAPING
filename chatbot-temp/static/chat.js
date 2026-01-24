@@ -519,8 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="message assistant-message first">
                 <div class="message-content">
                     <strong>👋 Hello! I'm Miami Loves Green Landscaping Chatbot.</strong><br><br>
-                    I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!<br><br>
-                    <em>How can I assist you today?</em>
+                    I'm here to help you with any questions about our landscaping services in Miami. How can I assist you today?
                 </div>
             </div>
         `;
