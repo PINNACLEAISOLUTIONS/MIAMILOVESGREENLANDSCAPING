@@ -154,14 +154,25 @@ class VoiceAgent:
         voice_id = self.VOICES.get(voice.lower(), self.VOICES[self.DEFAULT_VOICE])
 
         try:
-            # Use SDK to generate audio
-            # convert() returns an async generator yielding bytes
-            audio_stream = await self.client.text_to_speech.convert(
-                text=text,
-                voice_id=voice_id,
-                model_id="eleven_multilingual_v2",
-                output_format="mp3_44100_128",
-            )
+            # Try premium model first
+            try:
+                audio_stream = await self.client.text_to_speech.convert(
+                    text=text,
+                    voice_id=voice_id,
+                    model_id="eleven_multilingual_v2",
+                    output_format="mp3_44100_128",
+                )
+            except Exception as e:
+                logger.warning(
+                    f"ElevenLabs Multilingual V2 failed ({e}), falling back to Monolingual V1"
+                )
+                # Fallback to standard model
+                audio_stream = await self.client.text_to_speech.convert(
+                    text=text,
+                    voice_id=voice_id,
+                    model_id="eleven_monolingual_v1",
+                    output_format="mp3_44100_128",
+                )
 
             # Consume the async generator to get full audio bytes
             audio_data = b""
