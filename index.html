@@ -485,18 +485,38 @@
         }
 
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 10px;
+            }
 
             .logo-img,
             .header-logo-right {
-                height: 28px !important;
+                height: 22px !important;
             }
 
             .logo {
-                font-size: 1.1rem;
+                font-size: 1.4rem !important;
             }
 
-            .nav-container {
-                padding: 0 10px;
+            .nav-right {
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .mobile-menu-toggle {
+                margin: 0 !important;
+                padding: 0 !important;
+                order: 2;
+            }
+
+            .mobile-menu-toggle svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .header-logo-right {
+                order: 1;
             }
         }
 
@@ -1551,6 +1571,7 @@
             </a>
 
             <div class="nav-right">
+                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
                 <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
                     aria-controls="mainNavLinks">
                     <svg viewBox="0 0 24 24">
@@ -1564,7 +1585,6 @@
                     <li><a href="videos.html">Videos</a></li>
                     <li><a href="#footer-contact">Contact</a></li>
                 </ul>
-                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
             </div>
         </div>
     </nav>
