@@ -10,7 +10,7 @@ Usage:
 
 Environment Variables Required:
     GITHUB_TOKEN: Personal access token with repo write access
-    GITHUB_REPO: Repository in format "owner/repo" (e.g., "PINNACLEAISOLUTIONS/mcpaichatbot")
+    GITHUB_REPO: Repository in format "owner/repo" (e.g., "MiamiLovesGreen/mcpaichatbot")
     GITHUB_BRANCH: Branch to push to (default: "main")
     ENABLE_GITHUB_LOGGING: Must be "true" to enable
 

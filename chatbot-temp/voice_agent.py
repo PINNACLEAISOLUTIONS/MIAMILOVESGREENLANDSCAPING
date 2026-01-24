@@ -156,7 +156,7 @@ class VoiceAgent:
         try:
             # Try premium model first
             try:
-                audio_stream = await self.client.text_to_speech.convert(
+                audio_stream = self.client.text_to_speech.convert(
                     text=text,
                     voice_id=voice_id,
                     model_id="eleven_multilingual_v2",
@@ -167,7 +167,7 @@ class VoiceAgent:
                     f"ElevenLabs Multilingual V2 failed ({e}), falling back to Monolingual V1"
                 )
                 # Fallback to standard model
-                audio_stream = await self.client.text_to_speech.convert(
+                audio_stream = self.client.text_to_speech.convert(
                     text=text,
                     voice_id=voice_id,
                     model_id="eleven_monolingual_v1",

@@ -25,6 +25,7 @@ from chatbot import MCPChatbot  # noqa: E402
 from hf_mcp_client import HuggingFaceMCPClient  # noqa: E402
 from gemini_image_client import GeminiImageClient  # noqa: E402
 from voice_agent import VoiceAgent  # noqa: E402
+import email_utils  # noqa: E402
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -249,6 +250,7 @@ async def health_check():
         "business_assistant": {
             "knowledge_pack_loaded": bool(get_chatbot("default").knowledge_base),
             "database_connected": db_utils.check_db_connection(),
+            "email_configured": email_utils.check_email_config(),
         },
     }
 
