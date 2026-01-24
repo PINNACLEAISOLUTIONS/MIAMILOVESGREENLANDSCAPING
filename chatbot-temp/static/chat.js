@@ -212,7 +212,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } catch (err) {
                 console.error('Microphone error:', err);
-                addErrorMessage('Could not access microphone. Please check permissions.');
+                let errorMsg = 'Could not access microphone.';
+                if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+                    errorMsg = 'Microphone permission denied. Please allow access in your browser settings.';
+                } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+                    errorMsg = 'No microphone found. Please check your input device settings.';
+                } else if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                    errorMsg = 'Microphone access requires HTTPS. Please use a secure connection.';
+                }
+
+                alert(errorMsg);
+                addErrorMessage("Microphone Error: " + errorMsg);
             }
         } else {
             // STD Mode: Use browser Speech Recognition API
@@ -367,10 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 try {
                     const statusRes = await fetch('/api/status');
                     const status = await statusRes.json();
-                    elevenLabsAvailable = status.voice_agent && status.voice_agent.available;
+                    // WORKAROUND: Force availability for testing per user request
+                    elevenLabsAvailable = true;
+                    // Original check: 
+                    // elevenLabsAvailable = status.voice_agent && status.voice_agent.available;
 
                     if (elevenLabsAvailable) {
-                        console.log('Voice mode: ElevenLabs/Google TTS available');
+                        console.log('Voice mode: ElevenLabs/Google TTS forced active');
                     } else {
                         console.log('Voice mode: Using browser TTS (no API keys configured)');
                     }
@@ -403,20 +416,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Calling ElevenLabs TTS API...');
+            // Use Direct Voice ID for Josh to prevent mapping errors
+            const voiceId = "TxGEqnHWrfWFTfGW9XjX";
             const response = await fetch('/api/tts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text, voice: 'josh' })
+                body: JSON.stringify({ text: text, voice: voiceId })
             });
 
             if (!response.ok) {
                 const errorText = await response.text();
                 console.warn('ElevenLabs TTS failed:', response.status, errorText);
 
-                // If blocked (401 Unusual Activity) or Server Error (500), disable for this session
+                // If blocked (401 Unusual Activity) or Server Error (500), log but DO NOT permanent disable
                 if (response.status === 401 || response.status === 500) {
-                    console.error('Premium Voice blocked or failing. Falling back to browser TTS permanently for this session.');
-                    elevenLabsAvailable = false;
+                    console.error('Premium Voice blocked or failing. Falling back to browser TTS temporarily.');
+                    // elevenLabsAvailable = false; // DISABLED: Allow retries
                 }
 
                 speakText(text, msgId); // Fallback to browser

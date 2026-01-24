@@ -323,10 +323,18 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            /* width: 90%; REMOVED to allow full width nav */
+            /* max-width: 1200px; REMOVED for nav container */
             margin: 0 auto;
             padding: 0 var(--spacing-sm);
+        }
+
+        /* Restoring container constraints for non-nav content */
+        .content-section .container,
+        .footer-content,
+        .nav-inner-container {
+            width: 90%;
+            max-width: 1200px;
         }
 
         @media (min-width: 768px) {
@@ -355,6 +363,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            max-width: none;
+            padding: 0 20px;
         }
 
         /* === ORIGINAL TEXT LOGO STYLES === */
@@ -553,7 +564,7 @@
         /* === Hero Content Overlay === */
         .hero-content {
             position: absolute;
-            top: 50%;
+            top: 65%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -627,6 +638,12 @@
                 0 5px 10px rgba(0, 0, 0, 0.5);
             margin-top: 15px;
             opacity: 1;
+        }
+
+        .hero-content .btn {
+            margin-top: 4rem;
+            /* Moved down significantly as requested */
+            display: inline-block;
         }
 
         .btn {
@@ -1467,7 +1484,7 @@
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
     <nav id="mainNav">
-        <div class="container nav-container">
+        <div class="nav-container">
             <!-- Logo with Image -->
             <a href="#home" class="logo">
                 <img src="logo.png" alt="Miami Loves Green Logo" class="logo-img">

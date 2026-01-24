@@ -266,56 +266,10 @@ class MCPChatbot:
         """
         msg_lower = message.lower()
 
-        # ========== SMART FILTER (ADDITIVE - can be removed to revert) ==========
-        # Early exit for generic questions that don't need Miami Loves Green context
-        # This makes general knowledge questions MUCH faster
-
-        # Pattern 1: Definition/meaning questions
-        if re.match(
-            r"^(what('s| is| are) (the )?(definition|meaning) of|define |explain what)",
-            msg_lower,
-        ):
-            logger.info("Smart filter: Skipping KB for definition question")
-            return None
-
-        # Pattern 2: Generic factual questions (not about "you/your/miami loves green")
-        if re.match(
-            r"^(who|what|when|where|why|how) (is|are|was|were|do|does|did|can|could|would|should|to)\b",
-            msg_lower,
-        ):
-            # Only skip if NOT asking about Miami Loves Green/the chatbot
-            if not any(
-                term in msg_lower
-                for term in [
-                    "you",
-                    "your",
-                    "miami loves green",
-                    "this company",
-                    "this business",
-                    "landscape",
-                    "landscaping",
-                    "garden",
-                    "green",
-                    "service",
-                    "design",
-                    "maintenance",
-                ]
-            ):
-                logger.info("Smart filter: Skipping KB for generic factual question")
-                return None
-
-        # Pattern 3: Math/calculation requests
+        # ========== SMART FILTER (RELAXED) ==========
+        # Only skip if it's clearly a pure math/code task unrelated to the business
         if re.match(r"^(calculate|compute|solve|what is \d|how much is \d)", msg_lower):
             logger.info("Smart filter: Skipping KB for math question")
-            return None
-
-        # Pattern 4: Very short questions (likely simple queries, not about services)
-        words = message.split()
-        if len(words) <= 3 and not any(
-            kw in msg_lower
-            for kw in ["price", "cost", "quote", "service", "miami loves green"]
-        ):
-            logger.info("Smart filter: Skipping KB for short generic question")
             return None
         # ========== END SMART FILTER ==========
 
