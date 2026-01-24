@@ -264,17 +264,30 @@
 
         .back-link {
             display: table;
-            margin: 6rem auto;
+            margin: -150px auto 50px;
+            /* Pulled much higher up */
+            position: relative;
+            z-index: 20;
             text-decoration: none;
             color: var(--primary-green);
             font-weight: 800;
             font-size: 1.1rem;
             padding: 1.2rem 3.5rem;
-            border: 2px solid rgba(76, 175, 80, 0.25);
+            border: 2px solid var(--primary-green);
             border-radius: 100px;
             transition: var(--transition-premium);
             text-transform: uppercase;
             letter-spacing: 2px;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .back-link {
+                margin: -80px auto 30px;
+                padding: 1rem 2.5rem;
+                font-size: 0.9rem;
+            }
         }
 
         .back-link:hover {
@@ -629,9 +642,7 @@
 
         </div>
 
-        <a href="index.html" class="back-link"
-            style="position: relative; z-index: 10; margin: 3rem auto 0; display: block; width: fit-content; background: rgba(0,0,0,0.7); border: 2px solid var(--primary-green); padding: 1.2rem 3rem; font-size: 1.1rem;">←
-            Back to Home</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
     </div>
 
     <footer style="margin-top: 0; border-top: none; background: transparent;">
