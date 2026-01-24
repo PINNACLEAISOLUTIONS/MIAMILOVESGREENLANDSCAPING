@@ -41,12 +41,11 @@
         }
 
         nav {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            /* Header to the top of the page */
+            background: transparent !important;
+            padding: 0 !important;
+            border-bottom: none !important;
+            backdrop-filter: none !important;
+            position: absolute !important;
             width: 100%;
             top: 0;
             z-index: 1000;
@@ -68,18 +67,16 @@
         }
 
         .logo-img {
-            height: 80px;
-            /* Made larger as requested */
+            height: clamp(80px, 20vw, 140px) !important;
             width: auto;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .header-logo-right {
-            height: 90px !important;
-            /* Made larger as requested */
+            height: clamp(90px, 22vw, 150px) !important;
             width: auto;
-            border-radius: 12px;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            border-radius: 15px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
             transition: transform 0.3s ease;
         }
 
@@ -90,9 +87,9 @@
         /* Hero Header Style */
         .video-hero {
             position: relative;
-            height: 40vh;
-            min-height: 300px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('video-header-new.jpg');
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('video-header-new.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -287,17 +284,19 @@
             .mobile-menu-toggle {
                 display: block !important;
                 order: 2;
-                /* Position after logo */
-                margin-left: 15px;
+                margin-left: 20px;
+                font-size: 3.5rem !important;
+                /* Extremely large and visible */
+                color: #ffffff !important;
             }
 
-            /* Logo larger on mobile too */
+            /* Logo much larger on mobile too */
             .logo-img {
-                height: 60px;
+                height: 120px !important;
             }
 
             .header-logo-right {
-                height: 60px !important;
+                height: 120px !important;
             }
         }
 
