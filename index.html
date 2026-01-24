@@ -486,7 +486,7 @@
 
         @media (max-width: 768px) {
             .nav-container {
-                padding: 5px !important;
+                padding: 0 5px !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: flex-start !important;
@@ -495,33 +495,34 @@
 
             .nav-left,
             .nav-right {
-                flex: 0 0 110px !important;
+                flex: 0 0 140px !important;
                 display: flex !important;
             }
 
             .nav-left {
                 justify-content: flex-start !important;
+                padding-top: 5px !important;
             }
 
             .nav-right {
                 flex-direction: column !important;
                 justify-content: flex-start !important;
                 align-items: flex-end !important;
-                gap: 5px !important;
+                gap: 0 !important;
+                padding-top: 5px !important;
             }
 
             .logo-img,
             .header-logo-right {
                 height: 100px !important;
                 width: auto !important;
-                max-width: 110px !important;
+                max-width: 140px !important;
                 object-fit: contain !important;
             }
 
             .logo {
                 flex: 1 !important;
                 font-size: 2.2rem !important;
-                /* Significantly enlarged */
                 text-align: center !important;
                 margin: 5px 0 !important;
                 display: block !important;
@@ -533,13 +534,14 @@
             }
 
             .mobile-menu-toggle {
-                margin: 0 !important;
+                margin: 5px 0 0 0 !important;
                 padding: 0 !important;
                 order: 2 !important;
                 display: flex !important;
                 background: none !important;
                 border: none !important;
                 justify-content: flex-end;
+                height: auto !important;
             }
 
             .mobile-menu-toggle svg {
