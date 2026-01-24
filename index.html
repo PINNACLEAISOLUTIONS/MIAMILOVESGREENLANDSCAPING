@@ -132,6 +132,27 @@
             }
         }
 
+        /* Top Right Logo Positioning */
+        .header-logo-right {
+            position: absolute;
+            right: 15px;
+            top: 5px;
+            height: clamp(50px, 8vw, 80px);
+            width: auto;
+            z-index: 1100;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        /* On mobile, adjust slightly if needed */
+        @media (max-width: 768px) {
+            .header-logo-right {
+                right: 50px;
+                /* Give space for hamburger menu */
+                top: 5px;
+            }
+        }
+
         /* Visually hidden but accessible for SEO and screen readers */
         .visually-hidden {
             position: absolute;
