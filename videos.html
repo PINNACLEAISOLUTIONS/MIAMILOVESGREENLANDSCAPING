@@ -37,7 +37,7 @@
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding: 2rem 0;
+            padding: 0.5rem 0;
         }
 
         nav {
@@ -87,16 +87,16 @@
         /* Hero Header Style */
         .video-hero {
             position: relative;
-            height: 60vh;
-            min-height: 500px;
-            /* Subtle top-heavy gradient for readability without making it "black" */
-            background: linear-gradient(rgba(0, 0, 0, 0.4) 0%, transparent 60%), url('video-header-new.jpg');
+            height: 50vh;
+            min-height: 400px;
+            background: url('video-header-new.jpg');
+            /* Removed black gradient overlay */
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             border-bottom: none;
         }
 
@@ -108,16 +108,18 @@
         h1 {
             text-align: center;
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 900;
-            margin: 4rem 0 3rem;
             color: #ffffff;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #ffffff 40%, #4CAF50 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(76, 175, 80, 0.2));
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            /* Strongest possible shadow for readability */
+            text-shadow:
+                0 0 30px rgba(0, 0, 0, 0.8),
+                0 5px 15px rgba(0, 0, 0, 0.9);
+            z-index: 10;
+            margin: 0;
+            padding: 20px;
             animation: titleEntrance 1.2s ease-out;
         }
 
@@ -257,16 +259,25 @@
         }
 
         @media (max-width: 768px) {
+            .video-hero {
+                height: 40vh !important;
+                /* Shorter on mobile to bring videos UP */
+                min-height: 250px !important;
+                margin-bottom: 0.5rem !important;
+            }
+
             h1 {
-                font-size: 3rem;
+                font-size: 3.2rem !important;
                 -webkit-text-fill-color: #ffffff !important;
                 color: #ffffff !important;
-                text-shadow: 0 5px 25px rgba(0, 0, 0, 1) !important;
-                background: rgba(0, 0, 0, 0.3) !important;
-                padding: 10px;
-                border-radius: 10px;
-                display: inline-block;
+                text-shadow: 0 5px 35px rgba(0, 0, 0, 1) !important;
+                background: rgba(0, 0, 0, 0.5) !important;
+                /* Slightly darker for readability */
+                padding: 15px;
+                border-radius: 12px;
+                display: block;
                 width: 90%;
+                margin: 0 auto !important;
             }
 
             .video-info {
@@ -383,6 +394,7 @@
     </nav>
 
     <div class="video-hero">
+        <h1>Our Project Videos</h1>
     </div>
 
     <div class="container">
