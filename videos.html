@@ -345,7 +345,7 @@
             .nav-left {
                 justify-content: flex-start !important;
                 align-items: flex-start !important;
-                margin-left: -30px !important;
+                margin-left: 0px !important;
                 margin-top: -20px !important;
             }
 
@@ -383,7 +383,7 @@
                 position: static !important;
                 order: 2 !important;
                 z-index: 1001;
-                align-self: flex-start !important;
+                align-self: flex-end !important;
             }
 
             .logo {
@@ -683,30 +683,6 @@
         </div>
     </footer>
 
-    <!-- Chatbot Resources -->
-    <!-- Floating Button -->
-    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn" aria-expanded="false">
-        <div class="icon-wrapper">
-            <i class="fas fa-phone-alt"></i>
-        </div>
-        <div class="btn-text">
-            <span class="line-1">Need Help?</span>
-            <span class="line-2">Talk Live</span>
-        </div>
-    </button>
-
-    <!-- Chat Widget Container -->
-    <div class="chatbot-container" id="chatbot-container">
-        <div class="chatbot-header">
-            <span>Miami Loves Green Chatbot</span>
-            <button class="chatbot-close-btn" id="chatbot-close-btn" aria-label="Close chat">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <iframe src="https://miamilovesgreenlandscaping.onrender.com?v=2" title="Miami Loves Green Agent Chat"
-            loading="lazy" allow="microphone; camera; clipboard-write">
-        </iframe>
-    </div>
 
     <script>
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -733,7 +709,6 @@
             });
         }
     </script>
-    <script src="chatbot.js"></script>
 </body>
 
 </html>
