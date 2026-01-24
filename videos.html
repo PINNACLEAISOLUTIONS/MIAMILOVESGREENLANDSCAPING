@@ -282,12 +282,18 @@
             }
 
             .mobile-menu-toggle {
-                display: block !important;
-                order: 2;
-                margin-left: 20px;
-                font-size: 3.5rem !important;
-                /* Extremely large and visible */
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                font-size: 3rem !important;
                 color: #ffffff !important;
+                line-height: 1;
+                background: none;
+                border: none;
+                padding: 0 !important;
+                margin: 0 !important;
+                position: relative;
+                z-index: 1002;
             }
 
             /* Logo much larger on mobile too */
@@ -337,13 +343,11 @@
         <div class="nav-container"
             style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
             <div style="display: flex; align-items: center;">
-                <a href="index.html" class="logo">
+                <a href="index.html" class="logo" style="display: flex; align-items: center;">
                     <img src="logo.png" alt="Logo" class="logo-img">
                 </a>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
+
             <div class="nav-links" id="nav-links">
                 <a href="index.html"
                     style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
@@ -352,6 +356,12 @@
                 <a href="videos.html"
                     style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
             </div>
+
+            <!-- Mobile menu button moved to the right -->
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
         </div>
     </nav>
