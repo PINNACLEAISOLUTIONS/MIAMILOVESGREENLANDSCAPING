@@ -538,7 +538,7 @@ class MCPChatbot:
         self.conversation_history.append(
             {
                 "role": "assistant",
-                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I'm here to help you with any questions about our landscaping services in Miami. How can I assist you today?",
+                "content": "Hello! I'm the Miami Loves Green Landscaping AI Agent. I'm here to help you with any questions about our landscaping services in Miami. How can I assist you today?",
             }
         )
 
@@ -567,7 +567,7 @@ class MCPChatbot:
             {"role": "system", "content": self.system_instruction},
             {
                 "role": "assistant",
-                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!",
+                "content": "Hello! I'm the Miami Loves Green Landscaping AI Agent. I can help you with landscaping questions, generate design ideas, and provide quotes. How can I assist you today?",
             },
         ]
         logger.info("Chat session reset.")
