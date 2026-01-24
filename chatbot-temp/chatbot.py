@@ -127,7 +127,7 @@ class MCPChatbot:
             "You are the Miami Loves Green Landscaping Chatbot, a helpful assistant for a premier landscaping company in Miami, Florida. "
             "Help with: landscape design, garden maintenance, hardscaping, irrigation, tree care, and outdoor lighting. "
             "Be friendly, professional, and concise. "
-            "Our contact info: (786) 570-3215 | Miamilovesgreenlandscaping@gmail.com. "
+            "Our contact info: (786) 570-3215 | miamilovesgreenlandscaping@gmail.com. "
             "Use 'generate_image' if the user asks to visualize a garden design. "
             "Use 'websearch_search' for plant info or local Miami weather/news relevant to gardening. "
         )
@@ -561,7 +561,7 @@ class MCPChatbot:
         self.conversation_history.append(
             {
                 "role": "assistant",
-                "content": "Welcome to Miami Loves Green Landscaping Chatbot, how can I help you?",
+                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!",
             }
         )
 
@@ -590,7 +590,7 @@ class MCPChatbot:
             {"role": "system", "content": self.system_instruction},
             {
                 "role": "assistant",
-                "content": "Welcome to Miami Loves Green Landscaping Chatbot, how can I help you?",
+                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!",
             },
         ]
         logger.info("Chat session reset.")
