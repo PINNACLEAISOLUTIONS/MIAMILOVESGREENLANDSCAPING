@@ -38,6 +38,8 @@ class VoiceAgent:
         # Log initialization status
         if self.elevenlabs_api_key:
             logger.info("✅ ElevenLabs API key loaded")
+        else:
+            logger.warning("⚠️ ElevenLabs API key NOT found. Using fallback only.")
 
         if self.google_tts_api_key:
             logger.info("✅ Google TTS/Gemini key loaded (fallback ready)")

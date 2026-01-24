@@ -671,7 +671,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isSpeaking && currentSpeakingMsgId === msgId) {
                     stopSpeaking();
                 } else {
-                    speakText(text, msgId);
+                    speakWithElevenLabs(text, msgId);
                 }
             });
         }
