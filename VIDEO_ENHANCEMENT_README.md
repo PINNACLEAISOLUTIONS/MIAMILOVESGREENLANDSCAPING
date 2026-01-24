@@ -5,11 +5,13 @@ This document explains how to enhance the video quality for the website using mu
 ## Option 1: FFmpeg Enhancement (Recommended)
 
 ### Prerequisites
+
 - FFmpeg installed on your computer
   - Download from: <https://ffmpeg.org/download.html>
   - Make sure it's added to your PATH
 
 ### Steps
+
 1. **Run the FFmpeg Enhancement Script**
    - Double-click on the `enhance_video_ffmpeg.bat` file
    - This will use FFmpeg to significantly enhance the video quality
@@ -24,11 +26,13 @@ This document explains how to enhance the video quality for the website using mu
 
 ## Option 2: Python-based Enhancement
 
-### Prerequisites
+### Python Prerequisites
+
 - Python 3.6 or higher
 - pip (Python package installer)
 
-### Steps
+### Python Steps
+
 1. **Run the Python Enhancement Script**
    - Double-click on the `enhance_video.bat` file
    - This will install the required Python packages and run the enhancement script
@@ -66,9 +70,11 @@ For the highest possible quality:
 
 - **FFmpeg Issues**: Make sure FFmpeg is properly installed and in your PATH
 - **Python Issues**: If you encounter errors about missing packages, run:
-  ```
-  pip install opencv-python numpy tqdm
-  ```
+
+```bash
+pip install opencv-python numpy tqdm
+```
+
 - **Browser Performance**: If the video playback is slow or jerky, try:
   - Using a more powerful computer
   - Disabling some of the CSS filters in the HTML file

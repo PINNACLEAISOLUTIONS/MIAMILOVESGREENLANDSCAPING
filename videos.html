@@ -53,13 +53,14 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            /* Further increased as requested */
+            font-size: clamp(1.2rem, 3.5vw, 2.2rem);
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
             gap: 15px;
             color: #ffffff;
             /* Improved lettering style */
@@ -383,7 +384,11 @@
 
                 .logo-img,
                 .header-logo-right {
-                    height: 50px !important;
+                    height: 35px !important;
+                }
+
+                .logo {
+                    font-size: 1.1rem !important;
                 }
             }
 

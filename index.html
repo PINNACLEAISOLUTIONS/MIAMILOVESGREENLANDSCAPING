@@ -388,11 +388,13 @@
             transition: transform var(--transition-fast), text-shadow var(--transition-medium);
             text-transform: uppercase;
             position: relative;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            /* Made bigger as requested */
+            font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+            /* Reduced size for better fit */
             line-height: 1.1;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
             gap: 15px;
             /* Improved 3D Gold/Teal Gradient */
             background: linear-gradient(135deg, #FFD700 0%, #E0F2F1 50%, #4DB6AC 100%);
@@ -486,7 +488,15 @@
 
             .logo-img,
             .header-logo-right {
-                height: 50px;
+                height: 35px;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .nav-container {
+                padding: 0 10px;
             }
         }
 
