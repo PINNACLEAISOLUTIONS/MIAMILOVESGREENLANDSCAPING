@@ -68,9 +68,19 @@
         }
 
         .logo-img {
-            height: 45px;
+            height: 80px;
+            /* Made larger as requested */
             width: auto;
             border-radius: 8px;
+        }
+
+        .header-logo-right {
+            height: 90px !important;
+            /* Made larger as requested */
+            width: auto;
+            border-radius: 12px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
         }
 
         .logo:hover {
@@ -276,6 +286,18 @@
 
             .mobile-menu-toggle {
                 display: block !important;
+                order: 2;
+                /* Position after logo */
+                margin-left: 15px;
+            }
+
+            /* Logo larger on mobile too */
+            .logo-img {
+                height: 60px;
+            }
+
+            .header-logo-right {
+                height: 60px !important;
             }
         }
 
@@ -313,15 +335,16 @@
 <body>
 
     <nav>
-        <div class="container nav-container"
-            style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo" class="logo-img">
-                <span>Miami Loves Green</span>
-            </a>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
+        <div class="nav-container"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px;">
+            <div style="display: flex; align-items: center;">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                </a>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
             <div class="nav-links" id="nav-links">
                 <a href="index.html"
                     style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
@@ -330,8 +353,7 @@
                 <a href="videos.html"
                     style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
             </div>
-            <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right"
-                style="height: 60px; border-radius: 10px; margin-left: 15px;">
+            <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
         </div>
     </nav>
 
