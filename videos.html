@@ -53,27 +53,34 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-size: 2.4rem;
+            /* Further increased as requested */
             font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
-            gap: 12px;
+            gap: 15px;
             color: #ffffff;
-            /* User requested no yellow */
+            /* Improved lettering style */
+            background: linear-gradient(135deg, #FFD700 0%, #E0F2F1 50%, #4DB6AC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.4));
             transition: var(--transition-premium);
         }
 
         .logo-img {
-            height: clamp(80px, 20vw, 140px) !important;
+            height: clamp(120px, 25vw, 180px) !important;
+            /* Made significantly bigger */
             width: auto;
             border-radius: 12px;
         }
 
         .header-logo-right {
-            height: clamp(90px, 22vw, 150px) !important;
+            height: clamp(130px, 28vw, 200px) !important;
+            /* Made significantly bigger */
             width: auto;
             border-radius: 15px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
@@ -269,7 +276,8 @@
             }
 
             h1 {
-                font-size: 2rem !important;
+                font-size: 1.6rem !important;
+                /* Safely shrunk as requested */
                 /* Shrunk as requested */
                 -webkit-text-fill-color: #ffffff !important;
                 color: #ffffff !important;
@@ -315,6 +323,7 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
+            /* Absolute far-left toggle */
             .mobile-menu-toggle {
                 display: flex !important;
                 align-items: center;
@@ -323,22 +332,37 @@
                 color: #ffffff !important;
                 border: none;
                 background: none;
-                padding: 5px !important;
+                padding: 10px !important;
                 margin: 0 !important;
                 position: absolute;
-                top: 10px;
-                /* Absolute top right */
-                right: 10px;
-                z-index: 1002;
+                top: 25px;
+                left: 10px;
+                /* Moved to far left as requested */
+                right: auto;
+                z-index: 1001;
             }
 
-            /* Logo much larger on mobile too */
+            /* Logos biggeer on mobile */
             .logo-img {
-                height: 120px !important;
+                height: 140px !important;
+                margin-left: 60px !important;
+                /* Room for toggle */
+                border-radius: 8px;
             }
 
             .header-logo-right {
-                height: 120px !important;
+                display: block !important;
+                height: 140px !important;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            h1 {
+                font-size: 1.1rem !important;
+                margin: 150px 0 2rem 5% !important;
+                /* Move title below large banners */
+                text-align: left !important;
             }
         }
 

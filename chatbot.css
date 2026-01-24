@@ -82,10 +82,11 @@
 
 .chatbot-toggle-btn {
     position: fixed;
-    top: 50%;
+    bottom: 40px;
+    /* Moved to bottom-left corner as shown in image */
     left: 20px;
-    bottom: auto;
-    transform: translateY(-50%);
+    top: auto;
+    transform: none;
     width: auto;
     height: auto;
     padding: 10px 25px 10px 10px;
