@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('/api/tts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text, voice: 'adam' })
+                body: JSON.stringify({ text: text, voice: 'josh' })
             });
 
             if (!response.ok) {

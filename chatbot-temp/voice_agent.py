@@ -10,6 +10,12 @@ import base64
 from typing import Dict, Any
 import httpx
 
+# Import ElevenLabs SDK
+try:
+    from elevenlabs.client import AsyncElevenLabs
+except ImportError:
+    AsyncElevenLabs = None
+
 logger = logging.getLogger(__name__)
 
 
@@ -37,7 +43,14 @@ class VoiceAgent:
 
         # Log initialization status
         if self.elevenlabs_api_key:
-            logger.info("✅ ElevenLabs API key loaded")
+            if AsyncElevenLabs:
+                self.client = AsyncElevenLabs(api_key=self.elevenlabs_api_key)
+                logger.info("✅ ElevenLabs SDK client initialized")
+            else:
+                self.client = None
+                logger.warning("⚠️ ElevenLabs API key found but SDK not installed!")
+        else:
+            self.client = None
 
         if self.google_tts_api_key:
             logger.info("✅ Google TTS/Gemini key loaded (fallback ready)")
@@ -120,57 +133,48 @@ class VoiceAgent:
     async def _elevenlabs_tts(
         self, text: str, voice: str, return_base64: bool
     ) -> Dict[str, Any]:
-        """Generate speech using ElevenLabs API."""
+        """Generate speech using ElevenLabs SDK."""
+        if not self.client:
+            return {
+                "success": False,
+                "error": "ElevenLabs SDK not initialized or key missing",
+            }
+
         voice_id = self.VOICES.get(voice.lower(), self.VOICES[self.DEFAULT_VOICE])
 
-        url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
-        headers = {
-            "Accept": "audio/mpeg",
-            "Content-Type": "application/json",
-            "xi-api-key": self.elevenlabs_api_key,
-        }
-        payload = {
-            "text": text,
-            "model_id": "eleven_multilingual_v2",
-            "voice_settings": {
-                "stability": 0.5,
-                "similarity_boost": 0.75,
-            },
-        }
-
         try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
-                response = await client.post(url, json=payload, headers=headers)
+            # Use SDK to generate audio
+            # convert() returns an async generator yielding bytes
+            audio_stream = await self.client.text_to_speech.convert(
+                text=text,
+                voice_id=voice_id,
+                model_id="eleven_multilingual_v2",
+                output_format="mp3_44100_128",
+            )
 
-                if response.status_code == 200:
-                    audio_data = response.content
-                    if return_base64:
-                        audio_b64 = base64.b64encode(audio_data).decode("utf-8")
-                        return {
-                            "success": True,
-                            "audio_base64": audio_b64,
-                            "content_type": "audio/mpeg",
-                            "provider": "elevenlabs",
-                            "voice": voice,
-                        }
-                    return {
-                        "success": True,
-                        "audio_bytes": audio_data,
-                        "content_type": "audio/mpeg",
-                        "provider": "elevenlabs",
-                    }
-                else:
-                    error_text = response.text[:200]
-                    logger.error(
-                        f"ElevenLabs error {response.status_code}: {error_text}"
-                    )
-                    return {
-                        "success": False,
-                        "error": f"ElevenLabs error {response.status_code}: {error_text}",
-                    }
+            # Consume the async generator to get full audio bytes
+            audio_data = b""
+            async for chunk in audio_stream:
+                audio_data += chunk
+
+            if return_base64:
+                audio_b64 = base64.b64encode(audio_data).decode("utf-8")
+                return {
+                    "success": True,
+                    "audio_base64": audio_b64,
+                    "content_type": "audio/mpeg",
+                    "provider": "elevenlabs",
+                    "voice": voice,
+                }
+            return {
+                "success": True,
+                "audio_bytes": audio_data,
+                "content_type": "audio/mpeg",
+                "provider": "elevenlabs",
+            }
 
         except Exception as e:
-            logger.error(f"ElevenLabs request failed: {e}")
+            logger.error(f"ElevenLabs SDK request failed: {e}")
             return {"success": False, "error": str(e)}
 
     async def _google_tts(self, text: str, return_base64: bool) -> Dict[str, Any]:
