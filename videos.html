@@ -436,7 +436,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 2rem 2rem 6rem;
+            /* Increased bottom padding */
             position: relative;
             z-index: 5;
         }
@@ -466,8 +467,11 @@
 
     <nav>
         <div class="nav-container">
-            <!-- Spacer to push everything right -->
-            <div class="nav-spacer" style="flex: 1;"></div>
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                </a>
+            </div>
 
             <div class="nav-right">
                 <div class="nav-links" id="nav-links">
@@ -479,12 +483,7 @@
                         style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
                 </div>
 
-                <div class="logo-group-right" style="display: flex; gap: 10px; align-items: center;">
-                    <a href="index.html">
-                        <img src="logo.png" alt="Logo" class="logo-img">
-                    </a>
-                    <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
-                </div>
+                <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
 
                 <!-- Mobile menu button -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle">
@@ -640,7 +639,7 @@
         <div class="footer-visual">
             <div style="text-align: center;">
                 <h2 class="footer-title"
-                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(to bottom, #E0F2F1 0%, #4DB6AC 50%, #00796B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 121, 107, 0.5));">
+                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #00ffaa 50%, #00796B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 255, 170, 0.4));">
                     Miami Loves Green</h2>
                 <div class="footer-subtitle"
                     style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #4DB6AC; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0.9;">
