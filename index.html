@@ -365,7 +365,19 @@
             align-items: center;
             width: 100%;
             max-width: none;
-            padding: 0 20px;
+            padding: 0 30px;
+        }
+
+        .nav-left,
+        .nav-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right {
+            justify-content: flex-end;
+            gap: 20px;
         }
 
         /* === ORIGINAL TEXT LOGO STYLES === */
@@ -393,11 +405,15 @@
         }
 
         .logo-img {
-            height: clamp(100px, 15vw, 160px);
-            /* Made bigger as requested */
+            height: clamp(60px, 10vw, 90px);
             width: auto;
             border-radius: 12px;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.1);
         }
 
         .logo:hover {
@@ -455,8 +471,7 @@
         }
 
         .header-logo-right {
-            height: clamp(100px, 15vw, 160px);
-            /* Made bigger as requested */
+            height: clamp(60px, 10vw, 90px);
             width: auto;
             border-radius: 12px;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
@@ -468,8 +483,10 @@
         }
 
         @media (max-width: 768px) {
+
+            .logo-img,
             .header-logo-right {
-                height: 40px;
+                height: 50px;
             }
         }
 
@@ -1512,25 +1529,33 @@
     </div>
     <nav id="mainNav">
         <div class="nav-container">
-            <!-- Logo with Image -->
+            <div class="nav-left">
+                <a href="#home">
+                    <img src="logo.png" alt="Miami Loves Green Logo" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Logo Text in Middle -->
             <a href="#home" class="logo">
-                <img src="logo.png" alt="Miami Loves Green Logo" class="logo-img">
                 <span>Miami Loves Green<br>Landscaping</span>
             </a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
-                aria-controls="mainNavLinks">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                </svg>
-            </button>
-            <ul class="nav-links" id="mainNavLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="videos.html">Videos</a></li>
-                <li><a href="#footer-contact">Contact</a></li>
-            </ul>
-            <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
+
+            <div class="nav-right">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+                    aria-controls="mainNavLinks">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </button>
+                <ul class="nav-links" id="mainNavLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="#footer-contact">Contact</a></li>
+                </ul>
+                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
+            </div>
         </div>
     </nav>
     <div class="main-content-wrapper">
@@ -1863,8 +1888,9 @@
 
             .hero-content h1 {
                 font-size: 1.35rem !important;
-                text-align: left !important;
-                margin-top: 140px !important;
+                text-align: center !important;
+                /* Centered as requested */
+                margin-top: 155px !important;
                 /* Move below large banners */
                 -webkit-text-fill-color: #ffffff !important;
                 color: #ffffff !important;
@@ -1873,7 +1899,8 @@
                 padding: 12px;
                 border-radius: 12px;
                 display: block;
-                margin-left: 5% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
                 width: 90%;
             }
 

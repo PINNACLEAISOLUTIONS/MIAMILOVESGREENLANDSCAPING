@@ -71,20 +71,47 @@
             transition: var(--transition-premium);
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 30px;
+        }
+
+        .nav-left,
+        .nav-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-right {
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
         .logo-img {
-            height: clamp(120px, 25vw, 180px) !important;
-            /* Made significantly bigger */
+            height: clamp(60px, 10vw, 90px) !important;
             width: auto;
             border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.1);
         }
 
         .header-logo-right {
-            height: clamp(130px, 28vw, 200px) !important;
-            /* Made significantly bigger */
+            height: clamp(60px, 10vw, 90px) !important;
             width: auto;
             border-radius: 15px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
             transition: transform 0.3s ease;
+        }
+
+        .header-logo-right:hover {
+            transform: scale(1.1);
         }
 
         .logo:hover {
@@ -349,6 +376,17 @@
                 border-radius: 8px;
             }
 
+            @media (max-width: 768px) {
+                .nav-container {
+                    padding: 0 10px;
+                }
+
+                .logo-img,
+                .header-logo-right {
+                    height: 50px !important;
+                }
+            }
+
             .header-logo-right {
                 display: block !important;
                 height: 140px !important;
@@ -359,9 +397,12 @@
 
             h1 {
                 font-size: 1.1rem !important;
-                margin: 150px 0 2rem 5% !important;
-                /* Move title below large banners */
-                text-align: left !important;
+                margin: 155px auto 2rem !important;
+                /* Center below banners */
+                text-align: center !important;
+                /* Centered as requested */
+                width: 90%;
+                display: block;
             }
         }
 
@@ -392,30 +433,34 @@
 <body>
 
     <nav>
-        <div class="nav-container"
-            style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 5px;">
-            <div style="display: flex; align-items: center;">
-                <a href="index.html" class="logo" style="display: flex; align-items: center;">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html">
                     <img src="logo.png" alt="Logo" class="logo-img">
-                    <span>Miami Loves Green<br>Landscaping</span>
                 </a>
             </div>
 
-            <div class="nav-links" id="nav-links">
-                <a href="index.html"
-                    style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
-                <a href="index.html#services"
-                    style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Services</a>
-                <a href="videos.html"
-                    style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
+            <a href="index.html" class="logo">
+                <span>Miami Loves Green<br>Landscaping</span>
+            </a>
+
+            <div class="nav-right">
+                <div class="nav-links" id="nav-links">
+                    <a href="index.html"
+                        style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
+                    <a href="index.html#services"
+                        style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Services</a>
+                    <a href="videos.html"
+                        style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
+                </div>
+
+                <!-- Mobile menu button moved to the right -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
             </div>
-
-            <!-- Mobile menu button moved to the right -->
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
         </div>
     </nav>
 
@@ -563,12 +608,17 @@
             Back to Home</a>
     </div>
 
-    <footer style="margin-top: 2rem; border-top: none; background: transparent;">
+    <footer style="margin-top: 0; border-top: none; background: transparent;">
         <div class="footer-visual"
-            style="height: 500px; margin-top: -150px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 90%), url('video-header-new.jpg') center/cover no-repeat; border-bottom: 4px solid var(--primary-green); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2rem;">
-            <h2
-                style="font-family: 'Outfit', sans-serif; font-size: clamp(3rem, 10vw, 7rem); font-weight: 900; color: white; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 5px 20px rgba(0,0,0,1); background: linear-gradient(to bottom, #E0F2F1 0%, #4DB6AC 50%, #00796B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 121, 107, 0.4));">
-                Miami Loves Green</h2>
+            style="height: 480px; margin-top: -280px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,1) 95%), url('video-header-new.jpg') center/cover no-repeat; border-top: 4px solid var(--primary-green); border-bottom: 4px solid var(--primary-green); display: flex; align-items: center; justify-content: center; padding: 2rem; position: relative; z-index: 5;">
+            <div style="text-align: center;">
+                <h2
+                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(to bottom, #E0F2F1 0%, #4DB6AC 50%, #00796B 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(0, 121, 107, 0.5));">
+                    Miami Loves Green</h2>
+                <div
+                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #4DB6AC; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0.9;">
+                    LANDSCAPING</div>
+            </div>
         </div>
         <div class="container" style="padding: 1rem 0 4rem; text-align: center; background: #000;">
             <div class="footer-brand" style="margin-bottom: 2rem;">

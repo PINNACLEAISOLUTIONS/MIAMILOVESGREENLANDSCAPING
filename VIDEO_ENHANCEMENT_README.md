@@ -6,7 +6,7 @@ This document explains how to enhance the video quality for the website using mu
 
 ### Prerequisites
 - FFmpeg installed on your computer
-  - Download from: https://ffmpeg.org/download.html
+  - Download from: <https://ffmpeg.org/download.html>
   - Make sure it's added to your PATH
 
 ### Steps
