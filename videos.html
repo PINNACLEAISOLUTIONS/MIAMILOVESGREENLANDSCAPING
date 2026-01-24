@@ -379,7 +379,7 @@
                 border: none;
                 background: none;
                 padding: 0 !important;
-                margin: 5px 0 0 0 !important;
+                margin: 20px 0 0 0 !important;
                 position: static !important;
                 order: 2 !important;
                 z-index: 1001;
@@ -683,6 +683,27 @@
         </div>
     </footer>
 
+
+    <!-- Chatbot Widget Structure -->
+    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+        <div class="icon-wrapper">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Chat with us</span>
+        </div>
+    </div>
+
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Assistant</span>
+            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+        </div>
+        <iframe src="https://mediafiles1.blabber.co/" allow="microphone;"></iframe>
+    </div>
+
+    <script src="chatbot.js"></script>
 
     <script>
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');

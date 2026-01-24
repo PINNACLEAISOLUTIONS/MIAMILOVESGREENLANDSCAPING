@@ -523,7 +523,7 @@
             }
 
             .mobile-menu-toggle {
-                margin: 5px 0 0 0 !important;
+                margin: 20px 15px 0 0 !important;
                 padding: 0 !important;
                 order: 2 !important;
                 display: flex !important;
@@ -532,8 +532,6 @@
                 justify-content: center;
                 height: auto !important;
                 align-self: flex-end !important;
-                margin-right: 15px !important;
-                margin-top: 5px !important;
             }
 
             .mobile-menu-toggle svg {
@@ -1243,7 +1241,8 @@
         }
 
         footer {
-            background: linear-gradient(125deg, var(--primary-green-dark), var(--primary-green-darkest), var(--primary-green-dark));
+            background: linear-gradient(125deg, var(--primary-green-dark), var(--primary-green-darkest),
+                    var(--primary-green-dark));
             background-size: 400% 400%;
             animation: footerShimmer 15s ease infinite;
             color: var(--text-on-dark-bg);
@@ -1691,6 +1690,25 @@
         </div>
     </footer>
 
+
+    <!-- Chatbot Widget Structure -->
+    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+        <div class="icon-wrapper">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Chat with us</span>
+        </div>
+    </div>
+
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>Assistant</span>
+            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+        </div>
+        <iframe src="https://mediafiles1.blabber.co/" allow="microphone;"></iframe>
+    </div>
 
     <script src="chatbot.js"></script>
 
