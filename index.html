@@ -533,8 +533,8 @@
             }
 
             .mobile-menu-toggle {
-                margin: 0 auto !important;
-                /* Center under the logo */
+                margin: 0 !important;
+                /* Aligned under the logo */
                 padding: 10px !important;
                 order: 2 !important;
                 display: flex !important;
@@ -1597,11 +1597,6 @@
                 </a>
             </div>
 
-            <!-- Logo Text in Middle -->
-            <a href="#home" class="logo">
-                <span>Miami Loves Green<br>Landscaping</span>
-            </a>
-
             <div class="nav-right">
                 <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
                 <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
@@ -1968,12 +1963,18 @@
 
             .mobile-menu-toggle {
                 display: flex !important;
-                top: 25px !important;
-                right: 130px !important;
-                /* Move to the right, sitting left of the logo */
-                left: auto !important;
-                position: absolute;
-                z-index: 1002;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem !important;
+                color: #ffffff !important;
+                border: none;
+                background: none;
+                padding: 0 !important;
+                margin: 0 !important;
+                /* Aligned under the logo group */
+                position: static !important;
+                order: 2 !important;
+                z-index: 1001;
             }
 
             .chat-toggle-btn {
