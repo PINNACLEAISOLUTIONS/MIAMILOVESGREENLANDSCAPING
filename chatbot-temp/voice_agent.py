@@ -51,6 +51,7 @@ class VoiceAgent:
                 logger.warning("⚠️ ElevenLabs API key found but SDK not installed!")
         else:
             self.client = None
+            logger.warning("⚠️ ElevenLabs API key NOT found. Using fallback only.")
 
         if self.google_tts_api_key:
             logger.info("✅ Google TTS/Gemini key loaded (fallback ready)")

@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 APP_VERSION = "1.2.6"
 
-app = FastAPI(title="MCP Web Chatbot")
+app = FastAPI(title="Miami Loves Green Chatbot")
 
 # CORS Configuration - Allow frontend to call API
 app.add_middleware(

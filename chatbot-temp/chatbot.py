@@ -1,4 +1,4 @@
-"""AI Chatbot with MCP Integration via LiteLLM"""
+"""AI Chatbot for Miami Loves Green Landscaping"""
 
 import base64
 import json
@@ -128,8 +128,6 @@ class MCPChatbot:
             "Help with: landscape design, garden maintenance, hardscaping, irrigation, tree care, and outdoor lighting. "
             "Be friendly, professional, and concise. "
             "Our contact info: (786) 570-3215 | miamilovesgreenlandscaping@gmail.com. "
-            "Use 'generate_image' if the user asks to visualize a garden design. "
-            "Use 'websearch_search' for plant info or local Miami weather/news relevant to gardening. "
         )
 
         # Session management
@@ -585,7 +583,7 @@ class MCPChatbot:
         self.conversation_history.append(
             {
                 "role": "assistant",
-                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I can search the web, generate images, remember information, and help you with code or research tasks. Just ask!",
+                "content": "Hello! I'm Miami Loves Green Landscaping Chatbot. I'm here to help you with any questions about our landscaping services in Miami. How can I assist you today?",
             }
         )
 

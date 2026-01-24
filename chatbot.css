@@ -82,15 +82,14 @@
 
 .chatbot-toggle-btn {
     position: fixed;
-    bottom: 25px;
-    left: 25px;
-    top: auto;
-    /* Reset top from previous middle setting */
+    top: 50%;
+    left: 20px;
+    bottom: auto;
+    transform: translateY(-50%);
     width: auto;
     height: auto;
     padding: 10px 25px 10px 10px;
     border-radius: 50px;
-    /* Dark Green Background as requested */
     background: linear-gradient(135deg, #0a2e0a, #004d00);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -102,12 +101,12 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(76, 175, 80, 0.4);
     z-index: 10000;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
 
 .chatbot-toggle-btn:hover {
-    transform: translateY(calc(-50% - 3px)) scale(1.02);
+    transform: translateY(-50%) scale(1.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(76, 175, 80, 0.6);
     border-color: rgba(76, 175, 80, 0.8);
 }
