@@ -147,9 +147,9 @@
         /* On mobile: Logo goes left of the menu button */
         @media (max-width: 768px) {
             .header-logo-right {
-                right: 70px !important;
-                /* Move logo left of the menu button */
-                top: 10px !important;
+                right: 10px !important;
+                /* Logo moved to top right */
+                top: 5px !important;
                 height: 50px !important;
             }
         }
@@ -157,9 +157,8 @@
         /* Mobile Menu Toggle (Three Dots) Positioning */
         .mobile-menu-toggle {
             position: absolute !important;
-            /* Force it to the right */
-            right: 15px !important;
-            /* Far right edge */
+            /* Moved left of the top-right logo */
+            right: 90px !important;
             top: 25px !important;
             /* Align vertically */
             z-index: 1200;
@@ -683,7 +682,7 @@
         .mobile-menu-toggle svg {
             width: 28px;
             height: 28px;
-            fill: var(--text-hero);
+            fill: #000000;
         }
 
         @media (min-width: 769px) {
