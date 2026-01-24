@@ -144,12 +144,37 @@
             transition: transform 0.3s ease;
         }
 
-        /* On mobile, adjust slightly if needed */
+        /* On mobile: Logo goes left of the menu button */
         @media (max-width: 768px) {
             .header-logo-right {
-                right: 50px;
-                /* Give space for hamburger menu */
-                top: 5px;
+                right: 70px !important;
+                /* Move logo left of the menu button */
+                top: 10px !important;
+                height: 50px !important;
+            }
+        }
+
+        /* Mobile Menu Toggle (Three Dots) Positioning */
+        .mobile-menu-toggle {
+            position: absolute !important;
+            /* Force it to the right */
+            right: 15px !important;
+            /* Far right edge */
+            top: 25px !important;
+            /* Align vertically */
+            z-index: 1200;
+            background: none;
+            border: none;
+            color: white;
+            padding: 5px;
+            display: none;
+            /* Hidden by default on desktop */
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block !important;
+                /* Show on mobile */
             }
         }
 
