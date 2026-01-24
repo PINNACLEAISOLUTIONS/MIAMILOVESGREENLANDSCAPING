@@ -557,16 +557,6 @@
                 /* Adjust height for a better fit on mobile */
                 min-height: 300px;
             }
-
-            .hero-content {
-                top: 30% !important;
-                /* Move content UP on mobile */
-            }
-
-            .hero-content .btn {
-                margin-top: 1rem !important;
-                /* Move yellow box UP on mobile */
-            }
         }
 
         /* === END: FINAL HERO STYLES WITH MOBILE FIX === */
@@ -574,7 +564,8 @@
         /* === Hero Content Overlay === */
         .hero-content {
             position: absolute;
-            top: 65%;
+            top: 75%;
+            /* Moved down as requested */
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
@@ -1521,7 +1512,6 @@
             <div class="hero-content">
                 <h1>Miami Loves Green Landscaping</h1>
                 <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
-                <a href="#footer-contact" class="btn">Get a Free Estimate</a>
             </div>
         </header>
         <section id="services" class="content-section">
