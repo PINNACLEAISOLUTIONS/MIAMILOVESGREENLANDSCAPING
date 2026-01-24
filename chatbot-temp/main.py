@@ -44,6 +44,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+# Custom middleware to allow iframe embedding
+@app.middleware("http")
+async def add_iframe_headers(request: Request, call_next):
+    response = await call_next(request)
+    # Allow embedding in iframes from any origin
+    response.headers["X-Frame-Options"] = "ALLOWALL"
+    response.headers["Content-Security-Policy"] = "frame-ancestors *"
+    return response
+
+
 # Global state
 mcp_manager = None
 hf_client = None
