@@ -338,9 +338,12 @@
 
             .nav-left,
             .nav-right {
-                flex: 0 0 150px !important;
-                /* Increased to fit both logos */
+                flex: 0 0 110px !important;
                 display: flex !important;
+            }
+
+            .nav-left {
+                justify-content: flex-start !important;
                 align-items: flex-start !important;
             }
 
@@ -353,9 +356,9 @@
 
             .logo-img,
             .header-logo-right {
-                height: 80px !important;
+                height: 100px !important;
                 width: auto !important;
-                max-width: 100px !important;
+                max-width: 110px !important;
                 object-fit: contain !important;
             }
 
@@ -464,16 +467,13 @@
 
     <nav>
         <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html">
+                    <img src="logo.png" alt="Logo" class="logo-img">
+                </a>
+            </div>
 
-            <div class="nav-right" style="flex: 0 0 150px;">
-                <div class="nav-logos-group"
-                    style="display: flex; gap: 10px; align-items: center; justify-content: flex-end;">
-                    <a href="index.html">
-                        <img src="logo.png" alt="Logo" class="logo-img">
-                    </a>
-                    <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
-                </div>
-
+            <div class="nav-right">
                 <div class="nav-links" id="nav-links">
                     <a href="index.html"
                         style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Home</a>
@@ -482,6 +482,8 @@
                     <a href="videos.html"
                         style="color: white; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-green);">Videos</a>
                 </div>
+
+                <img src="logo-tropical.png" alt="Miami Loves Green" class="header-logo-right">
 
                 <!-- Mobile menu button -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle">
