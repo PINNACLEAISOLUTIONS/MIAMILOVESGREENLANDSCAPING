@@ -1503,6 +1503,7 @@
     <div class="main-content-wrapper">
         <header id="home" class="hero">
             <!-- 3D Light Green Text overlaid on hero (no box) -->
+            <!-- 3D Light Green Text overlaid on hero (no box) -->
             <div style="
                 position: absolute;
                 top: 50%;
@@ -1510,23 +1511,35 @@
                 transform: translate(-50%, -50%);
                 z-index: 10;
                 text-align: center;
+                width: 95%; /* Prevent mobile overflow */
+                max-width: 1000px;
             ">
                 <h2 style="
                     margin: 0;
                     font-family: 'Playfair Display', serif;
-                    font-size: clamp(2rem, 6vw, 4rem);
-                    font-weight: 800;
+                    font-size: clamp(1.8rem, 6vw, 4.5rem); /* Smaller min size */
+                    font-weight: 900;
                     text-transform: uppercase;
-                    letter-spacing: 5px;
+                    letter-spacing: clamp(2px, 1vw, 5px); /* Responsive spacing */
                     background: linear-gradient(135deg, #8BC34A 0%, #4CAF50 30%, #81C784 50%, #A5D6A7 70%, #C5E1A5 100%);
                     -webkit-background-clip: text;
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                     filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(139,195,74,0.6)) drop-shadow(0 0 40px rgba(76,175,80,0.4));
-                    line-height: 1.2;
+                    line-height: 1.1;
                 ">MIAMI LOVES GREEN<br>LANDSCAPING</h2>
+
+                <p class="hero-tagline" style="
+                    margin-top: 20px;
+                    font-size: clamp(1rem, 3vw, 1.8rem);
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+                    color: white;
+                    font-weight: 500;
+                ">Premier Landscaping Services in Miami, Florida</p>
             </div>
-            <div class="hero-content">
+
+            <!-- Hidden original hero content to prevent duplication/overlap -->
+            <div class="hero-content" style="display: none;">
                 <h1>Miami Loves Green Landscaping</h1>
                 <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
             </div>
