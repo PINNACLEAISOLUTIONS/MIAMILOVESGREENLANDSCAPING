@@ -323,7 +323,7 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
-            /* Absolute far-left toggle */
+            /* Menu toggle moved to the right, sitting left of the right logo */
             .mobile-menu-toggle {
                 display: flex !important;
                 align-items: center;
@@ -336,17 +336,16 @@
                 margin: 0 !important;
                 position: absolute;
                 top: 25px;
-                left: 10px;
-                /* Moved to far left as requested */
-                right: auto;
+                right: 130px;
+                /* Positioned to the left of the right logo */
+                left: auto;
                 z-index: 1001;
             }
 
             /* Logos biggeer on mobile */
             .logo-img {
                 height: 140px !important;
-                margin-left: 60px !important;
-                /* Room for toggle */
+                margin-left: 0 !important;
                 border-radius: 8px;
             }
 
@@ -398,6 +397,7 @@
             <div style="display: flex; align-items: center;">
                 <a href="index.html" class="logo" style="display: flex; align-items: center;">
                     <img src="logo.png" alt="Logo" class="logo-img">
+                    <span>Miami Loves Green<br>Landscaping</span>
                 </a>
             </div>
 
