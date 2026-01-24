@@ -450,8 +450,8 @@
             display: none;
             position: absolute;
             top: 100%;
-            right: var(--spacing-sm);
-            width: 220px;
+            right: 0px;
+            width: 140px;
             background: rgba(10, 26, 10, 0.95);
             flex-direction: column;
             padding: var(--spacing-sm);
@@ -486,7 +486,7 @@
 
         @media (max-width: 768px) {
             .nav-container {
-                padding: 0 5px !important;
+                padding: 0 0px !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: flex-start !important;
@@ -501,7 +501,9 @@
 
             .nav-left {
                 justify-content: flex-start !important;
-                padding-top: 5px !important;
+                padding-top: 0px !important;
+                margin-top: -20px !important;
+                margin-left: -30px !important;
             }
 
             .nav-right {
@@ -540,8 +542,11 @@
                 display: flex !important;
                 background: none !important;
                 border: none !important;
-                justify-content: flex-end;
+                justify-content: center;
                 height: auto !important;
+                align-self: flex-start !important;
+                margin-left: 0px !important;
+                margin-top: 5px !important;
             }
 
             .mobile-menu-toggle svg {

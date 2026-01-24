@@ -330,7 +330,7 @@
             }
 
             .nav-container {
-                padding: 5px !important;
+                padding: 0 0px !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: flex-start !important;
@@ -345,6 +345,8 @@
             .nav-left {
                 justify-content: flex-start !important;
                 align-items: flex-start !important;
+                margin-left: -30px !important;
+                margin-top: -20px !important;
             }
 
             .nav-right {
@@ -377,10 +379,11 @@
                 border: none;
                 background: none;
                 padding: 0 !important;
-                margin: 0 !important;
+                margin: 5px 0 0 0 !important;
                 position: static !important;
                 order: 2 !important;
                 z-index: 1001;
+                align-self: flex-start !important;
             }
 
             .logo {
@@ -402,8 +405,8 @@
                 display: none;
                 position: absolute;
                 top: 100%;
-                right: 20px;
-                width: 200px;
+                right: 0px !important;
+                width: 140px !important;
                 background: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
                 padding: 1rem;
