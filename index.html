@@ -293,7 +293,7 @@
             font-family: var(--font-body);
             line-height: 1.7;
             overflow-x: hidden;
-            background: var(--background-global);
+            background: radial-gradient(circle at 50% 50%, #0a1a0a 0%, #000000 100%);
             color: var(--text-on-dark-bg);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -301,6 +301,47 @@
             flex-direction: column;
             min-height: 100vh;
             position: relative;
+        }
+
+        /* Premium Wave Divider */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            overflow: hidden;
+            line-height: 0;
+            background: transparent;
+            z-index: 5;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: #000000;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: translateX(0) scaleY(1);
+            }
+
+            50% {
+                transform: translateX(-15%) scaleY(1.05);
+            }
+
+            100% {
+                transform: translateX(0) scaleY(1);
+            }
+        }
+
+        .animated-waves path {
+            animation: wave-animation 10s infinite ease-in-out;
+            transform-origin: center;
         }
 
         .particles-container {
@@ -604,28 +645,59 @@
                 display: block !important;
             }
 
+
             .mobile-menu-toggle {
-                margin: 30px 45px 0 0 !important;
-                padding: 0 !important;
-                order: 2 !important;
+                padding: 10px !important;
                 display: flex !important;
-                background: none !important;
-                border: none !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                border-radius: 50%;
                 justify-content: center;
-                height: auto !important;
-                align-self: flex-end !important;
+                align-items: center;
+                width: 65px !important;
+                height: 65px !important;
+                z-index: 1200;
+                backdrop-filter: blur(5px);
+                animation: windySway 5s infinite ease-in-out;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             }
 
             .mobile-menu-toggle svg {
-                width: 25px !important;
-                height: 25px !important;
+                width: 40px !important;
+                height: 40px !important;
+                fill: white !important;
+                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            }
+
+            .left-toggle {
+                margin: 20px 0 0 15px !important;
+                order: 2 !important;
+            }
+
+            .right-toggle {
+                margin: 20px 15px 0 0 !important;
+                order: 2 !important;
+                align-self: flex-start !important;
+                /* Changed from flex-end for better centering */
+            }
+
+            .nav-left,
+            .nav-right {
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
             }
 
             .header-logo-right {
                 order: 1 !important;
-                border-bottom: 2px solid white !important;
+                border-bottom: 2px solid #8BC34A !important;
                 border-bottom-left-radius: 0 !important;
                 border-bottom-right-radius: 0 !important;
+                margin-bottom: 5px !important;
+            }
+
+            .logo-img {
+                margin-bottom: 5px !important;
             }
         }
 
@@ -1361,6 +1433,62 @@
             /* Updated color */
         }
 
+
+        /* User Requested "Advanced Video Enhancement" Aesthetic */
+        .enhanced-media {
+            filter: contrast(1.3) saturate(1.5) brightness(1.05);
+            /* Mimics unsharp=5:5:1.5 */
+            image-rendering: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .enhanced-media:hover {
+            filter: contrast(1.4) saturate(1.6) brightness(1.1) drop-shadow(0 0 15px rgba(139, 195, 74, 0.3));
+            transform: scale(1.02);
+        }
+
+        .windy-sway {
+            animation: windySway 5s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes windyZoom {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            25% {
+                transform: scale(1.04) rotate(0.4deg);
+            }
+
+            50% {
+                transform: scale(1.08) rotate(-0.4deg);
+            }
+
+            75% {
+                transform: scale(1.04) rotate(0.2deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .windy-zoom {
+            animation: windyZoom 15s infinite ease-in-out;
+            transform-origin: center center;
+        }
+
+        .chatbot-header::after {
+            content: "PREMIUM ELEVENLABS AI VOICE";
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #8BC34A;
+            text-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
+        }
+
         .footer-logo {
             font-family: var(--font-heading);
             font-size: 1.5rem;
@@ -1622,13 +1750,19 @@
         <div class="nav-container">
             <div class="nav-left">
                 <a href="#home">
-                    <img src="logo.png" alt="Miami Loves Green Logo" class="logo-img">
+                    <img src="logo-premium.png" alt="Miami Loves Green Logo" class="logo-img windy-sway">
                 </a>
+                <button class="mobile-menu-toggle left-toggle" aria-label="Toggle menu" aria-expanded="false"
+                    aria-controls="mainNavLinks">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </button>
             </div>
 
             <div class="nav-right">
-                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right">
-                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+                <img src="logo-premium.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right windy-sway">
+                <button class="mobile-menu-toggle right-toggle" aria-label="Toggle menu" aria-expanded="false"
                     aria-controls="mainNavLinks">
                     <svg viewBox="0 0 24 24">
                         <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
@@ -1647,8 +1781,6 @@
 
     <div class="main-content-wrapper">
         <header id="home" class="hero">
-            <!-- 3D Light Green Text overlaid on hero (no box) -->
-            <!-- 3D Light Green Text overlaid on hero (no box) -->
             <div style="
                 position: absolute;
                 top: 50%;
@@ -1675,8 +1807,22 @@
                 <h1>Miami Loves Green Landscaping</h1>
                 <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
             </div>
+
+            <!-- Wave Divider at bottom of Hero -->
+            <div class="wave-divider" style="position: absolute; bottom: 0; left: 0;">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                    preserveAspectRatio="none">
+                    <path
+                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                        class="shape-fill" fill="#0A1A0A"></path>
+                </svg>
+            </div>
         </header>
-        <section id="services" class="content-section">
+
+        <section id="services" class="content-section" style="background: #0A1A0A; padding-top: 50px;">
+            <div class="wave-bg-overlay"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(139, 195, 74, 0.05) 0%, transparent 40%); pointer-events: none;">
+            </div>
             <div style="text-align: center; margin-bottom: 2rem;">
                 <a href="videos.html" class="btn"
                     style="border: 2px solid var(--accent-gold); padding: 0.6rem 1.4rem; font-size: 1rem; color: #0A1A0A; background: var(--accent-gold); font-weight: 700;">
@@ -1753,56 +1899,158 @@
                     </div>
                 </div>
             </div>
-        </section>
+    </div>
 
+    <!-- Wave Divider into Signature Projects -->
+    <div class="wave-divider" style="transform: rotate(180deg); margin-top: -1px; background: #0A1A0A;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill" fill="#050505"></path>
+        </svg>
+    </div>
 
+    <section id="projects" class="content-section" style="background: #050505; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">Signature Luxury Projects</h2>
+            <p class="section-subtitle">A glimpse into our real-world transformations. From poolside retreats to
+                meticulously manicured estates, we bring dreams to life.</p>
 
-        <section id="about" class="content-section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2 class="section-title">About Miami Loves Green</h2>
-                        <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for
-                            life. Our passionate team, a collective of certified horticulturists, visionary landscape
-                            architects, and meticulous design specialists, brings a wealth of expertise and a fresh
-                            perspective to every project, dedicated to realizing your unique vision.</p>
-                        <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and
-                            intelligent functionality. It's about enhancing your property's value and enriching your
-                            quality of life through sustainable, cutting-edge practices. From initial concept to
-                            flawless execution, we're committed to transforming your ideas into breathtaking, living
-                            environments.</p>
-                        <ul class="about-features">
-                            <li>Expert Landscape Design & Master Planning</li>
-                            <li>Comprehensive Garden Care & Lush Maintenance</li>
-                            <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
-                            <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
-                        </ul>
+            <div class="projects-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div class="project-featured"
+                    style="position: relative; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: transform 0.5s ease;">
+                    <img src="project-gazebo.jpg" alt="Signature Miami Gazebo Project" class="windy-zoom enhanced-media"
+                        style="width: 100%; height: 450px; object-fit: cover; display: block;">
+                    <div class="project-overlay"
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; z-index: 2;">
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 8px; color: #8BC34A;">
+                            POOLSIDE SANCTUARY</h3>
+                        <p style="font-size: 1rem; opacity: 0.9;">Professional turf installation & custom gazebo
+                            architecture.</p>
+                    </div>
+                </div>
+
+                <div class="project-featured"
+                    style="position: relative; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: transform 0.5s ease;">
+                    <img src="project-luxury-entrance.jpg" alt="Luxury Miami Villa Entrance"
+                        class="windy-zoom enhanced-media"
+                        style="width: 100%; height: 450px; object-fit: cover; display: block;">
+                    <div class="project-overlay"
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; z-index: 2;">
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 8px; color: #8BC34A;">
+                            ESTATE MASTERPIECE</h3>
+                        <p style="font-size: 1rem; opacity: 0.9;">Architectural lighting & tropical landscape curation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-featured"
+                    style="position: relative; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); transition: transform 0.5s ease;">
+                    <img src="project-garden-vibrant.jpg" alt="Vibrant Miami Garden Project"
+                        class="windy-zoom enhanced-media"
+                        style="width: 100%; height: 450px; object-fit: cover; display: block;">
+                    <div class="project-overlay"
+                        style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.95)); color: white; z-index: 2;">
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 8px; color: #8BC34A;">
+                            VIBRANT FLORAL RETREAT</h3>
+                        <p style="font-size: 1rem; opacity: 0.9;">Exotic floral arrangements & custom brick masonry
+                            borders.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="flyer-display-section" style="background: #000; padding: var(--spacing-lg) 0;">
-            <div class="container" style="text-align: center;">
-                <img src="./flyer-background.png" alt="Miami Loves Green Landscaping Services Flyer"
-                    style="max-width: 100%; height: auto; border-radius: var(--border-radius-md); box-shadow: var(--shadow-strong);">
-            </div>
-        </section>
-        <section id="cta" class="cta-section content-section">
-            <div class="container cta-content">
-                <h2>Transform Your Vision Into Reality</h2>
-                <div class="cta-details">
-                    <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your
-                        landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
-                    <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
+        </div>
+    </section>
+
+    <!-- Wave Divider into About -->
+    <div class="wave-divider" style="margin-top: -1px; background: #050505;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill" fill="#0a1f0a"></path>
+        </svg>
+    </div>
+
+    <section id="about" class="content-section"
+        style="background: radial-gradient(circle at 70% 30%, #0a1f0a 0%, #000000 100%);">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Miami Loves Green</h2>
+                    <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for
+                        life. Our passionate team, a collective of certified horticulturists, visionary landscape
+                        architects, and meticulous design specialists, brings a wealth of expertise and a fresh
+                        perspective to every project, dedicated to realizing your unique vision.</p>
+                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and
+                        intelligent functionality. It's about enhancing your property's value and enriching your
+                        quality of life through sustainable, cutting-edge practices. From initial concept to
+                        flawless execution, we're committed to transforming your ideas into breathtaking, living
+                        environments.</p>
+                    <ul class="about-features">
+                        <li>Expert Landscape Design & Master Planning</li>
+                        <li>Comprehensive Garden Care & Lush Maintenance</li>
+                        <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
+                        <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Wave Divider between About and Flyer -->
+    <div class="wave-divider" style="background: #000;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill" fill="#050505"></path>
+        </svg>
     </div>
-    <footer id="footer-contact">
+
+    <section class="flyer-display-section" style="background: #050505; padding: var(--spacing-lg) 0;">
+        <div class="container" style="text-align: center;">
+            <img src="./flyer-background.png" alt="Miami Loves Green Landscaping Services Flyer"
+                style="max-width: 100%; height: auto; border-radius: var(--border-radius-md); box-shadow: var(--shadow-strong);">
+        </div>
+    </section>
+
+    <!-- Wave Divider between Flyer and CTA -->
+    <div class="wave-divider" style="transform: rotate(180deg); margin-top: -1px; background: #000;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill" fill="#101010"></path>
+        </svg>
+    </div>
+
+    <section id="cta" class="cta-section content-section"
+        style="background: radial-gradient(circle at 30% 70%, #0a1a0a 0%, #000000 100%);">
+        <div class="container cta-content">
+            <h2>Transform Your Vision Into Reality</h2>
+            <div class="cta-details">
+                <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your
+                    landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
+                <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider before Footer -->
+    <div class="wave-divider" style="margin-top: -1px; background: #101010;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                class="shape-fill" fill="#0A1A0A"></path>
+        </svg>
+    </div>
+
+    <footer id="footer-contact" style="background: #0A1A0A; border-top: none;">
         <div class="container footer-content">
             <div class="footer-section footer-brand">
-                <img src="logo.png" alt="Miami Loves Green" class="footer-logo-img"
-                    style="height: 100px; width: auto; border-radius: 12px; margin-bottom: 15px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
+                <img src="logo-premium.png" alt="Miami Loves Green" class="footer-logo-img windy-sway"
+                    style="height: 120px; width: auto; border-radius: 12px; margin-bottom: 15px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
                 <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative
                     outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
                 <div class="social-links">
@@ -1859,7 +2107,7 @@
                 <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
             </div>
             <div class="footer-section footer-logo-right">
-                <img src="logo-tropical.png" alt="Miami Loves Green Logo"
+                <img src="logo-premium.png" alt="Miami Loves Green Logo" class="windy-sway"
                     style="max-width: 151px; height: auto; border-radius: 20px; filter: drop-shadow(0 0 20px rgba(0,255,0,0.2));">
             </div>
         </div>
@@ -1879,7 +2127,7 @@
 
     <div id="chatbot-container" class="chatbot-container">
         <div class="chatbot-header">
-            <span>Assistant</span>
+            <span>MIAMI LOVES GREEN AI ASSISTANT</span>
             <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
         </div>
         <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
@@ -2054,19 +2302,21 @@
             });
             const currentYearEl = document.getElementById('currentYear');
             if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const menuToggles = document.querySelectorAll('.mobile-menu-toggle');
             const mainNavLinksUl = document.getElementById('mainNavLinks');
-            if (menuToggle && mainNavLinksUl) {
-                menuToggle.addEventListener('click', () => {
-                    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-                    menuToggle.setAttribute('aria-expanded', !isExpanded);
-                    mainNavLinksUl.classList.toggle('active');
+            if (menuToggles.length > 0 && mainNavLinksUl) {
+                menuToggles.forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const isExpanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+                        menuToggles.forEach(t => t.setAttribute('aria-expanded', !isExpanded));
+                        mainNavLinksUl.classList.toggle('active');
+                    });
                 });
                 mainNavLinksUl.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', () => {
                         if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
                             mainNavLinksUl.classList.remove('active');
-                            menuToggle.setAttribute('aria-expanded', 'false');
+                            menuToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
                         }
                     });
                 });
