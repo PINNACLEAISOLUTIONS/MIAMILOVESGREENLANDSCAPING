@@ -136,14 +136,16 @@
 
         .hero {
             position: relative;
-            height: 45vh;
-            min-height: 350px;
+            height: 60vh;
+            /* Increased for better visibility of top image */
+            min-height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_pic') no-repeat center center / cover !important;
+            background: #1a3a1a url('./main.jpg?v=final_green') no-repeat center center / cover !important;
             z-index: 1;
-            border-bottom: none;
+            margin-top: 0;
+            padding-top: 0;
         }
 
         .hero-3d-text {
@@ -151,18 +153,20 @@
             font-weight: 900;
             text-transform: uppercase;
             font-size: clamp(2rem, 6vw, 4rem);
-            color: #ffffff;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            color: #8BC34A;
+            /* Light Green */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             z-index: 10;
             text-align: center;
         }
 
         .hero-tagline {
             font-size: clamp(1rem, 2vw, 1.5rem);
-            color: #ffffff;
+            color: #C5E1A5;
+            /* Lighter Green */
             font-weight: 600;
             margin-top: 10px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             z-index: 10;
             text-align: center;
         }
@@ -172,33 +176,83 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem 5%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            z-index: 2000;
+            background: transparent;
+            transition: background 0.3s ease;
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
-            border-radius: 10px;
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 5%;
         }
 
         .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 26, 10, 0.98);
+            backdrop-filter: blur(15px);
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1500;
             list-style: none;
-            gap: 2rem;
+            border-left: 1px solid rgba(139, 195, 74, 0.2);
+        }
+
+        .nav-links.active {
+            right: 0;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8BC34A;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            cursor: pointer;
+            z-index: 3000;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 35px;
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Nav Close Button (optional but good for UX) */
+        .nav-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Floating Buttons - FIXED VISIBILITY */
@@ -398,11 +452,17 @@
 
 <body>
 
-    <nav>
+    <nav id="topNav">
         <div class="nav-left">
-            <a href="#home"><img src="logo.png" alt="Logo" class="logo-img"></a>
+            <a href="#home"><img src="logo.png" alt="Logo" class="logo-img"
+                    style="height: 60px; width: auto; border-radius: 10px;"></a>
         </div>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -510,6 +570,46 @@
 
     <script src="chatbot.js"></script>
     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navItems = document.querySelectorAll('.nav-links a');
+        const topNav = document.getElementById('topNav');
+
+        // Toggle Menu
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const spans = hamburger.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -7px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close on click
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+        });
+
         document.getElementById('chatbot-toggle-btn').onclick = function () {
             document.getElementById('chatbot-container').style.display = 'block';
         };
