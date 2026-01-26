@@ -1675,7 +1675,8 @@
 
     <div class="main-content-wrapper">
         <header id="home" class="hero">
-            <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="hero-main.png" style="
+            <video id="main-video" autoplay muted loop playsinline class="hero-video-bg"
+                poster="16183e67-f597-441f-8ea7-beff127d3c99.png" style="
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -1689,6 +1690,18 @@
                 <source src="enancemiami.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <!-- Dark Overlay for Text Readability -->
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3); /* Darkens the background slightly */
+                z-index: 5;
+                pointer-events: none;
+            "></div>
+
             <!-- 3D Light Green Text overlaid on hero (no box) -->
             <div style="
                 position: absolute;
@@ -1700,14 +1713,15 @@
                 width: 95%; /* Prevent mobile overflow */
                 max-width: 1000px;
             ">
-                <h2 class="hero-3d-text">MIAMI LOVES GREEN<br>LANDSCAPING</h2>
+                <h2 class="hero-3d-text" style="text-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5);">
+                    MIAMI LOVES GREEN<br>LANDSCAPING</h2>
 
                 <p class="hero-tagline" style="
                     margin-top: 20px;
                     font-size: clamp(1rem, 3vw, 1.8rem);
-                    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
                     color: white;
-                    font-weight: 500;
+                    font-weight: 600;
                 ">Premier Landscaping Services in Miami, Florida</p>
             </div>
 
