@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoSpeak = false;
     let isSpeaking = false;
     let currentSpeakingMsgId = null;
+    let currentVoiceId = "miami"; // Default ElevenLabs voice name
     let voiceModeActive = false; // Full voice mode with ElevenLabs TTS
     let currentAudio = null; // Current audio element for ElevenLabs playback
 
@@ -429,10 +430,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Calling ElevenLabs TTS API...');
+<<<<<<< HEAD
             // Get voice ID from mapping
             const selectedVoiceKey = voiceSelector ? voiceSelector.value : 'miami';
             const voiceId = VOICE_IDS[selectedVoiceKey] || VOICE_IDS['miami'];
 
+=======
+            // Use the voice ID synchronized from the server/LLM
+            const voiceId = currentVoiceId;
+>>>>>>> a6e58df1998034a66c548aa8c8f5ad4783744f24
             const response = await fetch(`${API_BASE}/api/tts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -622,6 +628,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
 
+
+                if (data.current_voice) {
+                    currentVoiceId = data.current_voice;
+                    console.log('Voice synchronized to:', currentVoiceId);
+                }
 
                 if (data.session_id) {
                     currentSessionId = data.session_id;

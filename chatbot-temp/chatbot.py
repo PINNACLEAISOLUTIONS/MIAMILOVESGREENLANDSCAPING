@@ -129,6 +129,9 @@ class MCPChatbot:
             "Help with: landscape design, garden maintenance, hardscaping, irrigation, tree care, and outdoor lighting. "
             "Be friendly, professional, and concise. "
             "Our contact info: (786) 570-3215 | miamilovesgreenlandscaping@gmail.com. "
+            "VOICE SETTINGS: You use ElevenLabs premium voices. You can switch voices if the user asks. "
+            "Available voices: 'miami' (default), 'liam' (male), 'thomas' (male), 'michael' (male), 'marcus' (male), 'rachel' (female), 'bella' (female). "
+            "If the user asks to change the voice, acknowledge the change. The backend will handle the technical switch."
         )
 
         # Session management
@@ -137,6 +140,7 @@ class MCPChatbot:
         if not self.conversation_history:
             self._add_system_prompt()
 
+        self.current_voice = "miami"  # Track current voice
         if self.groq_api_key:
             logger.info("Groq API key found. Initializing Groq client...")
             self.groq_client = Groq(api_key=self.groq_api_key)
@@ -1202,6 +1206,30 @@ class MCPChatbot:
                     logger.info(f"Assistant: {assistant_content[:100]}...")
 
                     res = {"response": assistant_content}
+
+                    # Voice Detection: Check if AI mentioned a voice change
+                    msg_lower = assistant_content.lower()
+                    for v_name in [
+                        "miami",
+                        "liam",
+                        "thomas",
+                        "michael",
+                        "marcus",
+                        "rachel",
+                        "bella",
+                        "josh",
+                        "adam",
+                        "antoni",
+                    ]:
+                        if (
+                            f"switching to {v_name}" in msg_lower
+                            or f"use the {v_name} voice" in msg_lower
+                            or f"changed my voice to {v_name}" in msg_lower
+                        ):
+                            self.current_voice = v_name
+                            logger.info(f"🎤 Voice switched to: {v_name}")
+
+                    res["current_voice"] = self.current_voice
                     if self.session_title:
                         res["session_title"] = self.session_title
                     if self._last_image_data:

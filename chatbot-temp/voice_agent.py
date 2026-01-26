@@ -22,14 +22,17 @@ logger = logging.getLogger(__name__)
 class VoiceAgent:
     """Text-to-Speech agent with ElevenLabs primary and Google fallback."""
 
-    # ElevenLabs voice IDs (free tier compatible)
+    # ElevenLabs voice IDs (including popular male voices)
     VOICES = {
         "miami": "s3TPKV1kjDlVtZbl4Ksh",  # Custom Miami Loves Green voice
         "rachel": "21m00Tcm4TlvDq8ikWAM",  # Warm, professional female
         "josh": "TxGEqnHWrfWFTfGW9XjX",  # Friendly male
-        "bella": "EXAVITQu4vr4xnSDxMaL",  # Young female
         "adam": "pNInz6obpgDQGcFmaJgB",  # Deep male
         "antoni": "ErXwobaYiN019PkySvjV",  # Antoni (Deep, well rounded)
+        "liam": "TX380BSgKdB60M876DS6",  # Popular male (Liam)
+        "thomas": "GBv7mTt0atIp3Br8iCZE",  # Popular male (Thomas)
+        "michael": "flq6f7yk4E4fJM5XTYCl",  # Popular male (Michael)
+        "marcus": "z9fAnlkScre7CHBOSalY",  # Popular male (Marcus)
     }
     DEFAULT_VOICE = "miami"
 
@@ -87,7 +90,11 @@ class VoiceAgent:
         }
 
     async def text_to_speech(
-        self, text: str, voice: Optional[str] = None, return_base64: bool = True
+        self,
+        text: str,
+        voice: Optional[str] = "josh",
+        speed: float = 1.0,
+        return_base64: bool = True,
     ) -> Dict[str, Any]:
         """
         Convert text to speech audio.
@@ -113,7 +120,7 @@ class VoiceAgent:
         # Try ElevenLabs first
         elevenlabs_error = None
         if self.elevenlabs_api_key:
-            result = await self._elevenlabs_tts(clean_text, voice, return_base64)
+            result = await self._elevenlabs_tts(clean_text, voice, speed, return_base64)
             if result.get("success"):
                 return result
             elevenlabs_error = result.get("error", "Unknown ElevenLabs error")
@@ -121,7 +128,7 @@ class VoiceAgent:
 
         # Fallback to Google TTS
         if self.google_tts_api_key:
-            return await self._google_tts(clean_text, return_base64)
+            return await self._google_tts(clean_text, speed, return_base64)
 
         # Return actual error from ElevenLabs if available
         if elevenlabs_error:
@@ -146,7 +153,7 @@ class VoiceAgent:
         return text.strip()
 
     async def _elevenlabs_tts(
-        self, text: str, voice: str, return_base64: bool
+        self, text: str, voice: str, speed: float, return_base64: bool
     ) -> Dict[str, Any]:
         """Generate speech using ElevenLabs SDK."""
         if not self.client:
@@ -167,12 +174,26 @@ class VoiceAgent:
 
         try:
             try:
+                # Construct voice settings for speed control (stability/clarity)
+                # Lower stability makes it more "expressive" (sometimes faster), higher more monotonic
+                stability = 0.5
+                if speed > 1.0:
+                    stability = 0.3  # More rushed
+                if speed < 1.0:
+                    stability = 0.7  # More deliberate
+
                 # IMPORTANT: convert() returns an async generator, do NOT await the call itself
                 audio_stream = self.client.text_to_speech.convert(
                     text=text,
                     voice_id=voice_id,
                     model_id="eleven_multilingual_v2",
                     output_format="mp3_44100_128",
+                    voice_settings={
+                        "stability": stability,
+                        "similarity_boost": 0.75,
+                        "style": 0.0,
+                        "use_speaker_boost": True,
+                    },
                 )
 
                 # Consume the async generator to get full audio bytes
@@ -217,7 +238,9 @@ class VoiceAgent:
             logger.error(f"ElevenLabs SDK request failed: {e}")
             return {"success": False, "error": str(e)}
 
-    async def _google_tts(self, text: str, return_base64: bool) -> Dict[str, Any]:
+    async def _google_tts(
+        self, text: str, speed: float, return_base64: bool
+    ) -> Dict[str, Any]:
         """Generate speech using Google Cloud TTS API (fallback)."""
         url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={self.google_tts_api_key}"
 
@@ -230,7 +253,7 @@ class VoiceAgent:
             },
             "audioConfig": {
                 "audioEncoding": "MP3",
-                "speakingRate": 1.0,
+                "speakingRate": speed,  # DIRECT SPEED CONTROL
                 "pitch": 0.0,
             },
         }
