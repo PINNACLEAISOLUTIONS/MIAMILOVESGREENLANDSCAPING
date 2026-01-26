@@ -1276,6 +1276,103 @@
             color: var(--primary-green-light);
         }
 
+        /* === GALLERY CAROUSEL STYLES === */
+        #gallery {
+            background: #0a1f0a;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--text-hero);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel article {
+            min-width: 100%;
+            height: 400px;
+            /* Fixed reasonable height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+            animation: carouselSlide 24s infinite;
+        }
+
+        .carousel article img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius-md);
+        }
+
+        @keyframes carouselSlide {
+
+            0%,
+            12.5% {
+                transform: translateX(0%);
+            }
+
+            14.5%,
+            25% {
+                transform: translateX(-100%);
+            }
+
+            27%,
+            37.5% {
+                transform: translateX(-200%);
+            }
+
+            39.5%,
+            50% {
+                transform: translateX(-300%);
+            }
+
+            52%,
+            62.5% {
+                transform: translateX(-400%);
+            }
+
+            64.5%,
+            75% {
+                transform: translateX(-500%);
+            }
+
+            77%,
+            87.5% {
+                transform: translateX(-600%);
+            }
+
+            89.5%,
+            97% {
+                transform: translateX(-700%);
+            }
+
+            100% {
+                transform: translateX(0%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel article {
+                height: 300px;
+                /* Smaller on mobile */
+            }
+        }
+
         /* === START: REDESIGNED CTA SECTION STYLES === */
         .cta-section {
             padding: var(--spacing-xl) 0;
@@ -1787,7 +1884,8 @@
 </nav>
 
 <div class="main-content-wrapper">
-    <header id="home" class="hero" style="background-image: url('main.jpg'); background-color: #0a1f0a;">
+    <header id="home" class="hero"
+        style="background-image: url('./main.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #0a1f0a;">
         <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="main.jpg" style="
                 position: absolute;
                 top: 50%;

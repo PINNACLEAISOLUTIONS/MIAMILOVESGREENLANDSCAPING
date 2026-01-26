@@ -277,13 +277,26 @@
         left: 20px !important;
         padding: 5px 12px !important;
         gap: 8px !important;
-        z-index: 10001 !important;
+        z-index: 2147483647 !important;
         top: auto !important;
-        transform: none !important;
         display: flex !important;
-        /* Force visible */
         opacity: 1 !important;
         visibility: visible !important;
+        position: fixed !important;
+    }
+
+    /* Mobile Call Button Styles */
+    .fab-container,
+    .fab-call-style {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        right: 20px !important;
+        z-index: 2147483647 !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     /* If user wants middle-left on mobile too? 
