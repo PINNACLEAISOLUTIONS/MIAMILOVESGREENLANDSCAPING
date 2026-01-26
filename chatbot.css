@@ -29,10 +29,26 @@
     transition: opacity 0.3s ease;
 }
 
-/* If user wants button on LEFT, maybe panel should be on LEFT too? */
-.chatbot-container {
-    left: 20px;
-    right: auto;
+/* desktop panel sizing - FORCED OVERRIDE */
+@media (min-width: 768px) {
+
+    #chatbot-container,
+    .chatbot-container {
+        display: flex !important;
+        position: fixed !important;
+        left: 40px !important;
+        bottom: 120px !important;
+        width: 450px !important;
+        height: 750px !important;
+        max-height: 85vh !important;
+        border-radius: 16px !important;
+        border: 2px solid #4CAF50 !important;
+        z-index: 10000000 !important;
+        background: #111 !important;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8) !important;
+        right: auto !important;
+        top: auto !important;
+    }
 }
 
 /* Toggle visibility */
@@ -84,22 +100,24 @@
     position: fixed;
     bottom: 20px;
     /* Aligned with Call Us button */
-    left: 20px;
-    top: auto;
-    transform: none;
+    left: 0;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
     width: auto;
     height: auto;
-    padding: 10px 25px 10px 10px;
-    border-radius: 50px;
+    padding: 15px 20px 15px 10px;
+    border-radius: 0 50px 50px 0;
     background: linear-gradient(135deg, #0a2e0a, #004d00);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(76, 175, 80, 0.5);
+    border-left: none;
     color: #fff;
     display: flex !important;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(76, 175, 80, 0.4);
+    box-shadow: 10px 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(76, 175, 80, 0.4);
     z-index: 10000;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -108,7 +126,8 @@
 
 .chatbot-toggle-btn:hover {
     transform: translateY(-50%) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(76, 175, 80, 0.6);
+    padding-left: 15px;
+    box-shadow: 15px 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(76, 175, 80, 0.6);
     border-color: rgba(76, 175, 80, 0.8);
 }
 
@@ -279,6 +298,7 @@
         gap: 8px !important;
         z-index: 2147483647 !important;
         top: auto !important;
+        transform: none !important;
         display: flex !important;
         opacity: 1 !important;
         visibility: visible !important;

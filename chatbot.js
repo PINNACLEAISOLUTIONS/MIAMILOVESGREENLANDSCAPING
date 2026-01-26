@@ -67,159 +67,159 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     updateVH();
 
-    // --- Apply Mobile Fullscreen Inline Styles ---
-    function applyMobileFullscreenStyles() {
+    // --- Apply Sizing and Iframe Styles (Desktop & Mobile) ---
+    function applySizingStyles() {
         const h = getViewportHeight();
+        const mobile = isMobile();
 
-        // Container styles
-        chatbotContainer.style.position = 'fixed';
-        chatbotContainer.style.top = '0';
-        chatbotContainer.style.left = '0';
-        chatbotContainer.style.right = '0';
-        chatbotContainer.style.bottom = '0';
-        chatbotContainer.style.width = '100vw';
-        chatbotContainer.style.height = h + 'px';
-        chatbotContainer.style.maxHeight = h + 'px';
-        chatbotContainer.style.margin = '0';
-        chatbotContainer.style.borderRadius = '0';
-        chatbotContainer.style.zIndex = '999999';
+        // Common transitions and display
         chatbotContainer.style.display = 'flex';
         chatbotContainer.style.flexDirection = 'column';
         chatbotContainer.style.overflow = 'hidden';
         chatbotContainer.style.boxSizing = 'border-box';
-        chatbotContainer.style.paddingTop = 'env(safe-area-inset-top)';
-        chatbotContainer.style.paddingBottom = 'env(safe-area-inset-bottom)';
+        chatbotContainer.style.zIndex = '10000000';
+        chatbotContainer.style.position = 'fixed';
         chatbotContainer.style.transform = 'none';
-        chatbotContainer.style.background = '#000';
+        chatbotContainer.style.opacity = '1';
+        chatbotContainer.style.visibility = 'visible';
 
-        // Header styles
-        if (chatbotHeader) {
-            chatbotHeader.style.flex = '0 0 auto';
-            chatbotHeader.style.width = '100%';
+        if (mobile) {
+            // Mobile Fullscreen Logic (Clean Header)
+            chatbotContainer.style.top = '0';
+            chatbotContainer.style.left = '0';
+            chatbotContainer.style.right = '0';
+            chatbotContainer.style.bottom = '0';
+            chatbotContainer.style.width = '100vw';
+            chatbotContainer.style.height = h + 'px';
+            chatbotContainer.style.maxHeight = h + 'px';
+            chatbotContainer.style.borderRadius = '0';
+            chatbotContainer.style.margin = '0';
+            chatbotContainer.style.paddingTop = 'env(safe-area-inset-top)';
+            chatbotContainer.style.paddingBottom = 'env(safe-area-inset-bottom)';
+            chatbotContainer.style.background = '#000';
+
+            if (chatbotHeader) chatbotHeader.style.display = 'flex';
+        } else {
+            // Desktop Panel - FIXED OVERLAP ISSUE
+            const panelHeight = Math.min(800, h * 0.85);
+            chatbotContainer.style.top = 'auto';
+            chatbotContainer.style.bottom = '100px'; // Lifted above the toggle button
+            chatbotContainer.style.left = '40px';
+            chatbotContainer.style.right = 'auto';
+            chatbotContainer.style.width = '450px';
+            chatbotContainer.style.height = panelHeight + 'px';
+            chatbotContainer.style.maxHeight = '90vh';
+            chatbotContainer.style.borderRadius = '16px';
+            chatbotContainer.style.background = '#111';
+            chatbotContainer.style.boxShadow = '0 10px 40px rgba(0,0,0,0.8)';
+            chatbotContainer.style.border = '1px solid #4CAF50';
+
+            // Header: Keep it anchored at top, no shift
+            if (chatbotHeader) {
+                chatbotHeader.style.display = 'flex';
+                chatbotHeader.style.background = '#4CAF50';
+                chatbotHeader.style.padding = '15px';
+                chatbotHeader.style.width = '100%';
+                chatbotHeader.style.boxSizing = 'border-box';
+                chatbotHeader.style.zIndex = '10';
+            }
         }
 
-        // Iframe styles - wider and shifted left to hide sidebar
+        // Iframe Logic - Only the Iframe shifts, not the whole container
         if (chatbotIframe) {
-            const SIDEBAR_PX = 280; // typical left sidebar width in the chatbot app
-
+            const SIDEBAR_PX = 320; // Correct width for the internal app sidebar
             chatbotIframe.style.border = 'none';
             chatbotIframe.style.display = 'block';
             chatbotIframe.style.padding = '0';
             chatbotIframe.style.height = '100%';
-            chatbotIframe.style.minHeight = '0';
+            chatbotIframe.style.flex = '1 1 auto';
 
-            // Key mobile fix: hide the sidebar by shifting the iframe left
+            // Hide ONLY the iframe's left side
             chatbotIframe.style.width = `calc(100% + ${SIDEBAR_PX}px)`;
             chatbotIframe.style.marginLeft = `-${SIDEBAR_PX}px`;
-
-            // Keep layout stable inside flex
-            chatbotIframe.style.flex = '1 1 auto';
-            chatbotIframe.style.maxWidth = 'none';
+            chatbotIframe.style.position = 'relative';
+            chatbotIframe.style.zIndex = '1';
         }
     }
 
-    // --- Remove Mobile Inline Styles (reset to CSS control) ---
-    function removeMobileInlineStyles() {
-        // Container styles
-        chatbotContainer.style.position = '';
-        chatbotContainer.style.top = '';
-        chatbotContainer.style.left = '';
-        chatbotContainer.style.right = '';
-        chatbotContainer.style.bottom = '';
-        chatbotContainer.style.width = '';
-        chatbotContainer.style.height = '';
-        chatbotContainer.style.maxHeight = '';
-        chatbotContainer.style.margin = '';
-        chatbotContainer.style.borderRadius = '';
-        chatbotContainer.style.zIndex = '';
-        chatbotContainer.style.display = '';
-        chatbotContainer.style.flexDirection = '';
-        chatbotContainer.style.overflow = '';
-        chatbotContainer.style.boxSizing = '';
-        chatbotContainer.style.paddingTop = '';
-        chatbotContainer.style.paddingBottom = '';
-        chatbotContainer.style.transform = '';
-        chatbotContainer.style.background = '';
+    // --- Reset Styles ---
+    function resetSizingStyles() {
+        chatbotContainer.style.display = 'none';
+        chatbotContainer.style.visibility = 'hidden';
+        chatbotContainer.style.opacity = '0';
 
-        // Header styles
+        // Remove all inline overrides
+        const props = ['position', 'top', 'left', 'right', 'bottom', 'width', 'height', 'maxHeight', 'borderRadius', 'margin', 'paddingTop', 'paddingBottom', 'background', 'zIndex', 'flexDirection', 'overflow', 'boxSizing', 'transform', 'boxShadow'];
+        props.forEach(p => chatbotContainer.style[p] = '');
+
         if (chatbotHeader) {
             chatbotHeader.style.flex = '';
             chatbotHeader.style.width = '';
+            chatbotHeader.style.display = '';
         }
 
-        // Iframe styles
         if (chatbotIframe) {
-            chatbotIframe.style.flex = '';
-            chatbotIframe.style.width = '';
-            chatbotIframe.style.height = '';
-            chatbotIframe.style.minHeight = '';
-            chatbotIframe.style.border = '';
-            chatbotIframe.style.display = '';
-            chatbotIframe.style.margin = '';
-            chatbotIframe.style.marginLeft = '';
-            chatbotIframe.style.padding = '';
-            chatbotIframe.style.maxWidth = '';
+            const iProps = ['flex', 'width', 'height', 'minHeight', 'border', 'display', 'margin', 'marginLeft', 'padding', 'maxWidth'];
+            iProps.forEach(p => chatbotIframe.style[p] = '');
         }
     }
 
     // Robust Toggle Function
     function toggleChatbotAction(e) {
-        // Prevent double firing if both events exist
-        if (e.type === 'touchstart') {
+        if (e) {
             e.preventDefault();
-        } else if (e.type === 'click') {
-            e.preventDefault();
+            e.stopPropagation();
         }
 
-        const becomingActive = !chatbotContainer.classList.contains('active');
+        // Use visibility and active class as dual check
+        const isCurrentlyActive = chatbotContainer.classList.contains('active') &&
+            chatbotContainer.style.display === 'flex';
 
-        if (becomingActive) {
-            // Move to body on mobile to ensure z-index stacking
-            if (isMobile() && chatbotContainer.parentElement !== document.body) {
-                document.body.appendChild(chatbotContainer);
-            }
+        console.log('Toggle Chatbot. Current state active:', isCurrentlyActive);
 
-            // Force display first to ensure transitions work
-            chatbotContainer.style.display = 'flex';
-
-            // Small delay to allow display:flex to apply before adding active class (for transitions if needed)
-            requestAnimationFrame(() => {
-                chatbotContainer.classList.add('active');
-
-                if (isMobile()) {
-                    document.documentElement.classList.add('chatbot-open');
-                    document.body.classList.add('chatbot-open');
-                    applyMobileFullscreenStyles();
-                    window.scrollTo(0, 0);
-                }
-            });
-
+        if (!isCurrentlyActive) {
+            openChatbot();
         } else {
             closeChatbot();
         }
+    }
 
-        chatbotToggleBtn.setAttribute('aria-expanded', becomingActive);
+    function openChatbot() {
+        console.log('Executing Open Sequence');
+
+        // Ensure child of body for mobile z-index
+        if (isMobile() && chatbotContainer.parentElement !== document.body) {
+            document.body.appendChild(chatbotContainer);
+        }
+
+        applySizingStyles();
+        chatbotContainer.classList.add('active');
+        chatbotToggleBtn.setAttribute('aria-expanded', 'true');
+
+        if (isMobile()) {
+            document.documentElement.classList.add('chatbot-open');
+            document.body.classList.add('chatbot-open');
+            window.scrollTo(0, 0);
+        }
+    }
+
+    function closeChatbot() {
+        console.log('Executing Close Sequence');
+        chatbotContainer.classList.remove('active');
+        document.documentElement.classList.remove('chatbot-open');
+        document.body.classList.remove('chatbot-open');
+        chatbotToggleBtn.setAttribute('aria-expanded', 'false');
+
+        resetSizingStyles();
     }
 
     chatbotToggleBtn.addEventListener('click', toggleChatbotAction);
     chatbotToggleBtn.addEventListener('touchstart', toggleChatbotAction, { passive: false });
 
-    function closeChatbot() {
-        chatbotContainer.classList.remove('active');
-
-        // Remove chatbot-open class from html and body
-        document.documentElement.classList.remove('chatbot-open');
-        document.body.classList.remove('chatbot-open');
-
-        // Remove inline styles so desktop CSS takes over
-        removeMobileInlineStyles();
-
-        chatbotToggleBtn.setAttribute('aria-expanded', 'false');
-    }
-
     if (chatbotCloseBtn) {
-        chatbotCloseBtn.addEventListener('click', function (e) {
+        chatbotCloseBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             closeChatbot();
         });
     }
@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chatbotContainer.classList.contains('active') &&
             !chatbotContainer.contains(e.target) &&
             !chatbotToggleBtn.contains(e.target)) {
+            console.log('Click outside detected. Closing.');
             closeChatbot();
         }
     });

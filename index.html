@@ -92,7 +92,7 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="chatbot.css?v=5">
+    <link rel="stylesheet" href="chatbot.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
@@ -285,48 +285,16 @@
             cursor: pointer;
         }
 
-        /* Floating Buttons - FIXED VISIBILITY */
-        .chatbot-toggle-btn,
+        /* Floating Buttons */
         .fab-container {
             position: fixed !important;
             bottom: 25px !important;
+            right: 25px !important;
             z-index: 9999999 !important;
             display: flex !important;
             align-items: center;
             cursor: pointer;
             transition: transform 0.3s ease;
-        }
-
-        .chatbot-toggle-btn {
-            left: 20px !important;
-            bottom: 25px !important;
-            background: #4CAF50;
-            width: 75px;
-            /* Slightly larger */
-            height: 75px;
-            border-radius: 50% !important;
-            color: white;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            display: flex !important;
-            flex-direction: column;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center;
-            font-size: 0.55rem;
-            /* Smaller font to fit */
-            font-weight: 900;
-            padding: 2px !important;
-            line-height: 1.1;
-            border: 2px solid white;
-        }
-
-        .chatbot-toggle-btn i {
-            font-size: 1.5rem;
-            margin-bottom: 2px;
-        }
-
-        .fab-container {
-            right: 25px !important;
             background: #FFA726;
             padding: 10px 20px;
             border-radius: 50px;
@@ -336,9 +304,18 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .chatbot-toggle-btn:hover,
         .fab-container:hover {
             transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .fab-container {
+                right: 5px !important;
+                bottom: 10px !important;
+                padding: 6px 10px !important;
+                font-size: 0.65rem !important;
+                border-radius: 30px !important;
+            }
         }
 
         /* Video Enhancements */
@@ -395,61 +372,85 @@
         }
 
         /* Gallery */
+        .gallery-wrapper {
+            position: relative;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
         .carousel {
             display: flex;
             overflow: hidden;
             width: 100%;
             border-radius: 20px;
-            margin-bottom: 50px;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .carousel article {
             min-width: 100%;
             height: 400px;
-            animation: slide 20s infinite;
+        }
+
+        @media (min-width: 769px) {
+            .carousel article {
+                height: 600px;
+            }
         }
 
         .carousel img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: #111;
         }
 
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 2px solid #8BC34A;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-nav-btn:hover {
+            background: #8BC34A;
+            color: black;
+            box-shadow: 0 0 15px rgba(139, 195, 74, 0.5);
+        }
+
+        .carousel-nav-btn.prev {
+            left: -25px;
+        }
+
+        .carousel-nav-btn.next {
+            right: -25px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
 
-            20% {
-                transform: translateX(0);
+            .carousel-nav-btn.prev {
+                left: 10px;
             }
 
-            25% {
-                transform: translateX(-100%);
-            }
-
-            45% {
-                transform: translateX(-100%);
-            }
-
-            50% {
-                transform: translateX(-200%);
-            }
-
-            70% {
-                transform: translateX(-200%);
-            }
-
-            75% {
-                transform: translateX(-300%);
-            }
-
-            95% {
-                transform: translateX(-300%);
-            }
-
-            100% {
-                transform: translateX(0);
+            .carousel-nav-btn.next {
+                right: 10px;
             }
         }
 
@@ -514,6 +515,78 @@
         .footer-social-links a:hover {
             color: #8BC34A;
         }
+
+        /* =========================================
+           ULTIMATE DESKTOP FIXES (VERSION 11)
+           ========================================= */
+        @media (min-width: 769px) {
+            #services {
+                background: #0A1A0A !important;
+                padding: 100px 5% !important;
+                height: auto !important;
+                min-height: auto !important;
+                display: block !important;
+                visibility: visible !important;
+            }
+
+            .services-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-auto-rows: auto !important;
+                gap: 50px !important;
+                width: 100% !important;
+                max-width: 1400px !important;
+                margin: 0 auto !important;
+                overflow: visible !important;
+                height: auto !important;
+            }
+
+            .service-card {
+                display: flex !important;
+                flex-direction: column !important;
+                height: 100% !important;
+                min-height: 400px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            #gallery {
+                height: auto !important;
+                padding: 100px 5% !important;
+            }
+
+            .gallery-wrapper,
+            .carousel,
+            .carousel article {
+                height: 800px !important;
+                max-height: 800px !important;
+            }
+
+            /* Fix Chatbot Sizing with ultimate specificity */
+            #chatbot-container,
+            .chatbot-container {
+                width: 450px !important;
+                height: 750px !important;
+                max-height: 85vh !important;
+                left: 40px !important;
+                bottom: 120px !important;
+                display: none;
+                /* Controlled by active class */
+            }
+
+            #chatbot-container.active {
+                display: flex !important;
+            }
+
+            .chatbot-header {
+                background: #4CAF50 !important;
+                height: 60px !important;
+                width: 100% !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+        }
     </style>
 </head>
 
@@ -567,16 +640,41 @@
                     <p>Custom patios, walkways, and water features.</p>
                 </div>
             </div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./irrigationimage.webp');"></div>
+                <div class="service-content">
+                    <h3>Irrigation Systems</h3>
+                    <p>Efficient watering solutions for a healthy landscape.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./treetriming.webp');"></div>
+                <div class="service-content">
+                    <h3>Tree Care</h3>
+                    <p>Professional trimming and long-term health management.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./landscapelighting.webp');"></div>
+                <div class="service-content">
+                    <h3>Outdoor Lighting</h3>
+                    <p>Illuminate your space with elegant and efficient lighting.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="gallery" class="content-section" style="background: #000;">
         <h2 class="section-title">Our Gallery</h2>
-        <div class="carousel">
-            <article><img src="./IMG_3535.jpg" alt="Gallery"></article>
-            <article><img src="./gallery-gazebo.png" alt="Gallery"></article>
-            <article><img src="./gallery-mulch.png" alt="Gallery"></article>
-            <article><img src="./gallery-main-repeating.jpg" alt="Gallery"></article>
+        <div class="gallery-wrapper">
+            <div class="carousel" id="mainCarousel">
+                <article><img src="./IMG_3535.jpg" alt="Gallery"></article>
+                <article><img src="./gallery-gazebo.png" alt="Gallery"></article>
+                <article><img src="./gallery-mulch.png" alt="Gallery"></article>
+                <article><img src="./gallery-main-repeating.jpg" alt="Gallery"></article>
+            </div>
+            <button class="carousel-nav-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-nav-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -640,28 +738,30 @@
     </footer>
 
     <!-- Chatbot Container -->
-    <div id="chatbot-container"
-        style="display:none; position:fixed; bottom:100px; left:25px; width:350px; height:500px; z-index:10000000; background:white; border-radius:20px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-        <div style="background:#4CAF50; padding:15px; display:flex; justify-content:space-between; align-items:center;">
-            <span style="color:white; font-weight:bold;">AI ASSISTANT</span>
-            <button id="chatbot-close-btn"
-                style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">&times;</button>
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <span>AI ASSISTANT</span>
+            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
         </div>
-        <iframe src="https://miamilovesgreenlandscaping.onrender.com"
-            style="width:100%; height:calc(100% - 50px); border:none;" allow="microphone;"></iframe>
+        <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;"></iframe>
     </div>
 
     <!-- Floating Buttons -->
     <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <i class="fas fa-comment-dots"></i>
-        <span>TALK TO OUR<br>LIVE AGENT</span>
+        <div class="icon-wrapper">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">TALK TO OUR</span>
+            <span class="line-2">LIVE AGENT</span>
+        </div>
     </div>
 
     <a href="tel:786-570-3215" class="fab-container">
         CALL US <i class="fas fa-phone" style="margin-left: 10px;"></i>
     </a>
 
-    <script src="chatbot.js"></script>
+    <script src="chatbot.js?v=11"></script>
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -703,12 +803,67 @@
             }
         });
 
-        document.getElementById('chatbot-toggle-btn').onclick = function () {
-            document.getElementById('chatbot-container').style.display = 'block';
-        };
-        document.getElementById('chatbot-close-btn').onclick = function () {
-            document.getElementById('chatbot-container').style.display = 'none';
-        };
+        // Gallery/Carousel Logic
+        const carousel = document.getElementById('mainCarousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const articles = carousel.querySelectorAll('article');
+        let currentIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (index < 0) index = articles.length - 1;
+            if (index >= articles.length) index = 0;
+            currentIndex = index;
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) clearInterval(slideInterval);
+        }
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            startAutoSlide(); // Reset timer on click
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            startAutoSlide(); // Reset timer on click
+        });
+
+        // Start auto-slide
+        startAutoSlide();
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+
+        // Touch support for mobile
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', e => {
+            let touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+            startAutoSlide();
+        }, { passive: true });
     </script>
 </body>
 
