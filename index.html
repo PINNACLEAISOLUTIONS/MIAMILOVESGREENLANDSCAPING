@@ -141,9 +141,16 @@
             visibility: visible !important;
             opacity: 1 !important;
             z-index: 2147483647 !important;
-            /* Maximum possible z-index */
             pointer-events: auto !important;
             position: fixed !important;
+        }
+
+        /* Mobile Menu Toggle Fix */
+        .mobile-menu-toggle {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 99999 !important;
         }
 
         /* Top Right Logo Positioning */
@@ -1720,65 +1727,42 @@
     </style>
 </head>
 
-<body>
-    <!-- START: Floating Action Buttons (Moved to top of body for better stacking) -->
-    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <div class="icon-wrapper">
-            <i class="fas fa-comment-dots"></i>
+<div class="particles-container" id="particles-js"></div>
+<div class="scroll-indicator">
+    <div class="scroll-progress" id="scrollProgress"></div>
+</div>
+<nav id="mainNav">
+    <div class="nav-container">
+        <div class="nav-left">
+            <a href="#home">
+                <!-- Switched to logo.png which is cleaner -->
+                <img src="logo.png" alt="Miami Loves Green" class="logo-img"
+                    style="background:transparent !important; box-shadow:none !important; border:none !important;">
+            </a>
         </div>
-        <div class="btn-text">
-            <span class="line-1">Need Help?</span>
-            <span class="line-2">Chat with us</span>
+
+        <div class="nav-right">
+            <ul class="nav-links" id="mainNavLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+                aria-controls="mainNavLinks"
+                style="color:white !important; background:rgba(76, 175, 80, 0.4); border-radius:50%; width:50px; height:50px; display:flex !important; align-items:center; justify-content:center; border: 2px solid white; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
+                <svg viewBox="0 0 24 24" width="30" height="30" style="fill: white !important;">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                </svg>
+            </button>
         </div>
     </div>
+</nav>
 
-    <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
-        <span class="fab-text">CALL US</span>
-        <div class="fab-icon-wrapper">
-            <svg viewBox="0 0 24 24">
-                <path fill="#0a1a0a"
-                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-        </div>
-    </a>
-    <!-- END: Floating Action Buttons -->
-
-    <div class="particles-container" id="particles-js"></div>
-    <div class="scroll-indicator">
-        <div class="scroll-progress" id="scrollProgress"></div>
-    </div>
-    <nav id="mainNav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="#home">
-                    <!-- Switched to logo.png which is cleaner -->
-                    <img src="logo.png" alt="Miami Loves Green" class="logo-img"
-                        style="background:transparent !important; box-shadow:none !important; border:none !important;">
-                </a>
-            </div>
-
-            <div class="nav-right">
-                <ul class="nav-links" id="mainNavLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="videos.html">Videos</a></li>
-                    <li><a href="#footer-contact">Contact</a></li>
-                </ul>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
-                    aria-controls="mainNavLinks"
-                    style="color:white !important; background:rgba(255,255,255,0.1); border-radius:50%; width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
-                    <svg viewBox="0 0 24 24" width="30" height="30">
-                        <path fill="white" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div class="main-content-wrapper">
-        <header id="home" class="hero" style="background-image: url('miami1.jpg.jpeg'); background-color: #0a1f0a;">
-            <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="miami1.jpg.jpeg" style="
+<div class="main-content-wrapper">
+    <header id="home" class="hero" style="background-image: url('miami1.jpg.jpeg'); background-color: #0a1f0a;">
+        <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="miami1.jpg.jpeg" style="
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -1789,504 +1773,528 @@
                 z-index: 1;
                 pointer-events: none;
             ">
-                <source src="enancemiami.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <source src="enancemiami.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
 
-            <!-- 3D Light Green Text overlaid on hero (no box) -->
-            <div style="
+        <!-- Hero Text Overlay -->
+        <div style="
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                z-index: 10;
+                z-index: 500;
                 text-align: center;
-                width: 95%; /* Prevent mobile overflow */
+                width: 95%;
                 max-width: 1000px;
+                pointer-events: none;
             ">
-                <h2 class="hero-3d-text" style="text-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5);">
-                    MIAMI LOVES GREEN<br>LANDSCAPING</h2>
+            <h1 class="hero-3d-text"
+                style="font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 10px;">
+                MIAMI LOVES GREEN<br>LANDSCAPING</h1>
 
-                <p class="hero-tagline" style="
-                    margin-top: 20px;
-                    font-size: clamp(1rem, 3vw, 1.8rem);
-                    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
-                    color: white;
+            <p class="hero-tagline" style="
+                    font-size: clamp(1.1rem, 3vw, 2rem);
+                    color: #ffffff;
                     font-weight: 600;
+                    margin-top: 5px;
                 ">Premier Landscaping Services in Miami, Florida</p>
-            </div>
+        </div>
 
-            <!-- Hidden original hero content to prevent duplication/overlap -->
-            <div class="hero-content" style="display: none;">
-                <h1>Miami Loves Green Landscaping</h1>
-                <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
-            </div>
+        <!-- Wave Divider at bottom of Hero -->
+        <div class="wave-divider" style="position: absolute; bottom: 0; left: 0;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill" fill="#0A1A0A"></path>
+            </svg>
+        </div>
+    </header>
 
-            <!-- Wave Divider at bottom of Hero -->
-            <div class="wave-divider" style="position: absolute; bottom: 0; left: 0;">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                        class="shape-fill" fill="#0A1A0A"></path>
-                </svg>
-            </div>
-        </header>
-
-        <section id="services" class="content-section" style="background: #0A1A0A; padding-top: 50px;">
-            <div class="wave-bg-overlay"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(139, 195, 74, 0.05) 0%, transparent 40%); pointer-events: none;">
-            </div>
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <a href="videos.html" class="btn"
-                    style="border: 2px solid var(--accent-gold); padding: 0.6rem 1.4rem; font-size: 1rem; color: #0A1A0A; background: var(--accent-gold); font-weight: 700;">
-                    🎥 Watch Our Project Videos
-                </a>
-            </div>
-            <div class="container">
-                <h2 class="section-title">Our Premier Services</h2>
-                <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive
-                    suite of services to bring your ideal outdoor space to life. Each project is a testament to our
-                    commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
-                <div class="services-grid">
-                    <div class="service-card" style="--card-index: 0;">
-                        <div class="service-image-area" style="background-image: url('./landscape-design.jpg');">
-                            <h3 class="service-image-title">Landscape Design</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Creative Landscape Design</h3>
-                            <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal
-                                style and enhancing your property's natural charm.</p>
-                        </div>
-                    </div>
-                    <div class="service-card" style="--card-index: 1;">
-                        <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');">
-                            <h3 class="service-image-title">Garden Maintenance</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Expert Care & Maintenance</h3>
-                            <p>Comprehensive horticultural services ensuring your landscape remains vibrant and healthy
-                                year-round with professional expertise.</p>
-                        </div>
-                    </div>
-                    <div class="service-card" style="--card-index: 2;">
-                        <div class="service-image-area" style="background-image: url('./irrigation-systems.png');">
-                            <h3 class="service-image-title">Irrigation Systems</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Efficient Irrigation</h3>
-                            <p>Smart irrigation solutions, professionally installed and maintained, for optimal water
-                                use and thriving landscapes.</p>
-                        </div>
-                    </div>
-                    <div class="service-card" style="--card-index: 3;">
-                        <div class="service-image-area hardscape-image"
-                            style="background-image: url('./hardscaping.jpg');">
-                            <h3 class="service-image-title">Hardscaping</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Elegant Hardscape Design</h3>
-                            <p>Custom patios, walkways, water features, and architectural elements that create stunning
-                                focal points and enhance outdoor functionality.</p>
-                        </div>
-                    </div>
-                    <div class="service-card" style="--card-index: 4;">
-                        <div class="service-image-area" style="background-image: url('./treetriming.webp');">
-                            <h3 class="service-image-title">Tree Care</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Professional Tree Care</h3>
-                            <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of
-                                your trees.</p>
-                        </div>
-                    </div>
-                    <div class="service-card" style="--card-index: 5;">
-                        <div class="service-image-area lighting-image"
-                            style="background-image: url('./outdoor-lighting.jpg');">
-                            <h3 class="service-image-title">Outdoor Lighting</h3>
-                        </div>
-                        <div class="service-content">
-                            <h3>Elegant Lighting</h3>
-                            <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your
-                                outdoor space.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-    <!-- ========== GALLERY SECTION RESTORED ========== -->
-    <section id="gallery" class="content-section">
+    <section id="services" class="content-section" style="background: #0A1A0A; padding-top: 50px;">
+        <div class="wave-bg-overlay"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(139, 195, 74, 0.05) 0%, transparent 40%); pointer-events: none;">
+        </div>
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="videos.html" class="btn"
+                style="border: 2px solid var(--accent-gold); padding: 0.6rem 1.4rem; font-size: 1rem; color: #0A1A0A; background: var(--accent-gold); font-weight: 700;">
+                🎥 Watch Our Project Videos
+            </a>
+        </div>
         <div class="container">
-            <h2 class="gallery-title">Our Gallery</h2>
-            <div class="carousel" mask>
-                <article>
-                    <img src="./IMG_3535.jpg"
-                        alt="Professional lawn maintenance and garden design project in Miami Florida">
-                </article>
-                <article>
-                    <img src="./gallery-gazebo.png"
-                        alt="Custom gazebo and artificial turf installation by Miami Loves Green">
-                </article>
-                <article>
-                    <img src="./gallery-mulch.png" alt="Red mulch and plant bed installation by Miami Loves Green">
-                </article>
-                <article>
-                    <img src="./gallery-main-repeating.jpg"
-                        alt="Professional landscaping transformation by Miami Loves Green">
-                </article>
-                <article>
-                    <img src="./gallery-mulch-side.png"
-                        alt="Beautiful residential mulch installation by Miami Loves Green">
-                </article>
-                <article>
-                    <img src="./IMG_4011.png" alt="Outdoor lighting installation for Miami home landscape">
-                </article>
-                <article>
-                    <img src="./IMG_4012.png" alt="Irrigation system installation and maintenance Miami">
-                </article>
-                <article>
-                    <img src="./IMG_4013.png" alt="Complete landscape transformation project Miami Loves Green">
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wave Divider into About -->
-    <div class="wave-divider" style="margin-top: -1px; background: #050505;">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill" fill="#0a1f0a"></path>
-        </svg>
-    </div>
-
-    <section id="about" class="content-section" style="background: #0a1f0a;">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">About Miami Loves Green</h2>
-                    <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for
-                        life. Our passionate team, a collective of certified horticulturists, visionary landscape
-                        architects, and meticulous design specialists, brings a wealth of expertise and a fresh
-                        perspective to every project, dedicated to realizing your unique vision.</p>
-                    <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and
-                        intelligent functionality. It's about enhancing your property's value and enriching your
-                        quality of life through sustainable, cutting-edge practices. From initial concept to
-                        flawless execution, we're committed to transforming your ideas into breathtaking, living
-                        environments.</p>
-                    <ul class="about-features">
-                        <li>Expert Landscape Design & Master Planning</li>
-                        <li>Comprehensive Garden Care & Lush Maintenance</li>
-                        <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
-                        <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
-                    </ul>
+            <h2 class="section-title">Our Premier Services</h2>
+            <p class="section-subtitle">From visionary design to meticulous maintenance, we offer a comprehensive
+                suite of services to bring your ideal outdoor space to life. Each project is a testament to our
+                commitment to quality, sustainability, and the unique beauty of Miami's landscape.</p>
+            <div class="services-grid">
+                <div class="service-card" style="--card-index: 0;">
+                    <div class="service-image-area" style="background-image: url('./landscape-design.jpg');">
+                        <h3 class="service-image-title">Landscape Design</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Creative Landscape Design</h3>
+                        <p>Tailored landscape designs that merge beauty with functionality, reflecting your personal
+                            style and enhancing your property's natural charm.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 1;">
+                    <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');">
+                        <h3 class="service-image-title">Garden Maintenance</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Expert Care & Maintenance</h3>
+                        <p>Comprehensive horticultural services ensuring your landscape remains vibrant and healthy
+                            year-round with professional expertise.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 2;">
+                    <div class="service-image-area" style="background-image: url('./irrigation-systems.png');">
+                        <h3 class="service-image-title">Irrigation Systems</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Efficient Irrigation</h3>
+                        <p>Smart irrigation solutions, professionally installed and maintained, for optimal water
+                            use and thriving landscapes.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 3;">
+                    <div class="service-image-area hardscape-image" style="background-image: url('./hardscaping.jpg');">
+                        <h3 class="service-image-title">Hardscaping</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Elegant Hardscape Design</h3>
+                        <p>Custom patios, walkways, water features, and architectural elements that create stunning
+                            focal points and enhance outdoor functionality.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 4;">
+                    <div class="service-image-area" style="background-image: url('./treetriming.webp');">
+                        <h3 class="service-image-title">Tree Care</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Tree Care</h3>
+                        <p>Expert tree shaping, health assessments, and maintenance for the longevity and beauty of
+                            your trees.</p>
+                    </div>
+                </div>
+                <div class="service-card" style="--card-index: 5;">
+                    <div class="service-image-area lighting-image"
+                        style="background-image: url('./outdoor-lighting.jpg');">
+                        <h3 class="service-image-title">Outdoor Lighting</h3>
+                    </div>
+                    <div class="service-content">
+                        <h3>Elegant Lighting</h3>
+                        <p>Artful lighting solutions to enhance nighttime beauty, ambiance, and security for your
+                            outdoor space.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+</div>
 
-    <!-- Wave Divider between About and Flyer -->
-    <div class="wave-divider" style="background: #000;">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill" fill="#050505"></path>
-        </svg>
-    </div>
-
-    <section class="flyer-display-section" style="background: #050505; padding: var(--spacing-lg) 0;">
-        <div class="container" style="text-align: center;">
-            <img src="./flyer-background.png" alt="Miami Loves Green Landscaping Services Flyer"
-                style="max-width: 100%; height: auto; border-radius: var(--border-radius-md); box-shadow: var(--shadow-strong);">
+<!-- ========== GALLERY SECTION RESTORED ========== -->
+<section id="gallery" class="content-section">
+    <div class="container">
+        <h2 class="gallery-title">Our Gallery</h2>
+        <div class="carousel" mask>
+            <article>
+                <img src="./IMG_3535.jpg"
+                    alt="Professional lawn maintenance and garden design project in Miami Florida">
+            </article>
+            <article>
+                <img src="./gallery-gazebo.png"
+                    alt="Custom gazebo and artificial turf installation by Miami Loves Green">
+            </article>
+            <article>
+                <img src="./gallery-mulch.png" alt="Red mulch and plant bed installation by Miami Loves Green">
+            </article>
+            <article>
+                <img src="./gallery-main-repeating.jpg"
+                    alt="Professional landscaping transformation by Miami Loves Green">
+            </article>
+            <article>
+                <img src="./gallery-mulch-side.png" alt="Beautiful residential mulch installation by Miami Loves Green">
+            </article>
+            <article>
+                <img src="./IMG_4011.png" alt="Outdoor lighting installation for Miami home landscape">
+            </article>
+            <article>
+                <img src="./IMG_4012.png" alt="Irrigation system installation and maintenance Miami">
+            </article>
+            <article>
+                <img src="./IMG_4013.png" alt="Complete landscape transformation project Miami Loves Green">
+            </article>
         </div>
-    </section>
-
-    <!-- Wave Divider between Flyer and CTA -->
-    <div class="wave-divider" style="transform: rotate(180deg); margin-top: -1px; background: #000;">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                class="shape-fill" fill="#101010"></path>
-        </svg>
     </div>
+</section>
 
-    <section id="cta" class="cta-section content-section" style="background: #0a1f0a;">
-        <div class="container cta-content">
-            <h2>Transform Your Vision Into Reality</h2>
-            <div class="cta-details">
-                <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your
-                    landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
-                <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
-            </div>
-        </div>
-    </section>
+<!-- Wave Divider into About -->
+<div class="wave-divider" style="margin-top: -1px; background: #050505;">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill" fill="#0a1f0a"></path>
+    </svg>
+</div>
 
-    <!-- Wave Divider before Footer -->
-    <div class="wave-divider" style="margin-top: -1px; background: #101010;">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill" fill="#0A1A0A"></path>
-        </svg>
-    </div>
-
-    <footer id="footer-contact" style="background: #0A1A0A; border-top: none;">
-        <div class="container footer-content">
-            <div class="footer-section footer-brand">
-                <img src="logo.png" alt="Miami Loves Green" class="footer-logo-img windy-sway"
-                    style="height: 120px; width: auto; border-radius: 12px; margin-bottom: 15px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
-                <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative
-                    outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link"
-                        title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z" />
-                        </svg></a>
-                    <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link"
-                        title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                        </svg></a>
-                    <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link"
-                        title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                        </svg></a>
-                    <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link"
-                        title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                        </svg></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#footer-contact">Contact</a></li>
+<section id="about" class="content-section" style="background: #0a1f0a;">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">About Miami Loves Green</h2>
+                <p>At Miami Loves Green, we see your outdoor space as a canvas for artistry and a sanctuary for
+                    life. Our passionate team, a collective of certified horticulturists, visionary landscape
+                    architects, and meticulous design specialists, brings a wealth of expertise and a fresh
+                    perspective to every project, dedicated to realizing your unique vision.</p>
+                <p>We believe exceptional landscaping is a harmonious blend of stunning aesthetics and
+                    intelligent functionality. It's about enhancing your property's value and enriching your
+                    quality of life through sustainable, cutting-edge practices. From initial concept to
+                    flawless execution, we're committed to transforming your ideas into breathtaking, living
+                    environments.</p>
+                <ul class="about-features">
+                    <li>Expert Landscape Design & Master Planning</li>
+                    <li>Comprehensive Garden Care & Lush Maintenance</li>
+                    <li>Sustainable Hardscaping & Eco-Conscious Solutions</li>
+                    <li>Outdoor Lighting & Irrigation Systems</li> <!-- "Bespoke" removed -->
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Our Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#services">Landscape Design</a></li>
-                    <li><a href="#services">Garden Maintenance</a></li>
-                    <li><a href="#services">Irrigation Systems</a></li>
-                    <li><a href="#services">Hardscaping</a></li>
-                    <li><a href="#services">Tree Care</a></li>
-                    <li><a href="#services">Outdoor Lighting</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786)
-                        570-3215</a></div>
-                <div class="contact-item"><span class="contact-icon">✉️</span><a
-                        href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a>
-                </div>
-                <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
-                <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
-            </div>
-            <div class="footer-section footer-logo-right">
-                <img src="logo.png" alt="Miami Loves Green Logo" class="windy-sway"
-                    style="max-width: 151px; height: auto; border-radius: 20px; filter: drop-shadow(0 0 20px rgba(0,255,0,0.2));">
-            </div>
         </div>
-    </footer>
-
-
-    <div id="chatbot-container" class="chatbot-container">
-        <div class="chatbot-header">
-            <span>MIAMI LOVES GREEN AI ASSISTANT</span>
-            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
-        </div>
-        <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
     </div>
+</section>
 
-    <script src="chatbot.js"></script>
-    <script src="./video-enhancer.js"></script>
-    <script>
-        // Direct video playback script
-        document.addEventListener('DOMContentLoaded', function () {
-            const mainVideo = document.getElementById('main-video');
-            if (mainVideo) {
-                console.log('Attempting to play video directly...');
-                // Force video to be visible
-                mainVideo.style.display = 'block';
-                mainVideo.style.opacity = '1';
-                mainVideo.style.visibility = 'visible';
+<!-- Wave Divider between About and Flyer -->
+<div class="wave-divider" style="background: #000;">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill" fill="#050505"></path>
+    </svg>
+</div>
 
-                // Try to play the video
-                const playPromise = mainVideo.play();
+<section class="flyer-display-section" style="background: #050505; padding: var(--spacing-lg) 0;">
+    <div class="container" style="text-align: center;">
+        <img src="./flyer-background.png" alt="Miami Loves Green Landscaping Services Flyer"
+            style="max-width: 100%; height: auto; border-radius: var(--border-radius-md); box-shadow: var(--shadow-strong);">
+    </div>
+</section>
 
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        console.log('Video playback started successfully');
-                    })
-                        .catch(error => {
-                            console.error('Video playback failed:', error);
-                            // If autoplay is blocked, show a play button
-                            const playButton = document.createElement('button');
-                            playButton.textContent = 'Play Video';
-                            playButton.style.position = 'absolute';
-                            playButton.style.top = '50%';
-                            playButton.style.left = '50%';
-                            playButton.style.transform = 'translate(-50%, -50%)';
-                            playButton.style.zIndex = '10';
-                            playButton.style.padding = '10px 20px';
-                            playButton.style.background = '#FFA726';
-                            playButton.style.color = '#0A1A0A';
-                            playButton.style.border = 'none';
-                            playButton.style.borderRadius = '50px';
-                            playButton.style.cursor = 'pointer';
+<!-- Wave Divider between Flyer and CTA -->
+<div class="wave-divider" style="transform: rotate(180deg); margin-top: -1px; background: #000;">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            class="shape-fill" fill="#101010"></path>
+    </svg>
+</div>
 
-                            playButton.addEventListener('click', () => {
-                                mainVideo.play();
-                                playButton.remove();
-                            });
+<section id="cta" class="cta-section content-section" style="background: #0a1f0a;">
+    <div class="container cta-content">
+        <h2>Transform Your Vision Into Reality</h2>
+        <div class="cta-details">
+            <p>Ready to create the outdoor space of your dreams? Our expert team is here to bring your
+                landscaping vision to life with personalized design solutions and unmatched craftsmanship.</p>
+            <a href="#footer-contact" class="btn btn-cta">CALL US TODAY FOR A FREE ESTIMATE</a>
+        </div>
+    </div>
+</section>
 
-                            mainVideo.parentNode.appendChild(playButton);
+<!-- Wave Divider before Footer -->
+<div class="wave-divider" style="margin-top: -1px; background: #101010;">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill" fill="#0A1A0A"></path>
+    </svg>
+</div>
+
+<footer id="footer-contact" style="background: #0A1A0A; border-top: none;">
+    <div class="container footer-content">
+        <div class="footer-section footer-brand">
+            <img src="logo.png" alt="Miami Loves Green" class="footer-logo-img windy-sway"
+                style="height: 120px; width: auto; border-radius: 12px; margin-bottom: 15px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));">
+            <p class="footer-description">Your premier partner in creating sustainable, beautiful, and innovative
+                outdoor environments throughout Miami-Dade County. Excellence in every detail.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/azakin.sejour" target="_blank" class="social-link"
+                    title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 17.094 3.278 21.066 7.688 22.848v-7.73H5.375v-3.047h2.313V9.61c0-2.298 1.387-3.566 3.49-3.566 1.008 0 2.063.18 2.063.18v2.54h-1.25c-1.135 0-1.508.723-1.508 1.442v1.72h2.813l-.445 3.048H9.875v7.73C14.282 21.066 24 17.094 24 12.073z" />
+                    </svg></a>
+                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" class="social-link"
+                    title="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg></a>
+                <a href="https://www.tiktok.com/@miami_loves_green" target="_blank" class="social-link"
+                    title="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                    </svg></a>
+                <a href="https://www.instagram.com/miami_loves_green" target="_blank" class="social-link"
+                    title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#footer-contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+                <li><a href="#services">Landscape Design</a></li>
+                <li><a href="#services">Garden Maintenance</a></li>
+                <li><a href="#services">Irrigation Systems</a></li>
+                <li><a href="#services">Hardscaping</a></li>
+                <li><a href="#services">Tree Care</a></li>
+                <li><a href="#services">Outdoor Lighting</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:786-570-3215">(786)
+                    570-3215</a></div>
+            <div class="contact-item"><span class="contact-icon">✉️</span><a
+                    href="mailto:Miamilovesgreenlandscaping@gmail.com">Miamilovesgreenlandscaping@gmail.com</a>
+            </div>
+            <div class="contact-item"><span class="contact-icon">🕒</span><span>Mon-Sat: 7AM-6PM</span></div>
+            <div class="contact-item"><span class="contact-icon">📍</span><span>Miami, Florida</span></div>
+        </div>
+        <div class="footer-section footer-logo-right">
+            <img src="logo.png" alt="Miami Loves Green Logo" class="windy-sway"
+                style="max-width: 151px; height: auto; border-radius: 20px; filter: drop-shadow(0 0 20px rgba(0,255,0,0.2));">
+        </div>
+    </div>
+</footer>
+
+
+<div id="chatbot-container" class="chatbot-container">
+    <div class="chatbot-header">
+        <span>MIAMI LOVES GREEN AI ASSISTANT</span>
+        <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+    </div>
+    <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
+</div>
+
+<script src="chatbot.js"></script>
+<script src="./video-enhancer.js"></script>
+<script>
+    // Direct video playback script
+    document.addEventListener('DOMContentLoaded', function () {
+        const mainVideo = document.getElementById('main-video');
+        if (mainVideo) {
+            console.log('Attempting to play video directly...');
+            // Force video to be visible
+            mainVideo.style.display = 'block';
+            mainVideo.style.opacity = '1';
+            mainVideo.style.visibility = 'visible';
+
+            // Try to play the video
+            const playPromise = mainVideo.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    console.log('Video playback started successfully');
+                })
+                    .catch(error => {
+                        console.error('Video playback failed:', error);
+                        // If autoplay is blocked, show a play button
+                        const playButton = document.createElement('button');
+                        playButton.textContent = 'Play Video';
+                        playButton.style.position = 'absolute';
+                        playButton.style.top = '50%';
+                        playButton.style.left = '50%';
+                        playButton.style.transform = 'translate(-50%, -50%)';
+                        playButton.style.zIndex = '10';
+                        playButton.style.padding = '10px 20px';
+                        playButton.style.background = '#FFA726';
+                        playButton.style.color = '#0A1A0A';
+                        playButton.style.border = 'none';
+                        playButton.style.borderRadius = '50px';
+                        playButton.style.cursor = 'pointer';
+
+                        playButton.addEventListener('click', () => {
+                            mainVideo.play();
+                            playButton.remove();
                         });
+
+                        mainVideo.parentNode.appendChild(playButton);
+                    });
+            }
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nav = document.getElementById('mainNav');
+        const mainNavHeight = nav ? nav.offsetHeight : 70;
+        window.addEventListener('scroll', () => {
+            if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+        });
+        const navLinks = document.querySelectorAll('nav .nav-links a');
+        const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
+        function changeActiveLink() {
+            let currentSectionId = 'home';
+            const scrollPosition = window.scrollY + mainNavHeight + 70;
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section.offsetTop <= scrollPosition) {
+                    currentSectionId = section.id;
+                    break;
                 }
             }
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.getElementById('mainNav');
-            const mainNavHeight = nav ? nav.offsetHeight : 70;
+            if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
+                currentSectionId = 'footer-contact';
+            } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
+                currentSectionId = 'home';
+            }
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        if (navLinks.length > 0 && sections.length > 0) {
+            changeActiveLink(); window.addEventListener('scroll', changeActiveLink);
+        }
+        const scrollProgress = document.getElementById('scrollProgress');
+        if (scrollProgress) {
             window.addEventListener('scroll', () => {
-                if (nav) nav.classList.toggle('nav-scrolled', window.scrollY > 50);
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                scrollProgress.style.width = scrollPercent + '%';
             });
-            const navLinks = document.querySelectorAll('nav .nav-links a');
-            const sections = Array.from(document.querySelectorAll('section[id], header[id], footer[id]'));
-            function changeActiveLink() {
-                let currentSectionId = 'home';
-                const scrollPosition = window.scrollY + mainNavHeight + 70;
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    const section = sections[i];
-                    if (section.offsetTop <= scrollPosition) {
-                        currentSectionId = section.id;
-                        break;
+        }
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-js');
+            if (!particlesContainer) return;
+            const particleCount = 40;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (12 + Math.random() * 12) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50px 0px -100px 0px',
+            threshold: 0.01
+        };
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
+                        Array.from(entry.target.children).forEach((item, index) => {
+                            item.style.transitionDelay = '';
+                            void item.offsetWidth;
+                            item.style.transitionDelay = `${index * 0.12 + 0.15}s`;
+                        });
+                    }
+                } else {
+                    entry.target.classList.remove('animate');
+                    if (entry.target.classList.contains('about-features')) {
+                        Array.from(entry.target.children).forEach((item) => {
+                            item.style.transitionDelay = '';
+                        });
                     }
                 }
-                if ((window.innerHeight + window.scrollY + 150) >= document.body.scrollHeight && document.getElementById('footer-contact')) {
-                    currentSectionId = 'footer-contact';
-                } else if (window.scrollY < (sections[0] ? sections[0].offsetTop - mainNavHeight - 70 : 50) && document.getElementById('home')) {
-                    currentSectionId = 'home';
-                }
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            if (navLinks.length > 0 && sections.length > 0) {
-                changeActiveLink(); window.addEventListener('scroll', changeActiveLink);
-            }
-            const scrollProgress = document.getElementById('scrollProgress');
-            if (scrollProgress) {
-                window.addEventListener('scroll', () => {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-                    scrollProgress.style.width = scrollPercent + '%';
-                });
-            }
-            function createParticles() {
-                const particlesContainer = document.getElementById('particles-js');
-                if (!particlesContainer) return;
-                const particleCount = 40;
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.top = Math.random() * 100 + 'vh';
-                    particle.style.animationDelay = Math.random() * 15 + 's';
-                    particle.style.animationDuration = (12 + Math.random() * 12) + 's';
-                    particlesContainer.appendChild(particle);
-                }
-            }
-            createParticles();
-            const observerOptions = {
-                root: null,
-                rootMargin: '-50px 0px -100px 0px',
-                threshold: 0.01
-            };
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        if (entry.target.classList.contains('about-features') && entry.target.classList.contains('animate')) {
-                            Array.from(entry.target.children).forEach((item, index) => {
-                                item.style.transitionDelay = '';
-                                void item.offsetWidth;
-                                item.style.transitionDelay = `${index * 0.12 + 0.15}s`;
-                            });
-                        }
-                    } else {
-                        entry.target.classList.remove('animate');
-                        if (entry.target.classList.contains('about-features')) {
-                            Array.from(entry.target.children).forEach((item) => {
-                                item.style.transitionDelay = '';
-                            });
-                        }
-                    }
-                });
-            };
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-            document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, footer').forEach(el => observer.observe(el));
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent && window.scrollY < 100) {
-                setTimeout(() => {
-                    if (!heroContent.classList.contains('animate')) {
-                        heroContent.classList.add('animate');
-                    }
-                }, 150);
-            }
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10;
-                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                    }
-                });
             });
-            const currentYearEl = document.getElementById('currentYear');
-            if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
-            const menuToggles = document.querySelectorAll('.mobile-menu-toggle');
-            const mainNavLinksUl = document.getElementById('mainNavLinks');
-            if (menuToggles.length > 0 && mainNavLinksUl) {
-                menuToggles.forEach(toggle => {
-                    toggle.addEventListener('click', () => {
-                        const isExpanded = toggle.getAttribute('aria-expanded') === 'true' || false;
-                        menuToggles.forEach(t => t.setAttribute('aria-expanded', !isExpanded));
-                        mainNavLinksUl.classList.toggle('active');
-                    });
-                });
-                mainNavLinksUl.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
-                            mainNavLinksUl.classList.remove('active');
-                            menuToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
-                        }
-                    });
-                });
-            }
+        };
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        document.querySelectorAll('.hero-content, .content-section, .service-card, .about-text, .about-features, footer').forEach(el => observer.observe(el));
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent && window.scrollY < 100) {
+            setTimeout(() => {
+                if (!heroContent.classList.contains('animate')) {
+                    heroContent.classList.add('animate');
+                }
+            }, 150);
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - (nav ? nav.offsetHeight : 70) - 10;
+                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }
+            });
         });
-    </script>
+        const currentYearEl = document.getElementById('currentYear');
+        if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+        const menuToggles = document.querySelectorAll('.mobile-menu-toggle');
+        const mainNavLinksUl = document.getElementById('mainNavLinks');
+        if (menuToggles.length > 0 && mainNavLinksUl) {
+            menuToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+                    menuToggles.forEach(t => t.setAttribute('aria-expanded', !isExpanded));
+                    mainNavLinksUl.classList.toggle('active');
+                });
+            });
+            mainNavLinksUl.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 769 && mainNavLinksUl.classList.contains('active')) {
+                        mainNavLinksUl.classList.remove('active');
+                        menuToggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+                    }
+                });
+            });
+        }
+    });
+</script>
 
 
+<!-- START: Floating Action Buttons (At the end for guaranteed stacking) -->
+<div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+    <div class="icon-wrapper">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="btn-text">
+        <span class="line-1">Need Help?</span>
+        <span class="line-2">Chat with us</span>
+    </div>
+</div>
+
+<a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
+    <span class="fab-text">CALL US</span>
+    <div class="fab-icon-wrapper">
+        <svg viewBox="0 0 24 24">
+            <path fill="#0a1a0a"
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+        </svg>
+    </div>
+</a>
+<!-- END: Floating Action Buttons -->
+
+<script>
+    // Force button visibility on load
+    window.addEventListener('load', function () {
+        var chatBtn = document.getElementById('chatbot-toggle-btn');
+        var callBtn = document.querySelector('.fab-call-style');
+        if (chatBtn) chatBtn.style.display = 'flex';
+        if (callBtn) callBtn.style.display = 'flex';
+    });
+</script>
 </body>
 
 </html>
