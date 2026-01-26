@@ -137,7 +137,6 @@
         .hero {
             position: relative;
             height: 60vh;
-            /* Increased for better visibility of top image */
             min-height: 450px;
             display: flex;
             align-items: center;
@@ -146,6 +145,13 @@
             z-index: 1;
             margin-top: 0;
             padding-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                align-items: flex-end;
+                padding-bottom: 60px;
+            }
         }
 
         .hero-3d-text {
