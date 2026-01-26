@@ -132,7 +132,7 @@
             }
         }
 
-        /* Force visibility for floating buttons */
+        /* Force visibility for floating buttons - Consistent Sizing */
         #chatbot-toggle-btn,
         .chatbot-toggle-btn,
         .fab-container,
@@ -143,6 +143,30 @@
             z-index: 2147483647 !important;
             pointer-events: auto !important;
             position: fixed !important;
+            transform: scale(0.9) !important;
+            /* Slightly smaller for better fit */
+        }
+
+        @media (max-width: 768px) {
+
+            #chatbot-toggle-btn,
+            .chatbot-toggle-btn,
+            .fab-container,
+            .fab-call-style {
+                transform: scale(0.85) !important;
+                bottom: 15px !important;
+                visibility: visible !important;
+                display: flex !important;
+            }
+
+            .fab-container {
+                right: 15px !important;
+            }
+
+            .chatbot-toggle-btn {
+                left: 15px !important;
+                right: auto !important;
+            }
         }
 
         /* Mobile Menu Toggle Fix */
@@ -150,7 +174,8 @@
             display: flex !important;
             visibility: visible !important;
             opacity: 1 !important;
-            z-index: 99999 !important;
+            z-index: 2000000 !important;
+            /* Above nav and headers */
         }
 
         /* Top Right Logo Positioning */
@@ -1000,7 +1025,8 @@
 
         .service-image-area {
             width: 100%;
-            height: 280px;
+            height: 220px;
+            /* Reduced from 280px */
             background-size: cover;
             background-position: center;
             display: flex;
@@ -1570,7 +1596,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 1000;
+            z-index: 2147483647;
             text-decoration: none;
             cursor: pointer;
             background: transparent;
@@ -1761,8 +1787,8 @@
 </nav>
 
 <div class="main-content-wrapper">
-    <header id="home" class="hero" style="background-image: url('miami1.jpg.jpeg'); background-color: #0a1f0a;">
-        <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="miami1.jpg.jpeg" style="
+    <header id="home" class="hero" style="background-image: url('main.jpg'); background-color: #0a1f0a;">
+        <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="main.jpg" style="
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -1778,7 +1804,7 @@
         </video>
 
 
-        <!-- Hero Text Overlay -->
+        <!-- Hero Text Overlay (Single sharp heading) -->
         <div style="
                 position: absolute;
                 top: 50%;
@@ -1791,14 +1817,15 @@
                 pointer-events: none;
             ">
             <h1 class="hero-3d-text"
-                style="font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 10px;">
+                style="font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 15px; text-shadow: 0 4px 15px rgba(0,0,0,1);">
                 MIAMI LOVES GREEN<br>LANDSCAPING</h1>
 
             <p class="hero-tagline" style="
-                    font-size: clamp(1.1rem, 3vw, 2rem);
+                    font-size: clamp(1.1rem, 3vw, 2.2rem);
                     color: #ffffff;
-                    font-weight: 600;
-                    margin-top: 5px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                    text-shadow: 0 2px 8px rgba(0,0,0,1);
                 ">Premier Landscaping Services in Miami, Florida</p>
         </div>
 

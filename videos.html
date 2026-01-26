@@ -124,10 +124,9 @@
         /* Hero Header Style */
         .video-hero {
             position: relative;
-            height: 50vh;
-            min-height: 400px;
-            background: url('video-header-new.jpg');
-            /* Removed black gradient overlay */
+            height: 45vh;
+            min-height: 350px;
+            background: url('main.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -723,7 +722,6 @@
         .chatbot-toggle-btn {
             position: fixed !important;
             bottom: 20px !important;
-            right: 25px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
@@ -732,6 +730,25 @@
             visibility: visible !important;
             opacity: 1 !important;
             pointer-events: auto !important;
+            transform: scale(0.9) !important;
+        }
+
+        .fab-container {
+            right: 25px !important;
+        }
+
+        .chatbot-toggle-btn {
+            left: 25px !important;
+            right: auto !important;
+        }
+
+        @media (max-width: 768px) {
+
+            .fab-container,
+            .chatbot-toggle-btn {
+                transform: scale(0.85) !important;
+                bottom: 15px !important;
+            }
         }
 
         .fab-text {
