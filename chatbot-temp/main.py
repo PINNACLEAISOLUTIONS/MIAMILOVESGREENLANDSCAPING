@@ -77,6 +77,8 @@ CACHE_TTL = 600  # 10 minutes
 class ChatMessage(BaseModel):
     message: str
     session_id: Optional[str] = None
+    voice: Optional[str] = None
+    persona: Optional[str] = None
 
 
 class ToolCallRequest(BaseModel):
@@ -94,7 +96,7 @@ class ImageGenerateRequest(BaseModel):
 
 class TTSRequest(BaseModel):
     text: str
-    voice: str = "josh"
+    voice: Optional[str] = None
 
 
 @app.on_event("startup")
@@ -314,7 +316,9 @@ async def chat_endpoint(chat_msg: ChatMessage, request: Request):
     chatbot_instance = get_chatbot(session_id)
 
     try:
-        response = await chatbot_instance.send_message(user_message)
+        response = await chatbot_instance.send_message(
+            user_message, voice=chat_msg.voice, persona=chat_msg.persona
+        )
 
         # 3. Cache the successful result
         if isinstance(response, dict) and "response" in response:

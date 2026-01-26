@@ -759,3 +759,35 @@ textarea {
         max-width: 100vw;
     }
 }
+
+/* Voice Selector Styles */
+.voice-selector {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+}
+
+.voice-selector:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.voice-selector option {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+    .voice-selector {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+}

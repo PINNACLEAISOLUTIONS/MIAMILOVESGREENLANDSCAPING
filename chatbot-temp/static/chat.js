@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const hdToggleBtn = document.getElementById('hd-toggle-btn');
     const autoSpeakToggle = document.getElementById('auto-speak-toggle');
     const voiceModeBtn = document.getElementById('voice-mode-btn');
+    const voiceSelector = document.getElementById('voice-selector');
 
-    // --- Mobile Viewport and State Management ---
+    const VOICE_IDS = {
+        "miami": "s3TPKV1kjDlVtZbl4Ksh",
+        "josh": "TxGEqnHWrfWFTfGW9XjX",
+        "rachel": "21m00Tcm4TlvDq8ikWAM",
+        "adam": "pNInz6obpgDQGcFmaJgB"
+    };
     const DEBUG_MOBILE = false; // Set to true for debugging
     let isChatOpen = true;
     let debugMode = false;
@@ -423,9 +429,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Calling ElevenLabs TTS API...');
-            // Use Direct Voice ID for Josh to prevent mapping errors
-            // Use Direct Voice ID for Miami Custom Voice
-            const voiceId = "s3TPKV1kjDlVtZbl4Ksh";
+            // Get voice ID from mapping
+            const selectedVoiceKey = voiceSelector ? voiceSelector.value : 'miami';
+            const voiceId = VOICE_IDS[selectedVoiceKey] || VOICE_IDS['miami'];
+
             const response = await fetch(`${API_BASE}/api/tts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -577,7 +584,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     message: text,
-                    session_id: currentSessionId
+                    session_id: currentSessionId,
+                    voice: voiceSelector ? voiceSelector.value : 'miami',
+                    persona: voiceSelector ? voiceSelector.value : 'miami'
                 })
             });
 

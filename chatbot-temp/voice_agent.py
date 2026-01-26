@@ -7,7 +7,7 @@ Designed for Render deployment with environment variables
 import os
 import logging
 import base64
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 import httpx
 
 # Import ElevenLabs SDK
@@ -87,7 +87,7 @@ class VoiceAgent:
         }
 
     async def text_to_speech(
-        self, text: str, voice: str = "josh", return_base64: bool = True
+        self, text: str, voice: Optional[str] = None, return_base64: bool = True
     ) -> Dict[str, Any]:
         """
         Convert text to speech audio.
@@ -156,9 +156,10 @@ class VoiceAgent:
             }
 
         # Try to map name to ID, otherwise assume it's a direct ID
-        voice_id = self.VOICES.get(voice.lower())
+        voice_to_use = voice or self.DEFAULT_VOICE
+        voice_id = self.VOICES.get(voice_to_use.lower())
         if not voice_id:
-            voice_id = voice  # Use provided string as direct ID
+            voice_id = voice_to_use  # Use provided string as direct ID
 
         logger.info(
             f"🎤 TTS Generation: voice_requested='{voice}', voice_id_used='{voice_id}'"

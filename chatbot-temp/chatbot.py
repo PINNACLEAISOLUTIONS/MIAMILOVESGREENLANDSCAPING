@@ -24,6 +24,7 @@ import db_utils
 import sqlite3
 import conversation_logger  # Conversation logging (non-intrusive)
 import email_utils
+from voice_agent import VOICE_SYSTEM_PROMPT
 
 
 # Configure logging
@@ -796,11 +797,34 @@ class MCPChatbot:
         logger.info(f"Sending {len(openai_tools)} minimal tools")
         return openai_tools
 
-    async def send_message(self, user_message: str) -> Dict[str, Any]:
+    async def send_message(
+        self,
+        user_message: str,
+        tools: Optional[List[str]] = None,
+        voice: Optional[str] = None,
+        persona: Optional[str] = None,
+    ) -> Dict[str, Any]:
         """
-        Send a message to the chatbot and get a response
+        Send a message to the chatbot and get a response.
+        Supports dynamic persona (system prompt) selection based on voice/persona fields.
         """
         self._last_image_data = None  # Reset tracking
+        # 1. Update system instruction if voice/persona matches a known type
+        if voice == "miami" or persona == "miami":
+            self.system_instruction = VOICE_SYSTEM_PROMPT
+            logger.info("Switching to Miami Loves Green VOICE persona")
+        elif voice == "josh" or persona == "josh":
+            self.system_instruction = (
+                "You are Josh, a friendly and helpful landscaping assistant. "
+                "Keep responses warm and conversational."
+            )
+        elif voice == "rachel" or persona == "rachel":
+            self.system_instruction = (
+                "You are Rachel, a professional and corporate landscaping consultant. "
+                "Be polite, clear, and efficient."
+            )
+
+        # 2. Handle Lead Capture Flow (Higher Priority)
         if not self.conversation_history:
             self.start_chat()
 
