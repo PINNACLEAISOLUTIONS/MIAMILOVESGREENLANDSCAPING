@@ -134,16 +134,18 @@
             overflow-x: hidden;
         }
 
-        /* Hero Cleanup */
         .hero {
             position: relative;
-            height: 90vh;
-            min-height: 600px;
+            height: 45vh;
+            /* Matched to video page */
+            min-height: 350px;
+            /* Matched to video page */
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000 url('main.jpg') no-repeat center center / cover !important;
+            background: #000 url('./main.jpg') no-repeat center center / cover !important;
             z-index: 1;
+            border-bottom: none;
         }
 
         .hero::before {
@@ -161,19 +163,19 @@
             font-family: 'Playfair Display', serif;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             color: #ffffff;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
             z-index: 10;
             text-align: center;
         }
 
         .hero-tagline {
-            font-size: clamp(1.2rem, 3vw, 2.2rem);
+            font-size: clamp(1rem, 2vw, 1.5rem);
             color: #ffffff;
-            font-weight: 700;
-            margin-top: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+            font-weight: 600;
+            margin-top: 10px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 1);
             z-index: 10;
             text-align: center;
         }
@@ -225,12 +227,28 @@
         }
 
         .chatbot-toggle-btn {
-            left: 25px !important;
+            left: 20px !important;
+            bottom: 20px !important;
             background: #4CAF50;
-            padding: 10px 20px;
-            border-radius: 50px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50% !important;
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center !important;
+            text-align: center;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 5px !important;
+            line-height: 1;
+            border: 2px solid white;
+        }
+
+        .chatbot-toggle-btn i {
+            font-size: 1.5rem;
+            margin-bottom: 2px;
         }
 
         .fab-container {
@@ -406,7 +424,7 @@
         </ul>
     </nav>
 
-    <header id="home" class="hero" style="background-image: url('main.jpg?v=final2') !important;">
+    <header id="home" class="hero" style="background: url('./main.jpg') no-repeat center center / cover !important;">
         <div class="hero-content">
             <h1 class="hero-3d-text">MIAMI LOVES GREEN<br>LANDSCAPING</h1>
             <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
@@ -494,7 +512,8 @@
 
     <!-- Floating Buttons -->
     <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <i class="fas fa-comment-dots" style="margin-right: 10px;"></i> TALK TO OUR LIVE AGENT
+        <i class="fas fa-comment-dots"></i>
+        <span>TALK TO OUR<br>LIVE AGENT</span>
     </div>
 
     <a href="tel:786-570-3215" class="fab-container">
