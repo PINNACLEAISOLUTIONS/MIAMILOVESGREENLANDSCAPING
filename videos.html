@@ -469,6 +469,29 @@
 </head>
 
 <body>
+    <!-- START: Floating Action Buttons (Moved to top of body for better stacking) -->
+    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+        <div class="icon-wrapper">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Chat with us</span>
+        </div>
+    </div>
+
+    <!-- START: Floating Action Buttons -->
+    <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
+        <span class="fab-text">CALL US</span>
+        <div class="fab-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="#0a1a0a"
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+        </div>
+    </a>
+    <!-- END: Floating Action Buttons -->
+
 
     <nav>
         <div class="nav-container">
@@ -687,16 +710,6 @@
 
 
     <!-- Chatbot Widget Structure -->
-    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <div class="icon-wrapper">
-            <i class="fas fa-comment-dots"></i>
-        </div>
-        <div class="btn-text">
-            <span class="line-1">Need Help?</span>
-            <span class="line-2">Chat with us</span>
-        </div>
-    </div>
-
     <div id="chatbot-container" class="chatbot-container">
         <div class="chatbot-header">
             <span>Assistant</span>
@@ -705,30 +718,20 @@
         <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
     </div>
 
-    <!-- START: Floating Action Buttons -->
-    <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
-        <span class="fab-text">CALL US</span>
-        <div class="fab-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-                <path fill="#0a1a0a"
-                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-        </div>
-    </a>
-    <!-- END: Floating Action Buttons -->
-
     <style>
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            right: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1000000;
-            text-decoration: none;
+        .fab-container,
+        .chatbot-toggle-btn {
+            position: fixed !important;
+            bottom: 20px !important;
+            right: 25px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            z-index: 2147483647 !important;
+            text-decoration: none !important;
             visibility: visible !important;
             opacity: 1 !important;
+            pointer-events: auto !important;
         }
 
         .fab-text {
