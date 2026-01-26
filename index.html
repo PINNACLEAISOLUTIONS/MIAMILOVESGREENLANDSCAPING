@@ -132,6 +132,16 @@
             }
         }
 
+        /* Force visibility for floating buttons */
+        .chatbot-toggle-btn,
+        .fab-container {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 1000000 !important;
+            pointer-events: auto !important;
+        }
+
         /* Top Right Logo Positioning */
         .header-logo-right {
             position: absolute;
@@ -596,132 +606,74 @@
 
         @media (max-width: 768px) {
             .nav-container {
-                padding: 0 0px !important;
+                padding: 0 15px !important;
                 display: flex !important;
                 justify-content: space-between !important;
-                align-items: flex-start !important;
-                /* Align logos to top */
-            }
-
-            .nav-left,
-            .nav-right {
-                flex: 0 0 140px !important;
-                display: flex !important;
+                align-items: center !important;
             }
 
             .nav-left {
-                justify-content: flex-start !important;
-                padding-top: 0px !important;
-                margin-top: -20px !important;
-                margin-left: 0px !important;
+                flex: 0 0 auto !important;
+                display: flex !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             .nav-right {
-                flex-direction: column !important;
-                justify-content: flex-start !important;
-                align-items: flex-end !important;
-                gap: 0 !important;
-                padding-top: 5px !important;
+                flex: 0 0 auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-end !important;
+                gap: 15px !important;
             }
 
             .logo-img,
             .header-logo-right {
-                height: 100px !important;
+                height: 50px !important;
                 width: auto !important;
-                max-width: 140px !important;
-                object-fit: contain !important;
-            }
-
-            .logo {
-                flex: 1 !important;
-                font-size: 2.2rem !important;
-                text-align: center !important;
-                margin: 5px 0 !important;
-                display: block !important;
-                line-height: 1.1 !important;
-            }
-
-            .logo span {
-                display: block !important;
-            }
-
-            .hero-content h1 {
-                font-size: 1.5rem !important;
-                text-align: center !important;
-                margin-top: 80px !important;
-                /* Moved up significantly */
-
-                /* Enable Gradient & Animation */
-                background: linear-gradient(135deg, #FFD700 0%, #E0F2F1 50%, #4DB6AC 100%) !important;
-                -webkit-background-clip: text !important;
-                background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                color: transparent !important;
-
-                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
-                padding: 12px;
-                display: block;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                width: 95%;
-                animation: floatHero 5s ease-in-out infinite !important;
+                max-width: none !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                filter: none !important;
             }
 
             .mobile-menu-toggle {
-                padding: 10px !important;
                 display: flex !important;
+                position: static !important;
+                padding: 5px !important;
+                margin: 0 !important;
                 background: rgba(255, 255, 255, 0.1) !important;
                 border: 1px solid rgba(255, 255, 255, 0.2) !important;
                 border-radius: 50%;
+                width: 45px !important;
+                height: 45px !important;
                 justify-content: center;
                 align-items: center;
-                width: 65px !important;
-                height: 65px !important;
                 z-index: 1200;
-                backdrop-filter: blur(5px);
-                animation: windySway 5s infinite ease-in-out;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             }
 
             .mobile-menu-toggle svg {
-                width: 40px !important;
-                height: 40px !important;
-                fill: white !important;
-                filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+                width: 24px !important;
+                height: 24px !important;
+                fill: #ffffff !important;
+                /* Changed from black to white */
             }
 
-            .left-toggle {
-                margin: 20px 0 0 15px !important;
-                order: 2 !important;
-            }
-
-            .right-toggle {
-                margin: 20px 15px 0 0 !important;
-                order: 2 !important;
-                align-self: flex-start !important;
-                /* Changed from flex-end for better centering */
-            }
-
-            .nav-left,
-            .nav-right {
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: flex-start !important;
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 15px;
+                width: 180px;
+                background: rgba(5, 15, 5, 0.98);
+                border: 1px solid var(--primary-green);
+                display: none;
+                flex-direction: column;
+                z-index: 2000;
             }
 
             .header-logo-right {
-                order: 1 !important;
-                border: none !important;
-                /* Removed white border which might look like a box/line */
-                background: transparent !important;
-                box-shadow: none !important;
-                /* Removed shadow that might look like a grey box */
-                filter: none !important;
-                /* Removed drop-shadow that creates grey box effect */
-            }
-
-            .logo-img {
-                margin-bottom: 5px !important;
+                display: none !important;
+                /* Hide redundant second logo on mobile */
             }
         }
 
@@ -729,7 +681,6 @@
             text-decoration: none;
             color: rgba(232, 245, 233, 0.85);
             list-style: none;
-            /* Add list-style none here to be safe */
             display: block;
             width: 100%;
             text-align: center;
@@ -1774,24 +1725,13 @@
         <div class="nav-container">
             <div class="nav-left">
                 <a href="#home">
-                    <img src="logo-premium.png" alt="Miami Loves Green Logo" class="logo-img windy-sway">
+                    <!-- Switched to logo.png which is cleaner -->
+                    <img src="logo.png" alt="Miami Loves Green" class="logo-img"
+                        style="background:transparent !important; box-shadow:none !important; border:none !important;">
                 </a>
-                <button class="mobile-menu-toggle left-toggle" aria-label="Toggle menu" aria-expanded="false"
-                    aria-controls="mainNavLinks">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </button>
             </div>
 
             <div class="nav-right">
-                <img src="logo-premium.png" alt="Miami Loves Green Tropical Logo" class="header-logo-right windy-sway">
-                <button class="mobile-menu-toggle right-toggle" aria-label="Toggle menu" aria-expanded="false"
-                    aria-controls="mainNavLinks">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-                    </svg>
-                </button>
                 <ul class="nav-links" id="mainNavLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
@@ -1799,13 +1739,20 @@
                     <li><a href="videos.html">Videos</a></li>
                     <li><a href="#footer-contact">Contact</a></li>
                 </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false"
+                    aria-controls="mainNavLinks"
+                    style="color:white !important; background:rgba(255,255,255,0.1); border-radius:50%; width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
+                    <svg viewBox="0 0 24 24" width="30" height="30">
+                        <path fill="white" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
 
     <div class="main-content-wrapper">
         <header id="home" class="hero">
-            <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="main.jpg" style="
+            <video id="main-video" autoplay muted loop playsinline class="hero-video-bg" poster="hero-main.png" style="
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -1819,6 +1766,7 @@
                 <source src="enancemiami.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+
 
             <!-- 3D Light Green Text overlaid on hero (no box) -->
             <div style="
