@@ -136,21 +136,26 @@
 
         .hero {
             position: relative;
-            height: 60vh;
-            min-height: 450px;
+            height: 85vh;
+            /* Increased for desktop impact */
+            min-height: 550px;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
+            /* Move content to bottom */
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_green') no-repeat center center / cover !important;
+            background: #1a3a1a url('./main.jpg?v=final_bottom_v2') no-repeat bottom center / cover !important;
             z-index: 1;
             margin-top: 0;
             padding-top: 0;
+            padding-bottom: 50px;
+            /* Aligns with wooden planks */
         }
 
         @media (max-width: 768px) {
             .hero {
-                align-items: flex-end;
-                padding-bottom: 60px;
+                height: 60vh;
+                padding-bottom: 25px;
+                /* Tighter for mobile */
             }
         }
 
@@ -162,17 +167,6 @@
             color: #8BC34A;
             /* Light Green */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            z-index: 10;
-            text-align: center;
-        }
-
-        .hero-tagline {
-            font-size: clamp(1rem, 2vw, 1.5rem);
-            color: #C5E1A5;
-            /* Lighter Green */
-            font-weight: 600;
-            margin-top: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             z-index: 10;
             text-align: center;
         }
@@ -460,8 +454,7 @@
 
     <nav id="topNav">
         <div class="nav-left">
-            <a href="#home"><img src="logo.png" alt="Logo" class="logo-img"
-                    style="height: 60px; width: auto; border-radius: 10px;"></a>
+            <!-- Logo removed to see whole image as requested -->
         </div>
         <div class="menu-toggle" id="hamburger">
             <span></span>
@@ -478,10 +471,9 @@
     </nav>
 
     <header id="home" class="hero"
-        style="background: #1a3a1a url('./main.jpg?v=final_pic') no-repeat center center / cover !important;">
+        style="background: #1a3a1a url('./main.jpg?v=final_bottom_v2') no-repeat bottom center / cover !important;">
         <div class="hero-content">
-            <h1 class="hero-3d-text">MIAMI LOVES GREEN<br>LANDSCAPING</h1>
-            <p class="hero-tagline">Premier Landscaping Services in Miami, Florida</p>
+            <h1 class="hero-3d-text">MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
     </header>
 
