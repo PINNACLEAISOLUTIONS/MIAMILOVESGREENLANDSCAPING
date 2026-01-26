@@ -136,27 +136,28 @@
 
         .hero {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
+            height: 130vh;
+            /* Increased to reveal more of the vertical image */
+            min-height: 800px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_hero_v4') no-repeat bottom center / cover !important;
+            background: #1a3a1a url('./main.jpg?v=final_hero_v5') no-repeat center center / cover !important;
             z-index: 1;
             margin-top: 0;
             padding-top: 0;
-            padding-bottom: 70px;
-            /* Better alignment for the planks on desktop */
+            padding-bottom: 80px;
+            /* Anchors text perfectly over the planks */
         }
 
         @media (max-width: 768px) {
             .hero {
-                height: 70vh;
-                padding-bottom: 35px;
+                height: 80vh;
+                padding-bottom: 40px;
             }
 
             .hero-3d-text {
-                font-size: 2.2rem !important;
+                font-size: 2rem !important;
             }
         }
 
@@ -164,13 +165,14 @@
             font-family: 'Playfair Display', serif;
             font-weight: 900;
             text-transform: uppercase;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2rem, 6vw, 4.5rem);
             color: #8BC34A;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.5);
             z-index: 10;
             text-align: center;
             letter-spacing: 2px;
             padding: 0 20px;
+            line-height: 1.1;
         }
 
         /* Navigation */
@@ -271,21 +273,24 @@
 
         .chatbot-toggle-btn {
             left: 20px !important;
-            bottom: 20px !important;
+            bottom: 25px !important;
             background: #4CAF50;
-            width: 65px;
-            height: 65px;
+            width: 75px;
+            /* Slightly larger */
+            height: 75px;
             border-radius: 50% !important;
             color: white;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             display: flex !important;
             flex-direction: column;
             justify-content: center !important;
+            align-items: center !important;
             text-align: center;
-            font-size: 0.6rem;
-            font-weight: 800;
-            padding: 5px !important;
-            line-height: 1;
+            font-size: 0.55rem;
+            /* Smaller font to fit */
+            font-weight: 900;
+            padding: 2px !important;
+            line-height: 1.1;
             border: 2px solid white;
         }
 
@@ -507,7 +512,7 @@
     </nav>
 
     <header id="home" class="hero"
-        style="background: #1a3a1a url('./main.jpg?v=final_hero_v4') no-repeat bottom center / cover !important;">
+        style="background: #1a3a1a url('./main.jpg?v=final_hero_v5') no-repeat center center / cover !important;">
         <div class="hero-content">
             <h1 class="hero-3d-text">MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
