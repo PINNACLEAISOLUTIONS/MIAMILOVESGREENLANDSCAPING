@@ -136,12 +136,13 @@
 
         .hero {
             position: relative;
-            height: 130vh;
-            min-height: 800px;
+            height: 120vh;
+            /* Slightly reduced desktop height for fit */
+            min-height: 700px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_fix_v6') no-repeat center center / cover !important;
+            background: #1a3a1a url('./main.jpg?v=final_fix_v7') no-repeat center center / cover !important;
             z-index: 1;
             margin-top: 0;
             padding-top: 0;
@@ -150,16 +151,15 @@
 
         @media (max-width: 768px) {
             .hero {
-                height: 65vh;
-                /* Returned to compact height for mobile */
+                height: 55vh !important;
+                /* Shorter for mobile as requested */
                 background-position: bottom center !important;
-                /* Pin planks to bottom */
-                padding-bottom: 30px;
+                padding-bottom: 25px;
             }
 
             .hero-3d-text {
-                font-size: 1.8rem !important;
-                /* Slightly smaller for mobile fit */
+                font-size: 1.5rem !important;
+                /* Smaller text to fit mobile better */
             }
         }
 
@@ -513,7 +513,7 @@
         </ul>
     </nav>
 
-    <header id="home" class="hero" style="background-image: url('./main.jpg?v=final_fix_v6_2') !important;">
+    <header id="home" class="hero" style="background-image: url('./main.jpg?v=final_fix_v7') !important;">
         <div class="hero-content">
             <h1 class="hero-3d-text">MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
