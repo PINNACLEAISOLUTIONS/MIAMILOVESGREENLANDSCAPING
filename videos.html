@@ -461,7 +461,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
 
             to {
@@ -470,16 +470,124 @@
             }
         }
 
-        /* Reveal Classes */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: var(--primary-green)
+            }
+        }
+
+        /* Reveal Base */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
             transition: var(--transition-premium);
+        }
+
+        .reveal-up {
+            transform: translateY(40px);
+        }
+
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal-right {
+            transform: translateX(50px);
+        }
+
+        .reveal-zoom {
+            transform: scale(0.95);
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translateY(0);
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Typing Effect Class */
+        .typing-container {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid var(--primary-green);
+            width: 0;
+        }
+
+        .reveal.active .typing-container {
+            animation: typing 2.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
+        }
+
+        /* Premium Underline Animation */
+        .premium-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .premium-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-50%);
+        }
+
+        .reveal.active .premium-underline::after {
+            width: 80%;
         }
 
         /* Accessibility: prefers-reduced-motion fallback */
@@ -553,8 +661,10 @@
         </div>
     </nav>
 
-    <div class="video-hero">
-        <h1>Our Project Videos</h1>
+    <div class="video-hero reveal reveal-zoom">
+        <h1 class="premium-underline">
+            <span class="typing-container">Our Project Videos</span>
+        </h1>
     </div>
 
     <div class="container">
@@ -562,7 +672,7 @@
         <div class="videos-grid">
 
             <!-- FACEBOOK VIDEO -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-left">
                 <div class="video-wrapper">
                     <iframe
                         src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=false&width=267&t=0"
@@ -577,7 +687,7 @@
             </div>
 
             <!-- VIDEO 1 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-up">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/dhUFymQzPCs" title="Recent Landscaping Project"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -591,7 +701,7 @@
             </div>
 
             <!-- VIDEO 2 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-right">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/BKgL82ryx90" title="Project Highlight"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -605,7 +715,7 @@
             </div>
 
             <!-- VIDEO 3 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-left">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/oecLMGKOOyQ" title="Garden Transformation"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -619,7 +729,7 @@
             </div>
 
             <!-- VIDEO 4 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-up">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/5pV_jzB18AY" title="Lush & Green"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -633,7 +743,7 @@
             </div>
 
             <!-- VIDEO 5 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-right">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/Bf00keMLrDU" title="Outdoor Design"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -647,7 +757,7 @@
             </div>
 
             <!-- VIDEO 6 (NEW) -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-left">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/iHsY7xGO2M4" title="Landscape Maintenance"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -661,7 +771,7 @@
             </div>
 
             <!-- VIDEO 7 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-up">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/PHaDHy3do04" title="Latest Landscaping Project"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -675,7 +785,7 @@
             </div>
 
             <!-- VIDEO 8 -->
-            <div class="video-card reveal">
+            <div class="video-card reveal reveal-right">
                 <div class="video-wrapper">
                     <iframe
                         src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=0"
@@ -917,13 +1027,21 @@
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                        }, 50);
                         revealObserver.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+            // Trigger hero animation on load
+            window.addEventListener('load', () => {
+                const hero = document.querySelector('.video-hero');
+                if (hero) hero.classList.add('active');
+            });
         </script>
 </body>
 
