@@ -498,14 +498,15 @@
         }
 
         .footer-visual {
-            height: 400px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.95) 90%), url('./luxury_landscape_showcase.png') center/cover no-repeat;
+            height: 480px;
+            margin-top: -280px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1) 95%), url('video-header-new.jpg') center/cover no-repeat;
             border-top: 4px solid var(--primary-green);
+            border-bottom: 4px solid var(--primary-green);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 2rem 2rem 6rem;
             position: relative;
             z-index: 5;
         }
@@ -712,12 +713,12 @@
 
     <footer id="footer-contact">
         <div class="footer-visual">
-            <div class="footer-brand-text">
-                <h2
-                    style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 5rem); color: white; font-style: italic; background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 0;">
+            <div style="text-align: center;">
+                <h2 class="footer-title"
+                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));">
                     Miami Loves Green</h2>
-                <div
-                    style="font-size: clamp(1rem, 3vw, 2rem); color: #8BC34A; font-weight: 800; letter-spacing: 10px; margin-top: 5px;">
+                <div class="footer-subtitle"
+                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #4DB6AC; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0.9;">
                     LANDSCAPING</div>
             </div>
         </div>
@@ -778,7 +779,7 @@
         CALL US <i class="fas fa-phone" style="margin-left: 10px;"></i>
     </a>
 
-    <script src="chatbot.js?v=28"></script>
+    <script src="chatbot.js?v=29"></script>
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
