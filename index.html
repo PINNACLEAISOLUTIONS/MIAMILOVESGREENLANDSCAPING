@@ -173,28 +173,6 @@
             }
         }
 
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: var(--primary-green-medium)
-            }
-        }
-
         /* Reveal Base */
         .reveal {
             opacity: 0;
@@ -220,19 +198,6 @@
         .reveal.active {
             opacity: 1;
             transform: translate(0, 0) scale(1);
-        }
-
-        /* Typing Effect Class */
-        .typing-container {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 3px solid var(--primary-green-medium);
-            width: 0;
-        }
-
-        .reveal.active .typing-container {
-            animation: typing 2.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
         }
 
         /* Premium Underline Animation */
@@ -843,10 +808,15 @@
     </nav>
 
     <header id="home" class="hero" style="background-image: url('./main.jpg?v=final_fix_v8') !important;">
-        <div class="hero-content reveal reveal-up">
-            <h1 class="hero-3d-text">
-                <span class="typing-container">MIAMI LOVES GREEN LANDSCAPING</span>
-            </h1>
+        <div class="hero-content reveal reveal-up" style="width: 100%; max-width: 1200px;">
+            <div style="text-align: center;">
+                <h1 class="hero-title"
+                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8.5rem); font-weight: 900; color: #1B5E20; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 10px 30px rgba(0,0,0,0.8); background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 50%, #1B5E20 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                    Miami Loves Green</h1>
+                <div class="hero-subtitle"
+                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.8rem); font-weight: 800; color: #8BC34A; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 20px rgba(0,0,0,1); opacity: 1;">
+                    LANDSCAPING</div>
+            </div>
         </div>
     </header>
 
@@ -884,14 +854,14 @@
                 </div>
             </div>
             <div class="service-card reveal reveal-up" style="transition-delay: 0.2s;">
-                <div class="service-image-area" style="background-image: url('./tree-care.jpg');"></div>
+                <div class="service-image-area" style="background-image: url('./treetriming.jpg');"></div>
                 <div class="service-content">
                     <h3>Tree Care</h3>
                     <p>Expert trimming and nutritional health assessments.</p>
                 </div>
             </div>
             <div class="service-card reveal reveal-right" style="transition-delay: 0.3s;">
-                <div class="service-image-area" style="background-image: url('./lighting.png');"></div>
+                <div class="service-image-area" style="background-image: url('./outdoor-lighting.jpg');"></div>
                 <div class="service-content">
                     <h3>Outdoor Lighting</h3>
                     <p>Enhancing your landscape's drama and nighttime safety.</p>
@@ -914,12 +884,6 @@
         </div>
     </section>
 
-    <section id="about" class="content-section reveal reveal-up">
-        <h2 class="section-title">About Us</h2>
-        <p style="max-width: 800px; margin: 0 auto; text-align: center; color: #ccc;">At Miami Loves Green, we see your
-            outdoor space as a canvas for artistry. Our team brings a wealth of expertise and a fresh perspective to
-            every project, dedicated to realizing your unique vision.</p>
-    </section>
 
     <section id="cta" class="content-section reveal reveal-up"
         style="padding: 160px 5%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./hero-main.png') no-repeat center center; background-size: cover; background-attachment: fixed; text-align: center; border-top: 5px solid var(--primary-green-medium); border-bottom: 5px solid var(--primary-green-medium);">
