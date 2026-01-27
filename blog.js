@@ -20,6 +20,17 @@ const blogPosts = [
         excerpt: "Explore the latest in luxury hardscaping: from permeable pavers to integrated outdoor kitchens that define the Miami lifestyle in 2026.",
         image: "./hardscaping.webp",
         contentFile: "blog/modern-hardscaping-miami.md"
+    },
+    {
+        id: "low-maintenance-miami-tropical-plants",
+        title: "Top 7 Low-Maintenance Tropical Plants for your Miami Backyard in 2026",
+        date: "January 27, 2026",
+        author: "Miami Loves Green Team",
+        category: "Landscape Design",
+        tags: ["low-maintenance", "tropical plants", "miami", "backyard"],
+        excerpt: "Transform your Miami backyard into a lush getaway without the endless yard work. Discover the best low-maintenance tropical plants for 2026.",
+        image: "./landscape-design.webp",
+        contentFile: "blog/low-maintenance-miami-tropical-plants.md"
     }
 ];
 
@@ -51,18 +62,47 @@ async function renderBlogPost(postId) {
 
     if (!post || !container) return;
 
+    // Show single post view
     listSection.style.display = 'none';
     container.style.display = 'block';
+    window.scrollTo(0, 0);
+
+    container.innerHTML = `<div class="loading-state" style="text-align: center; padding: 50px;">
+        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-green);"></i>
+        <p>Loading article content...</p>
+    </div>`;
 
     try {
-        const response = await fetch(post.contentFile);
+        // Try to find the file using both relative and absolute-style paths to satisfy GH Pages/Netlify
+        const pathsToTry = [
+            post.contentFile,
+            `./${post.contentFile}`,
+            `/${post.contentFile}`
+        ];
+
+        let response;
+        let lastError;
+
+        for (const path of pathsToTry) {
+            try {
+                // Add a cache-buster (?t=...) so we don't see an old cached 404 page
+                response = await fetch(`${path}?t=${Date.now()}`);
+                if (response.ok) break;
+            } catch (e) {
+                lastError = e;
+            }
+        }
+
+        if (!response || !response.ok) {
+            throw new Error(`Could not find the article file at: ${post.contentFile}. Please check that the 'blog' folder was uploaded correctly.`);
+        }
+
         let text = await response.text();
 
-        // Simple Markdown-ish parser for demo
-        // Remove frontmatter
-        text = text.replace(/---[\s\S]*?---/, '');
+        // 1. Remove YAML frontmatter
+        text = text.replace(/---[\s\S]*?---/, '').trim();
 
-        // Convert some markdown to HTML
+        // 2. Convert markdown to HTML (Enhanced Parser)
         let html = text
             .replace(/^# (.*$)/gim, '<h1>$1</h1>')
             .replace(/^## (.*$)/gim, '<h2>$1</h2>')
@@ -75,7 +115,7 @@ async function renderBlogPost(postId) {
             .replace(/<\/li>\n/g, '</li>');
 
         container.innerHTML = `
-            <div class="post-header">
+            <div class="post-header reveal active">
                 <a href="blog.html" class="back-to-blog"><i class="fas fa-chevron-left"></i> Back to Blog</a>
                 <div class="post-meta">
                     <span class="category">${post.category}</span>
@@ -84,11 +124,11 @@ async function renderBlogPost(postId) {
                 <h1>${post.title}</h1>
                 <div class="post-author">By ${post.author}</div>
             </div>
-            <div class="post-featured-image" style="background-image: url('${post.image}');"></div>
-            <div class="post-content-body">
+            <div class="post-featured-image reveal active" style="background-image: url('${post.image}');"></div>
+            <div class="post-content-body reveal active">
                 <p>${html}</p>
             </div>
-            <div class="post-footer">
+            <div class="post-footer reveal active">
                 <div class="tags">
                     ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join(' ')}
                 </div>
@@ -98,11 +138,23 @@ async function renderBlogPost(postId) {
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
+                <div style="margin-top: 40px; text-align: center; padding: 40px; background: rgba(76, 175, 80, 0.05); border-radius: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">Ready to create your dream garden in Miami?</h3>
+                    <a href="index.html#footer-contact" class="read-more" style="justify-content: center; font-size: 1.2rem; background: var(--primary-green); color: black; padding: 10px 25px; border-radius: 50px;">Get Your Free Estimate <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         `;
     } catch (error) {
-        console.error("Error loading blog post:", error);
-        container.innerHTML = `<p>Error loading post. <a href="blog.html">Return to blog</a></p>`;
+        console.error("Critical Blog Error:", error);
+        container.innerHTML = `
+            <div style="text-align: center; padding: 50px; background: rgba(255,0,0,0.05); border-radius: 20px; border: 1px solid rgba(255,0,0,0.2);">
+                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ff5252; margin-bottom: 20px;"></i>
+                <h2 style="color: #ff5252;">Content Loading Issue</h2>
+                <p style="color: #ccc; margin-bottom: 20px;">The blog post data has loaded correctly, but the actual article file is not appearing at <code>${post.contentFile}</code>.</p>
+                <p style="font-size: 0.9rem; color: #888;">If you just uploaded these files, it may take 1-2 minutes for the server to sync.</p>
+                <a href="blog.html" class="back-to-blog" style="margin-top: 20px; display: inline-flex;">Back to Articles</a>
+            </div>
+        `;
     }
 }
 
