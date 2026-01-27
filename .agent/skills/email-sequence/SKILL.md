@@ -37,70 +37,92 @@ Before creating a sequence, understand:
 ## Core Principles
 
 ### 1. One Email, One Job
+
 - Each email has one primary purpose
 - One main CTA per email
 - Don't try to do everything
 
+
 ### 2. Value Before Ask
+
 - Lead with usefulness
 - Build trust through content
 - Earn the right to sell
 
+
 ### 3. Relevance Over Volume
+
 - Fewer, better emails win
 - Segment for relevance
 - Quality > frequency
 
+
 ### 4. Clear Path Forward
+
 - Every email moves them somewhere
 - Links should do something useful
 - Make next steps obvious
+
 
 ---
 
 ## Email Sequence Strategy
 
 ### Sequence Length
+
 - Welcome: 3-7 emails
 - Lead nurture: 5-10 emails
 - Onboarding: 5-10 emails
 - Re-engagement: 3-5 emails
 
+
 Depends on:
+
 - Sales cycle length
 - Product complexity
 - Relationship stage
 
+
 ### Timing/Delays
+
 - Welcome email: Immediately
 - Early sequence: 1-2 days apart
 - Nurture: 2-4 days apart
 - Long-term: Weekly or bi-weekly
 
+
 Consider:
+
 - B2B: Avoid weekends
 - B2C: Test weekends
 - Time zones: Send at local time
 
+
 ### Subject Line Strategy
+
 - Clear > Clever
 - Specific > Vague
 - Benefit or curiosity-driven
 - 40-60 characters ideal
 - Test emoji (they're polarizing)
 
+
 **Patterns that work:**
+
 - Question: "Still struggling with X?"
 - How-to: "How to [achieve outcome] in [timeframe]"
 - Number: "3 ways to [benefit]"
 - Direct: "[First name], your [thing] is ready"
 - Story tease: "The mistake I made with [topic]"
 
+
 ### Preview Text
+
 - Extends the subject line
 - ~90-140 characters
 - Don't repeat subject line
 - Complete the thought or add intrigue
+
 
 ---
 
@@ -108,43 +130,50 @@ Consider:
 
 ### Welcome Sequence (Post-Signup)
 
-**Email 1: Welcome (Immediate)**
+#### Email 1: Welcome (Immediate)
+
 - Subject: Welcome to [Product] — here's your first step
 - Deliver what was promised (lead magnet, access, etc.)
 - Single next action
 - Set expectations for future emails
 
-**Email 2: Quick Win (Day 1-2)**
+#### Email 2: Quick Win (Day 1-2)
+
 - Subject: Get your first [result] in 10 minutes
 - Enable small success
 - Build confidence
 - Link to helpful resource
 
-**Email 3: Story/Why (Day 3-4)**
+#### Email 3: Story/Why (Day 3-4)
+
 - Subject: Why we built [Product]
 - Origin story or mission
 - Connect emotionally
 - Show you understand their problem
 
-**Email 4: Social Proof (Day 5-6)**
+#### Email 4: Social Proof (Day 5-6)
+
 - Subject: How [Customer] achieved [Result]
 - Case study or testimonial
 - Relatable to their situation
 - Soft CTA to explore
 
-**Email 5: Overcome Objection (Day 7-8)**
+#### Email 5: Overcome Objection (Day 7-8)
+
 - Subject: "I don't have time for X" — sound familiar?
 - Address common hesitation
 - Reframe the obstacle
 - Show easy path forward
 
-**Email 6: Core Feature (Day 9-11)**
+#### Email 6: Core Feature (Day 9-11)
+
 - Subject: Have you tried [Feature] yet?
 - Highlight underused capability
 - Show clear benefit
 - Direct CTA to try it
 
-**Email 7: Conversion (Day 12-14)**
+#### Email 7: Conversion (Day 12-14)
+
 - Subject: Ready to [upgrade/buy/commit]?
 - Summarize value
 - Clear offer
@@ -155,42 +184,50 @@ Consider:
 
 ### Lead Nurture Sequence (Pre-Sale)
 
-**Email 1: Deliver + Introduce (Immediate)**
+#### Email 1: Deliver + Introduce (Immediate)
+
 - Deliver the lead magnet
 - Brief intro to who you are
 - Preview what's coming
 
-**Email 2: Expand on Topic (Day 2-3)**
+#### Email 2: Expand on Topic (Day 2-3)
+
 - Related insight to lead magnet
 - Establish expertise
 - Light CTA to content
 
-**Email 3: Problem Deep-Dive (Day 4-5)**
+#### Email 3: Problem Deep-Dive (Day 4-5)
+
 - Articulate their problem deeply
 - Show you understand
 - Hint at solution
 
-**Email 4: Solution Framework (Day 6-8)**
+#### Email 4: Solution Framework (Day 6-8)
+
 - Your approach/methodology
 - Educational, not salesy
 - Builds toward your product
 
-**Email 5: Case Study (Day 9-11)**
+#### Email 5: Case Study (Day 9-11)
+
 - Real results from real customer
 - Specific and relatable
 - Soft CTA
 
-**Email 6: Differentiation (Day 12-14)**
+#### Email 6: Differentiation (Day 12-14)
+
 - Why your approach is different
 - Address alternatives
 - Build preference
 
-**Email 7: Objection Handler (Day 15-18)**
+#### Email 7: Objection Handler (Day 15-18)
+
 - Common concern addressed
 - FAQ or myth-busting
 - Reduce friction
 
-**Email 8: Direct Offer (Day 19-21)**
+#### Email 8: Direct Offer (Day 19-21)
+
 - Clear pitch
 - Strong value proposition
 - Specific CTA
@@ -200,25 +237,29 @@ Consider:
 
 ### Re-Engagement Sequence
 
-**Email 1: Check-In (Day 30-60 of inactivity)**
+#### Email 1: Check-In (Day 30-60 of inactivity)
+
 - Subject: Is everything okay, [Name]?
 - Genuine concern
 - Ask what happened
 - Easy win to re-engage
 
-**Email 2: Value Reminder (Day 2-3 after)**
+#### Email 2: Value Reminder (Day 2-3 after)
+
 - Subject: Remember when you [achieved X]?
 - Remind of past value
 - What's new since they left
 - Quick CTA
 
-**Email 3: Incentive (Day 5-7 after)**
+#### Email 3: Incentive (Day 5-7 after)
+
 - Subject: We miss you — here's something special
 - Offer if appropriate
 - Limited time
 - Clear CTA
 
-**Email 4: Last Chance (Day 10-14 after)**
+#### Email 4: Last Chance (Day 10-14 after)
+
 - Subject: Should we stop emailing you?
 - Honest and direct
 - One-click to stay or go
@@ -230,37 +271,44 @@ Consider:
 
 Coordinate with in-app onboarding. Email supports, doesn't duplicate.
 
-**Email 1: Welcome + First Step (Immediate)**
+#### Email 1: Welcome + First Step (Immediate)
+
 - Confirm signup
 - One critical action
 - Link directly to that action
 
-**Email 2: Getting Started Help (Day 1)**
+#### Email 2: Getting Started Help (Day 1)
+
 - If they haven't completed step 1
 - Quick tip or video
 - Support option
 
-**Email 3: Feature Highlight (Day 2-3)**
+#### Email 3: Feature Highlight (Day 2-3)
+
 - Key feature they should know
 - Specific use case
 - In-app link
 
-**Email 4: Success Story (Day 4-5)**
+#### Email 4: Success Story (Day 4-5)
+
 - Customer who succeeded
 - Relatable journey
 - Motivational
 
-**Email 5: Check-In (Day 7)**
+#### Email 5: Check-In (Day 7)
+
 - How's it going?
 - Ask for feedback
 - Offer help
 
-**Email 6: Advanced Tip (Day 10-12)**
+#### Email 6: Advanced Tip (Day 10-12)
+
 - Power feature
 - For engaged users
 - Level-up content
 
-**Email 7: Upgrade/Expand (Day 14+)**
+#### Email 7: Upgrade/Expand (Day 14+)
+
 - For trial users: conversion push
 - For free users: upgrade prompt
 - For paid: expansion opportunity
@@ -274,6 +322,7 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 ### Onboarding Emails
 
 #### New Users Series
+
 **Trigger**: User signs up (free or trial)
 **Goal**: Activate user, drive to aha moment
 **Typical sequence**: 5-7 emails over 14 days
@@ -288,9 +337,11 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 
 **Key metrics**: Activation rate, feature adoption
 
+
 ---
 
 #### New Customers Series
+
 **Trigger**: User converts to paid
 **Goal**: Reinforce purchase decision, drive adoption, reduce early churn
 **Typical sequence**: 3-5 emails over 14 days
@@ -303,12 +354,15 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 
 **Key point**: Different from new user series—they've committed. Focus on reinforcement and expansion, not conversion.
 
+
 ---
 
 #### Key Onboarding Step Reminder
+
 **Trigger**: User hasn't completed critical setup step after X time
 **Goal**: Nudge completion of high-value action
 **Format**: Single email or 2-3 email mini-sequence
+
 
 **Example triggers**:
 - Hasn't connected integration after 48 hours
@@ -324,6 +378,7 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 ---
 
 #### New User Invite
+
 **Trigger**: Existing user invites teammate
 **Goal**: Activate the invited user
 **Recipient**: The person being invited
@@ -331,6 +386,7 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 - Email 1: You've been invited (immediate)
 - Email 2: Reminder if not accepted (day 2)
 - Email 3: Final reminder (day 5)
+
 
 **Copy approach**:
 - Personalize with inviter's name
@@ -343,34 +399,42 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 ### Retention Emails
 
 #### Upgrade to Paid
+
 **Trigger**: Free user shows engagement, or trial ending
 **Goal**: Convert free to paid
 **Typical sequence**: 3-5 emails
 
 **Trigger options**:
+
 - Time-based (trial day 10, 12, 14)
 - Behavior-based (hit usage limit, used premium feature)
 - Engagement-based (highly active free user)
 
 **Sequence structure**:
+
 - Value summary: What they've accomplished
 - Feature comparison: What they're missing
 - Social proof: Who else upgraded
 - Urgency: Trial ending, limited offer
 - Final: Last chance + easy path
 
+
 ---
 
 #### Upgrade to Higher Plan
+
 **Trigger**: User approaching plan limits or using features available on higher tier
 **Goal**: Upsell to next tier
 **Format**: Single email or 2-3 email sequence
 
+
 **Trigger examples**:
+
 - 80% of seat limit reached
 - 90% of storage/usage limit
 - Tried to use higher-tier feature
 - Power user behavior patterns
+
 
 **Copy approach**:
 - Acknowledge their growth (positive framing)
@@ -381,15 +445,19 @@ A comprehensive guide to lifecycle and campaign emails. Use this as an audit che
 ---
 
 #### Ask for Review
+
 **Trigger**: Customer milestone (30/60/90 days, key achievement, support resolution)
 **Goal**: Generate social proof on G2, Capterra, app stores
 **Format**: Single email
 
+
 **Best timing**:
+
 - After positive support interaction
 - After achieving measurable result
 - After renewal
 - NOT after billing issues or bugs
+
 
 **Copy approach**:
 - Thank them for being a customer
@@ -880,7 +948,7 @@ Use this to audit your current email program:
 ## Output Format
 
 ### Sequence Overview
-```
+```text
 Sequence Name: [Name]
 Trigger: [What starts the sequence]
 Goal: [Primary conversion goal]
@@ -890,7 +958,7 @@ Exit Conditions: [When they leave the sequence]
 ```
 
 ### For Each Email
-```
+```text
 Email [#]: [Name/Purpose]
 Send: [Timing]
 Subject: [Subject line]

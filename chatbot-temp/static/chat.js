@@ -430,15 +430,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Calling ElevenLabs TTS API...');
-<<<<<<< HEAD
-            // Get voice ID from mapping
-            const selectedVoiceKey = voiceSelector ? voiceSelector.value : 'miami';
-            const voiceId = VOICE_IDS[selectedVoiceKey] || VOICE_IDS['miami'];
+            // Get voice ID (prefer selector, fallback to synchronized voice)
+            const voiceKey = voiceSelector ? voiceSelector.value : (currentVoiceId || 'miami');
+            const voiceId = VOICE_IDS[voiceKey] || voiceKey;
 
-=======
-            // Use the voice ID synchronized from the server/LLM
-            const voiceId = currentVoiceId;
->>>>>>> a6e58df1998034a66c548aa8c8f5ad4783744f24
             const response = await fetch(`${API_BASE}/api/tts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
