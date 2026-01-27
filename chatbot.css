@@ -30,11 +30,14 @@
 }
 
 /* desktop panel sizing - FORCED OVERRIDE */
+/* desktop panel sizing - FORCED OVERRIDE */
 @media (min-width: 768px) {
 
     #chatbot-container,
     .chatbot-container {
-        display: flex !important;
+        /* display: flex !important; <--- REMOVED THIS CAUSE OF AUTO-OPEN */
+        display: none;
+        /* Hidden by default */
         position: fixed !important;
         left: 40px !important;
         bottom: 120px !important;
@@ -49,9 +52,15 @@
         right: auto !important;
         top: auto !important;
     }
+
+    /* Only show when active */
+    #chatbot-container.active,
+    .chatbot-container.active {
+        display: flex !important;
+    }
 }
 
-/* Toggle visibility */
+/* Toggle visibility - General */
 .chatbot-container.active {
     display: flex;
     opacity: 1;
