@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Miami Loves Green Landscaping</title>
+    <meta name="description"
+        content="Read the latest landscaping tips, trends, and sustainable practices from Miami Loves Green.">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="chatbot.css?v=27">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary-green: #4CAF50;
+            --primary-green-dark: #123012;
+            --primary-green-glow: rgba(76, 175, 80, 0.4);
+            --accent-gold: #FFA726;
+            --text-light: #f1f8f1;
+            --text-muted: #b0c4b0;
+            --bg-dark: #0a0e0a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --transition-premium: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Standardized Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-left .logo-img {
+            height: 60px;
+            border-radius: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #4CAF50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(76, 175, 80, 0.2);
+            color: #8BC34A;
+            border-color: #8BC34A;
+        }
+
+        /* Hero */
+        .blog-hero {
+            height: 40vh;
+            min-height: 300px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('./main.jpg') no-repeat center center / cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .blog-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .blog-hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            letter-spacing: 2px;
+        }
+
+        /* Grid */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-premium);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .blog-image-area {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-green);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #8BC34A;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .blog-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 12px;
+            color: #8BC34A;
+        }
+
+        /* Single Post View */
+        #post-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-green);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #8BC34A;
+            margin: 1rem 0;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .post-meta .category {
+            color: var(--primary-green);
+        }
+
+        .post-featured-image {
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .post-content-body {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .post-content-body h2 {
+            font-family: 'Playfair Display', serif;
+            color: #8BC34A;
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .post-content-body li {
+            margin-bottom: 1rem;
+        }
+
+        .post-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tags .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .share-post {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .share-post a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .share-post a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-premium);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-featured-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo" class="logo-img">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="videos.html">Videos</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="index.html#footer-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="blog-hero">
+        <h1>Green Insights</h1>
+        <p>Expert Landscaping Tips for Miami Homes</p>
+    </header>
+
+    <div class="container">
+        <section id="blog-list-section">
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog cards injected by blog.js -->
+            </div>
+        </section>
+
+        <section id="post-container">
+            <!-- Full blog post injected by blog.js -->
+        </section>
+    </div>
+
+    <footer style="padding: 60px 5%; background: #000; border-top: 4px solid var(--primary-green); text-align: center;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #4CAF50;">Miami Loves Green</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Professional Landscaping Services in Miami, FL.</p>
+        <div style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem;">
+            <a href="#" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <a href="#" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <a href="#" style="color: white;"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="color: #666; margin-top: 2rem;">&copy; 2026 Miami Loves Green Landscaping. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="blog.js"></script>
+
+    <!-- Chatbot Scripts -->
+    <script src="chatbot.js?v=27"></script>
+
+</body>
+
+</html>
