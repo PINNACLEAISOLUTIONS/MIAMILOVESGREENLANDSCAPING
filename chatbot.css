@@ -39,10 +39,10 @@
         display: none;
         /* Hidden by default */
         position: fixed !important;
-        right: 30px !important;
-        bottom: 110px !important;
-        width: 380px !important;
-        height: 600px !important;
+        right: 40px !important;
+        bottom: 115px !important;
+        width: 420px !important;
+        height: 650px !important;
         max-height: calc(100vh - 120px) !important;
         /* Ensure it doesn't touch top */
         border-radius: 16px !important;
