@@ -92,7 +92,7 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="chatbot.css?v=11">
+    <link rel="stylesheet" href="chatbot.css?v=12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
@@ -371,7 +371,7 @@
             margin-bottom: 10px;
         }
 
-        /* Gallery */
+        /* Gallery - CSS Scroll Snap (Robust) */
         .gallery-wrapper {
             position: relative;
             width: 100%;
@@ -380,28 +380,43 @@
 
         .carousel {
             display: flex;
-            overflow: hidden;
-            width: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Hide scrollbar Firefox */
             border-radius: 20px;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            height: 400px;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar Chrome/Safari */
         }
 
         .carousel article {
             min-width: 100%;
-            height: 400px;
-        }
-
-        @media (min-width: 769px) {
-            .carousel article {
-                height: 600px;
-            }
+            height: 100%;
+            scroll-snap-align: start;
+            flex: 0 0 100%;
         }
 
         .carousel img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             background: #111;
+        }
+
+        @media (min-width: 900px) {
+
+            .carousel,
+            .carousel article {
+                height: 800px;
+                /* Big desktop gallery */
+            }
         }
 
         .carousel-nav-btn {
@@ -409,7 +424,7 @@
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.5);
-            color: white;
+            color: #8BC34A;
             border: 2px solid #8BC34A;
             width: 50px;
             height: 50px;
@@ -431,11 +446,11 @@
         }
 
         .carousel-nav-btn.prev {
-            left: -25px;
+            left: 20px;
         }
 
         .carousel-nav-btn.next {
-            right: -25px;
+            right: 20px;
         }
 
         @media (max-width: 768px) {
@@ -641,7 +656,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image-area" style="background-image: url('./irrigationimage.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./irrigation-systems.png');"></div>
                 <div class="service-content">
                     <h3>Irrigation Systems</h3>
                     <p>Efficient watering solutions for a healthy landscape.</p>
@@ -655,7 +670,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-image-area" style="background-image: url('./landscapelighting.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./outdoor-lighting.jpg');"></div>
                 <div class="service-content">
                     <h3>Outdoor Lighting</h3>
                     <p>Illuminate your space with elegant and efficient lighting.</p>
@@ -803,67 +818,18 @@
             }
         });
 
-        // Gallery/Carousel Logic
+        // Gallery/Carousel Logic (Simplified & Robust)
         const carousel = document.getElementById('mainCarousel');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const articles = carousel.querySelectorAll('article');
-        let currentIndex = 0;
-        let slideInterval;
-
-        function showSlide(index) {
-            if (index < 0) index = articles.length - 1;
-            if (index >= articles.length) index = 0;
-            currentIndex = index;
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        function nextSlide() {
-            showSlide(currentIndex + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentIndex - 1);
-        }
-
-        function startAutoSlide() {
-            stopAutoSlide();
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopAutoSlide() {
-            if (slideInterval) clearInterval(slideInterval);
-        }
 
         nextBtn.addEventListener('click', () => {
-            nextSlide();
-            startAutoSlide(); // Reset timer on click
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
         });
 
         prevBtn.addEventListener('click', () => {
-            prevSlide();
-            startAutoSlide(); // Reset timer on click
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
         });
-
-        // Start auto-slide
-        startAutoSlide();
-
-        // Pause on hover
-        carousel.addEventListener('mouseenter', stopAutoSlide);
-        carousel.addEventListener('mouseleave', startAutoSlide);
-
-        // Touch support for mobile
-        let touchStartX = 0;
-        carousel.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        carousel.addEventListener('touchend', e => {
-            let touchEndX = e.changedTouches[0].screenX;
-            if (touchStartX - touchEndX > 50) nextSlide();
-            if (touchEndX - touchStartX > 50) prevSlide();
-            startAutoSlide();
-        }, { passive: true });
     </script>
 </body>
 
