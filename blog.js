@@ -7,7 +7,7 @@ const blogPosts = [
         category: "Landscaping",
         tags: ["sustainable", "miami", "native plants"],
         excerpt: "Discover how to create a stunning, eco-friendly oasis in Miami using native plants, smart water conservation, and sustainable design practices.",
-        image: "./landscape-design.jpg",
+        image: "./landscape-design.webp",
         contentFile: "blog/sustainable-landscaping-miami.md"
     },
     {
@@ -18,7 +18,7 @@ const blogPosts = [
         category: "Hardscaping",
         tags: ["hardscaping", "miami", "patios"],
         excerpt: "Explore the latest in luxury hardscaping: from permeable pavers to integrated outdoor kitchens that define the Miami lifestyle in 2026.",
-        image: "./hardscaping.jpg",
+        image: "./hardscaping.webp",
         contentFile: "blog/modern-hardscaping-miami.md"
     }
 ];
