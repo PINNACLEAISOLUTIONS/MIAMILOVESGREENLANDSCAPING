@@ -42,8 +42,10 @@
         left: 40px !important;
         bottom: 120px !important;
         width: 450px !important;
-        height: 750px !important;
-        max-height: 85vh !important;
+        height: 700px !important;
+        /* Reverted to 700px */
+        max-height: calc(100vh - 160px) !important;
+        /* Adjusted for better fit */
         border-radius: 16px !important;
         border: 2px solid #4CAF50 !important;
         z-index: 10000000 !important;
