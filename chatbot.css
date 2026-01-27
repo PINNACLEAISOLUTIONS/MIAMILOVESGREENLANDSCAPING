@@ -39,13 +39,12 @@
         display: none;
         /* Hidden by default */
         position: fixed !important;
-        left: 40px !important;
-        bottom: 100px !important;
-        width: 380px !important;
-        height: 600px !important;
-        /* Reverted to standard size */
-        max-height: 80vh !important;
-        /* Adjusted for better fit */
+        left: 30px !important;
+        bottom: 30px !important;
+        width: 410px !important;
+        height: 650px !important;
+        max-height: calc(100vh - 100px) !important;
+        /* Ensure it doesn't touch top */
         border-radius: 16px !important;
         border: 2px solid #4CAF50 !important;
         z-index: 10000000 !important;
