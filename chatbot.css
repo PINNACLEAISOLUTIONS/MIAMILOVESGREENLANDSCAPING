@@ -303,9 +303,9 @@
 
     .chatbot-toggle-btn {
         bottom: 20px !important;
-        left: 20px !important;
-        padding: 5px 12px !important;
-        gap: 8px !important;
+        left: 15px !important;
+        padding: 8px 18px 8px 8px !important;
+        gap: 12px !important;
         z-index: 2147483647 !important;
         top: auto !important;
         transform: none !important;
@@ -313,6 +313,10 @@
         opacity: 1 !important;
         visibility: visible !important;
         position: fixed !important;
+        border-radius: 50px !important;
+        width: auto !important;
+        max-width: 200px !important;
+        align-items: center !important;
     }
 
     /* Mobile Call Button Styles */
@@ -337,21 +341,33 @@
 
     .chatbot-toggle-btn .icon-wrapper {
         display: flex !important;
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 0.85rem !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1rem !important;
+        flex-shrink: 0 !important;
+        background: #4CAF50 !important;
     }
 
     .chatbot-toggle-btn .btn-text {
         display: flex !important;
+        flex-direction: column !important;
+        gap: 2px !important;
+        flex: 1 !important;
     }
 
     .chatbot-toggle-btn .line-1 {
-        font-size: 0.7rem !important;
+        font-size: 0.75rem !important;
+        -webkit-text-fill-color: #fff !important;
+        color: #fff !important;
+        font-weight: 800 !important;
+        white-space: nowrap !important;
     }
 
     .chatbot-toggle-btn .line-2 {
-        font-size: 0.55rem !important;
+        font-size: 0.65rem !important;
+        color: #fff !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
     }
 }
 
