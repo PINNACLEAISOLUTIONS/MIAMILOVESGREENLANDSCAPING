@@ -41,8 +41,8 @@
         position: fixed !important;
         left: 30px !important;
         bottom: 30px !important;
-        width: 410px !important;
-        height: 650px !important;
+        width: 350px !important;
+        height: 520px !important;
         max-height: calc(100vh - 100px) !important;
         /* Ensure it doesn't touch top */
         border-radius: 16px !important;

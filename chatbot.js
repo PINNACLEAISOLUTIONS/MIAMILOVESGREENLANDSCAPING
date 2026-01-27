@@ -138,28 +138,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (chatbotHeader) chatbotHeader.style.display = 'flex';
         } else {
-            // Desktop Panel - FIXED OVERLAP ISSUE
-            const panelHeight = Math.min(800, h * 0.85);
-            chatbotContainer.style.top = 'auto';
-            chatbotContainer.style.bottom = '100px'; // Lifted above the toggle button
-            chatbotContainer.style.left = '40px';
-            chatbotContainer.style.right = 'auto';
-            chatbotContainer.style.width = '450px';
-            chatbotContainer.style.height = panelHeight + 'px';
-            chatbotContainer.style.maxHeight = '90vh';
-            chatbotContainer.style.borderRadius = '16px';
-            chatbotContainer.style.background = '#111';
-            chatbotContainer.style.boxShadow = '0 10px 40px rgba(0,0,0,0.8)';
-            chatbotContainer.style.border = '1px solid #4CAF50';
+            // Desktop Panel - Let CSS handle it!
+            // We clear any leftover mobile inline styles just in case
+            chatbotContainer.style.width = '';
+            chatbotContainer.style.height = '';
+            chatbotContainer.style.top = '';
+            chatbotContainer.style.left = '';
+            chatbotContainer.style.right = '';
+            chatbotContainer.style.bottom = '';
+            chatbotContainer.style.borderRadius = '';
+            chatbotContainer.style.background = '';
+            chatbotContainer.style.boxShadow = '';
+            chatbotContainer.style.border = '';
+            chatbotContainer.style.display = ''; // Let CSS .active handle display
 
-            // Header: Keep it anchored at top, no shift
             if (chatbotHeader) {
-                chatbotHeader.style.display = 'flex';
-                chatbotHeader.style.background = '#4CAF50';
-                chatbotHeader.style.padding = '15px';
-                chatbotHeader.style.width = '100%';
-                chatbotHeader.style.boxSizing = 'border-box';
-                chatbotHeader.style.zIndex = '10';
+                chatbotHeader.style = ''; // Clear header overrides
             }
         }
 
