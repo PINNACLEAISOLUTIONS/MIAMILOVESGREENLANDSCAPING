@@ -128,7 +128,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
 
             to {
@@ -137,92 +137,6 @@
             }
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Reveal Base */
-        .reveal {
-            opacity: 0;
-            transition: var(--transition-premium);
-        }
-
-        .reveal-up {
-            transform: translateY(40px);
-        }
-
-        .reveal-left {
-            transform: translateX(-50px);
-        }
-
-        .reveal-right {
-            transform: translateX(50px);
-        }
-
-        .reveal-zoom {
-            transform: scale(0.95);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translate(0, 0) scale(1);
-        }
-
-        /* Premium Underline Animation */
-        .premium-underline {
-            position: relative;
-            display: inline-block;
-        }
-
-        .premium-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--primary-green-medium), transparent);
-            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            transform: translateX(-50%);
-        }
-
-        .reveal.active .premium-underline::after {
-            width: 80%;
-        }
-
-        /* Animation Keyframes */
         @keyframes shimmer {
             0% {
                 background-position: -200% 0;
@@ -289,12 +203,12 @@
             align-items: flex-end;
             /* Bottom alignment */
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_fix_v8') no-repeat center center / cover !important;
+            background: #1a3a1a url('./main.jpg?v=final_fix_v12') no-repeat center center / cover !important;
             background-attachment: fixed !important;
             z-index: 1;
             margin-top: 0;
-            padding-bottom: 280px;
-            /* Perfectly positioned on the lower wood planks */
+            padding-bottom: 250px;
+            /* Positioned on the wood above pavers */
             padding-top: 0;
         }
 
@@ -348,14 +262,8 @@
             letter-spacing: 2px;
             padding: 0 20px;
             line-height: 1.1;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hero.active .hero-3d-text {
-            opacity: 1;
-            transform: translateY(0);
+            animation: fadeInUp 1.2s ease-out;
+            /* Hero entrance animation */
         }
 
         /* Navigation */
@@ -808,69 +716,62 @@
     </nav>
 
     <header id="home" class="hero">
-        <div class="hero-content reveal reveal-up" style="width: 100%; max-width: 1200px;">
-            <div style="text-align: center;">
-                <h1 class="hero-title"
-                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8.5rem); font-weight: 900; color: #1B5E20; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.8), 0 0 25px rgba(76, 175, 80, 0.8), 0 0 50px rgba(76, 175, 80, 0.5), 0 15px 40px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                    Miami Loves Green</h1>
-                <div class="hero-subtitle"
-                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.8rem); font-weight: 800; color: #8BC34A; text-transform: uppercase; letter-spacing: 15px; margin-top: 15px; text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.8), 0 0 20px rgba(139, 195, 74, 0.6), 0 0 40px rgba(139, 195, 74, 0.4), 0 10px 30px rgba(0,0,0,1); opacity: 1;">
-                    LANDSCAPING</div>
-            </div>
+        <div class="hero-content reveal">
+            <h1 class="hero-3d-text"
+                style="color: #8BC34A; text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.8), 0 0 25px rgba(76, 175, 80, 0.8), 0 0 50px rgba(76, 175, 80, 0.5), 0 15px 40px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
     </header>
 
-    <section id="services" class="content-section">
-        <div class="reveal reveal-up" style="text-align: center; margin-bottom: 60px;">
-            <h2 class="section-title premium-underline">Our Premier Services</h2>
-        </div>
+    <section id="services" class="content-section reveal">
+        <h2 class="section-title">Our Premier Services</h2>
         <div class="services-grid">
-            <div class="service-card reveal reveal-left" style="transition-delay: 0.1s;">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
                 <div class="service-image-area" style="background-image: url('./landscape-design.jpg');"></div>
                 <div class="service-content">
                     <h3>Landscape Design</h3>
                     <p>Tailored designs that merge beauty with functionality.</p>
                 </div>
             </div>
-            <div class="service-card reveal reveal-up" style="transition-delay: 0.2s;">
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
                 <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');"></div>
                 <div class="service-content">
                     <h3>Maintenance</h3>
                     <p>Comprehensive care ensuring your landscape remains vibrant.</p>
                 </div>
             </div>
-            <div class="service-card reveal reveal-right" style="transition-delay: 0.3s;">
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
                 <div class="service-image-area" style="background-image: url('./hardscaping.jpg');"></div>
                 <div class="service-content">
                     <h3>Hardscaping</h3>
                     <p>Custom patios, walkways, and water features.</p>
                 </div>
             </div>
-            <div class="service-card reveal reveal-left" style="transition-delay: 0.1s;">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
                 <div class="service-image-area" style="background-image: url('./irrigation-systems.png');"></div>
                 <div class="service-content">
                     <h3>Irrigation Systems</h3>
-                    <p>Efficient watering solutions for your lush green spaces.</p>
+                    <p>Efficient watering solutions for a healthy landscape.</p>
                 </div>
             </div>
-            <div class="service-card reveal reveal-up" style="transition-delay: 0.2s;">
-                <div class="service-image-area" style="background-image: url('./treetriming.jpg');"></div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-image-area" style="background-image: url('./treetriming.webp');"></div>
                 <div class="service-content">
                     <h3>Tree Care</h3>
-                    <p>Expert trimming and nutritional health assessments.</p>
+                    <p>Professional trimming and long-term health management.</p>
                 </div>
             </div>
-            <div class="service-card reveal reveal-right" style="transition-delay: 0.3s;">
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
                 <div class="service-image-area" style="background-image: url('./outdoor-lighting.jpg');"></div>
                 <div class="service-content">
                     <h3>Outdoor Lighting</h3>
-                    <p>Enhancing your landscape's drama and nighttime safety.</p>
+                    <p>Illuminate your space with elegant and efficient lighting.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="content-section reveal reveal-up" style="background: #000;">
+    <section id="gallery" class="content-section reveal" style="background: #000;">
         <h2 class="section-title">Our Gallery</h2>
         <div class="gallery-wrapper">
             <div class="carousel" id="mainCarousel">
@@ -884,23 +785,22 @@
         </div>
     </section>
 
-
-    <section id="cta" class="content-section reveal reveal-up"
-        style="padding: 160px 5%; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./hero-main.png') no-repeat center center; background-size: cover; background-attachment: fixed; text-align: center; border-top: 5px solid var(--primary-green-medium); border-bottom: 5px solid var(--primary-green-medium);">
-        <div class="reveal reveal-up">
-            <h2 class="section-title premium-underline"
-                style="font-size: clamp(2.5rem, 8vw, 5rem); text-shadow: 0 5px 25px rgba(0,0,0,1); color: #8BC34A; margin-bottom: 20px;">
-                Transform Your Vision</h2>
-            <p
-                style="margin-bottom: 45px; font-size: 1.6rem; font-weight: 700; text-shadow: 0 4px 15px rgba(0,0,0,1); color: #fff; letter-spacing: 1px;">
-                Ready for a free estimate?</p>
-            <a href="tel:786-570-3215" class="fab-container"
-                style="position: static !important; display: inline-flex !important; padding: 20px 50px; font-size: 1.2rem; background: var(--accent-gold); color: #000; font-weight: 900; border-radius: 60px; box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255,167,38,0.3); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">CALL
-                US TODAY FOR A FREE ESTIMATE</a>
-        </div>
+    <section id="about" class="content-section reveal">
+        <h2 class="section-title">About Us</h2>
+        <p style="max-width: 800px; margin: 0 auto; text-align: center; color: #ccc;">At Miami Loves Green, we see your
+            outdoor space as a canvas for artistry. Our team brings a wealth of expertise and a fresh perspective to
+            every project, dedicated to realizing your unique vision.</p>
     </section>
 
-    <footer id="footer-contact" class="reveal reveal-up">
+    <section id="cta" class="content-section reveal"
+        style="padding: 120px 5%; background: radial-gradient(circle, #1a3a1a, #000); text-align: center;">
+        <h2 class="section-title">Transform Your Vision</h2>
+        <p style="margin-bottom: 30px;">Ready for a free estimate?</p>
+        <a href="tel:786-570-3215" class="fab-container"
+            style="position: static !important; display: inline-flex !important;">CALL US TODAY FOR A FREE ESTIMATE</a>
+    </section>
+
+    <footer id="footer-contact">
         <div class="footer-visual">
             <div style="text-align: center;">
                 <h2 class="footer-title"
@@ -1030,28 +930,20 @@
 
         // Intersection Observer for Reveal Animations
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Slight delay before adding active to trigger CSS transitions
-                    setTimeout(() => {
-                        entry.target.classList.add('active');
-                    }, 50);
+                    entry.target.classList.add('active');
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Trigger hero animation on load
-        window.addEventListener('load', () => {
-            document.querySelector('.hero').classList.add('active');
-        });
     </script>
 </body>
 
