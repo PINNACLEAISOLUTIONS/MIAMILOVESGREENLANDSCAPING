@@ -92,12 +92,73 @@
   }
 }
 </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="chatbot.css?v=27">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
         /* Root Variables */
+        :root {
+            --primary-green-darkest: #0A1A0A;
+            --primary-green-darkest-rgb: 10, 26, 10;
+            --primary-green-dark: #123012;
+            --primary-green-medium: #4CAF50;
+            --primary-green-glow: rgba(76, 175, 80, 0.4);
+            --primary-green: var(--primary-green-medium);
+            --primary-green-light: #8DD08D;
+            --accent-gold: #FFA726;
+            --accent-gold-hover: #FFB74D;
+            --accent-gold-glow: rgba(255, 167, 38, 0.3);
+            --text-hero: #FFFFFF;
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 4rem;
+            --border-radius-md: 16px;
+            --border-radius-xl: 50px;
+            --transition-fast: 0.25s ease;
+            --transition-premium: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-premium);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         :root {
             --primary-green-darkest: #0A1A0A;
             --primary-green-darkest-rgb: 10, 26, 10;
@@ -142,7 +203,9 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: #1a3a1a url('./main.jpg?v=final_fix_v7') no-repeat center center / cover !important;
+            background: #1a3a1a url('./hero_background_new.png') no-repeat center center / cover !important;
+            background-attachment: fixed !important;
+            /* Parallax effect */
             z-index: 1;
             margin-top: 0;
             padding-top: 0;
@@ -199,6 +262,8 @@
             letter-spacing: 2px;
             padding: 0 20px;
             line-height: 1.1;
+            animation: fadeInUp 1.2s ease-out;
+            /* Hero entrance animation */
         }
 
         /* Navigation */
@@ -353,7 +418,9 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(76, 175, 80, 0.2) !important;
+            border-color: var(--primary-green-medium) !important;
         }
 
         .service-image-area {
@@ -604,6 +671,25 @@
                 align-items: center !important;
                 padding: 0 15px !important;
             }
+
+            /* Smooth scrolling for anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        /* Accessibility: prefers-reduced-motion fallback */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -628,51 +714,51 @@
         </ul>
     </nav>
 
-    <header id="home" class="hero" style="background-image: url('./main.jpg?v=final_fix_v7') !important;">
+    <header id="home" class="hero" style="background-image: url('./hero_background_new.png') !important;">
         <div class="hero-content">
             <h1 class="hero-3d-text">MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
     </header>
 
-    <section id="services" class="content-section">
+    <section id="services" class="content-section reveal">
         <h2 class="section-title">Our Premier Services</h2>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
                 <div class="service-image-area" style="background-image: url('./landscape-design.jpg');"></div>
                 <div class="service-content">
                     <h3>Landscape Design</h3>
                     <p>Tailored designs that merge beauty with functionality.</p>
                 </div>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
                 <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');"></div>
                 <div class="service-content">
                     <h3>Maintenance</h3>
                     <p>Comprehensive care ensuring your landscape remains vibrant.</p>
                 </div>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
                 <div class="service-image-area" style="background-image: url('./hardscaping.jpg');"></div>
                 <div class="service-content">
                     <h3>Hardscaping</h3>
                     <p>Custom patios, walkways, and water features.</p>
                 </div>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
                 <div class="service-image-area" style="background-image: url('./irrigation-systems.png');"></div>
                 <div class="service-content">
                     <h3>Irrigation Systems</h3>
                     <p>Efficient watering solutions for a healthy landscape.</p>
                 </div>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
                 <div class="service-image-area" style="background-image: url('./treetriming.webp');"></div>
                 <div class="service-content">
                     <h3>Tree Care</h3>
                     <p>Professional trimming and long-term health management.</p>
                 </div>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
                 <div class="service-image-area" style="background-image: url('./outdoor-lighting.jpg');"></div>
                 <div class="service-content">
                     <h3>Outdoor Lighting</h3>
@@ -682,7 +768,7 @@
         </div>
     </section>
 
-    <section id="gallery" class="content-section" style="background: #000;">
+    <section id="gallery" class="content-section reveal" style="background: #000;">
         <h2 class="section-title">Our Gallery</h2>
         <div class="gallery-wrapper">
             <div class="carousel" id="mainCarousel">
@@ -696,7 +782,7 @@
         </div>
     </section>
 
-    <section id="about" class="content-section">
+    <section id="about" class="content-section reveal">
         <h2 class="section-title">About Us</h2>
         <p style="max-width: 800px; margin: 0 auto; text-align: center; color: #ccc;">At Miami Loves Green, we see your
             outdoor space as a canvas for artistry. Our team brings a wealth of expertise and a fresh perspective to
@@ -722,35 +808,40 @@
                     LANDSCAPING</div>
             </div>
         </div>
-        <div class="container" style="padding: 3rem 5%; text-align: center; background: #000;">
-            <div class="footer-section">
-                <img src="logo.png" style="height: 100px; border-radius: 12px; margin-bottom: 1.5rem;">
-                <p style="color: #ccc; margin-bottom: 20px;">Excellence in every detail. Professional Landscaping
-                    Services in Miami, FL.</p>
+        <div class="container"
+            style="padding: 1rem 0 4rem; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('footer-background-pool.jpg') no-repeat center center; background-size: cover;">
+            <div class="footer-brand" style="margin-bottom: 2rem;">
+                <img src="logo.png" alt="Miami Loves Green"
+                    style="height: 80px; border-radius: 12px; margin-bottom: 1rem;">
+                <h2 style="font-family: 'Playfair Display', serif; color: white; margin: 0;">Miami Loves Green</h2>
+                <p style="color: #ccc; max-width: 600px; margin: 1rem auto;">Professional Landscaping
+                    Services in Miami, FL. Transforming outdoor spaces into breathtaking environments.</p>
             </div>
 
-            <div class="footer-social-links">
-                <a href="https://www.facebook.com/azakin.sejour" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank"><i
+            <div class="footer-social-links"
+                style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-bottom: 2rem;">
+                <a href="https://www.facebook.com/azakin.sejour" target="_blank" style="color: white;"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" style="color: white;"><i
                         class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/miami_loves_green" target="_blank"><i
+                <a href="https://www.instagram.com/miami_loves_green" target="_blank" style="color: white;"><i
                         class="fab fa-instagram"></i></a>
             </div>
 
-            <div class="footer-section" style="margin-top: 30px;">
-                <h3 style="color: #8BC34A; margin-bottom: 15px;">Contact Info</h3>
+            <div class="footer-contact" style="margin-top: 30px; margin-bottom: 2rem;">
+                <h3 style="color: #8BC34A; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Contact Info</h3>
                 <div style="display: flex; flex-direction: column; gap: 10px;">
                     <a href="tel:786-570-3215" style="color: white; text-decoration: none; font-weight: 600;">📞 (786)
                         570-3215</a>
                     <a href="mailto:Miamilovesgreenlandscaping@gmail.com"
                         style="color: white; text-decoration: none;">✉️ Miamilovesgreenlandscaping@gmail.com</a>
-                    <p>📍 Miami, Florida</p>
+                    <p style="color: #ccc;">📍 Miami, Florida</p>
                 </div>
             </div>
 
             <div style="margin-top: 40px;">
-                <img src="logo-tropical.png" alt="Tropical Logo"
-                    style="max-width: 180px; border-radius: 15px; filter: drop-shadow(0 0 10px rgba(0,255,0,0.2));">
+                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo"
+                    style="max-width: 200px; border-radius: 15px; filter: drop-shadow(0 0 15px rgba(0,255,0,0.15));">
             </div>
         </div>
     </footer>
@@ -770,8 +861,8 @@
             <i class="fas fa-comment-dots"></i>
         </div>
         <div class="btn-text">
-            <span class="line-1">TALK TO OUR</span>
-            <span class="line-2">LIVE AGENT</span>
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Chat with us</span>
         </div>
     </div>
 
@@ -833,6 +924,23 @@
         prevBtn.addEventListener('click', () => {
             carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
         });
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 

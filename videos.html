@@ -126,9 +126,9 @@
             position: relative;
             height: 45vh;
             min-height: 350px;
-            background: url('./video-header-new.jpg?v=202601261');
-            background-size: cover;
-            background-position: center;
+            background: url('./video-header-new.jpg?v=202601261') no-repeat center center / cover !important;
+            background-attachment: fixed !important;
+            /* Parallax effect */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -158,7 +158,8 @@
             z-index: 10;
             margin: 0;
             padding: 20px;
-            animation: titleEntrance 1.2s ease-out;
+            animation: fadeInUp 1.2s ease-out;
+            /* Hero entrance animation */
         }
 
         @keyframes titleEntrance {
@@ -457,6 +458,45 @@
                 letter-spacing: 5px !important;
             }
         }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Reveal Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-premium);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessibility: prefers-reduced-motion fallback */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
     <link rel="stylesheet" href="chatbot.css?v=27">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -524,7 +564,7 @@
         <div class="videos-grid">
 
             <!-- FACEBOOK VIDEO -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe
                         src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=false&width=267&t=0"
@@ -539,7 +579,7 @@
             </div>
 
             <!-- VIDEO 1 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/dhUFymQzPCs" title="Recent Landscaping Project"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -553,7 +593,7 @@
             </div>
 
             <!-- VIDEO 2 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/BKgL82ryx90" title="Project Highlight"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -567,7 +607,7 @@
             </div>
 
             <!-- VIDEO 3 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/oecLMGKOOyQ" title="Garden Transformation"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -581,7 +621,7 @@
             </div>
 
             <!-- VIDEO 4 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/5pV_jzB18AY" title="Lush & Green"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -595,7 +635,7 @@
             </div>
 
             <!-- VIDEO 5 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/Bf00keMLrDU" title="Outdoor Design"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -609,7 +649,7 @@
             </div>
 
             <!-- VIDEO 6 (NEW) -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/iHsY7xGO2M4" title="Landscape Maintenance"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -623,7 +663,7 @@
             </div>
 
             <!-- VIDEO 7 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/PHaDHy3do04" title="Latest Landscaping Project"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -637,7 +677,7 @@
             </div>
 
             <!-- VIDEO 8 -->
-            <div class="video-card">
+            <div class="video-card reveal">
                 <div class="video-wrapper">
                     <iframe
                         src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwatch%2F%3Fv%3D474536855685711&show_text=0"
@@ -720,7 +760,7 @@
         .fab-container,
         .chatbot-toggle-btn {
             position: fixed !important;
-            bottom: 20px !important;
+            bottom: 25px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
@@ -729,7 +769,8 @@
             visibility: visible !important;
             opacity: 1 !important;
             pointer-events: auto !important;
-            transform: scale(0.9) !important;
+            transform: scale(0.75) !important;
+            /* Smaller desktop scale */
         }
 
         .fab-container {
@@ -853,6 +894,23 @@
                 });
             });
         }
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 
