@@ -126,7 +126,7 @@
             position: relative;
             height: 45vh;
             min-height: 350px;
-            background: url('./video-header-new.jpg?v=202601261') no-repeat center center / cover !important;
+            background: url('./main.jpg?v=final_fix_v8') no-repeat center center / cover !important;
             background-attachment: fixed !important;
             /* Parallax effect */
             display: flex;
@@ -148,13 +148,13 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 4px;
-            /* Vibrant Teal/Green Branding Gradient from Image */
-            background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%);
+            /* Premium Dark Green Theme */
+            background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 50%, #1B5E20 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* Strongest possible shadow for readability */
-            filter: drop-shadow(0 0 25px rgba(0, 121, 107, 0.6));
+            /* Dark shadow, no blue */
+            filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
             z-index: 10;
             margin: 0;
             padding: 20px;
@@ -176,10 +176,9 @@
 
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            opacity: 0;
-            animation: gridEntrance 1s ease-out 0.4s forwards;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            opacity: 1 !important;
         }
 
         @keyframes gridEntrance {
@@ -318,17 +317,15 @@
             }
 
             h1 {
-                font-size: 1.6rem !important;
-                -webkit-text-fill-color: #ffffff !important;
+                font-size: 1.8rem !important;
                 color: #ffffff !important;
-                text-shadow: 0 4px 20px rgba(0, 0, 0, 1) !important;
-                background: rgba(0, 0, 0, 0.5) !important;
-                padding: 12px;
-                border-radius: 12px;
-                display: block;
-                width: auto;
-                max-width: 90%;
+                -webkit-text-fill-color: #ffffff !important;
+                text-shadow: 0 4px 15px rgba(0, 0, 0, 1) !important;
+                display: block !important;
+                width: 100%;
                 margin: 0 auto !important;
+                text-align: center !important;
+                padding-top: 40px !important;
             }
 
             .nav-container {
@@ -430,8 +427,9 @@
 
         .footer-visual {
             height: 480px;
-            margin-top: -280px;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1) 95%), url('video-header-new.jpg') center/cover no-repeat;
+            margin-top: 0;
+            /* Fixed cutoff */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1) 95%), url('./main.jpg?v=v8') center/cover no-repeat;
             border-top: 4px solid var(--primary-green);
             border-bottom: 4px solid var(--primary-green);
             display: flex;
@@ -694,224 +692,239 @@
 
         </div>
 
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </div>
-
-    <footer style="margin-top: 0; border-top: none; background: transparent;">
-        <div class="footer-visual">
-            <div style="text-align: center;">
-                <h2 class="footer-title"
-                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 30px rgba(76, 175, 80, 0.4));">
-                    Miami Loves Green</h2>
-                <div class="footer-subtitle"
-                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #4DB6AC; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0.9;">
-                    LANDSCAPING</div>
+        <section id="cta" class="reveal"
+            style="padding: 100px 5%; background: radial-gradient(circle, #1a3a1a, #000); text-align: center; position: relative; z-index: 10;">
+            <h2 style="font-size: 3rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; color: #8BC34A;">
+                Transform Your Vision</h2>
+            <p style="margin-bottom: 30px; color: #ccc;">Ready for a free estimate?</p>
+            <a href="tel:786-570-3215" class="btn-primary"
+                style="display: inline-flex; align-items: center; background: #FFA726; padding: 15px 35px; border-radius: 50px; color: #0A1A0A; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 10px 30px rgba(255, 167, 38, 0.3); transition: all 0.3s ease;">CALL
+                US TODAY FOR A FREE ESTIMATE</a>
+            <div style="margin-top: 30px;">
+                <a href="index.html"
+                    style="color: #4CAF50; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">←
+                    Back to Home</a>
             </div>
-        </div>
-        <div class="container"
-            style="padding: 1rem 0 4rem; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('footer-background-pool.jpg') no-repeat center center; background-size: cover;">
-            <div class="footer-brand" style="margin-bottom: 2rem;">
-                <img src="logo.png" alt="Miami Loves Green"
-                    style="height: 80px; border-radius: 12px; margin-bottom: 1rem;">
-                <h2 style="font-family: 'Playfair Display', serif; color: white; margin: 0;">Miami Loves Green</h2>
-                <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto;">Professional Landscaping
-                    Services in Miami, FL. Transforming outdoor spaces into breathtaking environments.</p>
-            </div>
+        </section>
 
-            <div class="footer-social-links"
-                style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-bottom: 2rem;">
-                <a href="https://www.facebook.com/azakin.sejour" target="_blank" style="color: white;"><i
-                        class="fab fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" style="color: white;"><i
-                        class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/miami_loves_green" target="_blank" style="color: white;"><i
-                        class="fab fa-instagram"></i></a>
-            </div>
-
-            <div class="footer-contact" style="margin-top: 30px; margin-bottom: 2rem;">
-                <h3 style="color: #8BC34A; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Contact Info</h3>
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <a href="tel:786-570-3215" style="color: white; text-decoration: none; font-weight: 600;">📞 (786)
-                        570-3215</a>
-                    <a href="mailto:Miamilovesgreenlandscaping@gmail.com"
-                        style="color: white; text-decoration: none;">✉️ Miamilovesgreenlandscaping@gmail.com</a>
-                    <p style="color: #ccc;">📍 Miami, Florida</p>
+        <footer style="margin-top: 0; border-top: none; background: transparent;">
+            <div class="footer-visual">
+                <div style="text-align: center;">
+                    <h2 class="footer-title"
+                        style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: #1B5E20; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,0.5); background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 50%, #1B5E20 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                        Miami Loves Green</h2>
+                    <div class="footer-subtitle"
+                        style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #8BC34A; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); opacity: 0.9;">
+                        LANDSCAPING</div>
                 </div>
             </div>
+            <div class="container"
+                style="padding: 1rem 0 4rem; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('footer-background-pool.jpg') no-repeat center center; background-size: cover;">
+                <div class="footer-brand" style="margin-bottom: 2rem;">
+                    <img src="logo.png" alt="Miami Loves Green"
+                        style="height: 80px; border-radius: 12px; margin-bottom: 1rem;">
+                    <h2 style="font-family: 'Playfair Display', serif; color: white; margin: 0;">Miami Loves Green</h2>
+                    <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto;">Professional Landscaping
+                        Services in Miami, FL. Transforming outdoor spaces into breathtaking environments.</p>
+                </div>
 
-            <div style="margin-top: 40px;">
-                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo"
-                    style="max-width: 200px; border-radius: 15px; filter: drop-shadow(0 0 15px rgba(0,255,0,0.15));">
+                <div class="footer-social-links"
+                    style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-bottom: 2rem;">
+                    <a href="https://www.facebook.com/azakin.sejour" target="_blank" style="color: white;"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank"
+                        style="color: white;"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/miami_loves_green" target="_blank" style="color: white;"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+
+                <div class="footer-contact" style="margin-top: 30px; margin-bottom: 2rem;">
+                    <h3 style="color: #8BC34A; margin-bottom: 15px; font-family: 'Outfit', sans-serif;">Contact Info
+                    </h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="tel:786-570-3215" style="color: white; text-decoration: none; font-weight: 600;">📞
+                            (786)
+                            570-3215</a>
+                        <a href="mailto:Miamilovesgreenlandscaping@gmail.com"
+                            style="color: white; text-decoration: none;">✉️ Miamilovesgreenlandscaping@gmail.com</a>
+                        <p style="color: #ccc;">📍 Miami, Florida</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo"
+                        style="max-width: 200px; border-radius: 15px; filter: drop-shadow(0 0 15px rgba(0,255,0,0.15));">
+                </div>
             </div>
+        </footer>
+
+
+        <!-- Chatbot Widget Structure -->
+        <div id="chatbot-container" class="chatbot-container">
+            <div class="chatbot-header">
+                <span>Assistant</span>
+                <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+            </div>
+            <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;"
+                id="chatbot-iframe"></iframe>
         </div>
-    </footer>
 
-
-    <!-- Chatbot Widget Structure -->
-    <div id="chatbot-container" class="chatbot-container">
-        <div class="chatbot-header">
-            <span>Assistant</span>
-            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
-        </div>
-        <iframe src="https://miamilovesgreenlandscaping.onrender.com" allow="microphone;" id="chatbot-iframe"></iframe>
-    </div>
-
-    <style>
-        .fab-container,
-        .chatbot-toggle-btn {
-            position: fixed !important;
-            bottom: 25px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            z-index: 2147483647 !important;
-            text-decoration: none !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            pointer-events: auto !important;
-            transform: scale(0.75) !important;
-            /* Smaller desktop scale */
-        }
-
-        .fab-container {
-            right: 25px !important;
-        }
-
-        .chatbot-toggle-btn {
-            left: 25px !important;
-            right: auto !important;
-        }
-
-        @media (max-width: 768px) {
-
+        <style>
             .fab-container,
             .chatbot-toggle-btn {
-                transform: scale(0.85) !important;
-                bottom: 15px !important;
+                position: fixed !important;
+                bottom: 25px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                z-index: 2147483647 !important;
+                text-decoration: none !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+                transform: scale(0.65) !important;
+                /* Smaller desktop scale */
             }
-        }
 
-        .fab-text {
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 7px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 8px;
-            background-color: rgba(10, 26, 10, 0.7);
-            border-radius: 4px;
-            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
-        }
+            .fab-container {
+                right: 25px !important;
+            }
 
-        .fab-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            background: #8BC34A;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-    </style>
+            .chatbot-toggle-btn {
+                left: 25px !important;
+                right: auto !important;
+            }
 
-    <script src="chatbot.js?v=29"></script>
+            @media (max-width: 768px) {
 
-    <!-- START: Floating Action Buttons -->
-    <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
-        <span class="fab-text">CALL US</span>
-        <div class="fab-icon-wrapper">
-            <svg viewBox="0 0 24 24" width="24" height="24">
-                <path fill="#0a1a0a"
-                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-            </svg>
-        </div>
-    </a>
-    <!-- END: Floating Action Buttons -->
-
-    <style>
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            right: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 999999;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .fab-text {
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 7px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 8px;
-            background-color: rgba(10, 26, 10, 0.6);
-            border-radius: 4px;
-            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
-        }
-
-        .fab-icon-wrapper {
-            width: 50px;
-            height: 50px;
-            background: #8BC34A;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-        }
-    </style>
-
-    <script>
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        if (mobileMenuToggle && navLinks) {
-            mobileMenuToggle.addEventListener('click', function (e) {
-                e.stopPropagation(); // Prevent immediate closing
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
+                .fab-container,
+                .chatbot-toggle-btn {
+                    transform: scale(0.85) !important;
+                    bottom: 15px !important;
                 }
-            });
+            }
 
-            // Close menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
+            .fab-text {
+                color: #ffffff;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                margin-bottom: 7px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                padding: 4px 8px;
+                background-color: rgba(10, 26, 10, 0.7);
+                border-radius: 4px;
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
+            }
+
+            .fab-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                background: #8BC34A;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+        </style>
+
+        <script src="chatbot.js?v=29"></script>
+
+        <!-- START: Floating Action Buttons -->
+        <a href="tel:786-570-3215" class="fab-container fab-call-style" aria-label="Call us">
+            <span class="fab-text">CALL US</span>
+            <div class="fab-icon-wrapper">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="#0a1a0a"
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+            </div>
+        </a>
+        <!-- END: Floating Action Buttons -->
+
+        <style>
+            .fab-container {
+                position: fixed;
+                bottom: 20px;
+                right: 25px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 999999;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .fab-text {
+                color: #ffffff;
+                font-family: 'Inter', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 700;
+                margin-bottom: 7px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                padding: 4px 8px;
+                background-color: rgba(10, 26, 10, 0.6);
+                border-radius: 4px;
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
+            }
+
+            .fab-icon-wrapper {
+                width: 50px;
+                height: 50px;
+                background: #8BC34A;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+        </style>
+
+        <script>
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent immediate closing
+                    navLinks.classList.toggle('active');
                 });
-            });
-        }
 
-        // Intersection Observer for Reveal Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+                // Close menu when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                    }
+                });
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+                // Close menu when a link is clicked
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-    </script>
+            // Intersection Observer for Reveal Animations
+            const observerOptions = {
+                threshold: 0.01, // Very low threshold for mobile safety
+                rootMargin: '0px 0px 100px 0px' // Trigger slightly before it enters
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        </script>
 </body>
 
 </html>
