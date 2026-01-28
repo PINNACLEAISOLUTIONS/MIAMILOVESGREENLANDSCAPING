@@ -582,79 +582,45 @@
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 1.4rem;
-            letter-spacing: 3px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             font-family: 'Outfit', sans-serif;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            padding: 12px 20px;
-            border-radius: 12px;
-            position: relative;
-            width: 100%;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 8px;
             display: block;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 0;
-            background: linear-gradient(180deg, #8BC34A, #FFA726);
-            border-radius: 2px;
-            transition: height 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #FFA726;
             background: rgba(255, 167, 38, 0.1);
-            padding-left: 30px;
-            transform: translateX(5px) scale(1.02);
-        }
-
-        .nav-links a:hover::before {
-            height: 100%;
-        }
-
-        .nav-links a:active {
-            transform: translateX(5px) scale(0.98);
+            transform: translateX(3px);
         }
 
         .menu-toggle {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             z-index: 3000;
-            padding: 12px;
-            background: rgba(139, 195, 74, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(139, 195, 74, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            background: rgba(139, 195, 74, 0.15);
+            border-radius: 8px;
+            border: 1px solid rgba(139, 195, 74, 0.4);
+            transition: all 0.3s ease;
         }
 
         .menu-toggle:hover {
-            background: rgba(139, 195, 74, 0.2);
-            border-color: rgba(139, 195, 74, 0.6);
+            background: rgba(139, 195, 74, 0.25);
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(139, 195, 74, 0.4);
-        }
-
-        .menu-toggle:active {
-            transform: scale(0.95);
         }
 
         .menu-toggle span {
-            width: 30px;
-            height: 3px;
-            background: linear-gradient(90deg, #8BC34A, #FFA726);
-            border-radius: 6px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 8px rgba(139, 195, 74, 0.4);
-            transform-origin: center;
+            width: 25px;
+            height: 2.5px;
+            background: #8BC34A;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
         /* Nav Close Button (optional but good for UX) */
