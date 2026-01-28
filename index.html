@@ -875,24 +875,31 @@
     <section id="contact" class="content-section reveal">
         <h2 class="section-title">Get In Touch</h2>
         <div class="glass-panel" style="max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 30px;">
-            <form id="contactForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <form id="contactForm" name="contact" method="POST" data-netlify="true"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <input type="hidden" name="form-name" value="contact" />
                 <div style="grid-column: span 1;">
                     <label style="display: block; margin-bottom: 8px; color: #8BC34A;">Name</label>
-                    <input type="text" placeholder="John Doe" class="glass-input">
+                    <input type="text" name="name" placeholder="John Doe" class="glass-input" required>
                 </div>
                 <div style="grid-column: span 1;">
                     <label style="display: block; margin-bottom: 8px; color: #8BC34A;">Email</label>
-                    <input type="email" placeholder="john@example.com" class="glass-input">
+                    <input type="email" name="email" placeholder="john@example.com" class="glass-input" required>
                 </div>
                 <div style="grid-column: span 2;">
                     <label style="display: block; margin-bottom: 8px; color: #8BC34A;">Message</label>
-                    <textarea placeholder="How can we help you?" rows="4" class="glass-input"
-                        style="resize: none;"></textarea>
+                    <textarea name="message" placeholder="How can we help you?" rows="4" class="glass-input"
+                        style="resize: none;" required></textarea>
                 </div>
                 <div style="grid-column: span 2; text-align: center;">
                     <button type="submit" class="fab-container"
                         style="position: static !important; border: none; padding: 15px 40px; font-size: 1rem;">SEND
                         MESSAGE <i class="fas fa-paper-plane" style="margin-left: 10px;"></i></button>
+                </div>
+                <!-- Success Message -->
+                <div id="formSuccess"
+                    style="grid-column: span 2; display: none; margin-top: 20px; color: #8BC34A; font-weight: 600;">
+                    Thank you! Your message has been sent to Miamilovesgreenlandscaping@gmail.com.
                 </div>
             </form>
         </div>
@@ -1050,6 +1057,32 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Contact Form Submission (Netlify AJAX)
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString(),
+                })
+                    .then(() => {
+                        formSuccess.style.display = 'block';
+                        contactForm.reset();
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 5000);
+                    })
+                    .catch((error) => alert('Submission failed: ' + error));
+            });
+        }
     </script>
     <!-- 3D Experience (Three.js) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
