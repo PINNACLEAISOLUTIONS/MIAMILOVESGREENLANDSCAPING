@@ -92,50 +92,10 @@
   }
 }
 </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="chatbot.css?v=27">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
-
-        /* Scroll Storytelling Specific Styles */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            filter: blur(10px);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-        }
-
-        .stagger-item {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .stagger-item.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .parallax-bg {
-            transition: background-position 0.1s ease-out;
-        }
-
-        .floating-accent {
-            position: absolute;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.15;
-            filter: blur(30px);
-            border-radius: 50%;
-            background: var(--primary-green-medium);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
         /* Root Variables */
         :root {
@@ -143,7 +103,6 @@
             --primary-green-darkest-rgb: 10, 26, 10;
             --primary-green-dark: #123012;
             --primary-green-medium: #4CAF50;
-            --primary-green-glow: rgba(76, 175, 80, 0.4);
             --primary-green: var(--primary-green-medium);
             --primary-green-light: #8DD08D;
             --accent-gold: #FFA726;
@@ -159,229 +118,7 @@
             --border-radius-md: 16px;
             --border-radius-xl: 50px;
             --transition-fast: 0.25s ease;
-            --transition-premium: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Animation Keyframes */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
-        }
-
-        @keyframes plantGrowth {
-            0% {
-                transform: scale(1) translateY(0);
-            }
-
-            50% {
-                transform: scale(1.05) translateY(-5px);
-            }
-
-            100% {
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        /* Premium Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px 0;
-        }
-
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-            border-radius: 16px;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-green-medium);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay span {
-            color: #8BC34A;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-        }
-
-        /* Lightbox Styles */
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 100002;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        #lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        #lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            transform: scale(0.9);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        #lightbox.active img {
-            transform: scale(1);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            color: white;
-            font-size: 3rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .lightbox-close:hover {
-            color: var(--primary-green-medium);
-        }
-
-        .growth-animation:hover {
-            animation: plantGrowth 2s infinite ease-in-out;
-            color: var(--primary-green-light);
-        }
-
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-        }
-
-        .glass-input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            outline: none;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-        }
-
-        .glass-input:focus {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary-green-medium);
-            box-shadow: 0 0 15px rgba(76, 175, 80, 0.2);
-        }
-
-        /* Reveal Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-premium);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        :root {
-            --primary-green-darkest: #0A1A0A;
-            --primary-green-darkest-rgb: 10, 26, 10;
-            --primary-green-dark: #123012;
-            --primary-green-medium: #4CAF50;
-            --primary-green: var(--primary-green-medium);
-            --primary-green-light: #8DD08D;
-            --accent-gold: #FFA726;
-            --accent-gold-hover: #FFB74D;
-            --accent-gold-glow: rgba(255, 167, 38, 0.3);
-            --text-hero: #FFFFFF;
-            --font-body: 'Inter', sans-serif;
-            --font-heading: 'Playfair Display', serif;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 3rem;
-            --spacing-xl: 4rem;
-            --border-radius-md: 16px;
-            --border-radius-xl: 50px;
-            --transition-fast: 0.25s ease;
-            --transition-premium: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.12);
-
-            /* Glassmorphism Tokens */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-blur: 15px;
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
         }
 
         * {
@@ -399,19 +136,17 @@
 
         .hero {
             position: relative;
-            height: 100vh;
+            height: 120vh;
+            /* Slightly reduced desktop height for fit */
             min-height: 700px;
             display: flex;
             align-items: flex-end;
-            /* Bottom alignment */
             justify-content: center;
-            background: #1a3a1a url('./main.webp?v=final_fix_v12') no-repeat center center / cover !important;
-            background-attachment: fixed !important;
+            background: #1a3a1a url('./hero_background_new.png') no-repeat center center / cover !important;
             z-index: 1;
             margin-top: 0;
-            padding-bottom: 250px;
-            /* Positioned on the wood above pavers */
             padding-top: 0;
+            padding-bottom: 80px;
         }
 
         @media (max-width: 768px) {
@@ -464,8 +199,6 @@
             letter-spacing: 2px;
             padding: 0 20px;
             line-height: 1.1;
-            animation: fadeInUp 1.2s ease-out;
-            /* Hero entrance animation */
         }
 
         /* Navigation */
@@ -483,10 +216,7 @@
         }
 
         nav.scrolled {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.9);
             padding: 1rem 5%;
         }
 
@@ -623,9 +353,7 @@
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02) !important;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(76, 175, 80, 0.2) !important;
-            border-color: var(--primary-green-medium) !important;
+            transform: translateY(-10px);
         }
 
         .service-image-area {
@@ -771,10 +499,9 @@
 
         .footer-visual {
             height: 480px;
-            margin-top: 0;
-            /* Fixed cutoff issue */
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1) 95%), url('./main.webp?v=final_fix_v8') center/cover no-repeat;
-            border-top: 4px solid var(--primary-green-medium);
+            margin-top: -280px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1) 95%), url('video-header-new.jpg') center/cover no-repeat;
+            border-top: 4px solid var(--primary-green);
             border-bottom: 4px solid var(--primary-green);
             display: flex;
             align-items: center;
@@ -877,25 +604,6 @@
                 align-items: center !important;
                 padding: 0 15px !important;
             }
-
-            /* Smooth scrolling for anchor links */
-            html {
-                scroll-behavior: smooth;
-            }
-        }
-
-        /* Accessibility: prefers-reduced-motion fallback */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-
-            .reveal {
-                opacity: 1 !important;
-                transform: none !important;
-            }
         }
     </style>
 </head>
@@ -912,196 +620,91 @@
             <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="videos.html">Videos</a></li>
-            <li><a href="blog.html">Blog</a></li>
             <li><a href="#footer-contact">Contact</a></li>
         </ul>
     </nav>
 
-    <header id="home" class="hero">
-        <div class="hero-content reveal">
-            <h1 class="hero-3d-text"
-                style="color: #8BC34A; text-shadow: 2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.8), 0 0 25px rgba(76, 175, 80, 0.8), 0 0 50px rgba(76, 175, 80, 0.5), 0 15px 40px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                MIAMI LOVES GREEN LANDSCAPING</h1>
+    <header id="home" class="hero" style="background-image: url('./hero_background_new.png') !important;">
+        <div class="hero-content">
+            <h1 class="hero-3d-text">MIAMI LOVES GREEN LANDSCAPING</h1>
         </div>
     </header>
 
-    <section id="services" class="content-section reveal">
-        <h2 class="section-title stagger-item">Our Premier Services</h2>
+    <section id="services" class="content-section">
+        <h2 class="section-title">Our Premier Services</h2>
         <div class="services-grid">
-            <div class="service-card reveal stagger-item">
-                <div class="service-image-area" style="background-image: url('./landscape-design.webp');"></div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./landscape-design.jpg');"></div>
                 <div class="service-content">
-                    <h3><i class="fas fa-leaf growth-animation"
-                            style="margin-right: 10px; color: var(--primary-green-medium);"></i> Landscape Design</h3>
-                    <p>Bespoke outdoor environments meticulously planned and executed.</p>
-                    <button class="view-3d-btn" data-service="landscape"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
+                    <h3>Landscape Design</h3>
+                    <p>Tailored designs that merge beauty with functionality.</p>
                 </div>
             </div>
-            <div class="service-card reveal stagger-item" style="transition-delay: 0.1s;">
-                <div class="service-image-area" style="background-image: url('./hardscaping.webp');"></div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./garden-maintenance.jpg');"></div>
                 <div class="service-content">
-                    <h3><i class="fas fa-hard-hat growth-animation" style="margin-right: 10px; color: #9E9E9E;"></i>
-                        Hardscaping</h3>
-                    <p>Custom patios, walkways, and water features that last.</p>
-                    <button class="view-3d-btn" data-service="hardscaping"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
-                </div>
-            </div>
-            <div class="service-card reveal stagger-item" style="transition-delay: 0.2s;">
-                <div class="service-image-area" style="background-image: url('./garden-maintenance.webp');"></div>
-                <div class="service-content">
-                    <h3><i class="fas fa-cut growth-animation" style="margin-right: 10px; color: #4CAF50;"></i>
-                        Maintenance</h3>
+                    <h3>Maintenance</h3>
                     <p>Comprehensive care ensuring your landscape remains vibrant.</p>
-                    <button class="view-3d-btn" data-service="maintenance"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
                 </div>
             </div>
-            <div class="service-card reveal stagger-item" style="transition-delay: 0.3s;">
-                <div class="service-image-area" style="background-image: url('./irrigation-systems.webp');"></div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./hardscaping.jpg');"></div>
                 <div class="service-content">
-                    <h3><i class="fas fa-tint growth-animation" style="margin-right: 10px; color: #42A5F5;"></i>
-                        Irrigation Systems</h3>
-                    <p>Efficient watering solutions for a healthy landscape.</p>
-                    <button class="view-3d-btn" data-service="irrigation"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
+                    <h3>Hardscaping</h3>
+                    <p>Custom patios, walkways, and water features.</p>
                 </div>
             </div>
-            <div class="service-card reveal stagger-item" style="transition-delay: 0.4s;">
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./irrigation-systems.png');"></div>
+                <div class="service-content">
+                    <h3>Irrigation Systems</h3>
+                    <p>Efficient watering solutions for a healthy landscape.</p>
+                </div>
+            </div>
+            <div class="service-card">
                 <div class="service-image-area" style="background-image: url('./treetriming.webp');"></div>
                 <div class="service-content">
-                    <h3><i class="fas fa-tree growth-animation" style="margin-right: 10px; color: #2E7D32;"></i> Tree
-                        Care</h3>
+                    <h3>Tree Care</h3>
                     <p>Professional trimming and long-term health management.</p>
-                    <button class="view-3d-btn" data-service="treecare"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
                 </div>
             </div>
-            <div class="service-card reveal stagger-item" style="transition-delay: 0.5s;">
-                <div class="service-image-area" style="background-image: url('./outdoor-lighting.webp');"></div>
+            <div class="service-card">
+                <div class="service-image-area" style="background-image: url('./outdoor-lighting.jpg');"></div>
                 <div class="service-content">
-                    <h3><i class="fas fa-bolt growth-animation"
-                            style="margin-right: 10px; color: var(--accent-gold);"></i> Lighting</h3>
+                    <h3>Outdoor Lighting</h3>
                     <p>Illuminate your space with elegant and efficient lighting.</p>
-                    <button class="view-3d-btn" data-service="lighting"
-                        style="margin-top: 15px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; transition: all 0.3s ease;">VIEW
-                        IN 3D <i class="fas fa-cube" style="margin-left: 5px;"></i></button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="content-section reveal" style="background: #0A1A0A;">
-        <h2 class="section-title stagger-item">The Transformation Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_3535.webp">
-                <img src="./IMG_3535.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Luxury Backyard</span></div>
+    <section id="gallery" class="content-section" style="background: #000;">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="gallery-wrapper">
+            <div class="carousel" id="mainCarousel">
+                <article><img src="./IMG_3535.jpg" alt="Gallery"></article>
+                <article><img src="./gallery-gazebo.png" alt="Gallery"></article>
+                <article><img src="./gallery-mulch.png" alt="Gallery"></article>
+                <article><img src="./gallery-main-repeating.jpg" alt="Gallery"></article>
             </div>
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_4013.png" style="transition-delay: 0.1s;">
-                <img src="./IMG_4013.png" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Custom Pavers</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./gallery-gazebo.webp"
-                style="transition-delay: 0.2s;">
-                <img src="./gallery-gazebo.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Gazebo Design</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./gallery-mulch.webp"
-                style="transition-delay: 0.3s;">
-                <img src="./gallery-mulch.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Seasonal Mulching</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./gallery-main-repeating.webp"
-                style="transition-delay: 0.4s;">
-                <img src="./gallery-main-repeating.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Landscape Harmony</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./project-luxury-entrance.jpg"
-                style="transition-delay: 0.5s;">
-                <img src="./project-luxury-entrance.jpg" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Estate Entrance</span></div>
-            </div>
+            <button class="carousel-nav-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-nav-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <div id="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img src="" alt="Full size project">
-    </div>
-
-    <section id="about" class="content-section reveal">
-        <h2 class="section-title stagger-item">About Us</h2>
+    <section id="about" class="content-section">
+        <h2 class="section-title">About Us</h2>
         <p style="max-width: 800px; margin: 0 auto; text-align: center; color: #ccc;">At Miami Loves Green, we see your
             outdoor space as a canvas for artistry. Our team brings a wealth of expertise and a fresh perspective to
             every project, dedicated to realizing your unique vision.</p>
     </section>
 
-    <section id="contact" class="content-section reveal">
-        <h2 class="section-title stagger-item">Get In Touch</h2>
-        <div class="glass-panel"
-            style="max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 30px; position: relative; overflow: hidden;">
-            <form id="contactForm" action="https://formspree.io/f/xoqkyoyv" method="POST"
-                style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-
-                <!-- Anti-Spam Honeypot -->
-                <input type="text" name="_gotcha" style="display:none" />
-
-                <div class="stagger-item" style="grid-column: span 1;">
-                    <label
-                        style="display: block; margin-bottom: 10px; color: #8BC34A; font-weight: 600; font-family: 'Outfit', sans-serif;">Name</label>
-                    <input type="text" name="name" placeholder="How should we call you?" class="glass-input" required>
-                </div>
-                <div class="stagger-item" style="grid-column: span 1;">
-                    <label
-                        style="display: block; margin-bottom: 10px; color: #8BC34A; font-weight: 600; font-family: 'Outfit', sans-serif;">Email</label>
-                    <input type="email" name="email" placeholder="your@email.com" class="glass-input" required>
-                </div>
-                <div class="stagger-item" style="grid-column: span 2;">
-                    <label
-                        style="display: block; margin-bottom: 10px; color: #8BC34A; font-weight: 600; font-family: 'Outfit', sans-serif;">Message</label>
-                    <textarea name="message" placeholder="Tell us about your dream outdoor space..." rows="5"
-                        class="glass-input" style="resize: none;" required></textarea>
-                </div>
-                <div class="stagger-item" style="grid-column: span 2; text-align: center; margin-top: 10px;">
-                    <button type="submit" id="submit-btn" class="fab-container"
-                        style="position: static !important; border: 1px solid rgba(139, 195, 74, 0.4); padding: 18px 50px; font-size: 1.1rem; background: var(--accent-gold); color: #0A1A0A; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
-                        SEND MESSAGE <i class="fas fa-paper-plane" style="margin-left: 12px;"></i>
-                    </button>
-                </div>
-            </form>
-
-            <!-- Enhanced Success Overlay -->
-            <div id="form-success-overlay"
-                style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(10, 26, 10, 0.95); backdrop-filter: blur(15px); z-index: 10; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; animation: fadeIn 0.5s ease forward;">
-                <div
-                    style="width: 80px; height: 80px; background: #8BC34A; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 25px; box-shadow: 0 0 30px rgba(139, 195, 74, 0.4);">
-                    <i class="fas fa-check" style="font-size: 2.5rem; color: #0A1A0A;"></i>
-                </div>
-                <h2
-                    style="font-family: 'Playfair Display', serif; color: #8BC34A; font-size: 2.5rem; margin-bottom: 15px;">
-                    Message Sent!</h2>
-                <p style="color: #ccc; font-size: 1.1rem; max-width: 400px; line-height: 1.6;">Thank you for reaching
-                    out. AZ and the team will get back to you shortly at the email provided.</p>
-                <button onclick="document.getElementById('form-success-overlay').style.display='none'"
-                    style="margin-top: 30px; background: transparent; border: 1px solid var(--primary-green-medium); color: var(--primary-green-medium); padding: 10px 25px; border-radius: 20px; cursor: pointer; font-weight: 600;">SEND
-                    ANOTHER</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta" class="content-section reveal"
-        style="padding: 120px 5%; background: radial-gradient(circle, #1a3a1a, #000); text-align: center;">
+    <section id="cta" class="content-section"
+        style="background: radial-gradient(circle, #1a3a1a, #000); text-align: center;">
         <h2 class="section-title">Transform Your Vision</h2>
         <p style="margin-bottom: 30px;">Ready for a free estimate?</p>
         <a href="tel:786-570-3215" class="fab-container"
@@ -1112,17 +715,17 @@
         <div class="footer-visual">
             <div style="text-align: center;">
                 <h2 class="footer-title"
-                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: #1B5E20; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,0.5); background: linear-gradient(135deg, #1B5E20 0%, #4CAF50 50%, #1B5E20 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                    style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900; color: white; text-transform: none; font-style: italic; letter-spacing: 2px; line-height: 0.9; margin: 0; text-shadow: 0 5px 25px rgba(0,0,0,1); background: linear-gradient(135deg, #FFD700 0%, #8BC34A 50%, #4CAF50 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));">
                     Miami Loves Green</h2>
                 <div class="footer-subtitle"
-                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #8BC34A; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.5); opacity: 0.9;">
+                    style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 5vw, 3.5rem); font-weight: 800; color: #4DB6AC; text-transform: uppercase; letter-spacing: 15px; margin-top: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.8); opacity: 0.9;">
                     LANDSCAPING</div>
             </div>
         </div>
         <div class="container"
-            style="padding: 1rem 0 4rem; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('footer-background-pool.webp') no-repeat center center; background-size: cover;">
+            style="padding: 1rem 0 4rem; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('footer-background-pool.jpg') no-repeat center center; background-size: cover;">
             <div class="footer-brand" style="margin-bottom: 2rem;">
-                <img src="logo.webp" alt="Miami Loves Green"
+                <img src="logo.png" alt="Miami Loves Green"
                     style="height: 80px; border-radius: 12px; margin-bottom: 1rem;">
                 <h2 style="font-family: 'Playfair Display', serif; color: white; margin: 0;">Miami Loves Green</h2>
                 <p style="color: #ccc; max-width: 600px; margin: 1rem auto;">Professional Landscaping
@@ -1132,11 +735,11 @@
             <div class="footer-social-links"
                 style="display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; margin-bottom: 2rem;">
                 <a href="https://www.facebook.com/azakin.sejour" target="_blank" style="color: white;"><i
-                        class="fab fa-facebook growth-animation"></i></a>
+                        class="fab fa-facebook"></i></a>
                 <a href="https://www.youtube.com/@MiamiLovesGreenLandscaping" target="_blank" style="color: white;"><i
-                        class="fab fa-youtube growth-animation"></i></a>
+                        class="fab fa-youtube"></i></a>
                 <a href="https://www.instagram.com/miami_loves_green" target="_blank" style="color: white;"><i
-                        class="fab fa-instagram growth-animation"></i></a>
+                        class="fab fa-instagram"></i></a>
             </div>
 
             <div class="footer-contact" style="margin-top: 30px; margin-bottom: 2rem;">
@@ -1151,7 +754,7 @@
             </div>
 
             <div style="margin-top: 40px;">
-                <img src="logo-tropical.webp" alt="Miami Loves Green Tropical Logo"
+                <img src="logo-tropical.png" alt="Miami Loves Green Tropical Logo"
                     style="max-width: 200px; border-radius: 15px; filter: drop-shadow(0 0 15px rgba(0,255,0,0.15));">
             </div>
         </div>
@@ -1223,59 +826,19 @@
             }
         });
 
+        // Gallery/Carousel Logic (Simplified & Robust)
+        const carousel = document.getElementById('mainCarousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
 
-        // Contact Form Submission (Netlify AJAX)
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+        });
 
-        // Contact Form Submission (Netlify AJAX)
-
-
-        // Contact Form Submission (Formspree AJAX)
-        const contactForm = document.getElementById('contactForm');
-        const formOverlay = document.getElementById('form-success-overlay');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = document.getElementById('submit-btn');
-                const originalText = btn.innerHTML;
-
-                // Loading State
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
-                btn.style.opacity = '0.7';
-
-                const data = new FormData(contactForm);
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        formOverlay.style.display = 'flex';
-                        contactForm.reset();
-                    } else {
-                        const errorData = await response.json();
-                        alert('Oops! ' + (errorData.errors ? errorData.errors.map(e => e.message).join(', ') : 'Something went wrong.'));
-                    }
-                } catch (error) {
-                    alert('Oops! There was a problem submitting your form.');
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = '1';
-                }
-            });
-        }
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+        });
     </script>
-    <!-- 3D Experience (Three.js) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="3d-experience.js"></script>
-    <script src="scroll-experience.js"></script>
-
 </body>
 
 </html>
