@@ -73,28 +73,39 @@ async function renderBlogPost(postId) {
     </div>`;
 
     try {
-        // Try to find the file using both relative and absolute-style paths to satisfy GH Pages/Netlify
+        const href = window.location.href;
+        const dir = href.substring(0, href.lastIndexOf('/') + 1);
+
+        // Try multiple path patterns to ensure we find the file on any server
         const pathsToTry = [
-            post.contentFile,
-            `./${post.contentFile}`,
-            `/${post.contentFile}`
+            dir + post.contentFile,           // Path 1: Absolute based on current page
+            post.contentFile,                 // Path 2: Basic relative
+            "./" + post.contentFile,          // Path 3: Dot-relative
+            "/" + post.contentFile            // Path 4: Root-relative
         ];
 
         let response;
-        let lastError;
+        let success = false;
 
         for (const path of pathsToTry) {
             try {
-                // Add a cache-buster (?t=...) so we don't see an old cached 404 page
-                response = await fetch(`${path}?t=${Date.now()}`);
-                if (response.ok) break;
+                // Cache busting (?t=) ensures we don't load a stale 404 page
+                const testUrl = path + (path.includes('?') ? '&' : '?') + `t=${Date.now()}`;
+                console.log("Blog system attempting to load from:", testUrl);
+
+                response = await fetch(testUrl);
+                if (response.ok) {
+                    success = true;
+                    break;
+                }
             } catch (e) {
-                lastError = e;
+                console.warn(`Path failed: ${path}`, e);
             }
         }
 
-        if (!response || !response.ok) {
-            throw new Error(`Could not find the article file at: ${post.contentFile}. Please check that the 'blog' folder was uploaded correctly.`);
+        if (!success || !response) {
+            const errorMsg = `Article file missing: ${post.contentFile}. Checked 4 location patterns.`;
+            throw new Error(errorMsg);
         }
 
         let text = await response.text();
