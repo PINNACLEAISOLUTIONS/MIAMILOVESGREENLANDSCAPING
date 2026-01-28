@@ -1252,53 +1252,7 @@
             }
         });
 
-
-        // Contact Form Submission (Netlify AJAX)
-
-        // Contact Form Submission (Netlify AJAX)
-
-
-        // Contact Form Submission (Formspree AJAX)
-        const contactForm = document.getElementById('contactForm');
-        const formOverlay = document.getElementById('form-success-overlay');
-
-        if (contactForm) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = document.getElementById('submit-btn');
-                const originalText = btn.innerHTML;
-
-                // Loading State
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
-                btn.style.opacity = '0.7';
-
-                const data = new FormData(contactForm);
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        formOverlay.style.display = 'flex';
-                        contactForm.reset();
-                    } else {
-                        const errorData = await response.json();
-                        alert('Oops! ' + (errorData.errors ? errorData.errors.map(e => e.message).join(', ') : 'Something went wrong.'));
-                    }
-                } catch (error) {
-                    alert('Oops! There was a problem submitting your form.');
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = originalText;
-                    btn.style.opacity = '1';
-                }
-            });
-        }
+        // Contact Form: Standard Submission allows FormSubmit to handle activation/redirects
     </script>
     <!-- 3D Experience (Three.js) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
