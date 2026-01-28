@@ -11,6 +11,28 @@ const blogPosts = [
         contentFile: "blog/sustainable-landscaping-miami.md"
     },
     {
+        id: "smart-irrigation-systems-miami",
+        title: "Miami Irrigation Systems 2026: Smart Watering Solutions That Cut Your Bill in Half",
+        date: "January 28, 2026",
+        author: "Miami Loves Green Team",
+        category: "Irrigation & Water Management",
+        tags: ["irrigation systems", "smart irrigation", "water conservation"],
+        excerpt: "Discover how modern irrigation systems in Miami can slash your water bills while keeping your landscape lush. From smart controllers to drip systems, learn what actually works in South Florida's climate.",
+        image: "./irrigation-systems.webp",
+        contentFile: "blog/smart-irrigation-systems-miami.md"
+    },
+    {
+        id: "hurricane-proof-landscaping-miami",
+        title: "Hurricane-Proof Your Miami Landscape: Storm Preparation Guide for 2026",
+        date: "January 28, 2026",
+        author: "Miami Loves Green Team",
+        category: "Storm Preparation & Maintenance",
+        tags: ["hurricane preparation", "storm proof", "tree trimming miami"],
+        excerpt: "Protect your property and reduce insurance costs with hurricane-resistant landscaping. Learn which trees survive Miami storms, proper pruning techniques, and post-storm recovery strategies from local experts.",
+        image: "./hardscaping.webp",
+        contentFile: "blog/hurricane-proof-landscaping-miami.md"
+    },
+    {
         id: "modern-hardscaping-miami",
         title: "Modern Hardscaping Trends in Miami for 2026",
         date: "January 27, 2026",
