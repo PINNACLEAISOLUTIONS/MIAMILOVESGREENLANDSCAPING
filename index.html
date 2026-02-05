@@ -700,7 +700,10 @@
         }
 
         .gallery__strip {
-            min-height: 100vh;
+            min-height: auto;
+            /* Let content determine height on mobile */
+            transform: translateY(0);
+            /* No offset on mobile - show all images */
         }
 
         .gallery__strip__wrapper {
@@ -722,6 +725,11 @@
         @media (min-width: 950px) {
             .gallery {
                 height: 100vh;
+            }
+
+            .gallery__strip {
+                min-height: 100vh;
+                /* Restore for desktop animation */
             }
 
             .gallery__strip.one {
