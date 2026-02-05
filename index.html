@@ -674,12 +674,181 @@
             margin-bottom: 10px;
         }
 
-        /* Gallery - CSS Scroll Snap (Robust) */
-        .gallery-wrapper {
-            position: relative;
+        /* --- ANIMATED GALLERY START --- */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
             width: 100%;
-            margin-bottom: 50px;
+            overflow: hidden;
+            max-width: 100%;
+            margin: auto;
+            background: #0A1A0A;
+            /* Match site theme */
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
+
+        /* Fix Title Placement */
+        #gallery .section-title {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 40px;
+            padding-top: 60px;
+            pointer-events: auto;
+            text-shadow: none;
+            background: #0A1A0A;
+        }
+
+        .gallery__strip {
+            min-height: 100vh;
+        }
+
+        .gallery__strip__wrapper {
+            flex: 0 0 100%;
+            justify-content: flex-end;
+            background: #0A1A0A;
+            /* Match site theme */
+            border-right: 1px solid #1a3a1a;
+            /* Subtle border */
+            position: relative;
+        }
+
+        @media (min-width: 500px) {
+            .gallery__strip__wrapper {
+                flex: 0 0 50%;
+            }
+        }
+
+        @media (min-width: 950px) {
+            .gallery {
+                height: 100vh;
+            }
+
+            .gallery__strip.one {
+                animation: 60s move-it ease alternate infinite 5s;
+                transform: translateY(2%);
+            }
+
+            .gallery__strip.three {
+                animation: 70s move-it ease alternate infinite 6s;
+                transform: translateY(2%);
+            }
+
+            .gallery__strip.two {
+                animation: 58s move-it-2 ease alternate infinite 5s;
+                transform: translateY(-50%);
+            }
+
+            .gallery__strip.four {
+                animation: 65s move-it-2 ease alternate infinite 5.5s;
+                transform: translateY(-50%);
+            }
+
+            .gallery__strip:hover {
+                animation-play-state: paused;
+            }
+
+            .gallery__strip__wrapper {
+                flex: 0 0 25%;
+            }
+        }
+
+        .photo {
+            position: relative;
+            text-align: center;
+            /* Center align for mobile/stack */
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            /* Contain inner elements */
+        }
+
+        .photo__image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            /* Force consistent size for all images */
+            height: 450px;
+            /* Fixed height for uniform strip look */
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .photo__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* This cuts off edges to fill shape - key fix */
+            object-position: center;
+            display: block;
+            transform: scale(1);
+            transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Improved Text overlay placement */
+        .photo__name {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 20px;
+            border-radius: 30px;
+            width: max-content;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .photo:hover .photo__image img {
+            transform: scale(1.1);
+        }
+
+        .photo:hover .photo__name {
+            opacity: 1;
+            bottom: 30px;
+            /* Slight rise animation */
+        }
+
+        @keyframes move-it {
+
+            0%,
+            90%,
+            100% {
+                transform: translateY(2%);
+            }
+
+            45% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes move-it-2 {
+
+            0%,
+            90%,
+            100% {
+                transform: translateY(-50%);
+            }
+
+            45% {
+                transform: translateY(5%);
+            }
+        }
+
+        /* --- ANIMATED GALLERY END --- */
+
+
 
         .carousel {
             display: flex;
@@ -964,7 +1133,7 @@
         <h2 class="section-title stagger-item">Our Premier Services</h2>
         <div class="services-grid">
             <div class="service-card reveal stagger-item">
-                <div class="service-image-area" style="background-image: url('./landscape-design.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./service-garden-beds.png');"></div>
                 <div class="service-content">
                     <h3><i class="fas fa-leaf growth-animation"
                             style="margin-right: 10px; color: var(--primary-green-medium);"></i> Landscape Design</h3>
@@ -975,7 +1144,7 @@
                 </div>
             </div>
             <div class="service-card reveal stagger-item" style="transition-delay: 0.1s;">
-                <div class="service-image-area" style="background-image: url('./hardscaping.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./service-pool-patio.png');"></div>
                 <div class="service-content">
                     <h3><i class="fas fa-hard-hat growth-animation" style="margin-right: 10px; color: #9E9E9E;"></i>
                         Hardscaping</h3>
@@ -986,7 +1155,7 @@
                 </div>
             </div>
             <div class="service-card reveal stagger-item" style="transition-delay: 0.2s;">
-                <div class="service-image-area" style="background-image: url('./garden-maintenance.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./service-turf-path.png');"></div>
                 <div class="service-content">
                     <h3><i class="fas fa-cut growth-animation" style="margin-right: 10px; color: #4CAF50;"></i>
                         Maintenance</h3>
@@ -997,7 +1166,8 @@
                 </div>
             </div>
             <div class="service-card reveal stagger-item" style="transition-delay: 0.3s;">
-                <div class="service-image-area" style="background-image: url('./irrigation-systems.webp');"></div>
+                <div class="service-image-area" style="background-image: url('./service-nursery-irrigation.png');">
+                </div>
                 <div class="service-content">
                     <h3><i class="fas fa-tint growth-animation" style="margin-right: 10px; color: #42A5F5;"></i>
                         Irrigation Systems</h3>
@@ -1032,34 +1202,91 @@
         </div>
     </section>
 
-    <section id="gallery" class="content-section reveal" style="background: #0A1A0A;">
-        <h2 class="section-title stagger-item">The Transformation Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_3535.webp">
-                <img src="./IMG_3535.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Luxury Backyard</span></div>
+    <section id="gallery" class="content-section reveal" style="background: #0A1A0A; padding: 0;">
+        <h2 class="section-title stagger-item"
+            style="padding-top: 50px; position: absolute; width: 100%; z-index: 10; text-shadow: 0 4px 10px rgba(0,0,0,0.8); pointer-events: none;">
+            The Transformation Gallery</h2>
+        <div class="gallery">
+            <div class="gallery__strip__wrapper">
+                <div class="gallery__strip one">
+                    <div class="photo">
+                        <div class="photo__image"><img src="./IMG_3535.webp" alt="Luxury Backyard"></div>
+                        <div class="photo__name">Luxury</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./IMG_4013.png" alt="Custom Pavers"></div>
+                        <div class="photo__name">Pavers</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-gazebo.webp" alt="Gazebo Design"></div>
+                        <div class="photo__name">Gazebo</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./IMG_3735.jpg" alt="Tropical Garden"></div>
+                        <div class="photo__name">Tropical</div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_4013.png" style="transition-delay: 0.1s;">
-                <img src="./IMG_4013.png" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Custom Pavers</span></div>
+            <div class="gallery__strip__wrapper">
+                <div class="gallery__strip two">
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-new-turf-path.png" alt="Modern Turf Path"></div>
+                        <div class="photo__name">Modern Path</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./project-luxury-entrance.jpg" alt="Estate Entrance"></div>
+                        <div class="photo__name">Estate</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-mulch.png" alt="Mulch Installation"></div>
+                        <div class="photo__name">Mulch</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-main-repeating.jpg" alt="Garden Design"></div>
+                        <div class="photo__name">Garden</div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item reveal stagger-item" data-full="./gallery-gazebo.webp"
-                style="transition-delay: 0.2s;">
-                <img src="./gallery-gazebo.webp" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Gazebo Design</span></div>
+            <div class="gallery__strip__wrapper">
+                <div class="gallery__strip three">
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-new-pergola.png" alt="Pergola & Turf"></div>
+                        <div class="photo__name">Pergola</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./garden-maintenance.webp" alt="Lawn Care"></div>
+                        <div class="photo__name">Lawn</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./irrigation-systems.webp" alt="Irrigation"></div>
+                        <div class="photo__name">Water</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./outdoor-lighting.webp" alt="Night Lighting"></div>
+                        <div class="photo__name">Lights</div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_3735.jpg" style="transition-delay: 0.3s;">
-                <img src="./IMG_3735.jpg" alt="Tropical Garden Miami">
-                <div class="gallery-overlay"><span>Tropical Masterpiece</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./IMG_4011.png" style="transition-delay: 0.4s;">
-                <img src="./IMG_4011.png" alt="Modern Hardscape Design">
-                <div class="gallery-overlay"><span>Modern Hardscaping</span></div>
-            </div>
-            <div class="gallery-item reveal stagger-item" data-full="./project-luxury-entrance.jpg"
-                style="transition-delay: 0.5s;">
-                <img src="./project-luxury-entrance.jpg" alt="Landscaping Project">
-                <div class="gallery-overlay"><span>Estate Entrance</span></div>
+            <div class="gallery__strip__wrapper">
+                <div class="gallery__strip four">
+                    <div class="photo">
+                        <div class="photo__image"><img src="./gallery-coop-structure.png" alt="Custom Builds"></div>
+                        <div class="photo__name">Builds</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./project-garden-vibrant.jpg" alt="Vibrant Landscape"></div>
+                        <div class="photo__name">Vibrant</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./hardscaping.webp" alt="Patios & Walkways"></div>
+                        <div class="photo__name">Patios</div>
+                    </div>
+                    <div class="photo">
+                        <div class="photo__image"><img src="./luxury_landscape_showcase.png" alt="Luxury Showcase">
+                        </div>
+                        <div class="photo__name">Showcase</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
