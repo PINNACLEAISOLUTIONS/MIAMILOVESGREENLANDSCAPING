@@ -679,13 +679,14 @@
             display: flex;
             flex-wrap: wrap;
             width: 100%;
-            overflow: hidden;
             max-width: 100%;
             margin: auto;
             background: #0A1A0A;
-            /* Match site theme */
             padding-top: 50px;
             padding-bottom: 50px;
+            /* Mobile: show all content, no clipping */
+            overflow: visible;
+            height: auto;
         }
 
         /* Fix Title Placement */
@@ -725,6 +726,8 @@
         @media (min-width: 950px) {
             .gallery {
                 height: 100vh;
+                overflow: hidden;
+                /* Clip for animation on desktop only */
             }
 
             .gallery__strip {
