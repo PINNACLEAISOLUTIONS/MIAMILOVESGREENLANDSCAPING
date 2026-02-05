@@ -751,6 +751,11 @@
             .gallery__strip__wrapper {
                 flex: 0 0 25%;
             }
+
+            /* Restore larger height for desktop where it looks good */
+            .photo__image {
+                height: 450px;
+            }
         }
 
         .photo {
@@ -767,11 +772,15 @@
             position: relative;
             overflow: hidden;
             border-radius: 12px;
-            /* Force consistent size for all images */
-            height: 450px;
-            /* Fixed height for uniform strip look */
+            /* Mobile First: Smaller height to prevent excessive zooming on landscape photos */
+            height: 280px;
+            aspect-ratio: 4/5;
             width: 95%;
             margin: 0 auto;
+            /* Fix mobile animation blur */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         .photo__image img {
@@ -781,10 +790,17 @@
             /* This cuts off edges to fill shape - key fix */
             object-position: center;
             display: block;
+            /* Crisp edges on mobile */
+            image-rendering: -webkit-optimize-contrast;
             transform: scale(1);
+            /* Reset scale */
+            -webkit-transform: scale(1);
             transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Fix mobile animation blur */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         /* Improved Text overlay placement */
