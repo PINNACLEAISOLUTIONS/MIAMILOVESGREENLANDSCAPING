@@ -426,3 +426,15 @@
         display: block;
     }
 }
+/* HIDE FLOATING BUTTONS WHEN CHATBOT IS OPEN SO THEY NEVER BLOCK INPUT OR SEND BUTTON */
+body.chatbot-open .chatbot-toggle-btn,
+body.chatbot-open .fab-container,
+body.chatbot-open .fab-call-style,
+#chatbot-container.active ~ .chatbot-toggle-btn,
+#chatbot-container.active ~ .fab-container,
+#chatbot-container.active ~ .fab-call-style {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
