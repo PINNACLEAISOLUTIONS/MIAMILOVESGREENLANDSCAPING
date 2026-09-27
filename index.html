@@ -1446,24 +1446,32 @@
 
     <!-- Chatbot Container -->
     <div id="chatbot-container" class="chatbot-container">
-        <div class="chatbot-header">
-            <div style="display:flex; align-items:center; gap:8px;">
-                <img src="logo-tropical.png" alt="Miami Loves Green" style="width:24px; height:24px; object-fit:contain; border-radius:4px;">
-                <span style="font-family:'Outfit',sans-serif; font-weight:700; font-size:0.95rem; color:#ffffff; letter-spacing:0.5px;">MIAMI LOVES GREEN</span>
+        <div class="chatbot-top-bar">
+            <div class="top-bar-brand">
+                <img src="logo-tropical.png" alt="Miami Loves Green" class="top-bar-logo">
+                <span class="top-bar-title">MIAMI LOVES GREEN</span>
+                <span class="top-bar-live-dot">● LIVE</span>
             </div>
-            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
+            <button id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Close Chatbot">&times;</button>
         </div>
         <iframe src="https://miamilovesgreenlandscaping.onrender.com?brand=miami" allow="microphone; autoplay; clipboard-write;"></iframe>
     </div>
 
-    <!-- Floating Buttons -->
-    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
-        <div class="icon-wrapper">
-            <i class="fas fa-comment-dots"></i>
+    <!-- Cooler Bottom-Left Floating AI Agent Box -->
+    <div id="chatbot-toggle-btn" class="chatbot-toggle-box" aria-label="Talk to our Live AI Agent">
+        <div class="agent-avatar-badge">
+            <img src="logo-tropical.png" alt="Live AI Agent" class="agent-avatar-img">
+            <span class="agent-pulse-dot"></span>
         </div>
-        <div class="btn-text">
-            <span class="line-1">Need Help?</span>
-            <span class="line-2">Chat with us</span>
+        <div class="agent-box-text">
+            <div class="agent-box-title">Talk to our Live AI Agent</div>
+            <div class="agent-box-subtitle">
+                <span class="live-mic-icon">🎙️</span> Voice & Instant Estimates
+            </div>
+        </div>
+        <div class="agent-action-pill">
+            <span>TALK</span>
+            <i class="fas fa-chevron-right"></i>
         </div>
     </div>
 
