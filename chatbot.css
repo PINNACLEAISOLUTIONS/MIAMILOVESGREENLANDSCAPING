@@ -256,8 +256,11 @@
         font-size: 0.9rem;
         font-weight: 700;
         letter-spacing: 1px;
-        color: var(--neon-cyan);
-        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        color: #8DD08D !important;
+        text-shadow: 0 0 10px rgba(76, 175, 80, 0.5) !important;
+    }
+    #chatbot-container .chatbot-close-btn {
+        color: #FFA726 !important;
     }
 
     /* Step 2B: Fallback for browsers without dvh */
@@ -273,19 +276,19 @@
         display: none;
     }
 
-    /* Step 4: Header with flex auto and min-height */
+    /* Step 4: Header with flex auto and min-height - Miami Emerald/Gold Theme */
     #chatbot-container .chatbot-header {
         flex: 0 0 auto !important;
-        min-height: 56px !important;
+        min-height: 48px !important;
         box-sizing: border-box !important;
         width: 100% !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background: linear-gradient(90deg, rgba(0, 243, 255, 0.2), rgba(189, 0, 255, 0.2)) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(10, 26, 10, 0.98) !important;
+        border-bottom: 1px solid rgba(76, 175, 80, 0.35) !important;
     }
 
     /* Step 5: Iframe - Regular 100% width (Sidebar is handled internally now) */
