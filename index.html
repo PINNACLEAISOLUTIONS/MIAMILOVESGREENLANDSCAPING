@@ -1096,14 +1096,13 @@
             }
 
             .chatbot-header {
-                background: linear-gradient(135deg, #1b4d24, #0d2813) !important;
-                height: 48px !important;
+                background: #4CAF50 !important;
+                height: 45px !important;
                 width: 100% !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
                 padding: 0 15px !important;
-                border-bottom: 1px solid rgba(141, 208, 141, 0.3) !important;
             }
 
             /* Smooth scrolling for anchor links */
@@ -1446,32 +1445,21 @@
 
     <!-- Chatbot Container -->
     <div id="chatbot-container" class="chatbot-container">
-        <div class="chatbot-top-bar">
-            <div class="top-bar-brand">
-                <img src="logo-tropical.png" alt="Miami Loves Green" class="top-bar-logo">
-                <span class="top-bar-title">MIAMI LOVES GREEN</span>
-                <span class="top-bar-live-dot">● LIVE</span>
-            </div>
-            <button id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Close Chatbot">&times;</button>
+        <div class="chatbot-header">
+            <span>AI ASSISTANT</span>
+            <button id="chatbot-close-btn" class="chatbot-close-btn">&times;</button>
         </div>
         <iframe src="https://miamilovesgreenlandscaping.onrender.com?brand=miami" allow="microphone; autoplay; clipboard-write;"></iframe>
     </div>
 
-    <!-- Cooler Bottom-Left Floating AI Agent Box -->
-    <div id="chatbot-toggle-btn" class="chatbot-toggle-box" aria-label="Talk to our Live AI Agent">
-        <div class="agent-avatar-badge">
-            <img src="logo-tropical.png" alt="Live AI Agent" class="agent-avatar-img">
-            <span class="agent-pulse-dot"></span>
+    <!-- Floating Buttons -->
+    <div id="chatbot-toggle-btn" class="chatbot-toggle-btn">
+        <div class="icon-wrapper">
+            <i class="fas fa-comment-dots"></i>
         </div>
-        <div class="agent-box-text">
-            <div class="agent-box-title">Talk to our Live AI Agent</div>
-            <div class="agent-box-subtitle">
-                <span class="live-mic-icon">🎙️</span> Voice & Instant Estimates
-            </div>
-        </div>
-        <div class="agent-action-pill">
-            <span>TALK</span>
-            <i class="fas fa-chevron-right"></i>
+        <div class="btn-text">
+            <span class="line-1">Need Help?</span>
+            <span class="line-2">Chat with us</span>
         </div>
     </div>
 
