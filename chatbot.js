@@ -59,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
         chatbotContainer.classList.add('active');
         chatbotToggleBtn.setAttribute('aria-expanded', 'true');
 
+        // Explicitly hide floating buttons so they never block chat UI
+        chatbotToggleBtn.style.setProperty('display', 'none', 'important');
+        const fabCall = document.querySelector('.fab-container');
+        if (fabCall) fabCall.style.setProperty('display', 'none', 'important');
+
         if (isMobile()) {
             document.documentElement.classList.add('chatbot-open');
             document.body.classList.add('chatbot-open');
@@ -71,6 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.classList.remove('chatbot-open');
         document.body.classList.remove('chatbot-open');
         chatbotToggleBtn.setAttribute('aria-expanded', 'false');
+
+        // Restore floating buttons
+        chatbotToggleBtn.style.removeProperty('display');
+        const fabCall = document.querySelector('.fab-container');
+        if (fabCall) fabCall.style.removeProperty('display');
 
         setTimeout(resetSizingStyles, 300);
     }
