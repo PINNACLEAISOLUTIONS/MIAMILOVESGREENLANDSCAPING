@@ -246,18 +246,13 @@
         visibility: visible !important;
     }
 
-    /* Update Header Text for Mobile */
+    /* Header styling for Mobile */
     .chatbot-header span {
-        display: none !important;
+        display: inline-block !important;
     }
 
     .chatbot-header::after {
-        content: "MIAMI LOVES GREEN CHATBOT";
-        font-size: 0.9rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: var(--neon-cyan);
-        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        display: none !important;
     }
 
     /* Step 2B: Fallback for browsers without dvh */
